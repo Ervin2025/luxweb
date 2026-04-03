@@ -4,6 +4,10 @@
 
 :root {
   color-scheme: light;
+  --font-manrope:
+    "Aptos", "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "system-ui", sans-serif;
+  --font-cormorant:
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Georgia", "Times New Roman", serif;
 }
 
 @layer base {
