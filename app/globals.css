@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-white font-sans text-neutral-800 antialiased;
+    @apply font-sans text-neutral-800 antialiased;
+    background:
+      radial-gradient(circle at top left, rgba(208, 183, 139, 0.34), transparent 32%),
+      radial-gradient(circle at 88% 12%, rgba(31, 58, 49, 0.12), transparent 26%),
+      linear-gradient(180deg, #f6f0e4 0%, #f4efe7 45%, #f8f4ec 100%);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
@@ -19,7 +33,6 @@
     @apply font-heading;
   }
 
-  /* 触摸设备优化 */
   button,
   a,
   input,
@@ -28,15 +41,20 @@
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
+
+  ::selection {
+    background: rgba(30, 58, 50, 0.16);
+    color: #171816;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply border-2 border-primary bg-transparent px-6 py-2.5 text-xs font-medium uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary hover:text-white sm:px-8 sm:py-3 sm:text-sm;
+    @apply inline-flex min-h-[48px] items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/30 sm:px-8 sm:text-sm;
   }
 
   .btn-secondary {
-    @apply border-2 border-neutral-800 bg-transparent px-6 py-2.5 text-xs font-medium uppercase tracking-wider text-neutral-800 transition-all duration-300 hover:bg-neutral-800 hover:text-white sm:px-8 sm:py-3 sm:text-sm;
+    @apply inline-flex min-h-[48px] items-center justify-center rounded-full border border-primary/20 bg-white/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 sm:px-8 sm:text-sm;
   }
 
   .section-padding {
@@ -46,54 +64,49 @@
   .container-custom {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
-}
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-/* 移动端优化 */
-@media (max-width: 640px) {
-  body {
-    font-size: 16px; /* 防止iOS自动缩放 */
+  .section-shell {
+    @apply rounded-[2rem] border border-white/70 bg-white/70 shadow-[0_24px_80px_rgba(26,24,22,0.08)] backdrop-blur;
   }
 
-  /* 确保输入框在iOS上不会缩放 */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.3em] text-primary/70;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+
   input[type='text'],
   input[type='email'],
   input[type='tel'],
   textarea,
   select {
     font-size: 16px;
-    min-height: 44px; /* iOS 推荐最小触摸目标 */
+    min-height: 44px;
   }
 
-  /* 移动端按钮优化 - 更大的触摸区域 */
   .btn-primary,
   .btn-secondary {
-    min-height: 48px; /* 更大的触摸目标 */
+    min-height: 48px;
     padding: 14px 24px;
     font-size: 14px;
   }
 
-  /* 移动端链接最小触摸区域 */
   a {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
 
-  /* 移动端图片优化 */
   img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
 }
 
-/* 超小屏幕优化 (小于375px) */
 @media (max-width: 374px) {
   .btn-primary,
   .btn-secondary {
@@ -102,7 +115,6 @@ html {
     min-height: 44px;
   }
 
-  /* 超小屏幕字体调整 */
   h1 {
     font-size: 1.875rem !important;
   }
@@ -112,7 +124,6 @@ html {
   }
 }
 
-/* 横屏模式优化 */
 @media (max-height: 500px) and (orientation: landscape) {
   .section-padding {
     padding-top: 2rem;
@@ -120,18 +131,33 @@ html {
   }
 }
 
-/* Custom animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
 }

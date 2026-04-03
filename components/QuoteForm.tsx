@@ -1,39 +1,48 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import { QUOTE_PRODUCT_OPTIONS, QUOTE_USAGE_OPTIONS } from '@/lib/site-data';
 
 const initialFormState = {
-  name: '',
+  projectName: '',
+  companyName: '',
+  contactName: '',
   email: '',
   phone: '',
-  address: '',
   productType: '',
-  roomType: '',
-  windows: '',
-  budget: '',
+  usage: '',
+  priceBand: '',
+  siteLocation: '',
   timeline: '',
   message: '',
 };
 
+const timelineOptions = ['Urgent', '2-4 weeks', '1-2 months', 'Planning stage'];
+
 export default function QuoteForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<string | null>(null);
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
+    setFeedback(null);
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
+    setFeedback(null);
 
     try {
       const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
       if (!accessKey) {
-        alert('Form service is not configured. Please try again later.');
+        setFeedback('Form service is not configured. Please try again later.');
         setIsSubmitting(false);
         return;
       }
@@ -43,17 +52,18 @@ export default function QuoteForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          name: formData.name,
+          subject: 'New Project Quote Request - Luxaura',
+          project_name: formData.projectName,
+          company_name: formData.companyName,
+          contact_name: formData.contactName,
           email: formData.email,
           phone: formData.phone,
-          address: formData.address,
           product_type: formData.productType,
-          room_type: formData.roomType,
-          number_of_windows: formData.windows,
-          budget_range: formData.budget,
+          usage: formData.usage,
+          price_band: formData.priceBand,
+          site_location: formData.siteLocation,
           timeline: formData.timeline,
           message: formData.message,
-          subject: 'New Quote Request - LuxAura',
         }),
       });
 
@@ -61,41 +71,56 @@ export default function QuoteForm() {
 
       if (data.success) {
         setFormData(initialFormState);
-        alert(
-          "Thank you! Your quote request has been received. We'll contact you within 24 hours with a detailed quote."
-        );
+        router.push('/thank-you?form=quote');
       } else {
-        alert('Oops! Something went wrong. Please try again or call us at 0450 871 699.');
+        setFeedback('Something went wrong. Please try again or contact the trade desk directly.');
       }
-    } catch (error) {
-      alert('Error submitting request. Please try again or contact us directly.');
+    } catch {
+      setFeedback('Error submitting request. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium text-neutral-700">
-            Full Name *
-          </label>
+    <form onSubmit={handleSubmit} className="section-shell space-y-6 p-8 sm:p-10">
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Project Name" htmlFor="projectName">
           <input
             type="text"
-            id="name"
-            name="name"
+            id="projectName"
+            name="projectName"
             required
-            value={formData.name}
+            value={formData.projectName}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
+        </Field>
+        <Field label="Studio / Company" htmlFor="companyName">
+          <input
+            type="text"
+            id="companyName"
+            name="companyName"
+            value={formData.companyName}
+            onChange={handleChange}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+          />
+        </Field>
+      </div>
 
-        <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-neutral-700">
-            Email Address *
-          </label>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Contact Name" htmlFor="contactName">
+          <input
+            type="text"
+            id="contactName"
+            name="contactName"
+            required
+            value={formData.contactName}
+            onChange={handleChange}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+          />
+        </Field>
+        <Field label="Email Address" htmlFor="email">
           <input
             type="email"
             id="email"
@@ -103,16 +128,13 @@ export default function QuoteForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
+        </Field>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-neutral-700">
-            Phone *
-          </label>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Phone Number" htmlFor="phone">
           <input
             type="tel"
             id="phone"
@@ -120,154 +142,141 @@ export default function QuoteForm() {
             required
             value={formData.phone}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
-
-        <div>
-          <label htmlFor="address" className="mb-2 block text-sm font-medium text-neutral-700">
-            Address
-          </label>
+        </Field>
+        <Field label="Site / Suburb" htmlFor="siteLocation">
           <input
             type="text"
-            id="address"
-            name="address"
-            value={formData.address}
+            id="siteLocation"
+            name="siteLocation"
+            value={formData.siteLocation}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
+        </Field>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="productType" className="mb-2 block text-sm font-medium text-neutral-700">
-            Product Interest
-          </label>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Product / Service" htmlFor="productType">
           <select
             id="productType"
             name="productType"
+            required
             value={formData.productType}
             onChange={handleChange}
-            className="w-full border border-neutral-300 bg-white px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           >
-            <option value="">Select a product</option>
-            <option value="blinds">Blinds</option>
-            <option value="curtains">Curtains & Sheers</option>
-            <option value="motorisation">Motorisation</option>
-            <option value="other">Other</option>
+            <option value="">Select one</option>
+            {QUOTE_PRODUCT_OPTIONS.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
           </select>
-        </div>
-
-        <div>
-          <label htmlFor="roomType" className="mb-2 block text-sm font-medium text-neutral-700">
-            Room Type
-          </label>
+        </Field>
+        <Field label="Usage" htmlFor="usage">
           <select
-            id="roomType"
-            name="roomType"
-            value={formData.roomType}
+            id="usage"
+            name="usage"
+            value={formData.usage}
             onChange={handleChange}
-            className="w-full border border-neutral-300 bg-white px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           >
-            <option value="">Select room type</option>
-            <option value="living-room">Living Room</option>
-            <option value="bedroom">Bedroom</option>
-            <option value="kitchen">Kitchen</option>
-            <option value="bathroom">Bathroom</option>
-            <option value="office">Office</option>
-            <option value="multiple">Multiple Rooms</option>
+            <option value="">Select usage</option>
+            {QUOTE_USAGE_OPTIONS.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
           </select>
-        </div>
+        </Field>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="windows" className="mb-2 block text-sm font-medium text-neutral-700">
-            Number of Windows/Areas
-          </label>
-          <input
-            type="number"
-            id="windows"
-            name="windows"
-            min="1"
-            value={formData.windows}
-            onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="budget" className="mb-2 block text-sm font-medium text-neutral-700">
-            Budget Range
-          </label>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Price Band" htmlFor="priceBand">
           <select
-            id="budget"
-            name="budget"
-            value={formData.budget}
+            id="priceBand"
+            name="priceBand"
+            value={formData.priceBand}
             onChange={handleChange}
-            className="w-full border border-neutral-300 bg-white px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           >
-            <option value="">Select budget range</option>
-            <option value="under-1000">Under $1,000</option>
-            <option value="1000-3000">$1,000 - $3,000</option>
-            <option value="3000-5000">$3,000 - $5,000</option>
-            <option value="5000-10000">$5,000 - $10,000</option>
-            <option value="over-10000">Over $10,000</option>
+            <option value="">Select band</option>
+            <option value="$">Value ($)</option>
+            <option value="$$">Balanced ($$)</option>
+            <option value="$$$">Luxury ($$$)</option>
           </select>
-        </div>
+        </Field>
+        <Field label="Timeline" htmlFor="timeline">
+          <select
+            id="timeline"
+            name="timeline"
+            value={formData.timeline}
+            onChange={handleChange}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+          >
+            <option value="">Select timeline</option>
+            {timelineOptions.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
       </div>
 
-      <div>
-        <label htmlFor="timeline" className="mb-2 block text-sm font-medium text-neutral-700">
-          Project Timeline
-        </label>
-        <select
-          id="timeline"
-          name="timeline"
-          value={formData.timeline}
-          onChange={handleChange}
-          className="w-full border border-neutral-300 bg-white px-4 py-3 transition-colors focus:border-primary focus:outline-none"
-        >
-          <option value="">When do you need this?</option>
-          <option value="urgent">Urgent (1-2 weeks)</option>
-          <option value="soon">Soon (2-4 weeks)</option>
-          <option value="flexible">Flexible (1-2 months)</option>
-          <option value="planning">Just planning</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-neutral-700">
-          Additional Details
-        </label>
+      <Field label="Project Notes" htmlFor="message">
         <textarea
           id="message"
           name="message"
           rows={6}
           value={formData.message}
           onChange={handleChange}
-          placeholder="Tell us about your project, preferences, or any specific requirements..."
-          className="w-full resize-none border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
-        ></textarea>
-      </div>
+          placeholder="Include quantities, widths, trims, track needs, performance requirements, site notes and any fabrication complexity."
+          className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+        />
+      </Field>
 
-      <div className="border-l-4 border-primary bg-neutral-50 p-6">
-        <h3 className="mb-2 font-semibold text-neutral-800">What happens next?</h3>
-        <ul className="space-y-1 text-sm text-neutral-600">
-          <li>We&apos;ll review your request and contact you within 24 hours</li>
-          <li>Schedule a free in-home consultation at your convenience</li>
-          <li>Receive a detailed quote with no obligation</li>
+      <div className="rounded-[1.5rem] bg-neutral-50 p-6 text-sm leading-7 text-neutral-700">
+        <p className="font-semibold text-neutral-900">Quote workflow</p>
+        <ul className="mt-3 space-y-2">
+          <li>Public pricing stays hidden while the team reviews the project scope.</li>
+          <li>Luxaura aligns fabrics, trims, systems and fabrication into one response where needed.</li>
+          <li>Trade clients can continue into account support and project follow-up after submission.</li>
         </ul>
       </div>
 
+      {feedback ? (
+        <div className="rounded-[1.3rem] border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          {feedback}
+        </div>
+      ) : null}
+
       <button
         type="submit"
-        className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-50"
+        className="btn-primary w-full justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Submitting…' : 'Submit Quote Request'}
+        {isSubmitting ? 'Submitting Quote...' : 'Submit Project Quote'}
       </button>
     </form>
+  );
+}
+
+function Field({
+  children,
+  htmlFor,
+  label,
+}: {
+  children: ReactNode;
+  htmlFor: string;
+  label: string;
+}) {
+  return (
+    <label htmlFor={htmlFor} className="block">
+      <span className="mb-2 block text-sm font-medium text-neutral-700">{label}</span>
+      {children}
+    </label>
   );
 }

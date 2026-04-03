@@ -1,62 +1,71 @@
 import type { Metadata, Viewport } from 'next';
+import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import LoadingFavicon from '@/components/LoadingFavicon';
-import { SITE_CONFIG, CONTACT_INFO } from '@/lib/constants';
-import { Inter, Playfair_Display } from 'next/font/google';
+import SupportDock from '@/components/SupportDock';
+import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-manrope',
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-playfair',
+  variable: '--font-cormorant',
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'LuxAura - Premium Window Treatments | Custom Blinds, Curtains & Sheers',
-    template: '%s | LuxAura',
+    default: 'Luxaura | Australian Family-Owned Wholesale Textile Partner',
+    template: '%s | Luxaura',
   },
   description:
-    "Transform your space with LuxAura's custom-made blinds, curtains, and sheers. Free measure & quote. Australian quality craftsmanship.",
-  authors: [{ name: 'LuxAura' }],
+    'Luxaura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery.',
+  keywords: [
+    'Wholesale Fabric Sydney',
+    'Designer Curtain Manufacturer',
+    'Roman Blind Specialist',
+    'FibreGuard Supplier Australia',
+    'Curtain Workroom Sydney',
+    'Trade Fabric Supplier Sydney',
+  ],
+  authors: [{ name: 'Luxaura' }],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
       { url: '/logo.svg', type: 'image/svg+xml' },
       { url: '/logo.png', sizes: '192x192', type: 'image/png' },
     ],
-    apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/logo.png', sizes: '180x180', type: 'image/png' }],
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: 'LuxAura - Premium Window Treatments',
+    title: 'Luxaura | Australian Family-Owned Wholesale Textile Partner',
     description:
-      'Custom-made blinds, curtains & window treatments. Australian craftsmanship with free consultation.',
+      'Australian family-owned wholesale support with global fabric sourcing, integrated fabrication and efficient delivery for designers, retailers and project teams.',
     type: 'website',
     locale: 'en_AU',
-    siteName: 'LuxAura',
+    siteName: 'Luxaura',
     images: [
       {
-        url: '/logo.png',
+        url: '/images/luxaura/hero-project.webp',
         width: 1200,
         height: 630,
-        alt: 'LuxAura - Premium Blinds & Curtains',
+        alt: 'Luxaura custom drapery and upholstery project in Sydney',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LuxAura - Premium Window Treatments',
-    description: 'Custom-made blinds, curtains & window treatments.',
+    title: 'Luxaura | Australian Family-Owned Textile Partner',
+    description: 'Australian family-owned wholesale sourcing, fabrication and delivery support for trade projects.',
   },
   robots: {
     index: true,
@@ -79,13 +88,12 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // 结构化数据 (JSON-LD) 用于SEO
   const phoneDigits = CONTACT_INFO.phone.replace(/\D/g, '');
   const localPhone = phoneDigits.startsWith('0') ? phoneDigits.slice(1) : phoneDigits;
   const internationalPhone = localPhone.startsWith('61') ? `+${localPhone}` : `+61${localPhone}`;
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'HomeAndConstructionBusiness',
     name: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
@@ -101,11 +109,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       '@type': 'Country',
       name: CONTACT_INFO.address.country,
     },
-    priceRange: '$$',
-    openingHours: 'Mo-Su 00:00-23:59',
+    priceRange: '$$-$$$',
+    openingHours: 'Mo-Sa 08:00-18:00',
     telephone: internationalPhone,
     email: CONTACT_INFO.email,
-    sameAs: [],
+    sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
+    knowsAbout: [
+      'Wholesale Fabric Sydney',
+      'Designer Curtain Manufacturer',
+      'Roman Blind Specialist',
+      'FibreGuard Supplier Australia',
+      'Curtain hardware and trimmings',
+      'Bespoke upholstery and custom furniture softening',
+    ],
   };
 
   return (
@@ -113,7 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta
           name="description"
-          content="LuxAura delivers premium, custom-made blinds, curtains, and motorised window treatments throughout Australia with free measure and quote services."
+          content="Luxaura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery."
         />
         <script
           type="application/ld+json"
@@ -122,11 +138,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+      <body className={`${manrope.variable} ${cormorant.variable} font-sans`}>
         <LoadingFavicon />
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <SupportDock />
       </body>
     </html>
   );

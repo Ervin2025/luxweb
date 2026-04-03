@@ -3,61 +3,110 @@ import { SITE_CONFIG } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
+  const lastModified = new Date();
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/blinds`,
-      lastModified: new Date(),
+      url: `${baseUrl}/collections`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/wholesale-fabrics`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/custom-curtains-sheers`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.92,
+    },
+    {
+      url: `${baseUrl}/cushions-soft-furnishings`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/curtains-sheers`,
-      lastModified: new Date(),
+      url: `${baseUrl}/trimmings`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.94,
+    },
+    {
+      url: `${baseUrl}/tracks-motorisation`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/outdoor-solutions`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.86,
+    },
+    {
+      url: `${baseUrl}/trade-projects`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/quote`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.74,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/quote`,
-      lastModified: new Date(),
+      url: `${baseUrl}/faq`,
+      lastModified,
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.72,
+    },
+    {
+      url: `${baseUrl}/thank-you`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.42,
+    },
+    {
+      url: `${baseUrl}/trade/login`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.58,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
+      lastModified,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/motorisation`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/trade`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      url: `${baseUrl}/terms`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ];
 }

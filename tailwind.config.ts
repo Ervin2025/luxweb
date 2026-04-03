@@ -10,19 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#8A6A2E', // Contrast-friendly gold
-          dark: '#6B501E', // Darker accent for hover
+          DEFAULT: '#1E3A32',
+          dark: '#162C25',
         },
         neutral: {
-          50: '#F5F5F5',
-          100: '#E5E5E5',
-          800: '#2C2C2C',
-          900: '#1A1A1A',
+          50: '#F7F2E8',
+          100: '#E7DDCB',
+          800: '#2D2A26',
+          900: '#171816',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        heading: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-cormorant)', 'serif'],
       },
     },
   },

@@ -1,8 +1,16 @@
 'use client';
 
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useMemo, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import {
+  FORM_INTENT_OPTIONS,
+  TRADE_PROJECT_BUSINESS_TYPES,
+  TRADE_PROJECT_FOCUS_OPTIONS,
+  type FormIntent,
+} from '@/lib/site-data';
 
 const initialFormState = {
+  intent: 'trade-access' as FormIntent,
   companyName: '',
   abn: '',
   contactName: '',
@@ -10,45 +18,101 @@ const initialFormState = {
   email: '',
   phone: '',
   businessType: '',
+  projectFocus: '',
   message: '',
 };
 
-export default function TradeForm() {
-  const [formData, setFormData] = useState(initialFormState);
+function validateAbn(abn: string) {
+  if (!/^\d{11}$/.test(abn)) {
+    return false;
+  }
+
+  const weights = [10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+  const digits = abn.split('').map(Number);
+  digits[0] = digits[0] - 1;
+
+  const total = digits.reduce((sum, digit, index) => sum + digit * weights[index], 0);
+  return total % 89 === 0;
+}
+
+interface TradeFormProps {
+  initialIntent?: FormIntent;
+}
+
+export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormProps) {
+  const router = useRouter();
+  const [formData, setFormData] = useState({ ...initialFormState, intent: initialIntent });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  useEffect(() => {
+    setFormData(prev => ({ ...prev, intent: initialIntent }));
+  }, [initialIntent]);
+
+  const abnDigits = formData.abn.replace(/\D/g, '').slice(0, 11);
+  const requiresAbn = formData.intent === 'trade-access';
+  const isAbnValid = useMemo(
+    () => (!requiresAbn ? true : validateAbn(abnDigits)),
+    [abnDigits, requiresAbn]
+  );
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFeedback(null);
+    setFormData(prev => ({
+      ...prev,
+      [name]: name === 'abn' ? value.replace(/\D/g, '').slice(0, 11) : value,
+    }));
+  };
+
+  const handleIntentChange = (intent: FormIntent) => {
+    setFeedback(null);
+    setFormData(prev => ({
+      ...prev,
+      intent,
+      abn: intent === 'trade-access' ? prev.abn : '',
+    }));
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (requiresAbn && !isAbnValid) {
+      setFeedback('Enter a valid 11-digit ABN before submitting a trade access request.');
+      return;
+    }
+
     setIsSubmitting(true);
+    setFeedback(null);
 
     try {
       const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
       if (!accessKey) {
-        alert('Form service is not configured. Please try again later.');
+        setFeedback('Form service is not configured. Please try again later.');
         setIsSubmitting(false);
         return;
       }
 
+      const activeIntent = FORM_INTENT_OPTIONS.find(option => option.value === formData.intent);
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: 'New Trade Application - LuxAura',
+          subject: `Luxaura Trade Account - ${activeIntent?.label ?? 'Enquiry'}`,
+          enquiry_intent: formData.intent,
+          enquiry_intent_label: activeIntent?.label ?? formData.intent,
           company_name: formData.companyName,
-          abn: formData.abn,
+          abn: requiresAbn ? abnDigits : '',
+          abn_checksum_status: requiresAbn ? 'passed' : 'not-required',
           contact_name: formData.contactName,
           position: formData.position,
           email: formData.email,
           phone: formData.phone,
           business_type: formData.businessType,
+          project_focus: formData.projectFocus,
           message: formData.message,
         }),
       });
@@ -56,175 +120,234 @@ export default function TradeForm() {
       const data = await response.json();
 
       if (data.success) {
-        setFormData(initialFormState);
-        alert("Thank you! We'll contact you within 24 hours to finalise your trade access.");
+        setFormData({ ...initialFormState, intent: initialIntent });
+        router.push(`/thank-you?form=trade-projects&intent=${formData.intent}`);
       } else {
-        alert('Oops! Something went wrong. Please try again or call us at 0450 871 699.');
+        setFeedback('Something went wrong. Please try again or contact the trade desk directly.');
       }
-    } catch (error) {
-      alert('Error submitting request. Please try again or reach us directly.');
+    } catch {
+      setFeedback('Error submitting request. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-sm bg-white p-8 shadow-sm">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="companyName" className="mb-2 block text-sm font-medium text-neutral-700">
-            Company Name
-          </label>
+    <form onSubmit={handleSubmit} className="section-shell space-y-6 p-8 sm:p-10">
+      <fieldset>
+        <legend className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/70">
+          Choose your intent
+        </legend>
+        <div className="mt-4 grid gap-4 lg:grid-cols-3">
+          {FORM_INTENT_OPTIONS.map(option => {
+            const isActive = formData.intent === option.value;
+
+            return (
+              <label
+                key={option.value}
+                className={`cursor-pointer rounded-[1.5rem] border p-5 transition ${
+                  isActive
+                    ? 'border-primary bg-primary/6 shadow-[0_18px_40px_rgba(20,22,20,0.06)]'
+                    : 'border-primary/10 bg-neutral-50'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="intent"
+                  value={option.value}
+                  checked={isActive}
+                  onChange={() => handleIntentChange(option.value)}
+                  className="sr-only"
+                />
+                <p className="font-heading text-2xl font-semibold text-neutral-900">{option.label}</p>
+                <p className="mt-3 text-sm leading-7 text-neutral-700">{option.description}</p>
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Company Name" htmlFor="companyName">
           <input
             type="text"
             id="companyName"
             name="companyName"
             required
-            placeholder="required"
             value={formData.companyName}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 placeholder-neutral-400 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
-
-        <div>
-          <label htmlFor="abn" className="mb-2 block text-sm font-medium text-neutral-700">
-            ABN
-          </label>
+        </Field>
+        <Field label={requiresAbn ? 'ABN' : 'ABN (Optional)'} htmlFor="abn">
           <input
             type="text"
             id="abn"
             name="abn"
-            placeholder="optional"
+            required={requiresAbn}
+            inputMode="numeric"
             value={formData.abn}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            placeholder={requiresAbn ? 'Required for trade access' : 'Only needed for trade access'}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
+          <p
+            className={`mt-2 text-xs ${
+              !requiresAbn
+                ? 'text-neutral-500'
+                : abnDigits.length === 11 && isAbnValid
+                  ? 'text-primary'
+                  : 'text-neutral-500'
+            }`}
+          >
+            {!requiresAbn
+              ? 'ABN verification is only required when requesting trade access.'
+              : abnDigits.length === 11
+                ? isAbnValid
+                  ? 'ABN checksum passed.'
+                  : 'ABN format is invalid.'
+                : 'Enter 11 digits for ABN verification.'}
+          </p>
+        </Field>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="contactName" className="mb-2 block text-sm font-medium text-neutral-700">
-            Contact Name
-          </label>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Contact Name" htmlFor="contactName">
           <input
             type="text"
             id="contactName"
             name="contactName"
             required
-            placeholder="required"
             value={formData.contactName}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 placeholder-neutral-400 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
-
-        <div>
-          <label htmlFor="position" className="mb-2 block text-sm font-medium text-neutral-700">
-            Position/Title
-          </label>
+        </Field>
+        <Field label="Position / Title" htmlFor="position">
           <input
             type="text"
             id="position"
             name="position"
             value={formData.position}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
+        </Field>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-neutral-700">
-            Email Address
-          </label>
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Email Address" htmlFor="email">
           <input
             type="email"
             id="email"
             name="email"
             required
-            placeholder="required"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 placeholder-neutral-400 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
-
-        <div>
-          <label htmlFor="phone" className="mb-2 block text-sm font-medium text-neutral-700">
-            Phone Number
-          </label>
+        </Field>
+        <Field label="Phone Number" htmlFor="phone">
           <input
             type="tel"
             id="phone"
             name="phone"
             required
-            placeholder="required"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full border border-neutral-300 px-4 py-3 placeholder-neutral-400 transition-colors focus:border-primary focus:outline-none"
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
-        </div>
+        </Field>
       </div>
 
-      <div>
-        <label htmlFor="businessType" className="mb-2 block text-sm font-medium text-neutral-700">
-          Business Type
-        </label>
-        <select
-          id="businessType"
-          name="businessType"
-          required
-          value={formData.businessType}
-          onChange={handleChange}
-          className="w-full border border-neutral-300 bg-white px-4 py-3 text-neutral-700 transition-colors focus:border-primary focus:outline-none"
-        >
-          <option value="" className="text-neutral-400">
+      <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Business Type" htmlFor="businessType">
+          <select
+            id="businessType"
+            name="businessType"
             required
-          </option>
-          <option value="interior-designer">Interior Designer</option>
-          <option value="builder">Builder/Developer</option>
-          <option value="retailer">Retailer</option>
-          <option value="architect">Architect</option>
-          <option value="commercial">Commercial Projects</option>
-          <option value="other">Other</option>
-        </select>
+            value={formData.businessType}
+            onChange={handleChange}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+          >
+            <option value="">Select one</option>
+            {TRADE_PROJECT_BUSINESS_TYPES.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label="Primary Project Focus" htmlFor="projectFocus">
+          <select
+            id="projectFocus"
+            name="projectFocus"
+            required
+            value={formData.projectFocus}
+            onChange={handleChange}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+          >
+            <option value="">Select focus</option>
+            {TRADE_PROJECT_FOCUS_OPTIONS.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
       </div>
 
-      <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-neutral-700">
-          Tell us about your business
-        </label>
+      <Field label="Tell us about the brief" htmlFor="message">
         <textarea
           id="message"
           name="message"
-          rows={4}
-          placeholder="Briefly describe your business, typical project volume, and what you're looking for..."
+          rows={5}
           value={formData.message}
           onChange={handleChange}
-          className="w-full resize-none border border-neutral-300 px-4 py-3 transition-colors focus:border-primary focus:outline-none"
-        ></textarea>
-      </div>
+          placeholder="Include brands of interest, timing, room type, fabrication needs, trims, systems or sample support."
+          className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+        />
+      </Field>
 
-      <div className="rounded-sm border-l-4 border-primary bg-neutral-50 p-6">
-        <h3 className="mb-2 font-semibold text-neutral-800">What happens next?</h3>
-        <ul className="space-y-1 text-sm text-neutral-600">
-          <li>We&apos;ll review your application within 24 hours</li>
-          <li>Our trade team will contact you to discuss your requirements</li>
-          <li>Receive your exclusive trade pricing and account setup</li>
-          <li>Start ordering with wholesale rates immediately</li>
+      <div className="rounded-[1.5rem] bg-neutral-50 p-6 text-sm leading-7 text-neutral-700">
+        <p className="font-semibold text-neutral-900">What happens next?</p>
+        <ul className="mt-3 space-y-2">
+          <li>Trade access requests are reviewed with ABN-backed business details.</li>
+          <li>Project enquiries are routed to the right product and fabrication support lane.</li>
+          <li>Approved accounts move into the right support path for pricing, sampling and follow-up.</li>
         </ul>
       </div>
 
+      {feedback ? (
+        <div className="rounded-[1.3rem] border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          {feedback}
+        </div>
+      ) : null}
+
       <button
         type="submit"
-        className="btn-primary w-full text-lg disabled:cursor-not-allowed disabled:opacity-50"
+        className="btn-primary w-full justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
         disabled={isSubmitting}
       >
-        Submit Trade Application
+        {isSubmitting ? 'Submitting...' : 'Submit Trade & Project Request'}
       </button>
     </form>
+  );
+}
+
+function Field({
+  children,
+  htmlFor,
+  label,
+}: {
+  children: ReactNode;
+  htmlFor: string;
+  label: string;
+}) {
+  return (
+    <label htmlFor={htmlFor} className="block">
+      <span className="mb-2 block text-sm font-medium text-neutral-700">{label}</span>
+      {children}
+    </label>
   );
 }

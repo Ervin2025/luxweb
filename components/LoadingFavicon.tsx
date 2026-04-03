@@ -16,16 +16,13 @@ export default function LoadingFavicon() {
       document.head.appendChild(favicon);
     }
 
-    // 保存原始 favicon
-    const originalHref = favicon.href || '/logo.svg';
-
     // 点击链接时显示加载图标
     const handleLinkClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       const anchor = target?.closest('a[href]') as HTMLAnchorElement | null;
-      
+
       if (!anchor || event.defaultPrevented || event.button !== 0) return;
-      
+
       const href = anchor.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
         return;

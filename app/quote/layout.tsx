@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Get Free Quote - Custom Blinds & Curtains | LuxAura',
+  title: 'Project Quote | Wholesale Fabric & Fabrication Brief',
   description:
-    'Request a free quote for custom blinds, curtains & window treatments. Free in-home consultation & measure. Expert advice. Fast 24-hour response. No obligation.',
+    'Submit a Luxaura project quote request for fabric sourcing, Roman blinds, upholstery, trimmings and rods.',
   keywords:
-    'free quote blinds, free quote curtains, window treatment quote, blinds estimate, curtain consultation, free measure, custom blinds price, window treatment cost, Australian blinds quote',
+    'project quote fabric, wholesale fabric quote Sydney, Roman blind quote, curtain manufacturing quote',
   alternates: {
     canonical: `${SITE_CONFIG.url}/quote`,
   },
