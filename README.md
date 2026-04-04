@@ -1,5 +1,7 @@
 # Luxaura
 
+Public repository notice: this repository is public for transparency and code review only. The code remains proprietary and is not open source. Viewing is allowed, but copying, reusing, modifying, redistributing, deploying, or using any part of this codebase without prior written permission is prohibited. See [LICENSE](/Users/ervin/Downloads/Luxaura/LICENSE).
+
 Luxaura is a Next.js B2B website for wholesale fabrics, custom curtains, soft furnishings, trimmings, blind solutions, tracks and project support in Sydney.
 
 ## Stack
