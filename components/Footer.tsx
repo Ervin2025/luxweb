@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import {
@@ -17,19 +16,17 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr_0.95fr_1fr]">
           <div>
             <div className="mb-5 flex items-start gap-3 sm:items-center sm:gap-4">
-              <Image
-                src="/logo.svg"
-                alt="LuxAura"
-                width={84}
-                height={84}
-                className="h-16 w-auto brightness-0 invert"
-              />
               <div>
-                <p className="font-heading text-2xl font-semibold tracking-[0.12em] sm:text-3xl">
-                  LuxAura
+                <p className="font-heading text-[2rem] font-semibold leading-none tracking-[0.08em] sm:text-[2.35rem]">
+                  <span className="bg-gradient-to-r from-[#b99245] via-[#C5A059] to-[#d2b26f] bg-clip-text text-transparent">
+                    Lux
+                  </span>
+                  <span className="bg-gradient-to-r from-[#d8c08a] via-[#E5D1A0] to-[#f1e2bc] bg-clip-text text-transparent">
+                    Aura
+                  </span>
                 </p>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d7c29c] sm:text-[11px] sm:tracking-[0.28em]">
-                  Family-Owned Australian Textile Partner
+                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d7c29c] sm:text-[11px] sm:tracking-[0.28em]">
+                  Premium Fabric Solution
                 </p>
               </div>
             </div>

@@ -740,11 +740,11 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     slug: 'custom-curtains-sheers',
     pageTitle: 'Window Treatments',
     breadcrumbLabel: 'Window Treatments',
-    metadataTitle: 'Window Treatments | Curtains, Blinds and Shutters',
+    metadataTitle: 'Window Treatments | Factory Direct Curtains and Roman Blinds Sydney',
     metadataDescription:
-      'LuxAura supplies window treatments across curtains, blinds, shutters and motorised systems for residential and project interiors.',
+      'LuxAura delivers factory-direct window treatments across Roman blinds, S-Fold drapes, bespoke curtains and layered systems in Sydney.',
     metadataKeywords:
-      'window treatments Sydney, S-Fold curtains Sydney, Roman blinds supplier, plantation shutters, motorised curtains Australia',
+      'Custom Roman Blinds Sydney, Factory Direct Curtains, S-Fold Drapes, Bespoke Window Treatments, Trimming Integration',
     hero: {
       eyebrow: 'Window Treatments',
       title: 'Custom window treatments from soft drapery to shutters and smart control',
@@ -899,19 +899,19 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     },
     faqItems: [
       {
-        question: 'Does LuxAura handle more than curtains and sheers?',
+        question: 'Can LuxAura handle difficult curtain and Roman blind briefs?',
         answer:
-          'Yes. LuxAura can support curtains, sheers, blinds, shutters and related smart-control systems in the same discussion.',
+          'Yes. Complex headings, trim integration, layered systems and performance lining requirements are all part of the fabrication scope.',
       },
       {
-        question: 'Can you recommend the best treatment type for each room?',
+        question: 'Do you quote both homes and larger projects?',
         answer:
-          'Yes. Recommendations can be shaped around room type, privacy, blackout need, moisture exposure and the overall look the client wants.',
+          'Yes. LuxAura supports private homes, boutique accommodation, hospitality sites and wider commercial work.',
       },
       {
-        question: 'Can motorisation be included in the same quote?',
+        question: 'Can motorisation be included from the start?',
         answer:
-          'Yes. Motorisation can be discussed alongside the treatment itself, including remote and smart-home compatible options where appropriate.',
+          'Yes. Manual and motorised systems can be planned together so tracks, controls and fabrication are aligned early.',
       },
     ],
   },
@@ -1098,11 +1098,11 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     slug: 'trimmings',
     pageTitle: 'Hardware & Trimmings',
     breadcrumbLabel: 'Hardware & Trimmings',
-    metadataTitle: 'Hardware & Trimmings | Curtain Tracks, Motorisation and Decorative Trim',
+    metadataTitle: 'Hardware & Trimmings | Premium Tracks, Motorisation and Bespoke Detail',
     metadataDescription:
-      'LuxAura combines premium aluminium curtain tracks, motorised systems and thousands of trimmings for curtains, cushions and soft furnishings.',
+      'LuxAura combines premium aluminium tracks, motorised systems and decorative trims for curtains, cushions and bespoke soft furnishings.',
     metadataKeywords:
-      'curtain tracks Sydney, motorised curtain track, aluminium curtain hardware, wholesale trimmings, decorative edging supplier',
+      'curtain tracks Sydney, motorised curtain systems, premium curtain hardware, decorative trimmings, passementerie supplier Australia',
     hero: {
       eyebrow: 'Hardware & Trimmings',
       title: 'Premium curtain hardware and decorative detailing in one category',
@@ -1257,19 +1257,19 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     },
     faqItems: [
       {
-        question: 'Do you only supply decorative trims on this page?',
+        question: 'Can tracks, motors and trims all be quoted together?',
         answer:
-          'No. This category also covers premium curtain tracks and motorised hardware.',
+          'Yes. LuxAura can combine hardware, motorisation and decorative trims into one coordinated quote.',
       },
       {
-        question: 'Can trims be matched to selected fabrics and finished products?',
+        question: 'Do you only supply trims, or can you also sew them into finished products?',
         answer:
-          'Yes. LuxAura helps align trim tone, texture, scale and style with both the fabric and the finished product.',
+          'We do both. The factory can integrate trims into curtains, Roman blinds, cushions and upholstery pieces.',
       },
       {
-        question: 'Are these trims only for curtains?',
+        question: 'How do you help match trims to fabric properly?',
         answer:
-          'No. Trims can also be used on cushions, upholstery, Roman blinds and other soft furnishing designs.',
+          'We look at texture, weight and shrinkage response so the selected trim holds its line and stays balanced after cleaning and use.',
       },
     ],
   },
