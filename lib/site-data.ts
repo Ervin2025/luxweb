@@ -140,7 +140,7 @@ export const GET_QUOTE_HREF = '/quote';
 
 export const NAV_ITEMS: NavItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Fabrics & Fabrication', href: '/collections' },
+  { name: 'Fabric&Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
   { name: 'Hardware & Trimmings', href: '/trimmings' },
@@ -199,36 +199,52 @@ export const HOME_CATEGORY_LINKS: Array<
   BenefitItem & { eyebrow: string; href: string; image: string }
 > = [
   {
-    eyebrow: 'Global Sourcing',
-    title: 'Fabrics & Fabrication',
+    eyebrow: 'Fabrics & Fabrication',
+    title: 'Fabrics & Expert Fabrication',
     description:
-      'Premium fabrics, global brands and custom fabrication in one place, from sourcing to finished soft-furnishing products.',
+      'Access our global library of premium indoor, outdoor and performance fabrics, available by the metre or crafted into bespoke soft furnishings, from signature cushions and ottomans to precision-fitted sofa covers.',
     href: '/collections',
     image: '/images/luxaura/beach-sheer.webp',
   },
   {
-    eyebrow: 'Window Soft Furnishings',
-    title: 'Window Treatments',
+    eyebrow: 'Window Treatments',
+    title: 'Bespoke Window Treatments',
     description:
-      'Curtains, blinds, shutters and layered window solutions built for homes, boutique accommodation and commercial projects.',
+      'Total solutions for drapery and sheers, with master craftsmanship across heading styles including modern S-Fold, classic Pinch Pleat and precision-engineered Roman blinds.',
     href: '/custom-curtains-sheers',
     image: '/images/luxaura/hero-project.webp',
   },
   {
-    eyebrow: 'Soft Furnishings',
-    title: 'Bespoke Upholstery',
+    eyebrow: 'Bespoke Upholstery',
+    title: 'Custom Indoor & Outdoor Upholstery',
     description:
-      'Custom sofas, armchairs, cushions and outdoor upholstery built through one fabric-selection, making and delivery workflow.',
+      'High-efficiency manufacturing for custom lounges, chairs and dining seating, featuring USA Sunbrella plus specialist pet-friendly fabrics that are water-repellent, stain-resistant and OEKO-TEX certified.',
     href: '/cushions-soft-furnishings',
     image: '/images/luxaura/upholstery-pillows.webp',
   },
   {
-    eyebrow: 'Detailing',
-    title: 'Hardware & Trimmings',
+    eyebrow: 'Hardware & Trimmings',
+    title: 'Hardware & Artisanal Trimmings',
     description:
-      'Premium aluminium curtain tracks, motorised systems and thousands of trims for curtains, cushions and soft furnishings.',
+      'Premium silent curtain tracks and motorised smart systems, paired with 1,000s of intricate trims, braids and passementerie from Dongli Art Textile for a more differentiated luxury finish.',
     href: '/trimmings',
     image: '/images/IMG-D.webp',
+  },
+  {
+    eyebrow: 'Supply & Quality',
+    title: 'High-Efficiency Supply & Premium Quality',
+    description:
+      'Our Source to Sydney model supports rapid production through our global factory, with master craftsmanship on every piece for designer-grade quality delivered with consistency and speed.',
+    href: '/about',
+    image: '/images/IMG-I.webp',
+  },
+  {
+    eyebrow: 'Partnership',
+    title: 'Trusted Partner & Best Price Guarantee',
+    description:
+      'Collaborating with designers, builders, developers and homeowners, we use our direct factory connection to back every quote with a lowest-price guarantee without compromising quality.',
+    href: '/trade-projects',
+    image: '/images/about-hero.webp',
   },
 ];
 
