@@ -25,11 +25,13 @@ export default function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={`text-balance font-heading text-4xl font-semibold tracking-tight sm:text-5xl ${titleClass}`}>
+      <h2
+        className={`text-balance font-heading text-3xl font-semibold leading-tight tracking-tight sm:text-5xl ${titleClass}`}
+      >
         {title}
       </h2>
       {description ? (
-        <p className={`mt-5 text-pretty text-base leading-7 sm:text-lg ${descriptionClass}`}>
+        <p className={`mt-4 text-pretty text-[15px] leading-7 sm:mt-5 sm:text-lg ${descriptionClass}`}>
           {description}
         </p>
       ) : null}

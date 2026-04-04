@@ -6,9 +6,9 @@ import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Luxaura',
+  title: 'Terms of Service | LuxAura',
   description:
-    'Review the terms that apply to using the Luxaura website and submitting trade, quote or project enquiries.',
+    'Review the terms that apply to using the LuxAura website and submitting trade, quote or project enquiries.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/terms`,
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const termsSections = [
   {
     title: '1. Website purpose',
-    body: 'The Luxaura website is a B2B marketing and enquiry platform for professional clients, including designers, retailers, builders and project teams.',
+    body: 'The LuxAura website is a B2B marketing and enquiry platform for professional clients, including designers, retailers, builders and project teams.',
   },
   {
     title: '2. Quotes and account approval',
@@ -29,7 +29,7 @@ const termsSections = [
   },
   {
     title: '4. Trade access',
-    body: 'Luxaura may request business details, ABN information or other supporting information before granting trade access. Applying does not guarantee approval.',
+    body: 'LuxAura may request business details, ABN information or other supporting information before granting trade access. Applying does not guarantee approval.',
   },
   {
     title: '5. Samples, colours and product representation',
@@ -37,15 +37,15 @@ const termsSections = [
   },
   {
     title: '6. Project information supplied by you',
-    body: 'You are responsible for the accuracy of project details, quantities, site conditions, intended usage and other information provided to Luxaura.',
+    body: 'You are responsible for the accuracy of project details, quantities, site conditions, intended usage and other information provided to LuxAura.',
   },
   {
     title: '7. Intellectual property',
-    body: 'Unless otherwise stated, the website design, copy, imagery and branding are owned by Luxaura or used with permission. They must not be reused without written consent.',
+    body: 'Unless otherwise stated, the website design, copy, imagery and branding are owned by LuxAura or used with permission. They must not be reused without written consent.',
   },
   {
     title: '8. Liability',
-    body: 'To the extent permitted by law, Luxaura is not liable for indirect or consequential loss arising from reliance on website content alone. Final decisions should be based on confirmed quotes, approved samples and direct communication.',
+    body: 'To the extent permitted by law, LuxAura is not liable for indirect or consequential loss arising from reliance on website content alone. Final decisions should be based on confirmed quotes, approved samples and direct communication.',
   },
 ];
 
@@ -56,16 +56,16 @@ export default function TermsPage() {
     <div>
       <PageHero
         eyebrow="Terms of Service"
-        title="Terms for using the Luxaura trade website"
-        description="These terms apply to use of the Luxaura wholesale website and its trade, quote and contact forms."
+        title="Terms for using the LuxAura trade website"
+        description="These terms apply to use of the LuxAura wholesale website and its trade, quote and contact forms."
         imageSrc="/images/luxaura/hero-project.webp"
-        imageAlt="Luxaura terms of service"
+        imageAlt="LuxAura terms of service"
       >
         <Link href="/trade-projects" className="btn-primary">
           Trade Account
         </Link>
         <Link href="/contact" className="btn-secondary">
-          Contact Luxaura
+          Contact LuxAura
         </Link>
       </PageHero>
 
@@ -92,7 +92,7 @@ export default function TermsPage() {
                 <p className="mt-4 text-base leading-8 text-neutral-700">
                   If anything in these terms is unclear, please{' '}
                   <Link href="/contact" className="text-primary transition hover:underline">
-                    contact Luxaura
+                    contact LuxAura
                   </Link>{' '}
                   before relying on website information for a project decision.
                 </p>

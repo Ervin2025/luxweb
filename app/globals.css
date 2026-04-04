@@ -23,6 +23,7 @@
       radial-gradient(circle at top left, rgba(208, 183, 139, 0.34), transparent 32%),
       radial-gradient(circle at 88% 12%, rgba(31, 58, 49, 0.12), transparent 26%),
       linear-gradient(180deg, #f6f0e4 0%, #f4efe7 45%, #f8f4ec 100%);
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
@@ -54,11 +55,11 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex min-h-[48px] items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/30 sm:px-8 sm:text-sm;
+    @apply inline-flex min-h-[48px] items-center justify-center rounded-full bg-primary px-6 py-3 text-center text-xs font-semibold uppercase leading-tight tracking-[0.22em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/30 sm:px-8 sm:text-sm sm:tracking-[0.28em];
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-[48px] items-center justify-center rounded-full border border-primary/20 bg-white/70 px-6 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 sm:px-8 sm:text-sm;
+    @apply inline-flex min-h-[48px] items-center justify-center rounded-full border border-primary/20 bg-white/70 px-6 py-3 text-center text-xs font-semibold uppercase leading-tight tracking-[0.22em] text-primary transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 sm:px-8 sm:text-sm sm:tracking-[0.28em];
   }
 
   .section-padding {
@@ -96,7 +97,7 @@
   .btn-secondary {
     min-height: 48px;
     padding: 14px 24px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   a {
@@ -108,6 +109,10 @@
   img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+  }
+
+  .section-shell {
+    border-radius: 1.5rem;
   }
 }
 

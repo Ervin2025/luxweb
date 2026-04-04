@@ -5,9 +5,9 @@ import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Luxaura',
+  title: 'Privacy Policy | LuxAura',
   description:
-    'Learn how Luxaura collects, uses and protects personal and business information submitted through its trade website.',
+    'Learn how LuxAura collects, uses and protects personal and business information submitted through its trade website.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/privacy`,
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: '1. What this policy covers',
-    body: 'This policy explains how Luxaura handles personal and business information collected through this website, including trade applications, quote requests and contact enquiries.',
+    body: 'This policy explains how LuxAura handles personal and business information collected through this website, including trade applications, quote requests and contact enquiries.',
   },
   {
     title: '2. Information we may collect',
@@ -32,7 +32,7 @@ const sections = [
   },
   {
     title: '5. Disclosure and service providers',
-    body: 'Luxaura may share information with trusted service providers who help operate the website, process forms or support communication. We do not sell your information.',
+    body: 'LuxAura may share information with trusted service providers who help operate the website, process forms or support communication. We do not sell your information.',
   },
   {
     title: '6. Storage and security',
@@ -40,11 +40,11 @@ const sections = [
   },
   {
     title: '7. Cookies and analytics',
-    body: 'Like most websites, Luxaura may use cookies, logs or similar technical data to understand site usage and maintain performance.',
+    body: 'Like most websites, LuxAura may use cookies, logs or similar technical data to understand site usage and maintain performance.',
   },
   {
     title: '8. Access and correction',
-    body: 'If you want to access or correct the information we hold about you, contact Luxaura using the details below.',
+    body: 'If you want to access or correct the information we hold about you, contact LuxAura using the details below.',
   },
 ];
 
@@ -55,10 +55,10 @@ export default function PrivacyPage() {
     <div>
       <PageHero
         eyebrow="Privacy Policy"
-        title="How Luxaura handles trade, quote and project enquiry data"
-        description="How submitted business and contact details are used to support Luxaura trade and project workflows."
+        title="How LuxAura handles trade, quote and project enquiry data"
+        description="How submitted business and contact details are used to support LuxAura trade and project workflows."
         imageSrc="/images/luxaura/beach-sheer.webp"
-        imageAlt="Luxaura privacy policy"
+        imageAlt="LuxAura privacy policy"
       />
 
       <div className="container-custom">
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
               ))}
               <section>
                 <h2 className="font-heading text-3xl font-semibold text-neutral-900">
-                  9. Contact Luxaura
+                  9. Contact LuxAura
                 </h2>
                 <div className="mt-4 space-y-3 text-base leading-8 text-neutral-700">
                   <p>{CONTACT_INFO.address.city}, {CONTACT_INFO.address.region}, Australia</p>

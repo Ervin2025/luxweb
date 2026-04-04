@@ -140,7 +140,7 @@ export const GET_QUOTE_HREF = '/quote';
 
 export const NAV_ITEMS: NavItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Collections', href: '/collections' },
+  { name: 'Fabrics & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
   { name: 'Hardware & Trimmings', href: '/trimmings' },
@@ -158,19 +158,17 @@ export const FOOTER_CATEGORY_LINKS: NavItem[] = [
 ];
 
 export const HOME_HERO_STATS: StatItem[] = [
-  { value: 'Australian Family-Owned', label: 'A relationship-led business with local accountability' },
   {
-    value: 'Australian Design + Global Sourcing',
-    label: 'Locally informed design judgement backed by Luxaura collections and premium international fabric selection',
+    value: 'Thousands of Premium Fabrics & Trimmings',
+    label: 'An international resource library for complete soft-furnishing briefs',
   },
   {
-    value: 'Fabric + Finished Products',
-    label:
-      'From curtains and upholstery through to cushions, table runners and specialty soft goods',
+    value: 'Bespoke Global Manufacturing',
+    label: 'From simple elegance to the most complex custom designer requirements',
   },
   {
-    value: 'Efficient Supply + Lowest Price Guarantee',
-    label: 'Efficiency management and quantity purchasing support a lowest price guarantee',
+    value: '100% Best-Price Guarantee',
+    label: 'Seamless workflow, master craftsmanship and price confidence in one offer',
   },
 ];
 
@@ -178,17 +176,17 @@ export const HOME_VALUE_POINTS: BenefitItem[] = [
   {
     title: 'Australian family-owned foundation',
     description:
-      'Luxaura is built as an Australian family-owned business, giving clients continuity, practical accountability and a more dependable long-term relationship.',
+      'LuxAura is built as an Australian family-owned business, giving clients continuity, practical accountability and a more dependable long-term relationship.',
   },
   {
     title: 'Australian design understanding',
     description:
-      'The offer is shaped by Australian interiors, local market expectations and real project use, while still drawing from Luxaura-branded fabrics, established imported collections and globally selected high-quality materials.',
+      'The offer is shaped by Australian interiors, local market expectations and real project use, while still drawing from LuxAura-branded fabrics, established imported collections and globally selected high-quality materials.',
   },
   {
     title: 'From fabric to finished soft furnishings',
     description:
-      'Luxaura does not stop at fabric supply. Selected materials can move straight into curtains, indoor or outdoor sofas, cushions, sofa throws, ottomans, table runners, aprons, gloves and other custom pieces.',
+      'LuxAura does not stop at fabric supply. Selected materials can move straight into curtains, indoor and outdoor furniture, sofas, cushions, sofa throws, ottomans, table runners, aprons, gloves and other custom pieces.',
   },
   {
     title: 'Lowest price guarantee',
@@ -202,10 +200,10 @@ export const HOME_CATEGORY_LINKS: Array<
 > = [
   {
     eyebrow: 'Global Sourcing',
-    title: 'Fabrics',
+    title: 'Fabrics & Fabrication',
     description:
-      'Prestigious Textiles, Mobus, FibreGuard, European linen and curated Asian ranges for specification-led projects.',
-    href: '/wholesale-fabrics',
+      'Premium fabrics, global brands and custom fabrication in one place, from sourcing to finished soft-furnishing products.',
+    href: '/collections',
     image: '/images/luxaura/beach-sheer.webp',
   },
   {
@@ -288,9 +286,9 @@ export const HOME_CHALLENGE_SOLUTIONS = [
 
 export const HOME_FABRIC_COLLECTIONS: OfferItem[] = [
   {
-    title: 'Luxaura Signature Series',
+    title: 'LuxAura Signature Series',
     description:
-      'Luxaura’s own branded fabric ranges give the business a clearer point of difference and more direct control over style, quality and commercial positioning.',
+      'LuxAura’s own branded fabric ranges give the business a clearer point of difference and more direct control over style, quality and commercial positioning.',
     bullets: ['Own-brand identity', 'Flexible specification coverage', 'Designed to sit confidently beside imported collections'],
   },
   {
@@ -320,7 +318,7 @@ export const HOME_FABRIC_COLLECTIONS: OfferItem[] = [
   {
     title: 'European Linen and Curated Asia',
     description:
-      'Natural linen libraries and value-conscious Asian collections give Luxaura a complete price and style spectrum.',
+      'Natural linen libraries and value-conscious Asian collections give LuxAura a complete price and style spectrum.',
     bullets: ['French-origin 100% linen and linen-cotton blends', 'Commercially smart Asian sourcing', 'High quality with cost control'],
   },
 ];
@@ -334,7 +332,7 @@ export const HOME_PROCESS_STEPS: Array<{ title: string; description: string }> =
   {
     title: 'Collections and category alignment',
     description:
-      'Collections, window treatments, bespoke upholstery and hardware or trimming directions are shortlisted against the brief.',
+      'Fabrics, fabrication, window treatments, bespoke upholstery and hardware directions are shortlisted against the brief.',
   },
   {
     title: 'Quote and sampling',
@@ -366,7 +364,7 @@ export const ABOUT_PILLARS: BenefitItem[] = [
   {
     title: 'Family-owned and relationship-led',
     description:
-      'Luxaura is an Australian family-owned business built on continuity, trust and practical service.',
+      'LuxAura is an Australian family-owned business built on continuity, trust and practical service.',
   },
   {
     title: 'One-stop project thinking',
@@ -432,7 +430,7 @@ export const TRADE_PROJECT_PROCESS: Array<{ title: string; description: string }
   {
     title: 'Making, supply and delivery support',
     description:
-      'Once approved, Luxaura coordinates supply, making and handover support.',
+      'Once approved, LuxAura coordinates supply, making and handover support.',
   },
 ];
 
@@ -560,16 +558,16 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Fabrics',
     metadataTitle: 'Fabrics | Sydney Trade Fabric Supplier',
     metadataDescription:
-      'Source trade fabrics in Sydney through Luxaura, with British, European and curated Asian collections for design and project clients.',
+      'Source trade fabrics in Sydney through LuxAura, with British, European and curated Asian collections for design and project clients.',
     metadataKeywords:
       'wholesale fabrics Sydney, trade fabric supplier, Prestigious Textiles Australia, FibreGuard supplier Australia, European linen supplier',
     hero: {
       eyebrow: 'Fabrics',
       title: 'Global fabric sourcing for trade and project clients',
       description:
-        'Luxaura supplies a broad fabric library for Australian designers, retailers and project buyers, balancing luxury, performance and value.',
+        'LuxAura supplies a broad fabric library for Australian designers, retailers and project buyers, balancing luxury, performance and value.',
       imageSrc: '/images/luxaura/beach-sheer.webp',
-      imageAlt: 'Luxaura wholesale drapery fabric selection',
+      imageAlt: 'LuxAura wholesale drapery fabric selection',
       stats: [
         { value: 'UK + Europe + Asia', label: 'A sourcing mix built for style and pricing flexibility' },
         { value: 'Pet-Friendly Options', label: 'Performance stories available for real-life use' },
@@ -581,7 +579,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     overview: {
       title: 'A complete fabric supply layer for Australian interiors',
       description:
-        "Wholesale fabrics sit at the centre of Luxaura's offer, giving clients premium sourcing, performance options and commercially realistic choice through one partner.",
+        "Wholesale fabrics sit at the centre of LuxAura's offer, giving clients premium sourcing, performance options and commercially realistic choice through one partner.",
       supportingPoints: [
         'Prestigious Textiles, Mobus and FibreGuard in one sourcing conversation',
         'European linen and linen-cotton options for natural texture and elevated drape',
@@ -620,7 +618,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'Fabric sourcing works best when it stays connected to pricing, local support and downstream making.',
       items: [
@@ -683,7 +681,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     oneStopSection: {
       title: 'One-stop from sourcing to finished outcome',
       description:
-        'Fabric selection does not stop at swatches. Luxaura helps clients carry choices through related products and making support.',
+        'Fabric selection does not stop at swatches. LuxAura helps clients carry choices through related products and making support.',
       items: [
         'Collection guidance and product matching',
         'Sample and trade account support for decision making',
@@ -716,20 +714,20 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Request fabrics, samples or project support',
       description:
-        'Use Luxaura when you need range, practical support and a clearer path to fabrication.',
+        'Use LuxAura when you need range, practical support and a clearer path to fabrication.',
       primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
       secondaryCta: { label: 'Start A Quote', href: GET_QUOTE_HREF },
     },
     faqItems: [
       {
-        question: 'Can Luxaura help with both premium and value-focused sourcing?',
+        question: 'Can LuxAura help with both premium and value-focused sourcing?',
         answer:
           'Yes. The collection spans premium European brands and commercially smart Asian options so projects can scale by budget without losing coherence.',
       },
       {
         question: 'Do you offer pet-friendly and easy-clean fabric options?',
         answer:
-          'Yes. Luxaura includes performance-led options such as FibreGuard for family, rental and commercial use.',
+          'Yes. LuxAura includes performance-led options such as FibreGuard for family, rental and commercial use.',
       },
       {
         question: 'Can I request samples before asking for a full quote?',
@@ -744,23 +742,23 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Window Treatments',
     metadataTitle: 'Window Treatments | Curtains, Blinds and Shutters',
     metadataDescription:
-      'Luxaura supplies window treatments across curtains, blinds, shutters and motorised systems for residential and project interiors.',
+      'LuxAura supplies window treatments across curtains, blinds, shutters and motorised systems for residential and project interiors.',
     metadataKeywords:
       'window treatments Sydney, S-Fold curtains Sydney, Roman blinds supplier, plantation shutters, motorised curtains Australia',
     hero: {
       eyebrow: 'Window Treatments',
       title: 'Custom window treatments from soft drapery to shutters and smart control',
       description:
-        'Luxaura covers S-Fold sheers, tailored drapery, Roman blinds, roller systems, shutters and motorisation-ready solutions through one trade workflow.',
+        'LuxAura covers S-Fold sheers, tailored drapery, Roman blinds, roller systems, shutters and motorisation-ready solutions through one trade workflow.',
       imageSrc: '/images/luxaura/hero-project.webp',
-      imageAlt: 'Luxaura window treatments including curtains, blinds and shutters',
+      imageAlt: 'LuxAura window treatments including curtains, blinds and shutters',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
     },
     overview: {
       title: 'One category, multiple treatment types and one coordinated supply path',
       description:
-        'Luxaura helps clients compare drapery, blinds, shutters and motorised systems against light control, privacy, insulation and design intent.',
+        'LuxAura helps clients compare drapery, blinds, shutters and motorised systems against light control, privacy, insulation and design intent.',
       supportingPoints: [
         'S-Fold, pinch pleat, pencil pleat, eyelet and box pleat curtains',
         'Roller, Roman, Venetian, honeycomb, vertical and panel glide blinds',
@@ -793,13 +791,13 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         {
           title: 'Motorisation and custom-made support',
           description:
-            'Luxaura can connect fabric and treatment selection with motorisation, premium components, on-site measuring and professional installation support.',
+            'LuxAura can connect fabric and treatment selection with motorisation, premium components, on-site measuring and professional installation support.',
           bullets: ['Remote, app and voice-control readiness', 'Premium details such as FibreGuard, Coats thread and YKK zips', 'Design, measuring and installation workflow'],
         },
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'The category works best when style, function and installation stay connected.',
       items: [
@@ -886,7 +884,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/trimmings',
         },
         {
-          title: 'Collections',
+          title: 'Fabrics & Fabrication',
           description: 'Explore the broader fabric and sewn-soft-furnishing library behind the treatment selection.',
           href: '/collections',
         },
@@ -895,15 +893,15 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Start a window treatment conversation with the full room in mind',
       description:
-        'Use Luxaura when the brief needs a clearer decision across curtains, blinds, shutters and motorisation.',
+        'Use LuxAura when the brief needs a clearer decision across curtains, blinds, shutters and motorisation.',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
     faqItems: [
       {
-        question: 'Does Luxaura handle more than curtains and sheers?',
+        question: 'Does LuxAura handle more than curtains and sheers?',
         answer:
-          'Yes. Luxaura can support curtains, sheers, blinds, shutters and related smart-control systems in the same discussion.',
+          'Yes. LuxAura can support curtains, sheers, blinds, shutters and related smart-control systems in the same discussion.',
       },
       {
         question: 'Can you recommend the best treatment type for each room?',
@@ -923,16 +921,16 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Bespoke Upholstery',
     metadataTitle: 'Bespoke Upholstery | Custom Sofas, Chairs and Outdoor Pieces',
     metadataDescription:
-      'Luxaura delivers bespoke upholstery across custom sofas, chairs and outdoor furniture through one coordinated service.',
+      'LuxAura delivers bespoke upholstery across custom sofas, chairs and outdoor furniture through one coordinated service.',
     metadataKeywords:
       'bespoke upholstery Sydney, custom sofa manufacturer, custom armchair upholstery, Sunbrella outdoor furniture, wholesale upholstery supplier',
     hero: {
       eyebrow: 'Bespoke Upholstery',
       title: 'Custom upholstery from fabric selection through to finished delivery',
       description:
-        'Luxaura handles bespoke upholstery from fabric selection through processing, tailored making and efficient delivery.',
+        'LuxAura handles bespoke upholstery from fabric selection through processing, tailored making and efficient delivery.',
       imageSrc: '/images/luxaura/upholstery-pillows.webp',
-      imageAlt: 'Luxaura bespoke upholstery and custom furniture softening',
+      imageAlt: 'LuxAura bespoke upholstery and custom furniture softening',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
     },
@@ -972,13 +970,13 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         {
           title: 'Coordinated finishing details',
           description:
-            'Piping, trim direction, zipper quality and seam detailing can be aligned with the wider Luxaura textile story.',
+            'Piping, trim direction, zipper quality and seam detailing can be aligned with the wider LuxAura textile story.',
           bullets: ['Trim and piping alignment', 'Coats thread and YKK zip level detailing', 'Cleaner fit and finish control'],
         },
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'Bespoke upholstery becomes more reliable when sourcing, fabrication and dispatch sit inside one workflow.',
       items: [
@@ -1000,7 +998,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         {
           title: 'Preferred wholesale support',
           description:
-            'Designers, retailers and project teams can use Luxaura as a dependable upholstery partner across repeat projects and larger accounts.',
+            'Designers, retailers and project teams can use LuxAura as a dependable upholstery partner across repeat projects and larger accounts.',
         },
       ],
     },
@@ -1055,7 +1053,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Upholstery performs best when the surrounding textile categories are already aligned.',
       items: [
         {
-          title: 'Collections',
+          title: 'Fabrics & Fabrication',
           description: 'Browse the premium and performance fabric sources behind bespoke upholstery selections.',
           href: '/collections',
         },
@@ -1074,13 +1072,13 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Discuss a bespoke upholstery brief from fabric to finished piece',
       description:
-        'Bring Luxaura in when sofas, seating or outdoor furniture need custom fabric direction and reliable delivery support.',
+        'Bring LuxAura in when sofas, seating or outdoor furniture need custom fabric direction and reliable delivery support.',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
     faqItems: [
       {
-        question: 'Does Luxaura handle custom sofas and single chairs?',
+        question: 'Does LuxAura handle custom sofas and single chairs?',
         answer:
           'Yes. The upholstery offer covers custom sofas, single chairs and other upholstered seating that needs tailored fabric and making control.',
       },
@@ -1092,7 +1090,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Is the service only about choosing fabric?',
         answer:
-          'No. Luxaura positions bespoke upholstery as a full workflow covering fabric selection, processing, making, finishing and dispatch.',
+          'No. LuxAura positions bespoke upholstery as a full workflow covering fabric selection, processing, making, finishing and dispatch.',
       },
     ],
   },
@@ -1102,16 +1100,16 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Hardware & Trimmings',
     metadataTitle: 'Hardware & Trimmings | Curtain Tracks, Motorisation and Decorative Trim',
     metadataDescription:
-      'Luxaura combines premium aluminium curtain tracks, motorised systems and thousands of trimmings for curtains, cushions and soft furnishings.',
+      'LuxAura combines premium aluminium curtain tracks, motorised systems and thousands of trimmings for curtains, cushions and soft furnishings.',
     metadataKeywords:
       'curtain tracks Sydney, motorised curtain track, aluminium curtain hardware, wholesale trimmings, decorative edging supplier',
     hero: {
       eyebrow: 'Hardware & Trimmings',
       title: 'Premium curtain hardware and decorative detailing in one category',
       description:
-        'Luxaura combines premium curtain tracks, motorised hardware and thousands of trims so clients can resolve both function and finish together.',
+        'LuxAura combines premium curtain tracks, motorised hardware and thousands of trims so clients can resolve both function and finish together.',
       imageSrc: '/images/IMG-D.webp',
-      imageAlt: 'Luxaura curtain hardware and trimming references',
+      imageAlt: 'LuxAura curtain hardware and trimming references',
       primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
       secondaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
     },
@@ -1157,7 +1155,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'Hardware and decorative trim are strongest when they are coordinated early.',
       items: [
@@ -1244,7 +1242,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/cushions-soft-furnishings',
         },
         {
-          title: 'Collections',
+          title: 'Fabrics & Fabrication',
           description: 'Start with the fabric story before resolving the hardware and decorative detailing layer.',
           href: '/collections',
         },
@@ -1253,7 +1251,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Request hardware and trimming direction for the full package',
       description:
-        'Use Luxaura when the brief needs reliable hardware, motorised options and richer decorative detail in one workflow.',
+        'Use LuxAura when the brief needs reliable hardware, motorised options and richer decorative detail in one workflow.',
       primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
@@ -1266,7 +1264,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Can trims be matched to selected fabrics and finished products?',
         answer:
-          'Yes. Luxaura helps align trim tone, texture, scale and style with both the fabric and the finished product.',
+          'Yes. LuxAura helps align trim tone, texture, scale and style with both the fabric and the finished product.',
       },
       {
         question: 'Are these trims only for curtains?',
@@ -1281,23 +1279,23 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Blinds Solutions',
     metadataTitle: 'Blinds Solutions | Custom Blind Supply Sydney',
     metadataDescription:
-      'Luxaura supplies custom blind solutions for residential, retail and commercial interiors, including roller, Roman and Venetian options.',
+      'LuxAura supplies custom blind solutions for residential, retail and commercial interiors, including roller, Roman and Venetian options.',
     metadataKeywords:
       'custom blinds supplier Sydney, Roman blinds specialist, roller blinds trade, blind solutions Australia',
     hero: {
       eyebrow: 'Blinds Solutions',
       title: 'Custom blind packages for practical and design-led interiors',
       description:
-        'Luxaura supplies blind solutions for projects that need privacy, light control and a cleaner architectural finish, while staying connected to curtains and system support.',
+        'LuxAura supplies blind solutions for projects that need privacy, light control and a cleaner architectural finish, while staying connected to curtains and system support.',
       imageSrc: '/images/luxaura/roman-blind-lounge.webp',
-      imageAlt: 'Luxaura blind solutions',
+      imageAlt: 'LuxAura blind solutions',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
     overview: {
       title: 'Blind solutions that work on their own or as part of a larger scheme',
       description:
-        'Luxaura positions blinds as part of a whole room package. The category supports design direction, practical control and system integration rather than a simple off-the-shelf blind sale.',
+        'LuxAura positions blinds as part of a whole room package. The category supports design direction, practical control and system integration rather than a simple off-the-shelf blind sale.',
       supportingPoints: [
         'Roller, Roman and Venetian blind directions',
         'Custom sizing and practical specification',
@@ -1334,7 +1332,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'Blind solutions are more useful when they connect to the broader supply and styling strategy.',
       items: [
@@ -1430,7 +1428,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Discuss a blind package or layered window solution',
       description:
-        'Use Luxaura when you need practical blind performance with the option to integrate curtains, systems and broader project support.',
+        'Use LuxAura when you need practical blind performance with the option to integrate curtains, systems and broader project support.',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
@@ -1438,7 +1436,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Do you supply Roman blinds as well as roller blinds?',
         answer:
-          'Yes. Luxaura supports both Roman blind solutions and more streamlined formats such as roller blinds, depending on the room and design direction.',
+          'Yes. LuxAura supports both Roman blind solutions and more streamlined formats such as roller blinds, depending on the room and design direction.',
       },
       {
         question: 'Can blinds be specified together with curtains?',
@@ -1463,23 +1461,23 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Tracks & Motorisation',
     metadataTitle: 'Tracks & Motorisation | Curtain System Supply',
     metadataDescription:
-      'Luxaura supplies curtain tracks and motorisation-ready systems for custom drapery and project interiors.',
+      'LuxAura supplies curtain tracks and motorisation-ready systems for custom drapery and project interiors.',
     metadataKeywords:
       'curtain tracks supplier, motorised curtains Sydney, curtain system supply, tracks and motorisation',
     hero: {
       eyebrow: 'Tracks & Motorisation',
       title: 'Manual and motorised systems for smooth, project-ready operation',
       description:
-        'Luxaura supports the system side of curtains and window soft furnishings with track and motorisation-ready solutions.',
+        'LuxAura supports the system side of curtains and window soft furnishings with track and motorisation-ready solutions.',
       imageSrc: '/images/carousel/09-Curtain-Track.webp',
-      imageAlt: 'Luxaura track and motorisation system',
+      imageAlt: 'LuxAura track and motorisation system',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
     overview: {
       title: 'A curtain package is only as strong as the system behind it',
       description:
-        'Tracks and motorisation matter for operation, visual neatness and long-term user satisfaction. Luxaura treats them as part of the package, not a late add-on.',
+        'Tracks and motorisation matter for operation, visual neatness and long-term user satisfaction. LuxAura treats them as part of the package, not a late add-on.',
       supportingPoints: [
         'Manual tracks and motorisation-ready pathways',
         'Suitable for large openings and layered curtains',
@@ -1517,7 +1515,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'System supply is most useful when it stays close to the soft furnishing decision.',
       items: [
@@ -1613,7 +1611,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Request system support for your next window package',
       description:
-        'Luxaura helps clients carry curtains and window treatments through the hardware decisions that make them work well.',
+        'LuxAura helps clients carry curtains and window treatments through the hardware decisions that make them work well.',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
@@ -1621,7 +1619,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Do you support both manual and motorised systems?',
         answer:
-          'Yes. Luxaura can support standard manual track directions as well as pathways for motorisation-ready solutions.',
+          'Yes. LuxAura can support standard manual track directions as well as pathways for motorisation-ready solutions.',
       },
       {
         question: 'Can track decisions be made together with curtain selection?',
@@ -1631,7 +1629,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Are these systems suitable for large openings?',
         answer:
-          'Yes. Larger spans are one of the main reasons clients involve Luxaura early in the system discussion.',
+          'Yes. Larger spans are one of the main reasons clients involve LuxAura early in the system discussion.',
       },
     ],
   },
@@ -1641,14 +1639,14 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     breadcrumbLabel: 'Outdoor Solutions',
     metadataTitle: 'Outdoor Solutions | Outdoor Cushions and Soft Furnishings',
     metadataDescription:
-      'Luxaura supplies outdoor cushions and soft furnishing solutions designed for durability, comfort and Australian weather.',
+      'LuxAura supplies outdoor cushions and soft furnishing solutions designed for durability, comfort and Australian weather.',
     metadataKeywords:
       'outdoor cushions supplier, outdoor soft furnishings, UV resistant textiles, outdoor project fabrics',
     hero: {
       eyebrow: 'Outdoor Solutions',
       title: 'Outdoor cushions and soft furnishings built for Australian conditions',
       description:
-        'Luxaura supports outdoor living and project environments with soft furnishings that balance durability, comfort and finish.',
+        'LuxAura supports outdoor living and project environments with soft furnishings that balance durability, comfort and finish.',
       imageSrc: '/images/IMG-Hero.webp',
       imageAlt: 'Outdoor soft furnishing inspiration',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
@@ -1694,7 +1692,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       ],
     },
     whySection: {
-      title: 'Why Luxaura',
+      title: 'Why LuxAura',
       description:
         'Outdoor soft furnishings need to work harder than indoor accessories, especially in Australian climates.',
       items: [
@@ -1790,7 +1788,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
     ctaSection: {
       title: 'Discuss an outdoor soft furnishing package',
       description:
-        'Bring Luxaura in when exterior comfort and textile durability need to work together.',
+        'Bring LuxAura in when exterior comfort and textile durability need to work together.',
       primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
       secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
     },
@@ -1798,7 +1796,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Do you supply outdoor cushions for residential projects?',
         answer:
-          'Yes. Luxaura supports outdoor cushion and soft furnishing packages for terraces, balconies, poolside zones and broader residential schemes.',
+          'Yes. LuxAura supports outdoor cushion and soft furnishing packages for terraces, balconies, poolside zones and broader residential schemes.',
       },
       {
         question: 'Are outdoor products suitable for hospitality use?',
@@ -1808,7 +1806,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       {
         question: 'Can outdoor products be coordinated with indoor furnishing schemes?',
         answer:
-          'Yes. Luxaura aims to keep the textile story coherent across indoor and outdoor zones wherever practical.',
+          'Yes. LuxAura aims to keep the textile story coherent across indoor and outdoor zones wherever practical.',
       },
     ],
   },
@@ -1857,7 +1855,7 @@ export const THANK_YOU_VARIANTS: Record<
   ThankYouContent
 > = {
   'trade-projects': {
-    title: 'Your trade or project request is with the Luxaura team',
+    title: 'Your trade or project request is with the LuxAura team',
     description:
       'We will review the enquiry type, business details and product focus, then come back with the right next step for wholesale access or project coordination.',
     primaryCta: { label: 'Browse Fabrics', href: '/wholesale-fabrics' },
@@ -1866,9 +1864,9 @@ export const THANK_YOU_VARIANTS: Record<
   quote: {
     title: 'Your quote request has been submitted',
     description:
-      'The brief is now in the Luxaura workflow for product alignment, pricing review and any follow-up needed on fabrication or category coordination.',
+      'The brief is now in the LuxAura workflow for product alignment, pricing review and any follow-up needed on fabrication or category coordination.',
     primaryCta: { label: 'Open Trade Account', href: '/trade-projects' },
-    secondaryCta: { label: 'Contact Luxaura', href: '/contact' },
+    secondaryCta: { label: 'Contact LuxAura', href: '/contact' },
   },
   contact: {
     title: 'Your enquiry has been sent to the trade desk',
@@ -1987,7 +1985,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
   {
     id: 'trim-lace',
     title: 'Scallop Lace Edge',
-    brand: 'Luxaura Accessories',
+    brand: 'LuxAura Accessories',
     origin: 'Global',
     material: 'Decorative Trim',
     priceBand: '$',
@@ -2000,7 +1998,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
   {
     id: 'trim-passementerie',
     title: 'Passementerie Border',
-    brand: 'Luxaura Accessories',
+    brand: 'LuxAura Accessories',
     origin: 'Global',
     material: 'Braided Trim',
     priceBand: '$$',
@@ -2013,7 +2011,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
   {
     id: 'rod-brass',
     title: 'Brushed Brass Rod Set',
-    brand: 'Luxaura Accessories',
+    brand: 'LuxAura Accessories',
     origin: 'Global',
     material: 'Metal',
     priceBand: '$$',
@@ -2026,7 +2024,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
   {
     id: 'rod-track',
     title: 'Architectural Track Profile',
-    brand: 'Luxaura Accessories',
+    brand: 'LuxAura Accessories',
     origin: 'Global',
     material: 'Powdercoated Alloy',
     priceBand: '$$$',

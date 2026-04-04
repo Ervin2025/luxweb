@@ -11,9 +11,9 @@ import { FAQ_GROUPS, GET_QUOTE_HREF, REQUEST_CATALOGUE_HREF } from '@/lib/site-d
 export const metadata: Metadata = {
   title: 'FAQ | Trade Fabrics, Projects and Fabrication Support',
   description:
-    'Find answers to common questions about Luxaura’s wholesale fabrics, window treatments and trade workflow.',
+    'Find answers to common questions about LuxAura’s wholesale fabrics, window treatments and trade workflow.',
   keywords:
-    'Luxaura FAQ, wholesale fabric FAQ, trade project support, curtain workroom questions, fabric sourcing Sydney',
+    'LuxAura FAQ, wholesale fabric FAQ, trade project support, curtain workroom questions, fabric sourcing Sydney',
   alternates: {
     canonical: `${SITE_CONFIG.url}/faq`,
   },
@@ -30,7 +30,7 @@ export default function FaqPage() {
         title="Answers for trade clients"
         description="Common questions on collections, quotes and fabrication support, grouped by category."
         imageSrc="/images/luxaura/beach-sheer.webp"
-        imageAlt="Luxaura wholesale fabric FAQ"
+        imageAlt="LuxAura wholesale fabric FAQ"
       >
         <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary">
           Register Trade Account

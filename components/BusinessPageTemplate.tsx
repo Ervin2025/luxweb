@@ -52,7 +52,7 @@ export default function BusinessPageTemplate({
         <div className="container-custom">
           <div className="section-shell p-8 sm:p-10">
             <SectionHeading
-              eyebrow="Why Luxaura"
+              eyebrow="Why LuxAura"
               title={config.overview.title}
               description={config.overview.description}
             />

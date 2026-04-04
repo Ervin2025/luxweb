@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: 'Trade Account | Pricing, Resources and Project Support',
   description:
-    'Register a Luxaura trade account for project pricing, resources and support across fabrics, soft furnishings and custom products.',
+    'Register a LuxAura trade account for project pricing, resources and support across fabrics, soft furnishings and custom products.',
   keywords:
     'trade fabric supplier Sydney, trade account application, project fabric quote, curtain workroom Sydney',
   alternates: {
@@ -52,9 +52,9 @@ export default async function TradeProjectsPage({
       <PageHero
         eyebrow="Trade Account"
         title="Register once, then access best pricing, resources and project support"
-        description="Open a Luxaura trade account for project pricing, product resources and support across collections, custom soft furnishings and related categories. Prospective partners can also apply for dedicated pricing and resources."
+        description="Open a LuxAura trade account for project pricing, product resources and support across collections, custom soft furnishings and related categories. Prospective partners can also apply for dedicated pricing and resources."
         imageSrc="/images/luxaura/vertical-sheer-pool.webp"
-        imageAlt="Luxaura trade and project support"
+        imageAlt="LuxAura trade and project support"
       >
         <a href="#trade-projects-form" className="btn-primary">
           Register Trade Account

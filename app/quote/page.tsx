@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Project Quote | Trade Fabric Brief',
   description:
-    'Send a Luxaura project quote request for fabrics, window treatments, upholstery and hardware.',
+    'Send a LuxAura project quote request for fabrics, window treatments, upholstery and hardware.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/quote`,
   },
@@ -24,7 +24,7 @@ export default function QuotePage() {
         title="Add products and fabrication needs to one trade quote"
         description="Send one clear brief covering products, usage, budget and fabrication requirements."
         imageSrc="/images/IMG-I.webp"
-        imageAlt="Luxaura project quote reference image"
+        imageAlt="LuxAura project quote reference image"
       />
 
       <div className="container-custom">

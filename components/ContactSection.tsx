@@ -47,7 +47,7 @@ export default function ContactSection() {
           phone: formData.phone,
           enquiry_type: formData.enquiryType,
           message: formData.message,
-          subject: 'Designer Support Request - Luxaura',
+          subject: 'Designer Support Request - LuxAura',
         }),
       });
 
@@ -80,10 +80,10 @@ export default function ContactSection() {
     <section id="priority-support" className="section-padding pt-6">
       <div className="container-custom">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="section-shell p-8 sm:p-10">
+          <div className="section-shell p-6 sm:p-10">
             <SectionHeading
               eyebrow="Priority Support"
-              title="Send the brief and route it to the right Luxaura team"
+              title="Send the brief and route it to the right LuxAura team"
               description="Use this form for sourcing, quote follow-up, trimmings, systems, outdoor products or workroom feasibility."
             />
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -183,7 +183,7 @@ export default function ContactSection() {
           </div>
 
           <div className="space-y-6">
-            <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
+            <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-6 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#dfc99f]">
                 Instant Designer Support
               </p>
@@ -196,13 +196,13 @@ export default function ContactSection() {
                 href={SOCIAL_LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary mt-8 border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
+                className="btn-secondary mt-8 w-full justify-center border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
                 Open WhatsApp
               </a>
             </article>
 
-            <article className="section-shell p-8">
+            <article className="section-shell p-6 sm:p-8">
               <h3 className="font-heading text-3xl font-semibold text-neutral-900">Contact details</h3>
               <div className="mt-6 space-y-5 text-sm leading-7 text-neutral-700 sm:text-base">
                 <p>
@@ -227,7 +227,7 @@ export default function ContactSection() {
               </div>
             </article>
 
-            <article className="section-shell p-8">
+            <article className="section-shell p-6 sm:p-8">
               <h3 className="font-heading text-3xl font-semibold text-neutral-900">Best uses for this page</h3>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-neutral-700 sm:text-base">
                 <li>Request sourcing advice on fabrics, trims, systems or outdoor textile options.</li>

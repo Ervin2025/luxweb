@@ -16,17 +16,19 @@ export default function Footer() {
       <div className="container-custom section-padding">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr_0.95fr_1fr]">
           <div>
-            <div className="mb-5 flex items-center gap-4">
+            <div className="mb-5 flex items-start gap-3 sm:items-center sm:gap-4">
               <Image
                 src="/logo.svg"
-                alt="Luxaura"
+                alt="LuxAura"
                 width={84}
                 height={84}
                 className="h-16 w-auto brightness-0 invert"
               />
               <div>
-                <p className="font-heading text-3xl font-semibold tracking-[0.12em]">Luxaura</p>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#d7c29c]">
+                <p className="font-heading text-2xl font-semibold tracking-[0.12em] sm:text-3xl">
+                  LuxAura
+                </p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d7c29c] sm:text-[11px] sm:tracking-[0.28em]">
                   Family-Owned Australian Textile Partner
                 </p>
               </div>
@@ -36,23 +38,23 @@ export default function Footer() {
               understanding, globally selected fabrics, integrated making and efficient delivery for
               designers, retailers, project teams and commercial clients.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary">
+            <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
+              <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary w-full sm:w-auto">
                 Register Trade Account
               </Link>
               <Link
                 href={GET_QUOTE_HREF}
-                className="btn-secondary border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
+                className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
                 Get Quote
               </Link>
             </div>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
               >
                 Facebook
               </a>
@@ -60,7 +62,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
               >
                 Instagram
               </a>
@@ -68,7 +70,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
               >
                 WhatsApp
               </a>
@@ -80,7 +82,10 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
               {NAV_ITEMS.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="transition hover:text-[#d7c29c]">
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -93,7 +98,10 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
               {FOOTER_CATEGORY_LINKS.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="transition hover:text-[#d7c29c]">
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -130,9 +138,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 sm:pt-8">
-          <div className="flex flex-col items-center justify-between text-xs text-neutral-400 sm:text-sm md:flex-row">
-            <p className="mb-4 md:mb-0">&copy; {currentYear} Luxaura. All rights reserved.</p>
-            <div className="flex flex-wrap gap-4 sm:gap-6">
+          <div className="flex flex-col items-center justify-between gap-3 text-center text-xs text-neutral-400 sm:text-sm md:flex-row md:text-left">
+            <p>&copy; {currentYear} LuxAura. All rights reserved.</p>
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6 md:justify-end">
               <Link href="/faq" className="transition-colors hover:text-[#d7c29c]">
                 FAQ
               </Link>

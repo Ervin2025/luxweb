@@ -52,7 +52,7 @@ export default function QuoteForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: 'New Project Quote Request - Luxaura',
+          subject: 'New Project Quote Request - LuxAura',
           project_name: formData.projectName,
           company_name: formData.companyName,
           contact_name: formData.contactName,
@@ -83,7 +83,7 @@ export default function QuoteForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="section-shell space-y-6 p-8 sm:p-10">
+    <form onSubmit={handleSubmit} className="section-shell space-y-5 p-6 sm:space-y-6 sm:p-10">
       <div className="grid gap-6 md:grid-cols-2">
         <Field label="Project Name" htmlFor="projectName">
           <input
@@ -238,11 +238,11 @@ export default function QuoteForm() {
         />
       </Field>
 
-      <div className="rounded-[1.5rem] bg-neutral-50 p-6 text-sm leading-7 text-neutral-700">
+      <div className="rounded-[1.5rem] bg-neutral-50 p-5 text-sm leading-7 text-neutral-700 sm:p-6">
         <p className="font-semibold text-neutral-900">Quote workflow</p>
         <ul className="mt-3 space-y-2">
           <li>Public pricing stays hidden while the team reviews the project scope.</li>
-          <li>Luxaura aligns fabrics, trims, systems and fabrication into one response where needed.</li>
+          <li>LuxAura aligns fabrics, trims, systems and fabrication into one response where needed.</li>
           <li>Trade clients can continue into account support and project follow-up after submission.</li>
         </ul>
       </div>

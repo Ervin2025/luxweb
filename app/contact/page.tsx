@@ -6,11 +6,11 @@ import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact Luxaura | Trade Fabric Support Sydney',
+  title: 'Contact LuxAura | Trade Fabric Support Sydney',
   description:
-    'Contact Luxaura for trade support, sourcing advice and project quoting in Sydney.',
+    'Contact LuxAura for trade support, sourcing advice and project quoting in Sydney.',
   keywords:
-    'contact Luxaura, wholesale fabric Sydney, curtain workroom contact, trade fabric support',
+    'contact LuxAura, wholesale fabric Sydney, curtain workroom contact, trade fabric support',
   alternates: {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
@@ -24,9 +24,9 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Talk to the wholesale support desk"
-        description="Use Luxaura for sourcing questions, workroom feasibility, quote support or fast WhatsApp contact."
+        description="Use LuxAura for sourcing questions, workroom feasibility, quote support or fast WhatsApp contact."
         imageSrc="/images/luxaura/hero-project.webp"
-        imageAlt="Luxaura trade support and project collaboration"
+        imageAlt="LuxAura trade support and project collaboration"
       />
 
       <div className="container-custom">

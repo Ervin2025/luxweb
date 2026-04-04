@@ -101,7 +101,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `Luxaura Trade Account - ${activeIntent?.label ?? 'Enquiry'}`,
+          subject: `LuxAura Trade Account - ${activeIntent?.label ?? 'Enquiry'}`,
           enquiry_intent: formData.intent,
           enquiry_intent_label: activeIntent?.label ?? formData.intent,
           company_name: formData.companyName,
@@ -133,7 +133,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
   };
 
   return (
-    <form onSubmit={handleSubmit} className="section-shell space-y-6 p-8 sm:p-10">
+    <form onSubmit={handleSubmit} className="section-shell space-y-5 p-6 sm:space-y-6 sm:p-10">
       <fieldset>
         <legend className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/70">
           Choose your intent
@@ -145,7 +145,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
             return (
               <label
                 key={option.value}
-                className={`cursor-pointer rounded-[1.5rem] border p-5 transition ${
+                className={`cursor-pointer rounded-[1.5rem] border p-4 transition sm:p-5 ${
                   isActive
                     ? 'border-primary bg-primary/6 shadow-[0_18px_40px_rgba(20,22,20,0.06)]'
                     : 'border-primary/10 bg-neutral-50'
@@ -309,7 +309,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
         />
       </Field>
 
-      <div className="rounded-[1.5rem] bg-neutral-50 p-6 text-sm leading-7 text-neutral-700">
+      <div className="rounded-[1.5rem] bg-neutral-50 p-5 text-sm leading-7 text-neutral-700 sm:p-6">
         <p className="font-semibold text-neutral-900">What happens next?</p>
         <ul className="mt-3 space-y-2">
           <li>Trade access requests are reviewed with ABN-backed business details.</li>

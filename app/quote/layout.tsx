@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Project Quote | Wholesale Fabric & Fabrication Brief',
   description:
-    'Submit a Luxaura project quote request for fabric sourcing, Roman blinds, upholstery, trimmings and rods.',
+    'Submit a LuxAura project quote request for fabric sourcing, Roman blinds, upholstery, trimmings and rods.',
   keywords:
     'project quote fabric, wholesale fabric quote Sydney, Roman blind quote, curtain manufacturing quote',
   alternates: {

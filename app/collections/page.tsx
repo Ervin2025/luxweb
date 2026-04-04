@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import FaqSection from '@/components/FaqSection';
@@ -10,141 +9,157 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import { GET_QUOTE_HREF, REQUEST_CATALOGUE_HREF } from '@/lib/site-data';
 
-const COLLECTION_SOURCE_STORIES = [
+const FABRIC_BRANDS = [
   {
-    title: 'Luxaura signature fabric series',
+    title: 'LuxAura Signature Series',
     description:
-      'Our own ranges give the collection a clear house point of view, with styling flexibility across residential and project work.',
+      'Our own branded ranges give the collection a clear house point of view, with styling flexibility across residential and project work.',
     bullets: ['Own-brand identity', 'Flexible specification use', 'Designed to sit beside imported collections'],
   },
   {
-    title: 'Prestigious Textiles and Mobus from the UK',
+    title: 'Prestigious Textiles',
     description:
-      'British collections bring decorative depth, confident colour and strong upholstery direction, with Mobus adding a bestselling furniture fabric story for real living.',
-    bullets: ['Design-led drapery and upholstery', 'Mobus includes Spill-Safe protection and OEKO-TEX certification', 'A strong fit for Australian pet-friendly homes'],
+      'A premium British collection known for decorative confidence, polished drapery and rich interior palettes.',
+    bullets: ['Design-led drapery', 'Luxury decorative direction', 'Popular with interior designers'],
   },
   {
-    title: 'European FibreGuard performance fabrics',
+    title: 'Mobus',
     description:
-      'Performance fabrics for projects where stain resistance, easier cleaning and daily use matter.',
+      'A bestselling British upholstery fabric collection with strong furniture character, Spill-Safe protection and OEKO-TEX certification.',
+    bullets: ['High-quality furniture fabric', 'Spill-Safe + OEKO-TEX', 'A strong fit for Australian pet-friendly homes'],
+  },
+  {
+    title: 'FibreGuard',
+    description:
+      'Performance fabrics for projects where stain resistance, easy cleaning and daily living matter.',
     bullets: ['Pet-friendly options', 'Useful for homes and guest accommodation', 'A practical fit for seating and covers'],
   },
   {
-    title: 'Sunbrella outdoor fabric collections',
+    title: 'Sunbrella',
     description:
-      'Sunbrella is a world-leading outdoor fabric with a 5-year warranty, built to handle Australia’s harsh UV while keeping outdoor furniture and cushions looking resolved.',
-    bullets: ['5-year warranty', 'Designed to solve strong Australian UV exposure', 'Strong fit for bespoke outdoor upholstery'],
+      'A world-leading outdoor fabric with a 5-year warranty, built to handle Australia’s harsh UV while keeping outdoor furniture looking resolved.',
+    bullets: ['5-year warranty', 'Made for strong Australian UV', 'Trusted for outdoor upholstery'],
   },
   {
-    title: 'French 100% linen and linen-cotton hanging cards',
+    title: 'French Linen Cards',
     description:
-      'French linen cards let clients choose fabric, then carry it straight into curtains, sheers, indoor and outdoor furniture, cushions, table runners and coordinated soft furnishing pieces.',
-    bullets: ['100% linen and linen-cotton options', 'From fabric selection into finished home soft furnishings', 'A natural fit for relaxed premium interiors'],
+      'A refined library of 100% linen and linen-cotton blends that brings natural texture, soft drape and relaxed premium character.',
+    bullets: ['100% linen and linen-cotton options', 'A natural fit for curtains and soft furnishings', 'Ideal for quieter luxury interiors'],
   },
   {
-    title: 'Curated Asian value fabrics',
+    title: 'Curated Asia Collection',
     description:
       'Selected Asian ranges give projects a commercially smart option without losing design discipline.',
     bullets: ['Cost-conscious project coverage', 'Useful for broader quantity runs', 'Supports mixed-budget schemes'],
   },
 ];
 
-const COLLECTION_APPLICATION_GROUPS = [
+const FABRICATION_ITEMS = [
   {
-    title: 'Window soft furnishings',
-    description: 'Fabrics can move directly into finished curtains, layered drapery and sewn detailing.',
-    items: ['Finished curtains', 'Layered drapery sets', 'Specialty sewing details'],
+    title: 'Curtains & Sheers',
+    description:
+      'Fabric can move straight into full curtain and sheer packages with the right heading, lining and finishing detail.',
   },
   {
-    title: 'Upholstery and covers',
-    description: 'The collection supports sofa covers, protectors, seat pads and other upholstery-led pieces.',
-    items: ['Sofa covers', 'Seat cushions', 'Ottoman and stool pieces'],
+    title: 'Cushions',
+    description:
+      'Square, rectangular and custom cushions that extend the textile story across the room.',
   },
   {
-    title: 'Cushions and styling layers',
-    description: 'Square and round cushions, throws and runners extend the textile story through the room.',
-    items: ['Square cushions', 'Round cushions', 'Throws and runners'],
+    title: 'Table Runners',
+    description:
+      'Fabric-led runners and table styling pieces for residential, hospitality and display settings.',
   },
   {
-    title: 'Specialty fabric products',
-    description: 'The same fabrics can also be translated into practical or decorative custom pieces.',
-    items: ['Tablecloths and placemats', 'Aprons and gloves', 'Pet and display accessories'],
+    title: 'Ottomans',
+    description:
+      'Tailored ottoman upholstery and textile detailing designed to coordinate with the wider furniture package.',
+  },
+  {
+    title: 'Sofas',
+    description:
+      'Indoor upholstery and sofa fabrication with fabric selection, sewing control and finish all aligned.',
+  },
+  {
+    title: 'Outdoor Furniture',
+    description:
+      'Exterior furniture softening with performance textiles and construction suited to Australian conditions.',
   },
 ];
 
 const COLLECTION_FAQ = [
   {
-    question: 'Can Luxaura cover both premium and value-focused sourcing?',
+    question: 'What does Fabrics & Fabrication cover?',
     answer:
-      'Yes. The library spans British premium brands, European performance fabrics, French linen cards and curated Asian value ranges.',
+      'It combines the fabric library with the making side of the business, from premium sourcing through to finished soft furnishing outcomes.',
   },
   {
-    question: 'Is this page only about fabric supply?',
+    question: 'Can I choose fabric first and decide the product later?',
     answer:
-      'No. It also shows how the same fabrics move into curtains, covers, cushions, outdoor pieces and custom sewn products.',
+      'Yes. Fabric can be selected first, then developed into curtains, cushions, sofas, ottomans, table runners and other custom pieces.',
   },
   {
-    question: 'Which products are especially popular?',
+    question: 'Do trimmings and tracks sit inside this offer as well?',
     answer:
-      'Pet-friendly sofa covers, seat cushions and protectors are especially strong because they balance durability with a more considered finish.',
+      'Yes. Thousands of trimmings, curtain tracks and motorised solutions can be added to complete the package.',
   },
 ];
 
 const COLLECTION_RELATED_LINKS = [
   {
-    title: 'Open the Fabric Library',
-    description: 'Browse by brand, origin, material and usage.',
-    href: '/wholesale-fabrics',
-  },
-  {
-    title: 'Discuss Window Treatments',
+    title: 'Window Treatments',
     description: 'Carry selected fabrics into curtains, sheers and layered treatments.',
     href: '/custom-curtains-sheers',
   },
   {
-    title: 'Plan Bespoke Upholstery',
-    description: 'Extend the same direction into seating, covers and cushions.',
+    title: 'Bespoke Upholstery',
+    description: 'Extend the same direction into sofas, seating, covers and cushions.',
     href: '/cushions-soft-furnishings',
+  },
+  {
+    title: 'Hardware & Trimmings',
+    description: 'Complete the package with tracks, trims and motorised solutions.',
+    href: '/trimmings',
   },
 ];
 
 export const metadata: Metadata = {
-  title: 'Collections | Premium Fabrics and Sewn Soft Furnishings',
+  title: 'Fabrics & Fabrication | Premium Fabrics and Soft Furnishing Products',
   description:
-      'Explore Luxaura collections across its own branded series, Prestigious Textiles, Mobus, FibreGuard, Sunbrella, French linen cards and curated Asian fabrics, all designed to move into finished soft furnishings.',
+    'Explore LuxAura fabrics and fabrication, from global fabric brands through to custom curtains, cushions, table runners, ottomans, sofas and outdoor furniture.',
   keywords:
-    'fabric collections Sydney, Prestigious Textiles Australia, FibreGuard supplier Australia, French linen fabric Sydney, bespoke upholstery fabrics',
+    'fabrics and fabrication Sydney, Prestigious Textiles Australia, Mobus upholstery, FibreGuard supplier Australia, custom soft furnishings Sydney',
   alternates: {
     canonical: `${SITE_CONFIG.url}/collections`,
   },
 };
 
 export default function CollectionsPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Collections', url: '/collections' }]);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Fabrics & Fabrication', url: '/collections' },
+  ]);
   const faqSchema = generateFaqSchema(COLLECTION_FAQ);
 
   return (
     <div>
       <PageHero
-        eyebrow="Collections"
-        title="A curated fabric mix, ready for making"
-        description="Luxaura combines its own fabric series with PT, Mobus, FibreGuard, Sunbrella, French linen cards and curated Asian ranges, then carries those selections into finished curtains, covers, cushions and custom sewn pieces."
+        eyebrow="Fabrics & Fabrication"
+        title="Premium fabric sourcing and custom fabrication in one destination"
+        description="LuxAura combines an international fabric library with fabrication capability, so clients can move from brand selection into curtains, cushions, table runners, ottomans, sofas, outdoor furniture and other finished soft-furnishing products."
         imageSrc="/images/luxaura/beach-sheer.webp"
-        imageAlt="Luxaura collections of drapery and soft furnishing fabrics"
+        imageAlt="LuxAura fabrics and fabrication"
         stats={[
           {
-            value: 'Own Brand + Global Brands',
-            label: 'Luxaura collections sit beside premium imports and value-focused project ranges',
+            value: 'Fabrics',
+            label: 'Prestigious Textiles, Mobus, FibreGuard, Sunbrella, French linen cards and curated Asian ranges',
           },
           {
-            value: 'Total Fabrics Solution',
-            label:
-              'Choose fabrics and make curtains, sheers, indoor or outdoor furniture, cushions, table runners and more',
+            value: 'Fabrication',
+            label: 'Curtains, cushions, table runners, ottomans, sofas, outdoor furniture and more',
           },
           {
             value: 'Trims, Tracks & Motorisation',
-            label:
-              'Thousands of trimmings, curtain tracks and motorised solutions to complete the package',
+            label: 'Thousands of trimmings, curtain tracks and motorised solutions to complete the package',
           },
         ]}
       >
@@ -157,26 +172,24 @@ export default function CollectionsPage() {
       </PageHero>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'Collections', href: '/collections' }]} />
+        <Breadcrumb items={[{ label: 'Fabrics & Fabrication', href: '/collections' }]} />
       </div>
 
       <section className="section-padding pt-6">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Sourcing Layers"
-            title="Premium brands, natural linen, outdoor performance and value-led project fabrics"
-            description="Each layer serves a different brief, but all can move through the same quote and fabrication path."
+            eyebrow="Fabrics"
+            title="An international fabric library across premium, performance and value"
+            description="The fabric side of the offer covers signature collections, imported brands, performance stories and practical project ranges."
           />
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {COLLECTION_SOURCE_STORIES.map(story => (
-              <article key={story.title} className="section-shell p-7">
-                <h2 className="font-heading text-3xl font-semibold text-neutral-900">{story.title}</h2>
-                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                  {story.description}
-                </p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
+            {FABRIC_BRANDS.map(item => (
+              <article key={item.title} className="section-shell p-7">
+                <h2 className="font-heading text-3xl font-semibold text-neutral-900">{item.title}</h2>
+                <p className="mt-4 text-sm leading-7 text-neutral-700">{item.description}</p>
                 <ul className="mt-5 space-y-2 text-sm leading-7 text-neutral-600">
-                  {story.bullets.map(item => (
-                    <li key={item}>{item}</li>
+                  {item.bullets.map(bullet => (
+                    <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
               </article>
@@ -187,45 +200,27 @@ export default function CollectionsPage() {
 
       <section className="section-padding pt-0">
         <div className="container-custom">
-          <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-            <article className="section-shell overflow-hidden">
-              <div className="relative aspect-[4/4.5]">
-                <Image
-                  src="/images/luxaura/upholstery-pillows.webp"
-                  alt="Bespoke cushions and upholstery made from Luxaura fabrics"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 38vw, 100vw"
-                />
-              </div>
-              <div className="p-7">
-                <p className="eyebrow">From Fabric To Form</p>
-                <h2 className="mt-3 font-heading text-4xl font-semibold text-neutral-900">
-                  The collection is built to become finished product
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                  Fabrics are considered for what they can become in the workroom, from curtains
-                  and sheers to indoor or outdoor furniture, cushions, table runners and other
-                  coordinated soft furnishing pieces.
-                </p>
-              </div>
-            </article>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              {COLLECTION_APPLICATION_GROUPS.map(group => (
-                <article key={group.title} className="section-shell p-6">
+          <SectionHeading
+            eyebrow="Fabrication"
+            title="Fabric developed into finished soft-furnishing products"
+            description="This section shows what the selected fabrics can become. Image space is left open so finished work can be added later."
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {FABRICATION_ITEMS.map(item => (
+              <article key={item.title} className="section-shell overflow-hidden">
+                <div className="flex aspect-[4/2.8] items-center justify-center border-b border-primary/10 bg-[linear-gradient(180deg,#f6f1e7_0%,#eee4d1_100%)]">
+                  <div className="rounded-full border border-dashed border-primary/25 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary/60">
+                    Image Placeholder
+                  </div>
+                </div>
+                <div className="p-7">
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
-                    {group.title}
+                    {item.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700">{group.description}</p>
-                  <ul className="mt-5 space-y-2 text-sm leading-7 text-neutral-600">
-                    {group.items.map(item => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
+                  <p className="mt-4 text-sm leading-7 text-neutral-700">{item.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -234,17 +229,16 @@ export default function CollectionsPage() {
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
             <SectionHeading
-              eyebrow="Featured Strength"
-              title="Pet-friendly covers and cushions remain a strong commercial story"
-              description="Clients respond well to performance-led sofa covers, seat cushions and protectors that still feel tailored and well designed."
+              eyebrow="Finishing & Systems"
+              title="The package can be completed beyond fabric alone"
+              description="LuxAura can also add thousands of trimmings, curtain tracks and motorised solutions to finish the project properly."
               theme="dark"
             />
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
-                'FibreGuard and other performance fabrics help practical products feel more premium.',
-                'Seat cushions and sofa covers can be specified for daily living with more confidence.',
-                'Pet-friendly ranges reduce the trade-off between maintenance and appearance.',
-                'The offer suits family homes, short-stay properties and busy lounge settings.',
+                'Thousands of trimmings and decorative edges for curtains, cushions and upholstery',
+                'Premium curtain tracks for smoother operation and cleaner drapery support',
+                'Motorised solutions for modern window systems and larger openings',
               ].map(item => (
                 <article
                   key={item}
@@ -263,8 +257,8 @@ export default function CollectionsPage() {
           <div className="section-shell p-8 sm:p-10">
             <SectionHeading
               eyebrow="Next Step"
-              title="Move from fabric selection into the right trade conversation"
-              description="Keep browsing, request a quote or take the collection into a more specific category."
+              title="Move from fabric selection into the right fabrication path"
+              description="Continue into the category that matches the finished product you want to develop."
             />
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
               {COLLECTION_RELATED_LINKS.map(item => (
@@ -297,7 +291,7 @@ export default function CollectionsPage() {
       <FaqSection
         items={COLLECTION_FAQ}
         title="Frequently asked questions"
-        description="Quick answers on sourcing, finished products and performance."
+        description="Quick answers on fabrics, fabrication and finishing support."
       />
 
       <script

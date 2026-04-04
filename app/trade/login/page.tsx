@@ -7,7 +7,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Trade Portal Preview | Secure Wholesale Access',
   description:
-    'Preview the Luxaura trade portal surface for protected wholesale pricing, spec sheet access and project quote support.',
+    'Preview the LuxAura trade portal surface for protected wholesale pricing, spec sheet access and project quote support.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/trade/login`,
   },

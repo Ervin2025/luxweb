@@ -9,11 +9,11 @@ import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'Luxaura | Australian Family-Owned Wholesale Textile Partner',
-    template: '%s | Luxaura',
+    default: 'LuxAura | Australian Family-Owned Wholesale Textile Partner',
+    template: '%s | LuxAura',
   },
   description:
-    'Luxaura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery.',
+    'LuxAura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery.',
   keywords: [
     'Wholesale Fabric Sydney',
     'Designer Curtain Manufacturer',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'Curtain Workroom Sydney',
     'Trade Fabric Supplier Sydney',
   ],
-  authors: [{ name: 'Luxaura' }],
+  authors: [{ name: 'LuxAura' }],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '32x32' },
@@ -33,24 +33,24 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: 'Luxaura | Australian Family-Owned Wholesale Textile Partner',
+    title: 'LuxAura | Australian Family-Owned Wholesale Textile Partner',
     description:
       'Australian family-owned wholesale support with global fabric sourcing, integrated fabrication and efficient delivery for designers, retailers and project teams.',
     type: 'website',
     locale: 'en_AU',
-    siteName: 'Luxaura',
+    siteName: 'LuxAura',
     images: [
       {
         url: '/images/luxaura/hero-project.webp',
         width: 1200,
         height: 630,
-        alt: 'Luxaura custom drapery and upholstery project in Sydney',
+        alt: 'LuxAura custom drapery and upholstery project in Sydney',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Luxaura | Australian Family-Owned Textile Partner',
+    title: 'LuxAura | Australian Family-Owned Textile Partner',
     description: 'Australian family-owned wholesale sourcing, fabrication and delivery support for trade projects.',
   },
   robots: {
@@ -115,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta
           name="description"
-          content="Luxaura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery."
+          content="LuxAura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery."
         />
         <script
           type="application/ld+json"

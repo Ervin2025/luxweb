@@ -12,15 +12,14 @@ interface BreadcrumbProps {
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
     <nav aria-label="Breadcrumb" className="py-3 sm:py-4">
-      <ol className="flex items-center space-x-1.5 text-xs sm:space-x-2 sm:text-sm">
-        {/* Home - 更大的触摸区域 */}
+      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs sm:gap-x-2 sm:text-sm">
         <li>
           <Link
             href="/"
-            className="flex min-h-[44px] items-center text-neutral-600 transition-colors hover:text-primary"
+            className="inline-flex min-h-[44px] items-center rounded-full px-1.5 text-neutral-600 transition-colors hover:text-primary"
           >
             <svg
-              className="h-5 w-5 sm:h-4 sm:w-4"
+              className="h-4 w-4 sm:h-4 sm:w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -40,9 +39,9 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
           const isLast = index === items.length - 1;
 
           return (
-            <li key={item.href} className="flex items-center space-x-1.5 sm:space-x-2">
+            <li key={item.href} className="flex min-w-0 items-center gap-1.5 sm:gap-2">
               <svg
-                className="h-4 w-4 text-neutral-400 sm:h-4 sm:w-4"
+                className="h-4 w-4 flex-shrink-0 text-neutral-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -51,13 +50,17 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
               {isLast ? (
-                <span className="font-medium text-neutral-900" aria-current="page">
+                <span
+                  className="max-w-[12rem] truncate font-medium text-neutral-900 sm:max-w-none"
+                  aria-current="page"
+                  title={item.label}
+                >
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className="min-h-[44px] text-neutral-600 transition-colors hover:text-primary"
+                  className="inline-flex min-h-[44px] items-center text-neutral-600 transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>

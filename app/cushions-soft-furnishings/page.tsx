@@ -51,7 +51,7 @@ export default function CushionsSoftFurnishingsPage() {
             <SectionHeading
               eyebrow="Bespoke Range"
               title="Custom seating, indoor or out"
-              description="Luxaura supports finished upholstery outcomes, from sofas and single chairs to outdoor furniture."
+              description="LuxAura supports finished upholstery outcomes, from sofas and single chairs to outdoor furniture."
             />
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {BESPOKE_UPHOLSTERY_CATEGORIES.map(item => (

@@ -6,9 +6,9 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { FORM_INTENT_OPTIONS, THANK_YOU_VARIANTS, type FormIntent } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Thank You | Luxaura',
+  title: 'Thank You | LuxAura',
   description:
-    'Thank you for contacting Luxaura. Your enquiry has been received and the team will respond with the next step.',
+    'Thank you for contacting LuxAura. Your enquiry has been received and the team will respond with the next step.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/thank-you`,
   },

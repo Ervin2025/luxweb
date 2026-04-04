@@ -17,9 +17,9 @@ import {
 } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Premium Fabrics & Soft Furnishing Solutions | Luxaura Sydney',
+  title: 'Premium Fabrics & Soft Furnishing Solutions | LuxAura Sydney',
   description:
-    'Luxaura is an Australian family-owned supplier of premium fabrics and custom soft furnishing products, combining global collections, specialty making and friendly project pricing.',
+    'LuxAura is an Australian family-owned supplier of premium fabrics and custom soft furnishing products, combining global collections, specialty making and friendly project pricing.',
   keywords:
     'Wholesale Fabric Sydney, Designer Curtain Manufacturer, Roman Blind Specialist, FibreGuard Supplier Australia, Trade Fabric Supplier Sydney',
   alternates: {
@@ -31,11 +31,11 @@ export default function Home() {
   return (
     <>
       <PageHero
-        eyebrow="Fabric + Fabrication"
-        title="A Sydney-based destination for premium textiles and expert fabrication."
-        description="We provide homeowners with direct access to global fabrics, while offering industry-specific solutions and protected pricing for our trade partners."
+        eyebrow="Premium Fabric Solution"
+        title="Total Premium Textile Solution, from Source to Sydney."
+        description="LuxAura is your one-stop destination for world-class custom soft furnishings. By combining an international library of thousands of premium fabrics and trimmings with our specialized global manufacturing, we fulfil any bespoke requirement, from simple elegance to the most complex designer briefs. Enjoy a seamless workflow and master craftsmanship, all backed by our 100% best-price guarantee."
         imageSrc="/images/luxaura/hero-project.webp"
-        imageAlt="Luxaura Sydney project with Roman blinds and upholstery"
+        imageAlt="LuxAura Sydney project with Roman blinds and upholstery"
         stats={HOME_HERO_STATS}
       >
         <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary">
@@ -51,9 +51,9 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
             <article className="section-shell p-8 sm:p-10">
               <SectionHeading
-                eyebrow="Why Luxaura"
+                eyebrow="Why LuxAura"
                 title="Built for clients who need more than fabric supply alone"
-                description="Luxaura combines premium collections with direct processing into finished soft furnishing products, so sourcing and making stay under one roof."
+                description="LuxAura combines premium collections with direct processing into finished soft furnishing products, so sourcing and making stay under one roof."
               />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {HOME_VALUE_POINTS.map(point => (
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="container-custom">
           <SectionHeading
             eyebrow="Categories"
-            title="The core Luxaura offer"
+            title="The core LuxAura offer"
             description="Each category feeds the same trade workflow, quote path and making support."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -205,7 +205,7 @@ export default function Home() {
               Final CTA
             </p>
             <h2 className="mt-4 font-heading text-4xl font-semibold sm:text-5xl">
-              Bring Luxaura in before the brief fragments
+              Bring LuxAura in before the brief fragments
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/78 sm:text-lg">
               Register for project pricing or move straight into a quote when fabrics, custom

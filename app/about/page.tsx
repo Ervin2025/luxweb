@@ -8,11 +8,11 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { ABOUT_PILLARS, GET_QUOTE_HREF, REQUEST_CATALOGUE_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'About Luxaura | Family-Owned Australian Textile Partner',
+  title: 'About LuxAura | Family-Owned Australian Textile Partner',
   description:
-    'Learn how Luxaura combines family-owned Australian service, global sourcing and Sydney-based project support for professional interiors.',
+    'Learn how LuxAura combines family-owned Australian service, global sourcing and Sydney-based project support for professional interiors.',
   keywords:
-    'about Luxaura, Sydney fabric supplier, family-owned textile business, curtain workroom Sydney, trade textile partner',
+    'about LuxAura, Sydney fabric supplier, family-owned textile business, curtain workroom Sydney, trade textile partner',
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
@@ -26,16 +26,16 @@ const partnerGroups = [
 ];
 
 export default function AboutPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'About Luxaura', url: '/about' }]);
+  const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'About LuxAura', url: '/about' }]);
 
   return (
     <div>
       <PageHero
-        eyebrow="About Luxaura"
+        eyebrow="About LuxAura"
         title="A family-owned Australian business built for wholesale textile supply"
-        description="Luxaura combines global sourcing, integrated fabrication and Sydney-based support so trade clients can specify with more confidence."
+        description="LuxAura combines global sourcing, integrated fabrication and Sydney-based support so trade clients can specify with more confidence."
         imageSrc="/images/luxaura/beach-sheer.webp"
-        imageAlt="Luxaura drapery project with Sydney coastal outlook"
+        imageAlt="LuxAura drapery project with Sydney coastal outlook"
       >
         <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary">
           Register Trade Account
@@ -46,7 +46,7 @@ export default function AboutPage() {
       </PageHero>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'About Luxaura', href: '/about' }]} />
+        <Breadcrumb items={[{ label: 'About LuxAura', href: '/about' }]} />
       </div>
 
       <section className="section-padding pt-6">
@@ -96,7 +96,7 @@ export default function AboutPage() {
           <div className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
             <SectionHeading
               eyebrow="Next Step"
-              title="Bring Luxaura into the brief early"
+              title="Bring LuxAura into the brief early"
               description="That is when sourcing, pricing and downstream fabrication stay easiest to manage."
               theme="dark"
             />
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 href="/contact"
                 className="btn-secondary border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
               >
-                Contact Luxaura
+                Contact LuxAura
               </Link>
             </div>
           </div>
