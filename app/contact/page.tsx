@@ -8,9 +8,9 @@ import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Contact LuxAura | Trade Support Desk',
   description:
-    'Contact the LuxAura Trade Support Desk for sourcing guidance, quoting support and project coordination in Chatswood, NSW.',
+    'Contact the LuxAura Trade Support Desk for sourcing direction, fabrication support, material questions, project alignment and trade account enquiries.',
   keywords:
-    'contact LuxAura, trade support desk Sydney, Chatswood fabric support, project quote support, textile fabrication contact',
+    'contact LuxAura, trade support desk Sydney, Chatswood fabric support, project brief support, textile fabrication contact',
   alternates: {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
@@ -24,7 +24,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Trade Support Desk"
         title="Talk to the LuxAura team coordinating the brief"
-        description={`Reach LuxAura for sourcing advice, fabrication checks, quote support or project coordination from ${CONTACT_INFO.address.display}.`}
+        description={`Reach LuxAura for sourcing direction, fabrication support, material questions, project alignment or trade account enquiries from ${CONTACT_INFO.address.display}.`}
         imageSrc="/images/luxaura/hero-project.webp"
         imageAlt="LuxAura trade support and project collaboration"
       />

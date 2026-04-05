@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SITE_CONFIG } from '@/lib/constants';
-import { GET_QUOTE_HREF, REGISTER_TRADE_ACCOUNT_HREF } from '@/lib/site-data';
+import { PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const CAPABILITY_TILES = [
   {
@@ -43,18 +43,18 @@ const CAPABILITY_TILES = [
   },
   {
     number: '05',
-    title: 'Integrated Supply Chain',
+    title: 'Unified Supply Chain',
     description:
-      'Four-week manufacturing turnaround supported by global capacity and Sydney-based accountability.',
+      'Sourcing, fabrication and project coordination aligned through one accountable process.',
     href: '/about',
     imageSrc: '/images/luxaura/hero-project.webp',
     imageAlt: 'Completed project with layered drapery, upholstery, and delivery-ready finish.',
   },
   {
     number: '06',
-    title: 'Direct Value Advantage',
+    title: 'Partner Excellence',
     description:
-      'Direct-source control delivers stronger pricing without compromising material quality or fabrication standards.',
+      'Trade responsiveness and project support designed for professionals managing real timelines and decisions.',
     href: '/trade-projects',
     imageSrc: '/images/IMG-E.webp',
     imageAlt: 'Quiet drapery installation with generous light and controlled detailing.',
@@ -104,7 +104,7 @@ const WHY_LUXAURA_PILLARS = [
 export const metadata: Metadata = {
   title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
   description:
-    "Sydney's integrated hub for premium textiles, master fabrication, and end-to-end soft-furnishing fulfillment for designers, builders, developers, and project partners.",
+    "Sydney's integrated trade partner for fabric sourcing, specialist fabrication, window treatments, upholstery, hardware, trims, and accountable soft-furnishing delivery.",
   keywords:
     'Sydney soft furnishing fulfillment, premium textiles Sydney, master fabrication Sydney, trade window treatments Sydney, bespoke upholstery Sydney',
   alternates: {
@@ -148,25 +148,26 @@ export default function Home() {
         <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-16 pt-40 sm:px-6 sm:pb-20 sm:pt-44 lg:px-8 lg:pb-24">
           <div className="max-w-[38rem] text-white">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
-              Strategic Fulfillment Center
+              Premium Trade Soft Furnishing
             </p>
             <h1 className="mt-6 text-balance font-heading text-[3.45rem] font-semibold leading-[0.92] tracking-[-0.035em] sm:text-[4.55rem] lg:text-[5.45rem] xl:text-[5.95rem]">
               From Fabric Selection to Full Project Delivery.
             </h1>
             <p className="mt-6 max-w-[34rem] text-pretty text-[1.06rem] leading-[1.75] text-white/86 sm:text-[1.14rem]">
-              Sydney&rsquo;s integrated hub for premium textiles, master fabrication, and
-              end-to-end soft-furnishing fulfillment.
+              LuxAura brings together fabric sourcing, specialist fabrication, window
+              treatments, upholstery, hardware and trims into one accountable trade supply path
+              for residential, hospitality and commercial interiors.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link href={REGISTER_TRADE_ACCOUNT_HREF} className="btn-primary">
-                Register Trade Account
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Portal Access
               </Link>
               <Link
-                href={GET_QUOTE_HREF}
+                href={PROJECT_BRIEF_HREF}
                 className="btn-secondary border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
               >
-                Get a Project Quote
+                Submit a Project Brief
               </Link>
             </div>
           </div>
@@ -178,11 +179,11 @@ export default function Home() {
           <div className="max-w-3xl">
             <SectionEyebrow>What We Deliver</SectionEyebrow>
             <h2 className="mt-5 text-balance font-heading text-[2.9rem] font-semibold leading-[0.98] tracking-[-0.03em] text-[#2C2C2C] sm:text-[4rem] lg:text-[4.6rem]">
-              What We Deliver
+              One trade partner across sourcing, making and project execution
             </h2>
             <p className="mt-6 max-w-[42rem] text-pretty text-[1rem] leading-[1.8] text-neutral-700 sm:text-[1.06rem]">
-              Six connected capabilities that take a soft-furnishing brief from textile sourcing
-              through fabrication, detail resolution, and coordinated delivery.
+              Six connected capabilities that move a furnishing brief from selection through
+              fabrication, detailing and final delivery with greater control.
             </p>
           </div>
 
@@ -332,6 +333,46 @@ export default function Home() {
                   </p>
                 </article>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+        <div className="container-custom">
+          <div className="relative overflow-hidden rounded-[2.4rem] shadow-[0_28px_90px_rgba(27,24,20,0.12)]">
+            <Image
+              src="/images/IMG-H.webp"
+              alt="LuxAura project with layered drapery, upholstery and refined coastal light."
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.84)_0%,rgba(13,12,11,0.66)_46%,rgba(13,12,11,0.18)_100%)]" />
+            <div className="relative px-8 py-14 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
+              <div className="max-w-3xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
+                  Final CTA
+                </p>
+                <h2 className="mt-5 text-balance font-heading text-[2.9rem] font-semibold leading-[0.96] tracking-[-0.03em] text-white sm:text-[4rem] lg:text-[4.8rem]">
+                  One partner. One pathway. A more resolved result.
+                </h2>
+                <p className="mt-6 max-w-2xl text-pretty text-[1rem] leading-[1.85] text-white/82 sm:text-[1.06rem]">
+                  Bring LuxAura in when sourcing, fabrication, hardware and finishing detail need
+                  to move through one commercially accountable project path.
+                </p>
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                  <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                    Trade Portal Access
+                  </Link>
+                  <Link
+                    href={TRADE_SUPPORT_HREF}
+                    className="btn-secondary border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
+                  >
+                    Start a Trade Enquiry
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

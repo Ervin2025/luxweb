@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import {
   FOOTER_CATEGORY_LINKS,
-  GET_QUOTE_HREF,
   NAV_ITEMS,
-  REGISTER_TRADE_ACCOUNT_HREF,
+  TRADE_PORTAL_ACCESS_HREF,
+  TRADE_SUPPORT_HREF,
 } from '@/lib/site-data';
 
 export default function Footer() {
@@ -33,14 +33,14 @@ export default function Footer() {
               local delivery in one coordinated model.
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-              <Link href={REGISTER_TRADE_ACCOUNT_HREF} className="btn-primary w-full sm:w-auto">
-                Register Trade Account
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
+                Trade Portal Access
               </Link>
               <Link
-                href={GET_QUOTE_HREF}
+                href={TRADE_SUPPORT_HREF}
                 className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
-                Get a Project Quote
+                Start a Trade Enquiry
               </Link>
             </div>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
@@ -59,14 +59,6 @@ export default function Footer() {
                 className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
               >
                 Instagram
-              </a>
-              <a
-                href={SOCIAL_LINKS.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
-              >
-                WhatsApp
               </a>
             </div>
           </div>

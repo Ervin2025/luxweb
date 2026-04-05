@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Terms of Service | LuxAura',
   description:
-    'Review the terms that apply to using the LuxAura website and submitting trade, quote or project enquiries.',
+    'Review the terms that apply to using the LuxAura website and submitting trade access or project enquiries.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/terms`,
   },
@@ -17,15 +17,15 @@ export const metadata: Metadata = {
 const termsSections = [
   {
     title: '1. Website purpose',
-    body: 'The LuxAura website is a B2B marketing and enquiry platform for professional clients, including designers, retailers, builders and project teams.',
+    body: 'The LuxAura website is a B2B marketing and enquiry platform for professional clients, including designers, builders, developers and project teams.',
   },
   {
-    title: '2. Quotes and account approval',
-    body: 'Submitting a form does not create a binding supply contract. Trade applications and quotes are reviewed before any commercial arrangement is confirmed.',
+    title: '2. Project responses and account approval',
+    body: 'Submitting a form does not create a binding supply contract. Trade access requests and project briefs are reviewed before any commercial arrangement is confirmed.',
   },
   {
     title: '3. Quotes, pricing and availability',
-    body: 'Website content is general in nature and does not constitute instant wholesale pricing. Quotes, specifications, suitability and lead times remain subject to review and availability.',
+    body: 'Website content is general in nature and does not constitute instant pricing. Project responses, specifications, suitability and lead times remain subject to review and availability.',
   },
   {
     title: '4. Trade access',
@@ -57,15 +57,15 @@ export default function TermsPage() {
       <PageHero
         eyebrow="Terms of Service"
         title="Terms for using the LuxAura trade website"
-        description="These terms apply to use of the LuxAura wholesale website and its trade, quote and contact forms."
+        description="These terms apply to use of the LuxAura trade website and its trade access, project brief and contact forms."
         imageSrc="/images/luxaura/hero-project.webp"
         imageAlt="LuxAura terms of service"
       >
         <Link href="/trade-projects" className="btn-primary">
-          Trade Account
+          Trade Portal Access
         </Link>
         <Link href="/contact" className="btn-secondary">
-          Contact LuxAura
+          Access Trade Support
         </Link>
       </PageHero>
 

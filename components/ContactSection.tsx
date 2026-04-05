@@ -3,7 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import SectionHeading from '@/components/SectionHeading';
-import { CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
+import { CONTACT_INFO } from '@/lib/constants';
 import { CONTACT_INTEREST_OPTIONS } from '@/lib/site-data';
 
 const initialFormState = {
@@ -57,7 +57,7 @@ export default function ContactSection() {
         setFormData(initialFormState);
         router.push('/thank-you?form=contact');
       } else {
-        setFeedback('Something went wrong. Please try again or use WhatsApp for faster support.');
+        setFeedback('Something went wrong. Please try again or contact the trade desk directly.');
       }
     } catch {
       setFeedback('Error sending message. Please try again or contact us directly.');
@@ -84,7 +84,7 @@ export default function ContactSection() {
             <SectionHeading
               eyebrow="Trade Support Desk"
               title="Send the brief to the right LuxAura team"
-              description="Use this form for sourcing, quote follow-up, hardware, trims, upholstery, workroom feasibility or trade registration guidance."
+              description="Use this form for sourcing enquiries, fabrication support, upholstery questions, hardware and trims requests, trade access or wider project coordination."
             />
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
@@ -161,7 +161,7 @@ export default function ContactSection() {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us what you need, what stage the project is at, and any brand, material or fabrication details that matter."
+                  placeholder="Please share what the project requires, what stage it is at, and any material, fabrication or system details that matter."
                   className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
                 />
               </Field>
@@ -185,21 +185,15 @@ export default function ContactSection() {
           <div className="space-y-6">
             <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-6 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#dfc99f]">
-                Priority Support
+                Trade Support
               </p>
-              <h3 className="mt-4 font-heading text-4xl font-semibold">WhatsApp / Live Chat</h3>
+              <h3 className="mt-4 font-heading text-4xl font-semibold">
+                Professional intake for sourcing, making and delivery questions
+              </h3>
               <p className="mt-5 text-base leading-8 text-white/78">
-                Use WhatsApp for fast sourcing questions, fabrication clarifications, trim checks
-                or quote follow-up while the brief is moving.
+                LuxAura is structured to support project discussions early, before sourcing,
+                hardware and fabrication decisions become fragmented.
               </p>
-              <a
-                href={SOCIAL_LINKS.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary mt-8 w-full justify-center border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
-              >
-                Open WhatsApp
-              </a>
             </article>
 
             <article className="section-shell p-6 sm:p-8">
@@ -230,9 +224,9 @@ export default function ContactSection() {
             <article className="section-shell p-6 sm:p-8">
               <h3 className="font-heading text-3xl font-semibold text-neutral-900">Best uses for this page</h3>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-neutral-700 sm:text-base">
-                <li>Request sourcing advice on fabrics, systems, trims or upholstery feasibility.</li>
-                <li>Confirm whether a curtain, soft-furnishing or upholstery brief is ready for quote review.</li>
-                <li>Ask for trade portal access or project workflow guidance before committing.</li>
+                <li>Material Direction: clarify fabrics, performance needs and application fit before decisions spread across suppliers.</li>
+                <li>Fabrication Alignment: bring window treatments, upholstery, trims or hardware into one more workable project pathway.</li>
+                <li>Trade Support: request account access, project coordination or the next step on an active furnishing brief.</li>
               </ul>
             </article>
           </div>

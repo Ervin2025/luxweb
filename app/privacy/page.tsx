@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: '1. What this policy covers',
-    body: 'This policy explains how LuxAura handles personal and business information collected through this website, including trade applications, quote requests and contact enquiries.',
+    body: 'This policy explains how LuxAura handles personal and business information collected through this website, including trade access requests, project briefs and contact enquiries.',
   },
   {
     title: '2. Information we may collect',
@@ -24,11 +24,11 @@ const sections = [
   },
   {
     title: '3. How information is collected',
-    body: 'Information is usually collected directly when you submit a form, email us, call us, contact us on WhatsApp or otherwise request support.',
+    body: 'Information is usually collected directly when you submit a form, email us, call us or otherwise request support.',
   },
   {
     title: '4. Why we collect it',
-    body: 'We use submitted information to respond to enquiries, review trade access, prepare quotes, recommend suitable collections and coordinate follow-up.',
+    body: 'We use submitted information to respond to enquiries, review trade access, prepare project responses, recommend suitable collections and coordinate follow-up.',
   },
   {
     title: '5. Disclosure and service providers',
@@ -55,8 +55,8 @@ export default function PrivacyPage() {
     <div>
       <PageHero
         eyebrow="Privacy Policy"
-        title="How LuxAura handles trade, quote and project enquiry data"
-        description="How submitted business and contact details are used to support LuxAura trade and project workflows."
+        title="How LuxAura handles trade and project enquiry data"
+        description="How submitted business and contact details are used to support LuxAura trade access and project workflows."
         imageSrc="/images/luxaura/beach-sheer.webp"
         imageAlt="LuxAura privacy policy"
       />

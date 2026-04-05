@@ -19,12 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.96,
     },
     {
-      url: `${baseUrl}/wholesale-fabrics`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
       url: `${baseUrl}/custom-curtains-sheers`,
       lastModified,
       changeFrequency: 'weekly',
@@ -41,18 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.94,
-    },
-    {
-      url: `${baseUrl}/tracks-motorisation`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/outdoor-solutions`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.86,
     },
     {
       url: `${baseUrl}/trade-projects`,

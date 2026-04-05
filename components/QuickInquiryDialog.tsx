@@ -22,12 +22,12 @@ const initialFormState = {
 
 export default function QuickInquiryDialog({
   styleName,
-  label = 'Quick Quote',
-  title = 'Quick Quote',
+  label = 'Quick Inquiry',
+  title = 'Quick Inquiry',
   variant = 'secondary',
   className = '',
-  subjectPrefix = 'Quick Quote',
-  enquiryType = 'quick-quote',
+  subjectPrefix = 'Quick Inquiry',
+  enquiryType = 'quick-inquiry',
   introText = 'Send the style and rough size. We will come back with the next step quickly.',
 }: QuickInquiryDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +97,7 @@ export default function QuickInquiryDialog({
       const data = await response.json();
 
       if (data.success) {
-        setFeedback('Thanks. The quick quote request has been sent to the LuxAura team.');
+        setFeedback('Thanks. Your enquiry has been sent to the LuxAura team.');
         setFormData({ ...initialFormState, style: styleName });
       } else {
         setFeedback('Something went wrong. Please try again or contact us directly.');
@@ -137,7 +137,7 @@ export default function QuickInquiryDialog({
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
-                  Quick Inquiry
+                  Project Enquiry
                 </p>
                 <h3 className="mt-3 font-heading text-4xl font-semibold text-neutral-900">
                   {title}
@@ -150,7 +150,7 @@ export default function QuickInquiryDialog({
                 type="button"
                 onClick={() => setIsOpen(false)}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-white/70 text-neutral-800 transition hover:border-primary/25 hover:text-primary"
-                aria-label="Close quick quote form"
+                aria-label="Close inquiry form"
               >
                 <svg
                   className="h-5 w-5"
@@ -231,7 +231,7 @@ export default function QuickInquiryDialog({
                   className="btn-primary flex-1 justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Quick Quote'}
+                  {isSubmitting ? 'Sending...' : 'Send Enquiry'}
                 </button>
                 <button
                   type="button"

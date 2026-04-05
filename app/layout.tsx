@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   description:
     "LuxAura is Sydney's full-service soft-furnishing fulfillment hub, combining global textile sourcing, master fabrication, and accountable local project delivery.",
   keywords: [
-    'Wholesale Fabric Sydney',
-    'Designer Curtain Manufacturer',
-    'Roman Blind Specialist',
-    'FibreGuard Supplier Australia',
-    'Curtain Workroom Sydney',
-    'Trade Fabric Supplier Sydney',
+    'Premium textile sourcing Sydney',
+    'Soft-furnishing fulfillment Sydney',
+    'Roman blind specialist',
+    'FibreGuard supplier Australia',
+    'Curtain workroom Sydney',
+    'Trade furnishing partner Sydney',
   ],
   authors: [{ name: 'LuxAura' }],
   icons: {
@@ -103,12 +103,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     email: CONTACT_INFO.email,
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
     knowsAbout: [
-      'Wholesale Fabric Sydney',
-      'Designer Curtain Manufacturer',
-      'Roman Blind Specialist',
-      'FibreGuard Supplier Australia',
+      'Premium textile sourcing Sydney',
+      'Designer curtain fabrication',
+      'Roman blind specialist',
+      'FibreGuard supplier Australia',
       'Curtain hardware and trimmings',
-      'Bespoke upholstery and custom furniture softening',
+      'Bespoke upholstery and custom soft-furnishing fabrication',
     ],
   };
 

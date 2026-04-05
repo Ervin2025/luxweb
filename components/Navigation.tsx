@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV_ITEMS } from '@/lib/site-data';
+import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -98,7 +98,7 @@ export default function Navigation() {
 
             <div className="hidden flex-shrink-0 items-center gap-3 lg:flex">
               <Link
-                href="/trade/login"
+                href={TRADE_PORTAL_ACCESS_HREF}
                 className="btn-primary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
               >
                 TRADE PORTAL ACCESS
@@ -195,7 +195,7 @@ export default function Navigation() {
             })}
             <div className="mt-4 grid gap-3">
               <Link
-                href="/trade/login"
+                href={TRADE_PORTAL_ACCESS_HREF}
                 className="btn-primary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
               >
                 TRADE PORTAL ACCESS

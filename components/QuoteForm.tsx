@@ -52,7 +52,7 @@ export default function QuoteForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: 'New Project Quote Request - LuxAura',
+          subject: 'New Project Brief - LuxAura',
           project_name: formData.projectName,
           company_name: formData.companyName,
           contact_name: formData.contactName,
@@ -158,7 +158,7 @@ export default function QuoteForm() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Field label="Product / Service" htmlFor="productType">
+        <Field label="Project Scope" htmlFor="productType">
           <select
             id="productType"
             name="productType"
@@ -194,7 +194,7 @@ export default function QuoteForm() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Field label="Price Band" htmlFor="priceBand">
+        <Field label="Budget Direction" htmlFor="priceBand">
           <select
             id="priceBand"
             name="priceBand"
@@ -233,16 +233,16 @@ export default function QuoteForm() {
           rows={6}
           value={formData.message}
           onChange={handleChange}
-          placeholder="Include quantities, widths, trims, track needs, performance requirements, site notes and any fabrication complexity."
+          placeholder="Please share what the project requires, its current stage, and any material, fabrication, hardware or detailing conditions that matter."
           className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
         />
       </Field>
 
       <div className="rounded-[1.5rem] bg-neutral-50 p-5 text-sm leading-7 text-neutral-700 sm:p-6">
-        <p className="font-semibold text-neutral-900">Quote workflow</p>
+        <p className="font-semibold text-neutral-900">Project brief workflow</p>
         <ul className="mt-3 space-y-2">
-          <li>Public pricing stays hidden while the team reviews the project scope.</li>
-          <li>LuxAura aligns fabrics, trims, systems and fabrication into one response where needed.</li>
+          <li>The brief is reviewed across sourcing, fabrication, systems and detailing needs.</li>
+          <li>LuxAura aligns materials, making scope and project conditions into one clearer next step.</li>
           <li>Trade clients can continue into account support and project follow-up after submission.</li>
         </ul>
       </div>
@@ -258,7 +258,7 @@ export default function QuoteForm() {
         className="btn-primary w-full justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Submitting Quote...' : 'Submit Project Quote'}
+        {isSubmitting ? 'Submitting Brief...' : 'Submit Project Brief'}
       </button>
     </form>
   );

@@ -101,7 +101,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `LuxAura Trade Account - ${activeIntent?.label ?? 'Enquiry'}`,
+          subject: `LuxAura Trade Access - ${activeIntent?.label ?? 'Enquiry'}`,
           enquiry_intent: formData.intent,
           enquiry_intent_label: activeIntent?.label ?? formData.intent,
           company_name: formData.companyName,

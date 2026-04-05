@@ -8,163 +8,154 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { PROJECT_BRIEF_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
-const CAPABILITY_ITEMS = [
+const WINDOW_CATEGORIES = [
   {
-    title: 'Roman Blind Specialist',
-    eyebrow: 'Our Signature Value',
+    title: 'Curtains',
+    eyebrow: 'Architectural Softness',
     description:
-      'Precision-made Roman blinds with lined, patterned and trim-accented detailing, delivered with tailored workmanship and factory-direct value.',
-    imageSrc: '/images/luxaura/roman-blind-lounge.webp',
-    imageAlt: 'LuxAura Roman blind fabrication in a tailored lounge setting',
-  },
-  {
-    title: 'Modern S-Fold Drapes',
-    eyebrow: 'Architectural Elegance',
-    description:
-      'Clean, continuous waves suited to Sydney’s large glazing, available in sheer, dim-out and full blockout fabric directions.',
+      'Full-length drapery packages developed with controlled headings, stronger stacking behaviour and site-ready finish.',
     imageSrc: '/images/luxaura/hero-project.webp',
-    imageAlt: 'Modern S-Fold drapes in a Sydney apartment',
+    imageAlt: 'Curtains fabricated for premium project delivery',
   },
   {
-    title: 'Bespoke Pleated Curtains',
-    eyebrow: 'Master Tailoring',
-    description:
-      'Double and triple pinch pleats, box pleats and goblet headings give designer briefs the right depth, structure and decorative finish.',
-    imageSrc: '/images/curtains-hero.webp',
-    imageAlt: 'Bespoke pleated curtains with decorative tailoring',
-  },
-  {
-    title: 'Functional Sheers',
+    title: 'Sheers',
     eyebrow: 'Light & Privacy',
     description:
-      'A curated library of sheer textures that softens daylight, maintains privacy and keeps the room feeling open and refined.',
+      'Sheer directions that soften daylight, preserve privacy and sit cleanly inside refined interior briefs.',
     imageSrc: '/images/luxaura/beach-sheer.webp',
-    imageAlt: 'Functional sheer curtains filtering daylight',
+    imageAlt: 'Sheer curtains filtering daylight in a premium room',
   },
   {
-    title: 'Double Tracking Systems',
-    eyebrow: '24-Hour Versatility',
+    title: 'Roman Blinds',
+    eyebrow: 'Structured Tailoring',
     description:
-      'The Sydney staple: a soft sheer layer paired with a heavier drape for flexible privacy, light control and thermal comfort.',
-    imageSrc: '/images/carousel/09-Curtain-Track.webp',
-    imageAlt: 'Double tracking system for layered drapery',
+      'Roman blinds fabricated for better stacking, cleaner proportion and stronger finish across more complex briefs.',
+    imageSrc: '/images/luxaura/roman-blind-lounge.webp',
+    imageAlt: 'Roman blind application with controlled proportion and refined finish',
   },
   {
-    title: 'Pelmets & Valances',
-    eyebrow: 'The Professional Finish',
+    title: 'Layered Window Packages',
+    eyebrow: 'Day-To-Night Control',
     description:
-      'Custom-shaped headers that conceal tracks, sharpen the architecture and complete the room with a more resolved finish.',
-    imageSrc: '/images/luxaura/vertical-sheer-pool.webp',
-    imageAlt: 'Decorative pelmets and valances paired with window treatments',
+      'Coordinated sheer and drape combinations designed for privacy, blackout control and stronger room balance.',
+    imageSrc: '/images/IMG-G.webp',
+    imageAlt: 'Layered window package with sheers and curtains',
+  },
+  {
+    title: 'Statement Full-Length Treatments',
+    eyebrow: 'Room-Defining Scale',
+    description:
+      'Long-drop treatments that frame wider glazing and carry the textile story across larger rooms and taller openings.',
+    imageSrc: '/images/curtains-hero.webp',
+    imageAlt: 'Statement full-length curtain installation',
+  },
+  {
+    title: 'Decorative Trim Integration',
+    eyebrow: 'Finish Resolution',
+    description:
+      'Borders, braids and more decorative edge conditions integrated into drapery and Roman blind fabrication.',
+    imageSrc: '/images/IMG-B.webp',
+    imageAlt: 'Decorative trim integrated into premium drapery',
+  },
+  {
+    title: 'Motorised Systems',
+    eyebrow: 'Automation Ready',
+    description:
+      'Motorised treatments planned from the start so the visual line stays clean and the system stays reliable.',
+    imageSrc: '/images/IMG-I.webp',
+    imageAlt: 'Motorisation-ready window system in a premium room',
   },
 ] as const;
 
-const TECHNICAL_EDGE_ITEMS = [
+const TECHNICAL_STRENGTH = [
   {
     title: 'Complex Integration',
     description:
-      'We integrate braids, fringes and other trims into curtains and Roman blinds with clean lines and accurate placement.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
-        <path
-          d="M4 7h16M4 12h10M4 17h16M17 10l3 2-3 2"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+      'Support for trims, layered builds and more demanding finish conditions across curtains, sheers and Roman blinds.',
   },
   {
     title: 'Performance Linings',
     description:
-      'Thermal, acoustic and 100% UV blockout lining options help tailor each treatment to Australian climate and room use.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
-        <path
-          d="M12 3v3m0 12v3m6.364-15.364-2.121 2.121M7.757 16.243l-2.12 2.121M21 12h-3M6 12H3m15.364 6.364-2.121-2.121M7.757 7.757 5.636 5.636M12 8a4 4 0 1 1 0 8"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+      'Thermal, acoustic and blackout support where room-specific function matters as much as appearance.',
   },
   {
     title: 'Motorisation Ready',
     description:
-      'Every treatment can be prepared for premium systems including Somfy and Silent Gliss for seamless automated control.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
-        <path
-          d="M12 18.5a6.5 6.5 0 1 0-6.5-6.5M12 18.5h5.5M12 18.5v-4.25M7.5 8.5a8.5 8.5 0 0 1 12.02 0M5 6A12 12 0 0 1 19 6"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+      'Prepared for manual and motorised systems, with track choice and control logic considered early.',
+  },
+  {
+    title: 'Garment-Level Finishing',
+    description:
+      'Window fabrication approached with a tailoring mindset inspired by premium garment construction.',
   },
 ] as const;
 
-const DIRECT_ADVANTAGE_ITEMS = [
+const DIRECT_ITEMS = [
   {
     title: 'Direct-to-Source',
     description:
-      'We manage sourcing, fabrication and coordination in one path, which removes unnecessary layers and keeps decisions clear.',
+      'Sourcing, fabrication and system planning stay connected, reducing unnecessary layers and keeping the brief clearer.',
   },
   {
     title: 'Best Price Guarantee',
     description:
-      'Designer-grade curtains and Roman blinds are delivered with factory-direct pricing and LuxAura’s best price guarantee.',
+      'Premium-quality window treatments are delivered with stronger value through direct-source control and factory-backed making.',
   },
   {
     title: 'Any Style, Any Scale',
     description:
-      'From a single residential window to larger hospitality and commercial programs, the making capacity stays flexible.',
+      'From a single residence to a larger hospitality or multi-room program, LuxAura supports broader scope without diluting finish.',
+  },
+  {
+    title: 'Motorisation Included Early',
+    description:
+      'Automation is considered from the outset so it integrates into the finished result rather than being added late.',
   },
 ] as const;
 
 const FAQ_ITEMS = [
   {
-    question: 'Can LuxAura handle difficult curtain and Roman blind briefs?',
+    question: 'Can LuxAura handle difficult curtain or Roman blind briefs?',
     answer:
-      'Yes. Complex headings, trim integration, layered systems and performance lining requirements are all part of the fabrication scope.',
+      'Yes. More demanding headings, trim conditions, lining requirements and layered builds are all part of the fabrication scope.',
   },
   {
-    question: 'Do you quote both homes and larger projects?',
+    question: 'Can motorisation be planned from the start?',
     answer:
-      'Yes. LuxAura supports private homes, boutique accommodation, hospitality sites and wider commercial work.',
+      'Yes. LuxAura can consider motorisation early so the tracks, controls and finish remain aligned with the overall brief.',
   },
   {
-    question: 'Can motorisation be included from the start?',
+    question: 'Do you support both private and larger project work?',
     answer:
-      'Yes. Manual and motorised systems can be planned together so tracks, controls and fabrication are aligned early.',
+      'Yes. The workflow can support premium residential, boutique hospitality and wider commercial furnishing programs.',
+  },
+  {
+    question: 'Can fabric, hardware and fabrication be aligned together?',
+    answer:
+      'Yes. LuxAura is structured to coordinate the textile, system selection and making logic through one project pathway.',
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Window Treatments | Factory Direct Curtains and Roman Blinds Sydney',
+  title: 'Window Treatments | Premium Curtains, Sheers and Roman Blind Fabrication',
   description:
-    'Explore LuxAura window treatments across Roman blinds, S-Fold drapes, bespoke curtains and layered systems with factory-direct making in Sydney.',
+    'LuxAura delivers curtains, sheers, Roman blinds and motorisation-ready layered systems with factory-backed fabrication capability and project-ready execution.',
   keywords: [
-    'Custom Roman Blinds Sydney',
-    'Factory Direct Curtains',
-    'S-Fold Drapes',
-    'Bespoke Window Treatments',
-    'Trimming Integration',
+    'custom Roman blinds Sydney',
+    'premium window treatments Sydney',
+    'S-Fold drapes',
+    'motorised curtain systems',
+    'decorative trim integration',
   ],
   alternates: {
     canonical: `${SITE_CONFIG.url}/custom-curtains-sheers`,
   },
   openGraph: {
-    title: 'Window Treatments | Factory Direct Curtains and Roman Blinds Sydney',
+    title: 'Window Treatments | Premium Curtains, Sheers and Roman Blind Fabrication',
     description:
-      'Factory-direct bespoke curtains and Roman blinds with master craftsmanship, custom detailing and project-ready support.',
+      'Premium window treatments with fabrication strength, motorisation support and project-backed execution.',
     url: `${SITE_CONFIG.url}/custom-curtains-sheers`,
     images: ['/images/luxaura/hero-project.webp'],
   },
@@ -199,14 +190,14 @@ export default function CustomCurtainsSheersPage() {
       <section className="relative isolate overflow-hidden">
         <Image
           src="/images/luxaura/hero-project.webp"
-          alt="S-Fold curtains in a modern Sydney apartment"
+          alt="Layered curtains and sheers in a premium Sydney interior"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,19,17,0.22)_0%,rgba(13,19,17,0.28)_18%,rgba(13,19,17,0.72)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(229,209,160,0.22),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(197,160,89,0.22),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,19,17,0.72)_0%,rgba(13,19,17,0.56)_36%,rgba(13,19,17,0.16)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,19,17,0.1)_0%,rgba(13,19,17,0.32)_100%)]" />
 
         <div className="container-custom relative flex min-h-[86svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
           <div className="max-w-4xl text-white">
@@ -214,19 +205,23 @@ export default function CustomCurtainsSheersPage() {
               Window Treatments
             </p>
             <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Total Window Solutions, from Source to Sydney.
+              Manufacturing strength behind the finish
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              Factory-direct bespoke curtains and Roman blinds. We handle complex designs
-              with master craftsmanship and thousands of custom options.
+              LuxAura delivers curtains, sheers, Roman blinds and layered systems with
+              factory-backed fabrication capability, advanced detailing and project-ready
+              execution.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href="/quote" className="btn-primary">
-                Get A Factory Quote
+              <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
+                Submit a Project Brief
               </Link>
-              <Link href="/contact" className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white">
-                Book A Consultation
-              </Link>
+              <a
+                href="#technical-strength"
+                className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+              >
+                Explore Fabrication Capability
+              </a>
             </div>
           </div>
         </div>
@@ -236,16 +231,42 @@ export default function CustomCurtainsSheersPage() {
         <Breadcrumb items={[{ label: 'Window Treatments', href: '/custom-curtains-sheers' }]} />
       </div>
 
-      <section className="section-padding pt-6">
+      <section id="technical-strength" className="section-padding pt-6">
+        <div className="container-custom">
+          <div className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-8 shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-10 lg:p-14">
+            <SectionHeading
+              eyebrow="Technical Strength"
+              title="What sits behind a cleaner, stronger window result"
+              description="More demanding treatments rely on better planning across trims, linings, motorisation and finish discipline."
+              theme="dark"
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              {TECHNICAL_STRENGTH.map(item => (
+                <article
+                  key={item.title}
+                  className="rounded-[1.7rem] border border-white/10 bg-white/7 p-6 text-white backdrop-blur-sm"
+                >
+                  <h2 className="font-heading text-3xl font-semibold">{item.title}</h2>
+                  <p className="mt-4 text-sm leading-7 text-white/78 sm:text-base">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding pt-0">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="What We Do"
-            title="Specialist fabrication across the window categories clients ask for most"
-            description="Six core capabilities, each supported by custom fabrication, technical detailing and project-ready quoting."
+            eyebrow="Window Categories"
+            title="Structured around how projects actually specify window furnishings"
+            description="Image-backed service blocks that reflect the treatments and layering logic brought into real project briefs."
           />
 
           <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:overflow-visible xl:grid-cols-3">
-            {CAPABILITY_ITEMS.map(item => (
+            {WINDOW_CATEGORIES.map(item => (
               <article
                 key={item.title}
                 className="group section-shell flex min-w-[86%] snap-center flex-col overflow-hidden md:min-w-0"
@@ -273,10 +294,9 @@ export default function CustomCurtainsSheersPage() {
                   <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                     {item.description}
                   </p>
-
                   <div className="mt-6 flex flex-wrap items-center gap-3">
                     <Link
-                      href="#technical-edge"
+                      href="#motorisation"
                       className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-primary-dark"
                     >
                       Learn More
@@ -284,10 +304,11 @@ export default function CustomCurtainsSheersPage() {
                     </Link>
                     <QuickInquiryDialog
                       styleName={item.title}
-                      title={`Quick Quote: ${item.title}`}
-                      subjectPrefix="Window Treatments Quick Quote"
-                      enquiryType="window-treatments-quick-quote"
-                      introText="Send the style and rough size. We will come back with the next step quickly."
+                      title={`Discuss: ${item.title}`}
+                      subjectPrefix="Window Treatments Enquiry"
+                      enquiryType="window-treatments-enquiry"
+                      introText="Share the treatment direction, approximate dimensions and any fabric, lining or hardware conditions that matter."
+                      label="Discuss This Style"
                       className="px-5 py-3 text-[11px] sm:text-xs"
                     />
                   </div>
@@ -298,30 +319,66 @@ export default function CustomCurtainsSheersPage() {
         </div>
       </section>
 
-      <section id="technical-edge" className="section-padding pt-0">
+      <section id="motorisation" className="section-padding pt-0">
         <div className="container-custom">
-          <div className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-8 shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-10 lg:p-14">
-            <SectionHeading
-              eyebrow="Technical Edge"
-              title="Manufacturing strength behind the finish"
-              description="Detailing, performance and motorisation are built into the fabrication conversation from the outset."
-              theme="dark"
-            />
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              {TECHNICAL_EDGE_ITEMS.map(item => (
-                <article
-                  key={item.title}
-                  className="rounded-[1.7rem] border border-white/10 bg-white/7 p-6 text-white backdrop-blur-sm"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#ead7a8]/25 bg-white/10 text-[#ead7a8]">
-                    {item.icon}
-                  </div>
-                  <h2 className="mt-6 font-heading text-3xl font-semibold">{item.title}</h2>
-                  <p className="mt-4 text-sm leading-7 text-white/78 sm:text-base">
-                    {item.description}
-                  </p>
-                </article>
-              ))}
+          <div className="overflow-hidden rounded-[2.3rem] bg-[#15110d] text-white shadow-[0_32px_90px_rgba(17,12,8,0.24)]">
+            <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+              <div className="relative min-h-[21rem] lg:min-h-[38rem]">
+                <Image
+                  src="/images/IMG-I.webp"
+                  alt="Motorised and layered window system in a premium room"
+                  fill
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,8,6,0.08),rgba(10,8,6,0.26))]" />
+              </div>
+              <div className="p-8 sm:p-10 lg:p-14">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ead7a8]">
+                  Motorisation
+                </p>
+                <h2 className="mt-4 text-balance font-heading text-4xl font-semibold sm:text-5xl">
+                  Automation planned into the finish — not added later
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-white/78 sm:text-base">
+                  Motorisation affects more than operation. It influences track choice, stacking,
+                  control access, wiring logic and final visual cleanliness. LuxAura supports
+                  motorised systems with the detailing awareness needed to keep the result elegant
+                  and integrated.
+                </p>
+                <p className="mt-4 text-sm leading-7 text-white/64 sm:text-base">
+                  Compatible with premium systems such as Somfy and Silent Gliss where suitable.
+                </p>
+                <div className="mt-8 grid gap-4">
+                  {[
+                    {
+                      title: 'Leading System Compatibility',
+                      description:
+                        'Prepared to align with premium motorisation systems where automation is part of the brief.',
+                    },
+                    {
+                      title: 'Cleaner Automated Integration',
+                      description:
+                        'Tracks, controls and movement paths are considered together so automation does not compromise the finish.',
+                    },
+                    {
+                      title: 'Scalable for Different Project Types',
+                      description:
+                        'Suitable for refined residential work as well as larger multi-room or commercial furnishing environments.',
+                    },
+                  ].map(item => (
+                    <article
+                      key={item.title}
+                      className="rounded-[1.5rem] border border-white/10 bg-white/6 p-5"
+                    >
+                      <h3 className="font-heading text-2xl font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-white/72">{item.description}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -330,12 +387,12 @@ export default function CustomCurtainsSheersPage() {
       <section className="section-padding pt-0">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="LuxAura Direct"
-            title="Why clients come to us direct"
-            description="The value is not only style range. It is tighter sourcing, clearer quoting and stronger making control."
+            eyebrow="Why LuxAura Direct"
+            title="Why clients bring the brief to LuxAura directly"
+            description="The strength sits in coordinated sourcing, fabrication control, motorisation planning and the ability to carry complex detailing cleanly."
           />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {DIRECT_ADVANTAGE_ITEMS.map(item => (
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {DIRECT_ITEMS.map(item => (
               <article key={item.title} className="section-shell p-7">
                 <p className="eyebrow">Trust Signal</p>
                 <h2 className="mt-4 font-heading text-3xl font-semibold text-neutral-900">
@@ -350,37 +407,37 @@ export default function CustomCurtainsSheersPage() {
         </div>
       </section>
 
+      <FaqSection
+        items={[...FAQ_ITEMS]}
+        title="Window treatment questions"
+        description="Practical answers on motorisation, complexity and how the fabrication path is coordinated."
+      />
+
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.82)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
             <div className="max-w-3xl">
-              <p className="eyebrow">Factory Quote</p>
+              <p className="eyebrow">Final CTA</p>
               <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-5xl">
-                Ready to price curtains, Roman blinds or a full layered window package?
+                Bring the window package into one controlled path
               </h2>
               <p className="mt-5 text-pretty text-[15px] leading-7 text-neutral-700 sm:text-lg">
-                Bring us the style, dimensions and level of detailing required. We will align
-                fabrics, fabrication and system options into one clear next step.
+                Bring LuxAura in when the brief needs curtains, sheers, Roman blinds and
+                motorisation planned as one integrated furnishing layer.
               </p>
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href="/quote" className="btn-primary">
-                Get A Factory Quote
+              <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
+                Submit a Project Brief
               </Link>
-              <Link href="/contact" className="btn-secondary">
-                Book A Consultation
+              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
+                Access Trade Support
               </Link>
             </div>
           </div>
         </div>
       </section>
-
-      <FaqSection
-        items={[...FAQ_ITEMS]}
-        title="Window treatment questions"
-        description="A few practical answers before the brief moves into quoting, sampling or fabrication."
-      />
 
       <script
         type="application/ld+json"

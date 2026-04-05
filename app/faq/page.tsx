@@ -6,14 +6,14 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { FAQ_GROUPS, GET_QUOTE_HREF, REQUEST_CATALOGUE_HREF } from '@/lib/site-data';
+import { FAQ_GROUPS, PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'FAQ | Trade Fabrics, Projects and Fabrication Support',
   description:
-    'Find answers to common questions about LuxAura’s wholesale fabrics, window treatments and trade workflow.',
+    'Find answers to common questions about LuxAura’s fabric sourcing, fabrication, window treatments and trade workflow.',
   keywords:
-    'LuxAura FAQ, wholesale fabric FAQ, trade project support, curtain workroom questions, fabric sourcing Sydney',
+    'LuxAura FAQ, fabric sourcing FAQ, trade project support, curtain workroom questions, furnishing delivery Sydney',
   alternates: {
     canonical: `${SITE_CONFIG.url}/faq`,
   },
@@ -28,15 +28,15 @@ export default function FaqPage() {
       <PageHero
         eyebrow="FAQ"
         title="Answers for trade clients"
-        description="Common questions on collections, quotes and fabrication support, grouped by category."
+        description="Common questions on collections, project briefs, fabrication support and trade workflow, grouped by category."
         imageSrc="/images/luxaura/beach-sheer.webp"
-        imageAlt="LuxAura wholesale fabric FAQ"
+        imageAlt="LuxAura fabric sourcing and fabrication FAQ"
       >
-        <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary">
-          Register Trade Account
+        <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+          Trade Portal Access
         </Link>
-        <Link href={GET_QUOTE_HREF} className="btn-secondary">
-          Get Quote
+        <Link href={PROJECT_BRIEF_HREF} className="btn-secondary">
+          Submit a Project Brief
         </Link>
       </PageHero>
 

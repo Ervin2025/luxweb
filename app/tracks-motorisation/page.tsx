@@ -1,8 +1,5 @@
-import BusinessPageTemplate from '@/components/BusinessPageTemplate';
-import { buildBusinessMetadata } from '@/lib/business-pages';
+import { redirect } from 'next/navigation';
 
-export const metadata = buildBusinessMetadata('tracks-motorisation');
-
-export default function TracksMotorisationPage() {
-  return <BusinessPageTemplate slug="tracks-motorisation" />;
+export default function TracksMotorisationRedirectPage() {
+  redirect('/trimmings');
 }

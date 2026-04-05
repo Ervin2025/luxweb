@@ -1,8 +1,5 @@
-import BusinessPageTemplate from '@/components/BusinessPageTemplate';
-import { buildBusinessMetadata } from '@/lib/business-pages';
+import { redirect } from 'next/navigation';
 
-export const metadata = buildBusinessMetadata('outdoor-solutions');
-
-export default function OutdoorSolutionsPage() {
-  return <BusinessPageTemplate slug="outdoor-solutions" />;
+export default function OutdoorSolutionsRedirectPage() {
+  redirect('/cushions-soft-furnishings');
 }

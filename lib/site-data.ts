@@ -134,9 +134,12 @@ export interface CatalogItem {
   image: string;
 }
 
-export const REQUEST_CATALOGUE_HREF = '/trade-projects?intent=trade-access';
-export const REGISTER_TRADE_ACCOUNT_HREF = REQUEST_CATALOGUE_HREF;
-export const GET_QUOTE_HREF = '/quote';
+export const TRADE_PORTAL_ACCESS_HREF = '/trade-projects?intent=trade-access';
+export const PROJECT_BRIEF_HREF = '/quote';
+export const TRADE_SUPPORT_HREF = '/contact';
+export const REQUEST_CATALOGUE_HREF = TRADE_PORTAL_ACCESS_HREF;
+export const REGISTER_TRADE_ACCOUNT_HREF = TRADE_PORTAL_ACCESS_HREF;
+export const GET_QUOTE_HREF = PROJECT_BRIEF_HREF;
 
 export const NAV_ITEMS: NavItem[] = [
   { name: 'Home', href: '/' },
@@ -149,12 +152,10 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const FOOTER_CATEGORY_LINKS: NavItem[] = [
-  { name: 'Fabrics', href: '/wholesale-fabrics' },
+  { name: 'Fabric & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
   { name: 'Hardware & Trimmings', href: '/trimmings' },
-  { name: 'Tracks & Motorisation', href: '/tracks-motorisation' },
-  { name: 'Outdoor Solutions', href: '/outdoor-solutions' },
 ];
 
 export const HOME_HERO_STATS: StatItem[] = [
@@ -508,13 +509,11 @@ export const TRADE_PROJECT_FOCUS_OPTIONS = [
 ];
 
 export const QUOTE_PRODUCT_OPTIONS = [
-  'Fabrics',
-  'Window treatments',
-  'Bespoke upholstery',
-  'Hardware and trimmings',
-  'Tracks and motorisation',
-  'Outdoor solutions',
-  'Mixed package',
+  'Fabric & Fabrication',
+  'Window Treatments',
+  'Bespoke Upholstery',
+  'Hardware & Trimmings',
+  'Whole-Home Soft Furnishing Package',
 ];
 
 export const QUOTE_BRAND_OPTIONS = [
@@ -527,23 +526,21 @@ export const QUOTE_BRAND_OPTIONS = [
 ];
 
 export const QUOTE_USAGE_OPTIONS = [
-  'Curtains and sheers',
-  'Roman blinds',
-  'Upholstery',
-  'Pet-friendly family use',
-  'Outdoor use',
-  'Hospitality or commercial',
-  'Mixed usage',
+  'Premium residential',
+  'Boutique hospitality',
+  'Commercial or multi-room',
+  'Indoor / outdoor mixed scope',
+  'Performance-led specification',
+  'Early planning or design development',
 ];
 
 export const CONTACT_INTEREST_OPTIONS = [
-  'Fabrics',
-  'Window treatments',
-  'Bespoke upholstery',
-  'Hardware and trimmings',
-  'Tracks and motorisation',
-  'Outdoor solutions',
-  'Trade account / project quote',
+  'Fabric & Fabrication',
+  'Window Treatments',
+  'Bespoke Upholstery',
+  'Hardware & Trimmings',
+  'Trade Account Access',
+  'General Project Enquiry',
 ];
 
 export const WHOLESALE_RESOURCE_PACKS: RelatedLink[] = [
@@ -1830,8 +1827,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
 
 export const FAQ_GROUPS: Array<{ title: string; href: string; items: FaqItem[] }> = [
   {
-    title: 'Fabrics',
-    href: '/wholesale-fabrics',
+    title: 'Fabric & Fabrication',
+    href: '/collections',
     items: BUSINESS_PAGE_CONFIGS['wholesale-fabrics'].faqItems,
   },
   {
@@ -1860,7 +1857,7 @@ export const FAQ_GROUPS: Array<{ title: string; href: string; items: FaqItem[] }
     items: BUSINESS_PAGE_CONFIGS['outdoor-solutions'].faqItems,
   },
   {
-    title: 'Trade Account',
+    title: 'Trade Portal Access',
     href: '/trade-projects',
     items: TRADE_PROJECT_FAQ,
   },
@@ -1871,25 +1868,25 @@ export const THANK_YOU_VARIANTS: Record<
   ThankYouContent
 > = {
   'trade-projects': {
-    title: 'Your trade or project request is with the LuxAura team',
+    title: 'Your trade access or project request is with the LuxAura team',
     description:
-      'We will review the enquiry type, business details and product focus, then come back with the right next step for wholesale access or project coordination.',
-    primaryCta: { label: 'Browse Fabrics', href: '/wholesale-fabrics' },
+      'We will review the enquiry type, business details and project focus, then come back with the right next step for trade access or coordinated support.',
+    primaryCta: { label: 'Explore Fabric & Fabrication', href: '/collections' },
     secondaryCta: { label: 'View Trade Portal Preview', href: '/trade/login' },
   },
   quote: {
-    title: 'Your quote request has been submitted',
+    title: 'Your project brief has been submitted',
     description:
-      'The brief is now in the LuxAura workflow for product alignment, pricing review and any follow-up needed on fabrication or category coordination.',
-    primaryCta: { label: 'Open Trade Account', href: '/trade-projects' },
-    secondaryCta: { label: 'Contact LuxAura', href: '/contact' },
+      'The brief is now in the LuxAura workflow for sourcing alignment, fabrication review and the next step on coordination.',
+    primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
+    secondaryCta: { label: 'Access Trade Support', href: '/contact' },
   },
   contact: {
     title: 'Your enquiry has been sent to the trade desk',
     description:
-      'A team member will review the enquiry category and respond with the most relevant support path for sourcing, quoting, trims, systems or workshop collaboration.',
-    primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
-    secondaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
+      'A team member will review the enquiry category and respond with the most relevant support path for sourcing, fabrication, systems, trims or wider project coordination.',
+    primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
+    secondaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
   },
 };
 

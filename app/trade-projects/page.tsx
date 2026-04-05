@@ -17,11 +17,11 @@ import {
 } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Trade Account | Pricing, Resources and Project Support',
+  title: 'Trade Portal Access | Trade Entry and Project Support',
   description:
-    'Register a LuxAura trade account for project pricing, resources and support across fabrics, soft furnishings and custom products.',
+    'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
   keywords:
-    'trade fabric supplier Sydney, trade account application, project fabric quote, curtain workroom Sydney',
+    'trade fabric supplier Sydney, trade portal access, project brief support, curtain workroom Sydney',
   alternates: {
     canonical: `${SITE_CONFIG.url}/trade-projects`,
   },
@@ -43,29 +43,29 @@ export default async function TradeProjectsPage({
   const resolvedSearchParams = await searchParams;
   const initialIntent = resolveIntent(resolvedSearchParams?.intent);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Trade Account', url: '/trade-projects' },
+    { name: 'Trade Portal Access', url: '/trade-projects' },
   ]);
   const faqSchema = generateFaqSchema(TRADE_PROJECT_FAQ);
 
   return (
     <div>
       <PageHero
-        eyebrow="Trade Account"
-        title="Register once, then access best pricing, resources and project support"
-        description="Open a LuxAura trade account for project pricing, product resources and support across collections, custom soft furnishings and related categories. Prospective partners can also apply for dedicated pricing and resources."
+        eyebrow="Trade Portal Access"
+        title="Trade entry for pricing, resources and project coordination"
+        description="Use this page to request LuxAura trade access, start a project pathway or connect the brief to the right support channel."
         imageSrc="/images/luxaura/vertical-sheer-pool.webp"
         imageAlt="LuxAura trade and project support"
       >
         <a href="#trade-projects-form" className="btn-primary">
-          Register Trade Account
+          Trade Portal Access
         </a>
-        <Link href="/trade/login" className="btn-secondary">
-          View Portal Preview
+        <Link href="/contact" className="btn-secondary">
+          Access Trade Support
         </Link>
       </PageHero>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'Trade Account', href: '/trade-projects' }]} />
+        <Breadcrumb items={[{ label: 'Trade Portal Access', href: '/trade-projects' }]} />
       </div>
 
       <section className="section-padding pt-6">
@@ -74,7 +74,7 @@ export default async function TradeProjectsPage({
             <SectionHeading
               eyebrow="Who It's For"
               title="Built for designers, retailers, project owners and future partners"
-              description="Use the trade account when you want pricing, samples, product resources and future quoting kept inside one relationship."
+              description="Use this pathway when pricing review, material access and project support need to stay inside one accountable relationship."
             />
             <div className="mt-8 grid gap-4 md:grid-cols-3 xl:grid-cols-6">
               {TRADE_PROJECT_PARTNERS.map(partner => (
@@ -111,14 +111,14 @@ export default async function TradeProjectsPage({
               <SectionHeading
                 eyebrow="Workflow"
                 title="Sampling, quoting and fabrication stay connected"
-                description="The account exists to keep fabrics, products, resources and support inside one managed path."
+                description="Trade access exists to keep sourcing, fabrication and project coordination inside one managed path."
                 theme="dark"
               />
               <div className="mt-8 grid gap-4">
                 {[
                   'Registering early helps repeat buyers move faster on pricing, resources and support.',
                   'Project enquiries are routed into the right product and fabrication discussion.',
-                  'Approved accounts keep future quotes and custom product planning inside one relationship.',
+                  'Approved accounts keep future project responses and custom planning inside one relationship.',
                 ].map(item => (
                   <article
                     key={item}
@@ -160,10 +160,10 @@ export default async function TradeProjectsPage({
       <section id="trade-projects-form" className="section-padding pt-0">
         <div className="container-custom">
           <div className="mx-auto max-w-5xl">
-            <SectionHeading
-              eyebrow="Form"
-              title="Choose the right intent and send the brief once"
-              description="Trade access requires ABN verification. Project enquiries use the same streamlined form."
+              <SectionHeading
+                eyebrow="Form"
+                title="Choose the right intent and send the brief once"
+                description="Trade access requires ABN verification. Project enquiries use the same structured intake flow."
               align="center"
             />
             <div className="mt-10">
