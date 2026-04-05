@@ -7,7 +7,7 @@ import { GET_QUOTE_HREF, REGISTER_TRADE_ACCOUNT_HREF } from '@/lib/site-data';
 const CAPABILITY_TILES = [
   {
     number: '01',
-    title: 'Fabric Sourcing',
+    title: 'Fabric & Fabrication',
     description:
       'Our signature LuxAura range is paired with globally respected names including PT, Mobus, Sunbrella, and FibreGuard.',
     href: '/collections',
