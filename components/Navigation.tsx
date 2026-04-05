@@ -80,32 +80,75 @@ export default function Navigation() {
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
       <div className="container-custom pt-4 lg:pt-5">
         <div
-          className={`pointer-events-auto flex items-center justify-between gap-3 rounded-[1.6rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-none lg:gap-6 lg:px-0 lg:py-2 lg:shadow-none ${
+          className={`pointer-events-auto rounded-[1.6rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-[2rem] lg:px-4 lg:py-3 ${
             isSolid
-              ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px] lg:border-0 lg:bg-transparent lg:backdrop-blur-0'
-              : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px] lg:border-0 lg:bg-transparent lg:backdrop-blur-0'
+              ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px] lg:border-[#e5dccd] lg:bg-[#f6f0e4] lg:shadow-[0_20px_50px_rgba(26,24,22,0.08)] lg:backdrop-blur-0'
+              : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px] lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0'
           }`}
         >
-          <Link href="/" className="flex flex-shrink-0 items-center pr-2 lg:pr-0">
-            <span className="lg:hidden">
-              <BrandWordmark mobile />
-            </span>
-            <div className="hidden lg:block">
-              <BrandWordmark />
-            </div>
-          </Link>
+          <div className="flex items-center justify-between gap-3 lg:gap-6">
+            <Link href="/" className="flex flex-shrink-0 items-center pr-2 lg:pr-0">
+              <span className="lg:hidden">
+                <BrandWordmark mobile />
+              </span>
+              <div className="hidden lg:block">
+                <BrandWordmark />
+              </div>
+            </Link>
 
-          <div className="hidden min-w-0 flex-1 justify-center lg:flex">
-            <div
-              className={`relative inline-flex max-w-full items-center gap-1.5 overflow-x-auto rounded-full px-3 py-3 shadow-[0_18px_48px_rgba(26,24,22,0.08)] transition-all duration-300 xl:gap-2 ${
+            <div className="hidden flex-shrink-0 items-center gap-3 lg:flex">
+              <Link
+                href="/trade/login"
+                className="btn-primary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
+              >
+                TRADE PORTAL ACCESS
+              </Link>
+            </div>
+
+            <button
+              className={`flex h-12 w-12 items-center justify-center rounded-full text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] focus:outline-none lg:hidden ${
                 isSolid
-                  ? 'border border-white/85 bg-white/72 backdrop-blur-xl'
-                  : 'border border-white/70 bg-white/58 backdrop-blur-2xl'
+                  ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px]'
+                  : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px]'
+              }`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls={mobileMenuId}
+            >
+              <svg
+                className="h-8 w-8"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                {isMobileMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          <div className="pointer-events-auto hidden pt-4 lg:flex lg:justify-center">
+            <div
+              className={`relative inline-flex items-center gap-2 rounded-full px-3 py-3 transition-all duration-300 xl:gap-3 ${
+                isSolid
+                  ? 'bg-transparent'
+                  : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
               }`}
             >
-              <div className="pointer-events-none absolute inset-px rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
-              <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-              <div className="relative flex items-center gap-1.5 xl:gap-2">
+              {!isSolid ? (
+                <>
+                  <div className="pointer-events-none absolute inset-px rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
+                  <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
+                </>
+              ) : null}
+              <div className="relative flex items-center gap-2 xl:gap-3">
                 {headerNavItems.map(link => {
                   const isActive = isLinkActive(pathname, link.href);
 
@@ -113,7 +156,7 @@ export default function Navigation() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors duration-200 xl:px-4 xl:text-[14px] 2xl:text-[15px] ${
+                      className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 xl:text-[15px] ${
                         isActive
                           ? 'bg-primary text-white'
                           : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
@@ -126,43 +169,6 @@ export default function Navigation() {
               </div>
             </div>
           </div>
-
-          <div className="hidden flex-shrink-0 items-center gap-3 lg:flex">
-            <Link
-              href="/trade/login"
-              className="btn-primary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
-            >
-              TRADE PORTAL ACCESS
-            </Link>
-          </div>
-
-          <button
-            className={`flex h-12 w-12 items-center justify-center rounded-full text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] focus:outline-none lg:hidden ${
-              isSolid
-                ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px]'
-                : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px]'
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls={mobileMenuId}
-          >
-            <svg
-              className="h-8 w-8"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              {isMobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
         </div>
 
         {isMobileMenuOpen && (
