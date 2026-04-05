@@ -140,7 +140,7 @@ export const GET_QUOTE_HREF = '/quote';
 
 export const NAV_ITEMS: NavItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Fabric&Fabrication', href: '/collections' },
+  { name: 'Fabrics & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
   { name: 'Hardware & Trimmings', href: '/trimmings' },

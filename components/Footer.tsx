@@ -2,9 +2,7 @@ import Link from 'next/link';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import {
   FOOTER_CATEGORY_LINKS,
-  GET_QUOTE_HREF,
   NAV_ITEMS,
-  REQUEST_CATALOGUE_HREF,
 } from '@/lib/site-data';
 
 export default function Footer() {
@@ -25,25 +23,22 @@ export default function Footer() {
                     Aura
                   </span>
                 </p>
-                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#d7c29c] sm:text-[11px] sm:tracking-[0.28em]">
-                  Premium Fabric Solution
-                </p>
               </div>
             </div>
             <p className="max-w-sm text-sm leading-7 text-white/72 sm:text-base">
-              An Australian family-owned wholesale supplier combining Australian design
-              understanding, globally selected fabrics, integrated making and efficient delivery for
-              designers, retailers, project teams and commercial clients.
+              An Australian family-owned fulfillment partner for premium textiles, fabrication and
+              site-ready soft furnishings, supporting designers, builders, developers and project
+              teams across Sydney.
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-              <Link href={REQUEST_CATALOGUE_HREF} className="btn-primary w-full sm:w-auto">
-                Register Trade Account
+              <Link href="/trade/login" className="btn-primary w-full sm:w-auto">
+                Trade Portal Access
               </Link>
               <Link
-                href={GET_QUOTE_HREF}
+                href="/quote"
                 className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
-                Get Quote
+                Request a Trade Quote
               </Link>
             </div>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">

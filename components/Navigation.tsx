@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GET_QUOTE_HREF, NAV_ITEMS, REQUEST_CATALOGUE_HREF } from '@/lib/site-data';
+import { NAV_ITEMS } from '@/lib/site-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -28,13 +28,6 @@ function BrandWordmark({ mobile = false }: { mobile?: boolean }) {
           Aura
         </span>
       </p>
-      <p
-        className={`font-semibold uppercase tracking-[0.28em] text-primary/72 ${
-          mobile ? 'mt-1 text-[9px] tracking-[0.22em] sm:text-[10px] sm:tracking-[0.28em]' : 'mt-1 text-[11px]'
-        }`}
-      >
-        Premium Fabric Solution
-      </p>
     </div>
   );
 }
@@ -45,6 +38,14 @@ export default function Navigation() {
   const pathname = usePathname();
   const isSolid = isScrolled || isMobileMenuOpen;
   const mobileMenuId = 'mobile-navigation-menu';
+  const headerNavItems = NAV_ITEMS.filter(link =>
+    [
+      '/collections',
+      '/custom-curtains-sheers',
+      '/cushions-soft-furnishings',
+      '/trimmings',
+    ].includes(link.href)
+  );
 
   useEffect(() => {
     let ticking = false;
@@ -86,13 +87,13 @@ export default function Navigation() {
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
       <div className="container-custom pt-4 lg:pt-5">
         <div
-          className={`pointer-events-auto flex items-center justify-between gap-3 rounded-[1.6rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-none lg:px-0 lg:py-2 lg:shadow-none ${
+          className={`pointer-events-auto flex items-center justify-between gap-3 rounded-[1.6rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-none lg:gap-6 lg:px-0 lg:py-2 lg:shadow-none ${
             isSolid
               ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px] lg:border-0 lg:bg-transparent lg:backdrop-blur-0'
               : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px] lg:border-0 lg:bg-transparent lg:backdrop-blur-0'
           }`}
         >
-          <Link href="/" className="flex flex-shrink-0 items-center pr-2">
+          <Link href="/" className="flex flex-shrink-0 items-center pr-2 lg:pr-0">
             <span className="lg:hidden">
               <BrandWordmark mobile />
             </span>
@@ -101,18 +102,44 @@ export default function Navigation() {
             </div>
           </Link>
 
+          <div className="hidden min-w-0 flex-1 justify-center lg:flex">
+            <div
+              className={`relative inline-flex max-w-full items-center gap-2 overflow-x-auto rounded-full px-3 py-3 shadow-[0_18px_48px_rgba(26,24,22,0.08)] transition-all duration-300 xl:gap-3 ${
+                isSolid
+                  ? 'border border-white/85 bg-white/72 backdrop-blur-xl'
+                  : 'border border-white/70 bg-white/58 backdrop-blur-2xl'
+              }`}
+            >
+              <div className="pointer-events-none absolute inset-px rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
+              <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
+              <div className="relative flex items-center gap-2 xl:gap-3">
+                {headerNavItems.map(link => {
+                  const isActive = isLinkActive(pathname, link.href);
+
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 xl:text-[15px] ${
+                        isActive
+                          ? 'bg-primary text-white'
+                          : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
           <div className="hidden flex-shrink-0 items-center gap-3 lg:flex">
             <Link
-              href={REQUEST_CATALOGUE_HREF}
-              className="btn-secondary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
-            >
-              Register Trade Account
-            </Link>
-            <Link
-              href={GET_QUOTE_HREF}
+              href="/trade/login"
               className="btn-primary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
             >
-              Get Quote
+              Trade Portal Access
             </Link>
           </div>
 
@@ -145,44 +172,12 @@ export default function Navigation() {
           </button>
         </div>
 
-        <div className="pointer-events-auto hidden pb-3 lg:flex lg:justify-center">
-          <div
-            className={`relative inline-flex items-center gap-2 overflow-hidden rounded-full px-3 py-3 shadow-[0_18px_48px_rgba(26,24,22,0.08)] transition-all duration-300 xl:gap-3 ${
-              isSolid
-                ? 'border border-white/85 bg-white/72 backdrop-blur-xl'
-                : 'border border-white/70 bg-white/58 backdrop-blur-2xl'
-            }`}
-          >
-            <div className="pointer-events-none absolute inset-px rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
-            <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-            <div className="relative flex items-center gap-2 xl:gap-3">
-              {NAV_ITEMS.map(link => {
-                const isActive = isLinkActive(pathname, link.href);
-
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 xl:text-[15px] ${
-                      isActive
-                        ? 'bg-primary text-white'
-                        : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
         {isMobileMenuOpen && (
           <div
             id={mobileMenuId}
             className="pointer-events-auto mt-2 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-[1.8rem] border border-white/85 bg-[rgba(255,255,255,0.78)] p-4 shadow-[0_24px_60px_rgba(26,24,22,0.1)] backdrop-blur-[24px] overscroll-contain lg:hidden"
           >
-            {NAV_ITEMS.map(link => {
+            {headerNavItems.map(link => {
               const isActive = isLinkActive(pathname, link.href);
 
               return (
@@ -201,16 +196,10 @@ export default function Navigation() {
             })}
             <div className="mt-4 grid gap-3">
               <Link
-                href={REQUEST_CATALOGUE_HREF}
-                className="btn-secondary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
-              >
-                Register Trade Account
-              </Link>
-              <Link
-                href={GET_QUOTE_HREF}
+                href="/trade/login"
                 className="btn-primary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
               >
-                Get Quote
+                Trade Portal Access
               </Link>
             </div>
           </div>
