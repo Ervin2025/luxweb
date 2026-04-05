@@ -85,7 +85,7 @@ export default function PrivacyPage() {
                   9. Contact LuxAura
                 </h2>
                 <div className="mt-4 space-y-3 text-base leading-8 text-neutral-700">
-                  <p>{CONTACT_INFO.address.city}, {CONTACT_INFO.address.region}, Australia</p>
+                  <p>{CONTACT_INFO.address.display}, Australia</p>
                   <p>
                     Phone:{' '}
                     <a href="tel:+61450871699" className="text-primary transition hover:underline">

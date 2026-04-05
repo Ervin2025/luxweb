@@ -27,12 +27,12 @@ export default function Footer() {
             </div>
             <p className="max-w-sm text-sm leading-7 text-white/72 sm:text-base">
               An Australian family-owned fulfillment partner for premium textiles, fabrication and
-              site-ready soft furnishings, supporting designers, builders, developers and project
-              teams across Sydney.
+              site-ready soft furnishings, with Chatswood-based client support for designers,
+              builders and project teams.
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
               <Link href="/trade/login" className="btn-primary w-full sm:w-auto">
-                Trade Portal Access
+                TRADE PORTAL ACCESS
               </Link>
               <Link
                 href="/quote"
@@ -118,7 +118,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                {CONTACT_INFO.address.city}, {CONTACT_INFO.address.region}
+                {CONTACT_INFO.address.display}
               </p>
               <p>{CONTACT_INFO.hours}</p>
               <p>

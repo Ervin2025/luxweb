@@ -2,16 +2,18 @@ export const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://luxaura.com.au',
   name: 'LuxAura',
   description:
-    'Australian family-owned wholesale supplier for designers, retailers, project teams and commercial clients, combining global fabric sourcing, integrated fabrication and efficient delivery.',
+    'Australian family-owned strategic fulfillment partner for premium textiles, fabrication and site-ready soft furnishings across Sydney.',
 } as const;
 
 export const CONTACT_INFO = {
   phone: '0450 871 699',
   email: 'service@luxaura.com.au',
   address: {
-    city: 'Sydney',
+    line1: '4 Wilfred Avenue',
+    city: 'Chatswood',
     region: 'NSW',
     country: 'Australia',
+    display: '4 Wilfred Avenue, Chatswood, NSW',
   },
   hours: 'Trade consultations by appointment',
 } as const;

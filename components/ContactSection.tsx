@@ -47,7 +47,7 @@ export default function ContactSection() {
           phone: formData.phone,
           enquiry_type: formData.enquiryType,
           message: formData.message,
-          subject: 'Designer Support Request - LuxAura',
+          subject: 'Trade Support Desk Enquiry - LuxAura',
         }),
       });
 
@@ -82,9 +82,9 @@ export default function ContactSection() {
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="section-shell p-6 sm:p-10">
             <SectionHeading
-              eyebrow="Priority Support"
-              title="Send the brief and route it to the right LuxAura team"
-              description="Use this form for sourcing, quote follow-up, trimmings, systems, outdoor products or workroom feasibility."
+              eyebrow="Trade Support Desk"
+              title="Send the brief to the right LuxAura team"
+              description="Use this form for sourcing, quote follow-up, hardware, trims, upholstery, workroom feasibility or trade registration guidance."
             />
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
@@ -177,7 +177,7 @@ export default function ContactSection() {
                 className="btn-primary w-full justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending Message...' : 'Send Trade Enquiry'}
+                {isSubmitting ? 'Sending Message...' : 'Send to Trade Support Desk'}
               </button>
             </form>
           </div>
@@ -185,12 +185,12 @@ export default function ContactSection() {
           <div className="space-y-6">
             <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-6 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#dfc99f]">
-                Instant Designer Support
+                Priority Support
               </p>
               <h3 className="mt-4 font-heading text-4xl font-semibold">WhatsApp / Live Chat</h3>
               <p className="mt-5 text-base leading-8 text-white/78">
-                Use WhatsApp for fast sourcing questions, trim checks, workroom clarifications or
-                quote follow-up while the project is moving.
+                Use WhatsApp for fast sourcing questions, fabrication clarifications, trim checks
+                or quote follow-up while the brief is moving.
               </p>
               <a
                 href={SOCIAL_LINKS.whatsapp}
@@ -218,8 +218,8 @@ export default function ContactSection() {
                   </a>
                 </p>
                 <p>
-                  <span className="font-semibold text-neutral-900">Base:</span> {CONTACT_INFO.address.city},{' '}
-                  {CONTACT_INFO.address.region}
+                  <span className="font-semibold text-neutral-900">Address:</span>{' '}
+                  {CONTACT_INFO.address.display}
                 </p>
                 <p>
                   <span className="font-semibold text-neutral-900">Hours:</span> {CONTACT_INFO.hours}
@@ -230,9 +230,9 @@ export default function ContactSection() {
             <article className="section-shell p-6 sm:p-8">
               <h3 className="font-heading text-3xl font-semibold text-neutral-900">Best uses for this page</h3>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-neutral-700 sm:text-base">
-                <li>Request sourcing advice on fabrics, trims, systems or outdoor textile options.</li>
-                <li>Confirm whether a curtain, soft furnishing or upholstery brief is ready for quote review.</li>
-                <li>Ask for trade account or project workflow guidance before committing.</li>
+                <li>Request sourcing advice on fabrics, systems, trims or upholstery feasibility.</li>
+                <li>Confirm whether a curtain, soft-furnishing or upholstery brief is ready for quote review.</li>
+                <li>Ask for trade portal access or project workflow guidance before committing.</li>
               </ul>
             </article>
           </div>

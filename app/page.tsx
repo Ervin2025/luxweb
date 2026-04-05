@@ -5,77 +5,77 @@ import SectionHeading from '@/components/SectionHeading';
 import { SITE_CONFIG } from '@/lib/constants';
 import { GET_QUOTE_HREF } from '@/lib/site-data';
 
-const TRADE_PORTAL_HREF = '/trade/login';
+const STRATEGIC_PILLARS = [
+  {
+    title: 'Direct-to-Source & Lowest Price Guarantee',
+    description:
+      'As a factory-direct fulfillment hub, LuxAura removes intermediary markups through vertical integration. That control lets us back project briefs with a Lowest Price Guarantee without diluting craftsmanship.',
+  },
+  {
+    title: 'Unlimited Bespoke Craft',
+    description:
+      'From restrained sheers to complex Roman blinds and trim-integrated detailing, our team executes advanced custom work with precision and consistency.',
+  },
+  {
+    title: 'Performance & Pet-Friendly',
+    description:
+      'Our performance ranges are specified for modern family living, with pet-friendly, water-repellent and stain-resistant options, plus OEKO-TEX Standard 100 support across key collections.',
+  },
+  {
+    title: 'High-Efficiency Local Delivery',
+    description:
+      'Global manufacturing capacity meets Sydney accountability. Most standard orders are produced within four weeks, with local coordination guiding delivery and installation readiness.',
+  },
+] as const;
 
 const CAPABILITY_TILES = [
   {
-    title: 'Fabrics & Fabrication',
+    title: 'Fabric & Fabrication',
     description:
-      'Managing your project from raw material to finished form. Combining LuxAura Signature lines with global leaders such as PT, Mobus, Sunbrella and FibreGuard for any scale of custom sewing.',
+      'Managing projects from raw material to finished form, integrating LuxAura signature ranges with PT, Mobus, Sunbrella and FibreGuard for custom sewing at any scale.',
     href: '/collections',
     imageSrc: '/images/IMG-B.webp',
     imageAlt: 'Decorative drapery and tassel detail',
-    imageClass: 'object-cover',
   },
   {
     title: 'Window Treatments',
     description:
-      'Master craftsmanship in drapery and sheers. Specialized in architectural S-Fold, classic Pinch Pleat and precision-engineered Roman blinds for seamless site delivery.',
+      'Precision-engineered curtains, sheers and Roman blinds, including architectural S-Fold, classic Pinch Pleat and more complex custom detailing.',
     href: '/custom-curtains-sheers',
     imageSrc: '/images/IMG-A.webp',
     imageAlt: 'Roman blind and curtain craftsmanship',
-    imageClass: 'object-cover',
   },
   {
     title: 'Bespoke Upholstery',
     description:
-      'Precision manufacturing of custom lounges, chairs and bedheads. Engineered for high-use environments with structural integrity and artisanal finish.',
+      'High-efficiency manufacturing for custom sofas, chairs and bedheads, built for residential and commercial settings with a refined finish.',
     href: '/cushions-soft-furnishings',
     imageSrc: '/images/IMG-D.webp',
     imageAlt: 'Custom upholstery and cushion detail',
-    imageClass: 'object-cover',
   },
   {
     title: 'Hardware & Trimmings',
     description:
-      'Resolving function and aesthetic. Premium motorised tracks integrated with 1000s of master-grade artisanal trims and decorative edges for a resolved designer look.',
+      'Premium motorised tracks, silent hardware and thousands of trims and decorative edges that resolve both function and detail.',
     href: '/trimmings',
     imageSrc: '/images/carousel/09-Curtain-Track.webp',
     imageAlt: 'Curtain track section detail',
-    imageClass: 'object-contain p-10',
   },
   {
-    title: 'Supply Chain Efficiency',
+    title: 'Integrated Supply Chain',
     description:
-      'Our Source to Sydney model ensures rapid production from our global factory, backed by master-grade quality and local Sydney accountability.',
+      'The Source to Sydney model supports four-week manufacturing cycles through global factory capacity and Sydney-led quality control.',
     href: '/about',
     imageSrc: '/images/carousel/12-Product.webp',
     imageAlt: 'Technical product reference supporting supply efficiency',
-    imageClass: 'object-contain p-10',
   },
   {
     title: 'Strategic Partnerships',
     description:
-      'Built for Designers, Builders and Developers. Our direct factory connection supports a Lowest Price Guarantee on every project brief.',
+      'Built for designers and builders, with direct factory access supporting sharper budgets and a Lowest Price Guarantee on project briefs.',
     href: '/trade-projects',
     imageSrc: '/images/about-hero.webp',
     imageAlt: 'Project collaboration and local partnership',
-    imageClass: 'object-cover',
-  },
-] as const;
-
-const FABRICATION_SCOPE = [
-  {
-    title: 'Soft Furnishings',
-    items: ['Cushions', 'Table Runners', 'Bedrunners', 'Bedheads'],
-  },
-  {
-    title: 'Protective Layers',
-    items: ['Tailored Sofa Covers', 'Seat Pads', 'Slipcovers'],
-  },
-  {
-    title: 'Decorative Detail',
-    items: ['Precision piping', 'Border application', 'Hand-finished edges'],
   },
 ] as const;
 
@@ -165,48 +165,145 @@ function CapabilityIcon({ index }: { index: number }) {
   }
 }
 
+function PillarIcon({ index }: { index: number }) {
+  const commonProps = {
+    className: 'h-7 w-7',
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: '1.8',
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+  };
+
+  switch (index) {
+    case 0:
+      return (
+        <svg {...commonProps}>
+          <path d="M4 8h16" />
+          <path d="M6 12h12" />
+          <path d="M8 16h8" />
+          <path d="M12 4v16" />
+        </svg>
+      );
+    case 1:
+      return (
+        <svg {...commonProps}>
+          <path d="M7 16 17 6" />
+          <path d="M7 8c0-1.1.9-2 2-2h2v2a2 2 0 0 1-2 2H7V8Z" />
+          <path d="M13 14h2a2 2 0 0 1 2 2v2h-2a2 2 0 0 1-2-2v-2Z" />
+        </svg>
+      );
+    case 2:
+      return (
+        <svg {...commonProps}>
+          <path d="M12 21c4.4-2.3 7-5.6 7-10V5l-7-2-7 2v6c0 4.4 2.6 7.7 7 10Z" />
+          <path d="M9.5 12.5 11 14l3.5-4" />
+        </svg>
+      );
+    default:
+      return (
+        <svg {...commonProps}>
+          <path d="M5 19h14" />
+          <path d="M7 15V9" />
+          <path d="M12 15V5" />
+          <path d="M17 15v-3" />
+        </svg>
+      );
+  }
+}
+
 export default function Home() {
   return (
     <>
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <Image
           src="/images/IMG-A.webp"
-          alt="Completed soft-furnishing interior with Roman blind, sheers and custom seating"
+          alt="Completed soft-furnishing interior with drapery, custom trim and bespoke seating"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.16)_0%,rgba(12,14,13,0.28)_28%,rgba(12,14,13,0.74)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(229,209,160,0.16),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(197,160,89,0.12),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,12,11,0.76)_0%,rgba(10,12,11,0.54)_30%,rgba(10,12,11,0.18)_58%,rgba(10,12,11,0.06)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,12,11,0.16)_0%,rgba(10,12,11,0.3)_42%,rgba(10,12,11,0.58)_100%)]" />
 
         <div className="container-custom relative flex min-h-[100svh] items-end pb-16 pt-40 sm:pb-20 sm:pt-44 lg:pb-24">
-          <div className="max-w-4xl text-white">
-            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
+          <div className="max-w-[38rem] text-white">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-[#ead7a8] sm:text-xs">
               Strategic Fulfillment Center
             </p>
-            <h1 className="mt-5 max-w-4xl text-balance font-heading text-[3.3rem] font-semibold leading-[0.92] tracking-tight sm:text-[4.5rem] lg:text-[5.3rem] xl:text-[5.8rem]">
+            <h1 className="mt-5 max-w-4xl text-balance font-heading text-[3.15rem] font-semibold leading-[0.92] tracking-tight sm:text-[4.45rem] lg:text-[5.2rem] xl:text-[5.7rem]">
               The Fulfillment Center for Whole-Home Soft Furnishings.
             </h1>
-            <p className="mt-6 max-w-3xl text-pretty text-lg leading-[1.6] text-white/86 sm:text-[1.55rem]">
+            <p className="mt-6 max-w-[34rem] text-pretty text-base leading-[1.65] text-white/84 sm:text-[1.08rem] lg:text-[1.16rem]">
               A Sydney-based strategic partner for master-level fabrication, global textile
               sourcing, and factory-direct project delivery.
             </p>
-            <div className="mt-9">
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Link href={GET_QUOTE_HREF} className="btn-primary">
                 Request a Trade Quote
+              </Link>
+              <Link
+                href="#why-luxaura"
+                className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/22 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-white transition hover:border-white/60 hover:bg-white/8"
+              >
+                Explore Our Fulfillment Workflow
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-[9.5rem]">
+      <section
+        id="why-luxaura"
+        className="scroll-mt-40 px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-[9.5rem]"
+      >
+        <div className="container-custom">
+          <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/68">
+                Why LuxAura
+              </p>
+              <h2 className="mt-5 text-balance font-heading text-[3.15rem] font-semibold leading-[0.95] tracking-tight text-[#2C2C2C] sm:text-[4.2rem] lg:text-[4.9rem]">
+                Four strategic reasons to bring us in early.
+              </h2>
+              <p className="mt-6 text-base leading-8 text-neutral-700 sm:text-lg">
+                LuxAura is structured as a fulfillment partner, not a fragmented supplier. The
+                advantage comes from price control, advanced fabrication and accountable local
+                delivery.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              {STRATEGIC_PILLARS.map((pillar, index) => (
+                <article
+                  key={pillar.title}
+                  className="border-t border-primary/14 pt-6 transition duration-300 hover:border-primary/30"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/12 bg-primary/5 text-primary">
+                    <PillarIcon index={index} />
+                  </div>
+                  <h3 className="mt-6 text-balance font-heading text-[2rem] font-semibold leading-tight text-[#2C2C2C]">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-8 text-neutral-700 sm:text-base">
+                    {pillar.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24 sm:px-6 sm:pb-28 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <SectionHeading
             eyebrow="Capability Matrix"
-            title="A strategic capability matrix for project delivery"
-            description="Six focused capabilities that move premium textiles into site-ready soft furnishings."
+            title="A fulfillment model built for the full brief"
+            description="Six connected capabilities that take a project from textile selection through fabrication and delivery."
           />
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -214,142 +311,32 @@ export default function Home() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group overflow-hidden rounded-[2rem] border border-white/75 bg-white/82 shadow-[0_24px_70px_rgba(26,24,22,0.08)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_30px_90px_rgba(26,24,22,0.14)]"
+                className="group relative isolate min-h-[27rem] overflow-hidden rounded-[2rem] shadow-[0_22px_70px_rgba(26,24,22,0.12)] transition duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_28px_90px_rgba(26,24,22,0.16)]"
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#eef1f2]">
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(min-width: 1024px) 30vw, 100vw"
-                    className={`transition duration-700 ease-out group-hover:scale-[1.04] ${item.imageClass}`}
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(12,16,14,0.02)_0%,_rgba(12,16,14,0.18)_100%)]" />
-                </div>
-                <div className="p-7">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-primary/10 bg-[linear-gradient(135deg,rgba(197,160,89,0.1),rgba(255,255,255,0.94))] text-primary">
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,16,15,0.08)_0%,rgba(13,16,15,0.22)_36%,rgba(13,16,15,0.88)_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(229,209,160,0.18),transparent_26%)]" />
+                <div className="relative flex h-full flex-col justify-between p-7 text-white">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/18 bg-white/10 text-[#f1deb1] backdrop-blur-sm">
                     <CapabilityIcon index={index} />
                   </div>
-                  <h2 className="mt-6 text-balance font-heading text-3xl font-semibold text-[#2C2C2C]">
-                    {item.title}
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
+                  <div>
+                    <h2 className="max-w-[15rem] text-balance font-heading text-[2.2rem] font-semibold leading-[1]">
+                      {item.title}
+                    </h2>
+                    <p className="mt-4 max-w-[22rem] text-sm leading-7 text-white/78 sm:text-[0.98rem]">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </Link>
             ))}
-          </div>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Link href={TRADE_PORTAL_HREF} className="btn-primary">
-              Trade Portal Access
-            </Link>
-            <Link href={GET_QUOTE_HREF} className="btn-secondary">
-              Request a Trade Quote
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 sm:px-6 sm:pb-28 lg:px-8 lg:pb-[9.5rem]">
-        <div className="container-custom">
-          <div className="grid items-center gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:gap-10">
-            <div className="relative overflow-hidden rounded-[2.2rem] border border-white/75 bg-white/65 p-3 shadow-[0_28px_80px_rgba(26,24,22,0.1)] backdrop-blur">
-              <div className="relative aspect-[4/4.6] overflow-hidden rounded-[1.7rem]">
-                <Image
-                  src="/images/luxaura/upholstery-pillows.webp"
-                  alt="Master fabrication detail on upholstery and cushions"
-                  fill
-                  sizes="(min-width: 1024px) 44vw, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(14,17,15,0.04)_0%,_rgba(14,17,15,0.32)_100%)]" />
-              </div>
-            </div>
-
-            <div>
-              <SectionHeading
-                eyebrow="Master Fabrication Scope"
-                title="What the workshop is built to deliver"
-                description="From cushions to protective covers, LuxAura translates fabric selection into finished form."
-              />
-              <div className="mt-8 space-y-4">
-                {FABRICATION_SCOPE.map(item => (
-                  <article
-                    key={item.title}
-                    className="rounded-[1.7rem] border border-primary/10 bg-white/78 p-6 shadow-[0_18px_46px_rgba(26,24,22,0.06)]"
-                  >
-                    <h3 className="font-heading text-3xl font-semibold text-[#2C2C2C]">
-                      {item.title}
-                    </h3>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {item.items.map(scope => (
-                        <span
-                          key={scope}
-                          className="rounded-full border border-primary/14 bg-primary/5 px-3 py-1 text-xs font-medium text-primary"
-                        >
-                          {scope}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
-                ))}
-              </div>
-
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link href={GET_QUOTE_HREF} className="btn-primary">
-                  Request a Trade Quote
-                </Link>
-                <Link href={TRADE_PORTAL_HREF} className="btn-secondary">
-                  Trade Portal Access
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 sm:px-6 sm:pb-28 lg:px-8 lg:pb-[9.5rem]">
-        <div className="container-custom">
-          <div className="relative overflow-hidden rounded-[2.35rem] bg-[#182620] text-white shadow-[0_34px_100px_rgba(18,24,21,0.22)]">
-            <div className="absolute inset-0">
-              <Image
-                src="/images/luxaura/upholstery-pillows.webp"
-                alt="Performance upholstery for pet-friendly interiors"
-                fill
-                sizes="100vw"
-                className="object-cover opacity-28"
-              />
-            </div>
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,17,15,0.46)_0%,rgba(13,17,15,0.82)_100%)]" />
-            <div className="relative px-8 py-16 sm:px-10 sm:py-20 lg:px-14">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
-                Featured Performance
-              </p>
-              <h2 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] text-white sm:text-6xl">
-                The Pet-Friendly Specialist.
-              </h2>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-white/80 sm:text-lg">
-                Engineered for Australian living. Our performance textiles, including FibreGuard
-                and Mobus, are water-repellent, stain-resistant and specified for high-rub use.
-              </p>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-white/80 sm:text-lg">
-                100% OEKO-TEX Standard 100 certified where specified, supporting safer use for
-                pets, kids and modern homes without sacrificing visual quality.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link href={GET_QUOTE_HREF} className="btn-primary">
-                  Inquire Performance Textiles
-                </Link>
-                <Link
-                  href="/collections"
-                  className="btn-secondary border-white/18 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
-                >
-                  Source Collections
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -357,38 +344,33 @@ export default function Home() {
       <section className="px-4 pb-24 sm:px-6 sm:pb-28 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Global Strategic Partners"
-            title="Strategic Brand Partners"
-            description="A concise sourcing wall built around trusted mills, performance leaders and LuxAura signature ranges."
+            eyebrow="Global Strategic Brand Partners"
+            title="Trusted mills, performance leaders and signature ranges"
+            description="A concise partner wall that signals sourcing depth without shifting the site back into retail language."
             align="center"
           />
-          <div className="mt-10 rounded-[2rem] border border-white/70 bg-white/78 p-6 shadow-[0_24px_70px_rgba(26,24,22,0.06)] backdrop-blur sm:p-8">
-            <div className="grid gap-4 min-[520px]:grid-cols-2 xl:grid-cols-5">
-              {STRATEGIC_PARTNERS.map(partner => (
-                <div
-                  key={partner.name}
-                  className="flex min-h-[96px] items-center justify-center rounded-[1.4rem] border border-neutral-200/80 bg-[#fafaf9] px-4 py-4 text-center saturate-0"
-                >
-                  <div>
-                    <p className="font-heading text-[1.55rem] font-semibold leading-tight text-neutral-500">
-                      {partner.name}
-                    </p>
-                    <p className="mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-neutral-400">
-                      {partner.note}
-                    </p>
-                  </div>
+
+          <div className="mt-10 grid gap-4 min-[560px]:grid-cols-2 xl:grid-cols-5">
+            {STRATEGIC_PARTNERS.map(partner => (
+              <article
+                key={partner.name}
+                className="group flex min-h-[110px] items-center justify-center rounded-[1.6rem] border border-neutral-200/80 bg-[#faf8f4] px-5 py-5 text-center text-neutral-500 grayscale transition duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:text-primary hover:grayscale-0"
+              >
+                <div>
+                  <p className="font-heading text-[1.45rem] font-semibold leading-tight">
+                    {partner.name}
+                  </p>
+                  <p className="mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-neutral-400 transition group-hover:text-primary/60">
+                    {partner.note}
+                  </p>
                 </div>
-              ))}
-            </div>
-            <p className="mt-8 text-center text-xs font-semibold uppercase tracking-[0.28em] text-neutral-500">
-              Australian Family-Owned. Sydney accountability.
-            </p>
-            <div className="mt-10 flex justify-center">
-              <Link href={GET_QUOTE_HREF} className="btn-primary">
-                Request a Trade Quote
-              </Link>
-            </div>
+              </article>
+            ))}
           </div>
+
+          <p className="mt-8 text-center text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500">
+            Australian Family-Owned
+          </p>
         </div>
       </section>
     </>

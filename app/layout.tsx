@@ -9,11 +9,11 @@ import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'LuxAura | Australian Family-Owned Wholesale Textile Partner',
+    default: 'LuxAura | Australian Family-Owned Textile Fulfillment Partner',
     template: '%s | LuxAura',
   },
   description:
-    'LuxAura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery.',
+    'LuxAura is an Australian family-owned strategic fulfillment partner combining global textile sourcing, integrated fabrication and Sydney-based delivery accountability.',
   keywords: [
     'Wholesale Fabric Sydney',
     'Designer Curtain Manufacturer',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: 'LuxAura | Australian Family-Owned Wholesale Textile Partner',
+    title: 'LuxAura | Australian Family-Owned Textile Fulfillment Partner',
     description:
-      'Australian family-owned wholesale support with global fabric sourcing, integrated fabrication and efficient delivery for designers, retailers and project teams.',
+      'Australian family-owned fulfillment support with global fabric sourcing, integrated fabrication and Sydney accountability for designers, builders and project teams.',
     type: 'website',
     locale: 'en_AU',
     siteName: 'LuxAura',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'LuxAura | Australian Family-Owned Textile Partner',
-    description: 'Australian family-owned wholesale sourcing, fabrication and delivery support for trade projects.',
+    description: 'Australian family-owned sourcing, fabrication and delivery support for premium soft-furnishing projects.',
   },
   robots: {
     index: true,
@@ -87,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@id': `${SITE_CONFIG.url}/#organization`,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: CONTACT_INFO.address.line1,
       addressCountry: 'AU',
       addressRegion: CONTACT_INFO.address.region,
       addressLocality: CONTACT_INFO.address.city,
@@ -115,7 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta
           name="description"
-          content="LuxAura is an Australian family-owned wholesale supplier combining Australian design understanding, global fabric sourcing, integrated fabrication and efficient delivery."
+          content="LuxAura is an Australian family-owned strategic fulfillment partner combining global textile sourcing, integrated fabrication and Sydney-based delivery accountability."
         />
         <script
           type="application/ld+json"

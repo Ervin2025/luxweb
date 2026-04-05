@@ -38,14 +38,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const isSolid = isScrolled || isMobileMenuOpen;
   const mobileMenuId = 'mobile-navigation-menu';
-  const headerNavItems = NAV_ITEMS.filter(link =>
-    [
-      '/collections',
-      '/custom-curtains-sheers',
-      '/cushions-soft-furnishings',
-      '/trimmings',
-    ].includes(link.href)
-  );
+  const headerNavItems = NAV_ITEMS;
 
   useEffect(() => {
     let ticking = false;
@@ -104,7 +97,7 @@ export default function Navigation() {
 
           <div className="hidden min-w-0 flex-1 justify-center lg:flex">
             <div
-              className={`relative inline-flex max-w-full items-center gap-2 overflow-x-auto rounded-full px-3 py-3 shadow-[0_18px_48px_rgba(26,24,22,0.08)] transition-all duration-300 xl:gap-3 ${
+              className={`relative inline-flex max-w-full items-center gap-1.5 overflow-x-auto rounded-full px-3 py-3 shadow-[0_18px_48px_rgba(26,24,22,0.08)] transition-all duration-300 xl:gap-2 ${
                 isSolid
                   ? 'border border-white/85 bg-white/72 backdrop-blur-xl'
                   : 'border border-white/70 bg-white/58 backdrop-blur-2xl'
@@ -112,7 +105,7 @@ export default function Navigation() {
             >
               <div className="pointer-events-none absolute inset-px rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
               <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-              <div className="relative flex items-center gap-2 xl:gap-3">
+              <div className="relative flex items-center gap-1.5 xl:gap-2">
                 {headerNavItems.map(link => {
                   const isActive = isLinkActive(pathname, link.href);
 
@@ -120,7 +113,7 @@ export default function Navigation() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 xl:text-[15px] ${
+                      className={`whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-medium transition-colors duration-200 xl:px-4 xl:text-[14px] 2xl:text-[15px] ${
                         isActive
                           ? 'bg-primary text-white'
                           : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
@@ -139,7 +132,7 @@ export default function Navigation() {
               href="/trade/login"
               className="btn-primary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
             >
-              Trade Portal Access
+              TRADE PORTAL ACCESS
             </Link>
           </div>
 
@@ -199,7 +192,7 @@ export default function Navigation() {
                 href="/trade/login"
                 className="btn-primary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
               >
-                Trade Portal Access
+                TRADE PORTAL ACCESS
               </Link>
             </div>
           </div>
