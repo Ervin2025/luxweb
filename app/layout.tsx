@@ -9,11 +9,11 @@ import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'LuxAura | Australian Family-Owned Textile Fulfillment Partner',
+    default: 'LuxAura | Sydney Soft-Furnishing Fulfillment Hub',
     template: '%s | LuxAura',
   },
   description:
-    'LuxAura is an Australian family-owned strategic fulfillment partner combining global textile sourcing, integrated fabrication and Sydney-based delivery accountability.',
+    "LuxAura is Sydney's full-service soft-furnishing fulfillment hub, combining global textile sourcing, master fabrication, and accountable local project delivery.",
   keywords: [
     'Wholesale Fabric Sydney',
     'Designer Curtain Manufacturer',
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: 'LuxAura | Australian Family-Owned Textile Fulfillment Partner',
+    title: 'LuxAura | Sydney Soft-Furnishing Fulfillment Hub',
     description:
-      'Australian family-owned fulfillment support with global fabric sourcing, integrated fabrication and Sydney accountability for designers, builders and project teams.',
+      'Sydney-based fulfillment support with global fabric sourcing, integrated fabrication, and local accountability for designers, builders, developers, and project teams.',
     type: 'website',
     locale: 'en_AU',
     siteName: 'LuxAura',
@@ -50,8 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LuxAura | Australian Family-Owned Textile Partner',
-    description: 'Australian family-owned sourcing, fabrication and delivery support for premium soft-furnishing projects.',
+    title: 'LuxAura | Sydney Soft-Furnishing Fulfillment Hub',
+    description:
+      'Sydney-based sourcing, fabrication, and delivery support for premium soft-furnishing projects.',
   },
   robots: {
     index: true,
@@ -116,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta
           name="description"
-          content="LuxAura is an Australian family-owned strategic fulfillment partner combining global textile sourcing, integrated fabrication and Sydney-based delivery accountability."
+          content="LuxAura is Sydney's full-service soft-furnishing fulfillment hub, combining global textile sourcing, master fabrication, and accountable local project delivery."
         />
         <script
           type="application/ld+json"

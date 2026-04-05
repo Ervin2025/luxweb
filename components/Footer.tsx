@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
 import {
   FOOTER_CATEGORY_LINKS,
+  GET_QUOTE_HREF,
   NAV_ITEMS,
+  REGISTER_TRADE_ACCOUNT_HREF,
 } from '@/lib/site-data';
 
 export default function Footer() {
@@ -26,19 +28,19 @@ export default function Footer() {
               </div>
             </div>
             <p className="max-w-sm text-sm leading-7 text-white/72 sm:text-base">
-              An Australian family-owned fulfillment partner for premium textiles, fabrication and
-              site-ready soft furnishings, with Chatswood-based client support for designers,
-              builders and project teams.
+              Sydney-based full-service soft-furnishing fulfillment hub for designers, builders,
+              developers, and project partners who need sourcing, fabrication, and accountable
+              local delivery in one coordinated model.
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-              <Link href="/trade/login" className="btn-primary w-full sm:w-auto">
-                TRADE PORTAL ACCESS
+              <Link href={REGISTER_TRADE_ACCOUNT_HREF} className="btn-primary w-full sm:w-auto">
+                Register Trade Account
               </Link>
               <Link
-                href="/quote"
+                href={GET_QUOTE_HREF}
                 className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
-                Request a Trade Quote
+                Get a Project Quote
               </Link>
             </div>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
@@ -86,7 +88,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading text-2xl font-semibold text-white">Categories</h4>
+            <h4 className="font-heading text-2xl font-semibold text-white">Capabilities</h4>
             <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
               {FOOTER_CATEGORY_LINKS.map(link => (
                 <li key={link.href}>

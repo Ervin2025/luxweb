@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://luxaura.com.au',
   name: 'LuxAura',
   description:
-    'Australian family-owned strategic fulfillment partner for premium textiles, fabrication and site-ready soft furnishings across Sydney.',
+    'Sydney-based full-service soft-furnishing fulfillment hub for premium textiles, master fabrication, and accountable project delivery.',
 } as const;
 
 export const CONTACT_INFO = {

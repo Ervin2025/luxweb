@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV_ITEMS } from '@/lib/site-data';
+import { GET_QUOTE_HREF, NAV_ITEMS, REGISTER_TRADE_ACCOUNT_HREF } from '@/lib/site-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -129,10 +129,16 @@ export default function Navigation() {
 
           <div className="hidden flex-shrink-0 items-center gap-3 lg:flex">
             <Link
-              href="/trade/login"
+              href={GET_QUOTE_HREF}
+              className="hidden min-h-[44px] items-center justify-center rounded-full border border-white/82 bg-white/54 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary transition hover:border-primary/20 hover:bg-white xl:inline-flex"
+            >
+              Get a Project Quote
+            </Link>
+            <Link
+              href={REGISTER_TRADE_ACCOUNT_HREF}
               className="btn-primary px-5 py-2.5 text-xs xl:px-6 xl:text-sm"
             >
-              TRADE PORTAL ACCESS
+              Register Trade Account
             </Link>
           </div>
 
@@ -189,10 +195,16 @@ export default function Navigation() {
             })}
             <div className="mt-4 grid gap-3">
               <Link
-                href="/trade/login"
+                href={REGISTER_TRADE_ACCOUNT_HREF}
                 className="btn-primary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
               >
-                TRADE PORTAL ACCESS
+                Register Trade Account
+              </Link>
+              <Link
+                href={GET_QUOTE_HREF}
+                className="btn-secondary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
+              >
+                Get a Project Quote
               </Link>
             </div>
           </div>
