@@ -125,6 +125,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify(organizationSchema),
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var root=document.documentElement;var apply=function(){var query=window.location.search;var enabled=query.indexOf('image-codes=1')!==-1||query.indexOf('image-codes=true')!==-1;if(enabled){root.dataset.imageCodes='1';}else{delete root.dataset.imageCodes;}};var wrap=function(method){var original=history[method];if(!original||original.__imageCodesWrapped){return;}var wrapped=function(){var result=original.apply(this,arguments);setTimeout(apply,0);return result;};wrapped.__imageCodesWrapped=true;history[method]=wrapped;};apply();wrap('pushState');wrap('replaceState');window.addEventListener('popstate',apply);})();`,
+          }}
+        />
       </head>
       <body className="font-sans">
         <LoadingFavicon />

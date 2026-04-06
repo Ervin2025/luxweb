@@ -79,6 +79,20 @@
   }
 }
 
+.image-code-badge {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+html[data-image-codes='1'] .image-code-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 640px) {
   body {
     font-size: 16px;

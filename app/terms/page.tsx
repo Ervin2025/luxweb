@@ -60,6 +60,7 @@ export default function TermsPage() {
         description="These terms apply to use of the LuxAura trade website and its trade access, project brief and contact forms."
         imageSrc="/images/luxaura/hero-project.webp"
         imageAlt="LuxAura terms of service"
+        imageCode="LXA-TERMS-01"
       >
         <Link href="/trade-projects" className="btn-primary">
           Trade Portal Access

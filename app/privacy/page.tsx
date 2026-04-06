@@ -59,6 +59,7 @@ export default function PrivacyPage() {
         description="How submitted business and contact details are used to support LuxAura trade access and project workflows."
         imageSrc="/images/luxaura/beach-sheer.webp"
         imageAlt="LuxAura privacy policy"
+        imageCode="LXA-PRIVACY-01"
       />
 
       <div className="container-custom">

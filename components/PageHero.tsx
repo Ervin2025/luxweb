@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import type { StatItem } from '@/lib/site-data';
 
 interface PageHeroProps {
@@ -8,6 +9,7 @@ interface PageHeroProps {
   description: string;
   imageSrc: string;
   imageAlt: string;
+  imageCode?: string;
   stats?: StatItem[];
   children?: ReactNode;
 }
@@ -18,6 +20,7 @@ export default function PageHero({
   description,
   imageSrc,
   imageAlt,
+  imageCode,
   stats = [],
   children,
 }: PageHeroProps) {
@@ -69,6 +72,7 @@ export default function PageHero({
                   className="object-cover"
                   sizes="(min-width: 1024px) 42vw, 100vw"
                 />
+                {imageCode ? <ImageCodeBadge code={imageCode} /> : null}
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(15,19,17,0.04)_0%,_rgba(15,19,17,0.34)_100%)]" />
               </div>
               <div className="absolute bottom-4 left-4 right-4 rounded-[1.25rem] border border-white/25 bg-[#16231dcc] p-4 text-white backdrop-blur sm:bottom-8 sm:left-8 sm:right-8 sm:rounded-[1.4rem] sm:p-5">

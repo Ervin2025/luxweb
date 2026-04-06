@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import FaqSection from '@/components/FaqSection';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import QuickInquiryDialog from '@/components/QuickInquiryDialog';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
@@ -13,6 +14,7 @@ import { PROJECT_BRIEF_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 const TAILORED_WINDOW_STYLES = [
   {
     title: 'S-Fold Systems',
+    code: 'LXA-WIN-02',
     eyebrow: 'Calm Rhythm',
     description:
       'Clean continuous folds shaped for wide glazing, softer movement and a more architectural curtain line.',
@@ -21,6 +23,7 @@ const TAILORED_WINDOW_STYLES = [
   },
   {
     title: 'Pinch Pleat',
+    code: 'LXA-WIN-03',
     eyebrow: 'Tailored Formality',
     description:
       'A structured pleated heading that suits refined residential, hospitality and developer-led furnishing briefs.',
@@ -29,6 +32,7 @@ const TAILORED_WINDOW_STYLES = [
   },
   {
     title: 'Double Pinch Pleat',
+    code: 'LXA-WIN-04',
     eyebrow: 'Controlled Fullness',
     description:
       'A fuller tailored profile for schemes that need stronger shape, proportion and more formal drapery presence.',
@@ -37,6 +41,7 @@ const TAILORED_WINDOW_STYLES = [
   },
   {
     title: 'Box Pleat',
+    code: 'LXA-WIN-05',
     eyebrow: 'Architectural Order',
     description:
       'Sharper pleat discipline and stronger spacing control for briefs that demand a more composed, linear finish.',
@@ -45,6 +50,7 @@ const TAILORED_WINDOW_STYLES = [
   },
   {
     title: 'Goblet & Decorative Pleat',
+    code: 'LXA-WIN-06',
     eyebrow: 'Statement Dressing',
     description:
       'More decorative heading expressions for formal rooms, taller glazing and schemes that need visual theatre.',
@@ -53,6 +59,7 @@ const TAILORED_WINDOW_STYLES = [
   },
   {
     title: 'Eyelet & Pole-Led Treatments',
+    code: 'LXA-WIN-07',
     eyebrow: 'Visible Hardware',
     description:
       'Pole-led drapery where heading style and hardware become part of the visual language rather than hidden support.',
@@ -61,6 +68,7 @@ const TAILORED_WINDOW_STYLES = [
   },
   {
     title: 'Layered Sheer + Drape Systems',
+    code: 'LXA-WIN-08',
     eyebrow: 'Day-To-Night Control',
     description:
       'Layered treatments that balance light filtration, privacy, blackout control and a stronger sense of room finish.',
@@ -258,6 +266,7 @@ export default function CustomCurtainsSheersPage() {
           sizes="100vw"
           className="object-cover"
         />
+        <ImageCodeBadge code="LXA-WIN-01" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,19,17,0.76)_0%,rgba(13,19,17,0.58)_36%,rgba(13,19,17,0.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,19,17,0.08)_0%,rgba(13,19,17,0.32)_100%)]" />
 
@@ -315,6 +324,7 @@ export default function CustomCurtainsSheersPage() {
                     sizes="(max-width: 767px) 86vw, (max-width: 1279px) 50vw, 33vw"
                     className="object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
                   />
+                  <ImageCodeBadge code={item.code} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,16,14,0.02),rgba(11,16,14,0.56))]" />
                   <div className="absolute inset-x-5 bottom-5">
                     <p className="inline-flex rounded-full border border-white/18 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-white backdrop-blur-md">
@@ -366,6 +376,7 @@ export default function CustomCurtainsSheersPage() {
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
               />
+              <ImageCodeBadge code="LXA-WIN-09" />
             </div>
 
             <div className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-8 shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-10 lg:p-12">
@@ -454,7 +465,7 @@ export default function CustomCurtainsSheersPage() {
           <div className="overflow-hidden rounded-[2.3rem] bg-[#15110d] text-white shadow-[0_32px_90px_rgba(17,12,8,0.24)]">
             <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
               <div className="grid gap-4 p-4 sm:p-6 lg:p-8">
-                <div className="overflow-hidden rounded-[1.8rem] border border-white/10">
+                <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10">
                   <video
                     autoPlay
                     muted
@@ -465,6 +476,7 @@ export default function CustomCurtainsSheersPage() {
                   >
                     <source src="/videos/motorisation-demo.mp4" type="video/mp4" />
                   </video>
+                  <ImageCodeBadge code="LXA-WIN-10" />
                 </div>
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
                   <Image
@@ -474,6 +486,7 @@ export default function CustomCurtainsSheersPage() {
                     sizes="(min-width: 1024px) 46vw, 100vw"
                     className="object-cover"
                   />
+                  <ImageCodeBadge code="LXA-WIN-11" />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,8,6,0.08),rgba(10,8,6,0.22))]" />
                 </div>
               </div>

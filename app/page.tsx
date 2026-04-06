@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import { SITE_CONFIG } from '@/lib/constants';
 import { PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
@@ -11,8 +12,9 @@ const CAPABILITY_TILES = [
     description:
       'Our signature LuxAura range is paired with globally respected names including PT, Mobus, Sunbrella, and FibreGuard.',
     href: '/collections',
-    imageSrc: '/images/luxaura/beach-sheer.webp',
-    imageAlt: 'Sheer drapery and checked curtain fabric framed by coastal light.',
+    code: 'LXA-HOME-02',
+    imageSrc: '/image/01.webp',
+    imageAlt: 'LuxAura fabric and textile capability image',
   },
   {
     number: '02',
@@ -20,8 +22,9 @@ const CAPABILITY_TILES = [
     description:
       'Precision-crafted curtains, sheers, and specialized Roman blinds, fabricated with in-house control.',
     href: '/custom-curtains-sheers',
-    imageSrc: '/images/luxaura/roman-blind-lounge.webp',
-    imageAlt: 'Roman blind installation with refined upholstery and calm interior detailing.',
+    code: 'LXA-HOME-03',
+    imageSrc: '/image/02.webp',
+    imageAlt: 'LuxAura window treatments capability image',
   },
   {
     number: '03',
@@ -29,8 +32,9 @@ const CAPABILITY_TILES = [
     description:
       'Custom indoor and outdoor seating solutions engineered for performance, longevity, and refined finish.',
     href: '/cushions-soft-furnishings',
-    imageSrc: '/images/luxaura/upholstery-pillows.webp',
-    imageAlt: 'Upholstery fabric and cushion detailing on a tailored sofa arm.',
+    code: 'LXA-HOME-04',
+    imageSrc: '/image/03.webp',
+    imageAlt: 'LuxAura bespoke upholstery capability image',
   },
   {
     number: '04',
@@ -38,8 +42,9 @@ const CAPABILITY_TILES = [
     description:
       'Silent track systems and thousands of refined trimming options to resolve every detail with precision.',
     href: '/trimmings',
-    imageSrc: '/images/IMG-G.webp',
-    imageAlt: 'Curtain hardware and full-drop drapery detail in a restrained interior.',
+    code: 'LXA-HOME-05',
+    imageSrc: '/image/04.webp',
+    imageAlt: 'LuxAura hardware and artisanal trimmings capability image',
   },
   {
     number: '05',
@@ -47,8 +52,9 @@ const CAPABILITY_TILES = [
     description:
       'Sourcing, fabrication and project coordination aligned through one accountable process.',
     href: '/about',
-    imageSrc: '/images/luxaura/hero-project.webp',
-    imageAlt: 'Completed project with layered drapery, upholstery, and delivery-ready finish.',
+    code: 'LXA-HOME-06',
+    imageSrc: '/image/05.webp',
+    imageAlt: 'LuxAura unified supply chain capability image',
   },
   {
     number: '06',
@@ -56,8 +62,9 @@ const CAPABILITY_TILES = [
     description:
       'Trade responsiveness and project support designed for professionals managing real timelines and decisions.',
     href: '/trade-projects',
-    imageSrc: '/images/IMG-E.webp',
-    imageAlt: 'Quiet drapery installation with generous light and controlled detailing.',
+    code: 'LXA-HOME-07',
+    imageSrc: '/image/06.webp',
+    imageAlt: 'LuxAura partner excellence capability image',
   },
 ] as const;
 
@@ -135,13 +142,14 @@ export default function Home() {
     <>
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <Image
-          src="/images/luxaura/hero-project.webp"
-          alt="LuxAura project with layered curtains, custom upholstery, and coastal Sydney light."
+          src="/image/hero.webp"
+          alt="LuxAura homepage hero image"
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
+        <ImageCodeBadge code="LXA-HOME-01" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.74)_0%,rgba(13,12,11,0.58)_32%,rgba(13,12,11,0.18)_64%,rgba(13,12,11,0.06)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,12,11,0.16)_0%,rgba(13,12,11,0.34)_100%)]" />
 
@@ -201,6 +209,7 @@ export default function Home() {
                   sizes="(min-width: 1024px) 30vw, 100vw"
                   className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                 />
+                <ImageCodeBadge code={item.code} />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.04)_0%,rgba(12,12,11,0.12)_38%,rgba(12,12,11,0.82)_100%)]" />
 
                 <div className="relative flex h-full flex-col justify-between p-6 sm:p-7">
@@ -234,6 +243,7 @@ export default function Home() {
                 sizes="(min-width: 1024px) 54vw, 100vw"
                 className="object-cover"
               />
+              <ImageCodeBadge code="LXA-HOME-08" />
             </div>
 
             <div className="max-w-xl lg:pl-6">
@@ -348,6 +358,7 @@ export default function Home() {
               sizes="100vw"
               className="object-cover"
             />
+            <ImageCodeBadge code="LXA-HOME-09" />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.84)_0%,rgba(13,12,11,0.66)_46%,rgba(13,12,11,0.18)_100%)]" />
             <div className="relative px-8 py-14 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
               <div className="max-w-3xl">

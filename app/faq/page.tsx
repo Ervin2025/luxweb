@@ -31,6 +31,7 @@ export default function FaqPage() {
         description="Common questions on collections, project briefs, fabrication support and trade workflow, grouped by category."
         imageSrc="/images/luxaura/beach-sheer.webp"
         imageAlt="LuxAura fabric sourcing and fabrication FAQ"
+        imageCode="LXA-FAQ-01"
       >
         <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
           Trade Portal Access

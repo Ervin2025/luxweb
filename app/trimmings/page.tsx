@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -35,6 +36,7 @@ const RESOURCE_ADVANTAGE = [
 const HARDWARE_GALLERY = [
   {
     title: 'Architectural track systems',
+    code: 'LXA-TRM-02',
     description:
       'Ceiling-fixed and wall-fixed track directions selected for cleaner stack-back, quieter movement and stronger glazing alignment.',
     imageSrc: '/images/luxaura/hero-project.webp',
@@ -42,6 +44,7 @@ const HARDWARE_GALLERY = [
   },
   {
     title: 'Decorative poles and finials',
+    code: 'LXA-TRM-03',
     description:
       'Visible pole-led hardware for projects that need more finish character, proportion and decorative presence.',
     imageSrc: '/images/IMG-G.webp',
@@ -49,6 +52,7 @@ const HARDWARE_GALLERY = [
   },
   {
     title: 'Concealed track planning',
+    code: 'LXA-TRM-04',
     description:
       'Cleaner recessed or visually discreet hardware directions that allow the textile layer to read with less visual noise.',
     imageSrc: '/images/IMG-I.webp',
@@ -56,6 +60,7 @@ const HARDWARE_GALLERY = [
   },
   {
     title: 'Wide-opening and feature-window support',
+    code: 'LXA-TRM-05',
     description:
       'Hardware thinking that supports larger glazing, taller drops and more formal room conditions without losing control.',
     imageSrc: '/images/IMG-C.webp',
@@ -63,6 +68,7 @@ const HARDWARE_GALLERY = [
   },
   {
     title: 'Bracket and support detail',
+    code: 'LXA-TRM-06',
     description:
       'The supporting pieces that influence projection, hold, line quality and long-term reliability across the treatment.',
     imageSrc: '/images/IMG-F.webp',
@@ -70,6 +76,7 @@ const HARDWARE_GALLERY = [
   },
   {
     title: 'Installed hardware resolution',
+    code: 'LXA-TRM-07',
     description:
       'Finished system outcomes where tracks, headings and movement paths sit naturally within the wider interior brief.',
     imageSrc: '/images/luxaura/vertical-sheer-pool.webp',
@@ -116,6 +123,7 @@ const MOTORISATION_FEATURES = [
 const TRIMMING_GALLERY = [
   {
     title: 'Braids and borders',
+    code: 'LXA-TRM-11',
     description:
       'Trim directions that sharpen curtain edges, define paneling and help a treatment feel more intentionally dressed.',
     imageSrc: '/images/IMG-B.webp',
@@ -123,6 +131,7 @@ const TRIMMING_GALLERY = [
   },
   {
     title: 'Tassels and tiebacks',
+    code: 'LXA-TRM-12',
     description:
       'Decorative tieback and tassel elements that give more formal schemes a stronger finishing gesture.',
     imageSrc: '/images/IMG-C.webp',
@@ -130,6 +139,7 @@ const TRIMMING_GALLERY = [
   },
   {
     title: 'Contrast edge detailing',
+    code: 'LXA-TRM-13',
     description:
       'Decorative edge conditions and applied detail that add contrast, line definition and a more tailored furnishing language.',
     imageSrc: '/images/IMG-D.webp',
@@ -137,6 +147,7 @@ const TRIMMING_GALLERY = [
   },
   {
     title: 'Soft furnishing trim carry-through',
+    code: 'LXA-TRM-14',
     description:
       'The trim library can support curtains, Roman blinds, cushions and upholstery so the detail language stays connected.',
     imageSrc: '/images/luxaura/upholstery-pillows.webp',
@@ -225,6 +236,7 @@ export default function TrimmingsPage() {
           sizes="100vw"
           className="object-cover"
         />
+        <ImageCodeBadge code="LXA-TRM-01" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,14,13,0.76)_0%,rgba(12,14,13,0.58)_36%,rgba(12,14,13,0.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.08)_0%,rgba(12,14,13,0.34)_100%)]" />
 
@@ -315,6 +327,7 @@ export default function TrimmingsPage() {
                     sizes="(max-width: 1023px) 100vw, 33vw"
                     className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                   />
+                  <ImageCodeBadge code={item.code} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.04)_0%,rgba(12,14,13,0.24)_100%)]" />
                 </div>
                 <div className="p-7">
@@ -336,7 +349,7 @@ export default function TrimmingsPage() {
           <div className="overflow-hidden rounded-[2.3rem] bg-[#15110d] text-white shadow-[0_32px_90px_rgba(17,12,8,0.24)]">
             <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
               <div className="grid gap-4 p-4 sm:p-6 lg:p-8">
-                <div className="overflow-hidden rounded-[1.8rem] border border-white/10">
+                <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10">
                   <video
                     autoPlay
                     muted
@@ -347,6 +360,7 @@ export default function TrimmingsPage() {
                   >
                     <source src="/videos/motorisation-demo.mp4" type="video/mp4" />
                   </video>
+                  <ImageCodeBadge code="LXA-TRM-08" />
                 </div>
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
                   <Image
@@ -356,6 +370,7 @@ export default function TrimmingsPage() {
                     sizes="(min-width: 1024px) 46vw, 100vw"
                     className="object-cover"
                   />
+                  <ImageCodeBadge code="LXA-TRM-09" />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,8,6,0.08),rgba(10,8,6,0.22))]" />
                 </div>
               </div>
@@ -402,6 +417,7 @@ export default function TrimmingsPage() {
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
               />
+              <ImageCodeBadge code="LXA-TRM-10" />
             </div>
             <div>
               <SectionHeading
@@ -445,6 +461,7 @@ export default function TrimmingsPage() {
                     sizes="(max-width: 1023px) 100vw, 25vw"
                     className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                   />
+                  <ImageCodeBadge code={item.code} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.04)_0%,rgba(12,14,13,0.22)_100%)]" />
                 </div>
                 <div className="p-7">

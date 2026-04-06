@@ -25,6 +25,7 @@ export default function QuotePage() {
         description="Use this page when the brief needs sourcing, fabrication, upholstery, hardware and detailing considered together from the beginning."
         imageSrc="/images/IMG-I.webp"
         imageAlt="LuxAura project brief intake reference image"
+        imageCode="LXA-QUOTE-01"
       />
 
       <div className="container-custom">

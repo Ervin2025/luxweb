@@ -83,6 +83,7 @@ export default function AboutPage() {
         description="LuxAura was built to solve a common project problem: too many fragmented decisions between sourcing, fabrication, hardware, upholstery and final furnishing execution."
         imageSrc="/images/about-hero.webp"
         imageAlt="LuxAura project interior with layered sheers and refined upholstery"
+        imageCode="LXA-ABOUT-01"
       >
         <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
           Trade Portal Access

@@ -27,6 +27,7 @@ export default function ContactPage() {
         description={`Reach LuxAura for sourcing direction, fabrication support, material questions, project alignment or trade account enquiries from ${CONTACT_INFO.address.display}.`}
         imageSrc="/images/luxaura/hero-project.webp"
         imageAlt="LuxAura trade support and project collaboration"
+        imageCode="LXA-CONTACT-01"
       />
 
       <div className="container-custom">

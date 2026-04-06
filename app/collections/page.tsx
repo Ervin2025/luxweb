@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -12,6 +13,7 @@ import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 const MATERIAL_DIRECTIONS = [
   {
     title: 'LuxAura Signature Series',
+    code: 'LXA-COL-03',
     description:
       'A balanced in-house direction combining practical versatility with refined texture, suitable across curtains, upholstery and decorative applications.',
     imageSrc: '/images/luxaura/upholstery-pillows.webp',
@@ -19,6 +21,7 @@ const MATERIAL_DIRECTIONS = [
   },
   {
     title: 'British Decorative Textiles',
+    code: 'LXA-COL-04',
     description:
       'Pattern, colour and layered decorative expression for projects requiring character, softness and visual richness, including PT and other British directions.',
     imageSrc: '/images/IMG-C.webp',
@@ -26,6 +29,7 @@ const MATERIAL_DIRECTIONS = [
   },
   {
     title: 'Pet-Friendly Upholstery Fabrics',
+    code: 'LXA-COL-05',
     description:
       'Hard-wearing textile directions from collections such as Mobus and FibreGuard for more forgiving everyday use without sacrificing design quality.',
     imageSrc: '/images/luxaura/hero-project.webp',
@@ -33,6 +37,7 @@ const MATERIAL_DIRECTIONS = [
   },
   {
     title: 'French Linen & Linen Blends',
+    code: 'LXA-COL-06',
     description:
       'Relaxed texture, breathable elegance and softer drape for elevated residential and boutique interior settings.',
     imageSrc: '/images/luxaura/beach-sheer.webp',
@@ -40,6 +45,7 @@ const MATERIAL_DIRECTIONS = [
   },
   {
     title: 'Outdoor & Performance Fabrics',
+    code: 'LXA-COL-07',
     description:
       'Textiles selected for stronger UV resilience, durability and outdoor or semi-exposed furnishing use, including Sunbrella.',
     imageSrc: '/images/IMG-H.webp',
@@ -47,6 +53,7 @@ const MATERIAL_DIRECTIONS = [
   },
   {
     title: 'Commercial Value Directions',
+    code: 'LXA-COL-08',
     description:
       'Dependable material solutions for broader rollouts, staged projects and furnishing briefs that require pricing discipline without visual compromise.',
     imageSrc: '/images/IMG-I.webp',
@@ -57,6 +64,7 @@ const MATERIAL_DIRECTIONS = [
 const MADE_APPLICATIONS = [
   {
     title: 'Curtains & Sheers',
+    code: 'LXA-COL-09',
     description:
       'Fabric developed into site-ready window layers with cleaner headings, stronger fabric behaviour and controlled finish.',
     imageSrc: '/images/luxaura/hero-project.webp',
@@ -64,6 +72,7 @@ const MADE_APPLICATIONS = [
   },
   {
     title: 'Bespoke Cushions',
+    code: 'LXA-COL-10',
     description:
       'Custom cushions, bolsters and accent pieces that continue the textile story across the room with greater coherence.',
     imageSrc: '/images/IMG-D.webp',
@@ -71,6 +80,7 @@ const MADE_APPLICATIONS = [
   },
   {
     title: 'Upholstery & Slipcovers',
+    code: 'LXA-COL-11',
     description:
       'Tailored upholstery, sofa covers and protective layers where material choice and fabrication quality need to work together.',
     imageSrc: '/images/IMG-G.webp',
@@ -78,6 +88,7 @@ const MADE_APPLICATIONS = [
   },
   {
     title: 'Ottomans & Bench Seats',
+    code: 'LXA-COL-12',
     description:
       'Structured soft-furnishing pieces that connect upholstery, padding and material continuity back into the room.',
     imageSrc: '/images/IMG-J.webp',
@@ -85,6 +96,7 @@ const MADE_APPLICATIONS = [
   },
   {
     title: 'Table Linens & Soft Dining Pieces',
+    code: 'LXA-COL-13',
     description:
       'Table runners, tablecloths and dining linen applications for residential styling and boutique hospitality settings.',
     imageSrc: '/images/IMG-K.webp',
@@ -92,6 +104,7 @@ const MADE_APPLICATIONS = [
   },
   {
     title: 'Specialty Textile Pieces',
+    code: 'LXA-COL-14',
     description:
       'Material stories extended into smaller textile outcomes where a brief needs more than the standard furnishing categories.',
     imageSrc: '/images/IMG-Hero.webp',
@@ -163,6 +176,7 @@ export default function CollectionsPage() {
           sizes="100vw"
           className="object-cover"
         />
+        <ImageCodeBadge code="LXA-COL-01" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,16,15,0.72)_0%,rgba(13,16,15,0.56)_36%,rgba(13,16,15,0.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,16,15,0.12)_0%,rgba(13,16,15,0.34)_100%)]" />
 
@@ -221,6 +235,7 @@ export default function CollectionsPage() {
                 sizes="(min-width: 1024px) 54vw, 100vw"
                 className="object-cover"
               />
+              <ImageCodeBadge code="LXA-COL-02" />
             </div>
           </div>
         </div>
@@ -244,6 +259,7 @@ export default function CollectionsPage() {
                     sizes="(max-width: 1023px) 100vw, 33vw"
                     className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                   />
+                  <ImageCodeBadge code={item.code} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.05)_0%,rgba(12,14,13,0.24)_100%)]" />
                 </div>
                 <div className="p-7">
@@ -278,6 +294,7 @@ export default function CollectionsPage() {
                     sizes="(max-width: 1023px) 100vw, 33vw"
                     className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                   />
+                  <ImageCodeBadge code={item.code} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.05)_0%,rgba(12,14,13,0.28)_100%)]" />
                 </div>
                 <div className="p-7">

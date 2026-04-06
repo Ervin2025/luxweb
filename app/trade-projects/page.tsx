@@ -55,6 +55,7 @@ export default async function TradeProjectsPage({
         description="Use this page to request LuxAura trade access, start a project pathway or connect the brief to the right support channel."
         imageSrc="/images/luxaura/vertical-sheer-pool.webp"
         imageAlt="LuxAura trade and project support"
+        imageCode="LXA-TRADE-01"
       >
         <a href="#trade-projects-form" className="btn-primary">
           Trade Portal Access

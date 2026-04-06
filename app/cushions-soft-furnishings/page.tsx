@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import FaqSection from '@/components/FaqSection';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -12,6 +13,7 @@ import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 const UPHOLSTERED_APPLICATIONS = [
   {
     title: 'Indoor Sofas & Sectionals',
+    code: 'LXA-UPH-02',
     description:
       'Custom upholstery directions that carry the textile brief into larger family seating with stronger finish control and more considered room fit.',
     imageSrc: '/images/IMG-J.webp',
@@ -19,6 +21,7 @@ const UPHOLSTERED_APPLICATIONS = [
   },
   {
     title: 'Bench & Banquette Seating',
+    code: 'LXA-UPH-03',
     description:
       'Built-in seating and tailored bench formats aligned to comfort, proportion and the broader architectural scheme.',
     imageSrc: '/images/IMG-K.webp',
@@ -26,6 +29,7 @@ const UPHOLSTERED_APPLICATIONS = [
   },
   {
     title: 'Loose Covers & Protective Layers',
+    code: 'LXA-UPH-04',
     description:
       'Protective upholstery pathways that preserve finish quality while making day-to-day maintenance easier for active homes.',
     imageSrc: '/images/IMG-A.webp',
@@ -33,6 +37,7 @@ const UPHOLSTERED_APPLICATIONS = [
   },
   {
     title: 'Outdoor Cushions & Alfresco Seating',
+    code: 'LXA-UPH-05',
     description:
       'Textile-led seating directions for covered terraces, pool-adjacent lounges and outdoor furniture programs that need stronger resilience.',
     imageSrc: '/images/IMG-Hero.webp',
@@ -40,6 +45,7 @@ const UPHOLSTERED_APPLICATIONS = [
   },
   {
     title: 'Ottomans & Soft Forms',
+    code: 'LXA-UPH-06',
     description:
       'Ottomans, upholstered accessories and softer forms that complete the furnishing language with greater material continuity.',
     imageSrc: '/images/luxaura/upholstery-pillows.webp',
@@ -47,6 +53,7 @@ const UPHOLSTERED_APPLICATIONS = [
   },
   {
     title: 'Cushions & Decorative Layers',
+    code: 'LXA-UPH-07',
     description:
       'Decorative cushions, bolster forms and softer layers that help upholstery schemes feel resolved rather than isolated.',
     imageSrc: '/images/IMG-D.webp',
@@ -239,6 +246,7 @@ export default function CushionsSoftFurnishingsPage() {
           sizes="100vw"
           className="object-cover"
         />
+        <ImageCodeBadge code="LXA-UPH-01" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,16,15,0.76)_0%,rgba(13,16,15,0.58)_36%,rgba(13,16,15,0.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,16,15,0.08)_0%,rgba(13,16,15,0.34)_100%)]" />
 
@@ -292,6 +300,7 @@ export default function CushionsSoftFurnishingsPage() {
                     sizes="(max-width: 1023px) 100vw, 33vw"
                     className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                   />
+                  <ImageCodeBadge code={item.code} />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.03)_0%,rgba(12,14,13,0.18)_100%)]" />
                 </div>
                 <div className="p-7">
@@ -319,6 +328,7 @@ export default function CushionsSoftFurnishingsPage() {
                 sizes="(min-width: 1024px) 52vw, 100vw"
                 className="object-cover"
               />
+              <ImageCodeBadge code="LXA-UPH-08" />
             </div>
             <div>
               <SectionHeading
@@ -358,6 +368,7 @@ export default function CushionsSoftFurnishingsPage() {
                   sizes="(min-width: 1024px) 38vw, 100vw"
                   className="object-cover"
                 />
+                <ImageCodeBadge code="LXA-UPH-09" />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,12,11,0.05),rgba(9,12,11,0.3))]" />
               </div>
               <div>
@@ -414,6 +425,7 @@ export default function CushionsSoftFurnishingsPage() {
                 sizes="(min-width: 1024px) 46vw, 100vw"
                 className="object-cover"
               />
+              <ImageCodeBadge code="LXA-UPH-10" />
             </div>
           </div>
         </div>
