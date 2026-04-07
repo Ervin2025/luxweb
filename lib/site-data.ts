@@ -149,8 +149,8 @@ export const NAV_ITEMS: NavItem[] = [
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
   { name: 'Hardware Systems', href: '/hardware-systems' },
   { name: 'Decorative Trimmings', href: '/decorative-trimmings' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/about#trade-desk' },
+  { name: 'Project Support', href: '/project-support' },
+  { name: 'About & Trade Desk', href: '/about' },
 ];
 
 export const FOOTER_CATEGORY_LINKS: NavItem[] = [

@@ -15,7 +15,7 @@ export const CONTACT_INFO = {
     country: 'Australia',
     display: '4 Wilfred Avenue, Chatswood, NSW',
   },
-  hours: 'Trade consultations by appointment',
+  hours: 'Trade support by appointment',
 } as const;
 
 export const SOCIAL_LINKS = {

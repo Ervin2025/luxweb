@@ -148,9 +148,10 @@ html[data-image-codes='1'] .image-code-toggle {
 
   .btn-primary,
   .btn-secondary {
-    min-height: 48px;
-    padding: 14px 24px;
+    min-height: 50px;
+    padding: 14px 22px;
     font-size: 13px;
+    line-height: 1.35;
   }
 
   a {
@@ -166,6 +167,11 @@ html[data-image-codes='1'] .image-code-toggle {
 
   .section-shell {
     border-radius: 1.5rem;
+  }
+
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

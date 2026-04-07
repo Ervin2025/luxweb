@@ -40,7 +40,7 @@ export default function Footer() {
                 href={TRADE_SUPPORT_HREF}
                 className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
-                Start a Trade Enquiry
+                Access Trade Support
               </Link>
             </div>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">

@@ -18,7 +18,7 @@ function BrandWordmark({ mobile = false }: { mobile?: boolean }) {
     <div className={mobile ? 'flex flex-col' : 'flex flex-col'}>
       <p
         className={`font-heading font-semibold leading-none tracking-[0.08em] ${
-          mobile ? 'text-[1.58rem] sm:text-[1.95rem]' : 'text-[2.4rem]'
+          mobile ? 'text-[1.42rem] sm:text-[1.85rem]' : 'text-[2.4rem]'
         }`}
       >
         <span className="bg-gradient-to-r from-[#b99245] via-[#C5A059] to-[#d2b26f] bg-clip-text text-transparent">
@@ -78,9 +78,9 @@ export default function Navigation() {
 
   return (
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="container-custom pt-4 lg:pt-5">
+      <div className="container-custom pt-3 sm:pt-4 lg:pt-5">
         <div
-          className={`pointer-events-auto rounded-[1.6rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-[2rem] lg:px-4 lg:py-3 ${
+          className={`pointer-events-auto rounded-[1.45rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-[2rem] lg:px-4 lg:py-3 ${
             isSolid
               ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px] lg:border-[#e5dccd] lg:bg-[#f6f0e4] lg:shadow-[0_20px_50px_rgba(26,24,22,0.08)] lg:backdrop-blur-0'
               : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px] lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0'
@@ -106,7 +106,7 @@ export default function Navigation() {
             </div>
 
             <button
-              className={`flex h-12 w-12 items-center justify-center rounded-full text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] focus:outline-none lg:hidden ${
+              className={`flex h-11 w-11 items-center justify-center rounded-full text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] focus:outline-none lg:hidden sm:h-12 sm:w-12 ${
                 isSolid
                   ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px]'
                   : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px]'
@@ -174,7 +174,7 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div
             id={mobileMenuId}
-            className="pointer-events-auto mt-2 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-[1.8rem] border border-white/85 bg-[rgba(255,255,255,0.78)] p-4 shadow-[0_24px_60px_rgba(26,24,22,0.1)] backdrop-blur-[24px] overscroll-contain lg:hidden"
+            className="pointer-events-auto mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-[1.6rem] border border-white/85 bg-[rgba(255,255,255,0.78)] p-3.5 shadow-[0_24px_60px_rgba(26,24,22,0.1)] backdrop-blur-[24px] overscroll-contain lg:hidden sm:p-4"
           >
             {headerNavItems.map(link => {
               const isActive = isLinkActive(pathname, link.href);
@@ -183,7 +183,7 @@ export default function Navigation() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`flex min-h-[56px] items-center rounded-2xl px-4 py-4 text-[15px] font-medium transition-colors active:scale-95 sm:text-lg ${
+                  className={`flex min-h-[54px] items-center rounded-2xl px-4 py-3.5 text-[15px] font-medium leading-6 transition-colors active:scale-95 sm:min-h-[56px] sm:py-4 sm:text-lg ${
                     isActive
                       ? 'bg-primary text-white'
                       : 'text-neutral-800 hover:bg-neutral-50 hover:text-primary'

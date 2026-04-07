@@ -26,12 +26,12 @@ export default function SectionHeading({
         </p>
       ) : null}
       <h2
-        className={`text-balance font-heading text-3xl font-semibold leading-tight tracking-tight sm:text-5xl ${titleClass}`}
+        className={`text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.03em] sm:text-5xl ${titleClass}`}
       >
         {title}
       </h2>
       {description ? (
-        <p className={`mt-4 text-pretty text-[15px] leading-7 sm:mt-5 sm:text-lg ${descriptionClass}`}>
+        <p className={`mt-4 text-pretty text-[15px] leading-[1.9] sm:mt-5 sm:text-lg ${descriptionClass}`}>
           {description}
         </p>
       ) : null}

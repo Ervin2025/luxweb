@@ -107,6 +107,8 @@ export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-PS-03', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Stylists', src: '/images/luxaura/upholstery-pillows.webp' },
   { code: 'LXA-PS-04', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Hospitality and commercial spaces', src: '/images/IMG-K.webp' },
   { code: 'LXA-PS-05', page: 'Project Support', pageHref: '/project-support', label: 'Hospitality feature image', src: '/images/IMG-K.webp' },
+  { code: 'LXA-PS-06', page: 'Project Support', pageHref: '/project-support', label: 'Support editorial image: Material direction and scheme review', src: '/images/about-hero.webp' },
+  { code: 'LXA-PS-07', page: 'Project Support', pageHref: '/project-support', label: 'Support editorial image: Specification clarity and project alignment', src: '/images/luxaura/hero-project.webp' },
   { code: 'LXA-TRADE-01', page: 'Trade Portal Access', pageHref: '/trade-projects', label: 'Hero image', src: '/images/luxaura/vertical-sheer-pool.webp' },
   { code: 'LXA-FAQ-01', page: 'FAQ', pageHref: '/faq', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-PRIVACY-01', page: 'Privacy Policy', pageHref: '/privacy', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },

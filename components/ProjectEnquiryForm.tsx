@@ -138,7 +138,10 @@ export default function ProjectEnquiryForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`section-shell space-y-5 p-6 sm:space-y-6 sm:p-10 ${className}`}>
+    <form
+      onSubmit={handleSubmit}
+      className={`section-shell space-y-5 p-5 sm:space-y-6 sm:p-8 lg:p-10 ${className}`}
+    >
       <div className="grid gap-6 md:grid-cols-2">
         <Field label="Name" htmlFor="name">
           <input
@@ -274,14 +277,14 @@ export default function ProjectEnquiryForm({
 
       <fieldset>
         <legend className="mb-3 block text-sm font-medium text-neutral-700">Services Needed</legend>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {PROJECT_SERVICE_OPTIONS.map(option => {
             const isActive = selectedServices.includes(option);
 
             return (
               <label
                 key={option}
-                className={`cursor-pointer rounded-[1.2rem] border px-4 py-4 text-sm leading-6 transition ${
+                className={`cursor-pointer rounded-[1.2rem] border px-4 py-3.5 text-sm leading-6 transition sm:py-4 ${
                   isActive
                     ? 'border-primary bg-primary/6 text-neutral-900'
                     : 'border-primary/10 bg-neutral-50 text-neutral-700'
@@ -303,9 +306,9 @@ export default function ProjectEnquiryForm({
       <Field label="Upload Drawings / Photos / Moodboard" htmlFor="attachment">
         <label
           htmlFor="attachment"
-          className="flex min-h-[58px] cursor-pointer items-center justify-between rounded-[1rem] border border-dashed border-primary/20 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-600 transition hover:border-primary"
+          className="flex min-h-[58px] cursor-pointer flex-col items-start gap-3 rounded-[1rem] border border-dashed border-primary/20 bg-neutral-50 px-4 py-3.5 text-sm text-neutral-600 transition hover:border-primary sm:flex-row sm:items-center sm:justify-between"
         >
-          <span className="truncate pr-4">{attachmentLabel}</span>
+          <span className="min-w-0 text-pretty pr-0 leading-6 sm:truncate sm:pr-4">{attachmentLabel}</span>
           <span className="rounded-full border border-primary/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             Select
           </span>
@@ -361,7 +364,7 @@ function Field({
 }) {
   return (
     <label htmlFor={htmlFor} className="block">
-      <span className="mb-2 block text-sm font-medium text-neutral-700">{label}</span>
+      <span className="mb-2.5 block text-sm font-medium leading-6 text-neutral-700">{label}</span>
       {children}
     </label>
   );

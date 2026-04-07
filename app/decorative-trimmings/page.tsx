@@ -360,7 +360,7 @@ export default function DecorativeTrimmingsPage() {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
-                Start a Trade Enquiry
+                Submit a Project Brief
               </Link>
               <Link
                 href={TRADE_PORTAL_ACCESS_HREF}

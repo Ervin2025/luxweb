@@ -153,27 +153,27 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.74)_0%,rgba(13,12,11,0.58)_32%,rgba(13,12,11,0.18)_64%,rgba(13,12,11,0.06)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,12,11,0.16)_0%,rgba(13,12,11,0.34)_100%)]" />
 
-        <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-16 pt-40 sm:px-6 sm:pb-20 sm:pt-44 lg:px-8 lg:pb-24">
-          <div className="max-w-[38rem] text-white">
+        <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-14 pt-32 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8 lg:pb-24">
+          <div className="max-w-[34rem] text-white sm:max-w-[38rem]">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
               Premium Trade Soft Furnishing
             </p>
-            <h1 className="mt-6 text-balance font-heading text-[3.45rem] font-semibold leading-[0.92] tracking-[-0.035em] sm:text-[4.55rem] lg:text-[5.45rem] xl:text-[5.95rem]">
+            <h1 className="mt-5 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] sm:mt-6 sm:text-[4.55rem] sm:leading-[0.92] lg:text-[5.45rem] xl:text-[5.95rem]">
               From Fabric Selection to Full Project Delivery.
             </h1>
-            <p className="mt-6 max-w-[34rem] text-pretty text-[1.06rem] leading-[1.75] text-white/86 sm:text-[1.14rem]">
+            <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
               LuxAura brings together fabric sourcing, specialist fabrication, window
               treatments, upholstery, hardware and trims into one accountable trade supply path
               for residential, hospitality and commercial interiors.
             </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+            <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
                 Trade Portal Access
               </Link>
               <Link
                 href={PROJECT_BRIEF_HREF}
-                className="btn-secondary border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
+                className="btn-secondary w-full border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
                 Submit a Project Brief
               </Link>
@@ -182,25 +182,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-28 pt-28 sm:px-6 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-[10rem] lg:pt-[10rem]">
+      <section className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-[10rem] lg:pt-[10rem]">
         <div className="container-custom">
           <div className="max-w-3xl">
             <SectionEyebrow>What We Deliver</SectionEyebrow>
-            <h2 className="mt-5 text-balance font-heading text-[2.9rem] font-semibold leading-[0.98] tracking-[-0.03em] text-[#2C2C2C] sm:text-[4rem] lg:text-[4.6rem]">
+            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
               One trade partner across sourcing, making and project execution
             </h2>
-            <p className="mt-6 max-w-[42rem] text-pretty text-[1rem] leading-[1.8] text-neutral-700 sm:text-[1.06rem]">
+            <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
               Six connected capabilities that move a furnishing brief from selection through
               fabrication, detailing and final delivery with greater control.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-7 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-7 lg:grid-cols-3">
             {CAPABILITY_TILES.map(item => (
               <Link
                 key={item.title}
                 href={item.href}
-                className="group relative min-h-[31rem] overflow-hidden rounded-[2.2rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)]"
+                className="group relative min-h-[24rem] overflow-hidden rounded-[1.9rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)] sm:min-h-[31rem] sm:rounded-[2.2rem]"
               >
                 <Image
                   src={item.imageSrc}
@@ -212,16 +212,16 @@ export default function Home() {
                 <ImageCodeBadge code={item.code} />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.04)_0%,rgba(12,12,11,0.12)_38%,rgba(12,12,11,0.82)_100%)]" />
 
-                <div className="relative flex h-full flex-col justify-between p-6 sm:p-7">
+                <div className="relative flex h-full flex-col justify-between p-5 sm:p-7">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#ead7a8]">
                     {item.number}
                   </p>
 
                   <div className="max-w-[22rem]">
-                    <h3 className="text-balance font-heading text-[2.1rem] font-semibold leading-[1.02] text-white sm:text-[2.3rem]">
+                    <h3 className="text-balance font-heading text-[1.7rem] font-semibold leading-[1.04] text-white sm:text-[2.3rem]">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-pretty text-[15px] leading-8 text-white/78 sm:text-[0.98rem]">
+                    <p className="mt-3 text-pretty text-[14px] leading-7 text-white/78 sm:mt-4 sm:text-[0.98rem] sm:leading-8">
                       {item.description}
                     </p>
                   </div>
@@ -232,10 +232,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[2.4rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)] sm:aspect-[16/10] sm:rounded-[2.4rem]">
               <Image
                 src="/images/IMG-K.webp"
                 alt="Filtered daylight across performance window treatments in a calm interior."
@@ -248,18 +248,18 @@ export default function Home() {
 
             <div className="max-w-xl lg:pl-6">
               <SectionEyebrow>Performance</SectionEyebrow>
-              <h2 className="mt-5 text-balance font-heading text-[2.8rem] font-semibold leading-[1] tracking-[-0.03em] text-[#2C2C2C] sm:text-[3.8rem] lg:text-[4.35rem]">
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
                 Performance for Modern Living
               </h2>
-              <p className="mt-6 text-pretty text-[1rem] leading-[1.85] text-neutral-700 sm:text-[1.06rem]">
+              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
                 Selected textile ranges are designed for the realities of contemporary living,
                 including homes with pets, children, and high daily use. With trusted names such as
                 FibreGuard and Mobus, performance options include stain-resistant,
                 water-repellent, and high-rub specifications without compromising visual
                 refinement.
               </p>
-              <div className="mt-7 rounded-[1.5rem] border border-[#e0d7c8] bg-[#faf7f0] px-6 py-5">
-                <p className="text-pretty text-[15px] leading-8 text-neutral-600 sm:text-[0.98rem]">
+              <div className="mt-6 rounded-[1.35rem] border border-[#e0d7c8] bg-[#faf7f0] px-5 py-4 sm:mt-7 sm:rounded-[1.5rem] sm:px-6 sm:py-5">
+                <p className="text-pretty text-[14px] leading-7 text-neutral-600 sm:text-[0.98rem] sm:leading-8">
                   Where specified, OEKO-TEX Standard 100 certified options support more considered
                   material selection for modern homes and family living.
                 </p>
@@ -269,28 +269,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="mx-auto max-w-3xl">
             <SectionEyebrow align="center">Strategic Brand Partners</SectionEyebrow>
-            <h2 className="mt-5 text-center text-balance font-heading text-[2.8rem] font-semibold leading-[1] tracking-[-0.03em] text-[#2C2C2C] sm:text-[3.8rem] lg:text-[4.3rem]">
+            <h2 className="mt-4 text-center text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.3rem]">
               Strategic Brand Partners
             </h2>
-            <p className="mx-auto mt-6 max-w-[42rem] text-center text-pretty text-[1rem] leading-[1.8] text-neutral-700 sm:text-[1.04rem]">
+            <p className="mx-auto mt-5 max-w-[42rem] text-center text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.04rem] sm:leading-[1.8]">
               A curated network of premium textile and furnishing resources, aligned for project
               delivery.
             </p>
           </div>
 
-          <div className="mt-14 overflow-hidden rounded-[2rem] border border-[#ddd4c3] bg-[#ddd4c3] shadow-[0_20px_60px_rgba(27,24,20,0.04)]">
+          <div className="mt-10 overflow-hidden rounded-[1.7rem] border border-[#ddd4c3] bg-[#ddd4c3] shadow-[0_20px_60px_rgba(27,24,20,0.04)] sm:mt-14 sm:rounded-[2rem]">
             <div className="grid gap-px min-[560px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
               {STRATEGIC_PARTNERS.map(partner => (
                 <div
                   key={partner.name}
-                  className="group flex min-h-[9.5rem] items-center justify-center bg-[#fbf8f2] px-5 py-7 text-center grayscale transition duration-300 hover:grayscale-0"
+                  className="group flex min-h-[8rem] items-center justify-center bg-[#fbf8f2] px-5 py-6 text-center grayscale transition duration-300 hover:grayscale-0 sm:min-h-[9.5rem] sm:py-7"
                 >
                   <div>
-                    <p className="font-heading text-[1.6rem] font-semibold leading-tight text-neutral-500 transition group-hover:text-[#2C2C2C]">
+                    <p className="font-heading text-[1.35rem] font-semibold leading-tight text-neutral-500 transition group-hover:text-[#2C2C2C] sm:text-[1.6rem]">
                       {partner.name}
                     </p>
                     <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-neutral-400 transition group-hover:text-primary/70">
@@ -306,7 +306,7 @@ export default function Home() {
 
       <section
         id="why-luxaura"
-        className="relative overflow-hidden px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
+        className="relative overflow-hidden px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
       >
         <div className="absolute inset-x-0 top-16 h-[24rem] bg-[radial-gradient(circle_at_12%_0%,rgba(201,177,136,0.26),transparent_42%),radial-gradient(circle_at_88%_18%,rgba(30,58,50,0.08),transparent_24%)]" />
 
@@ -314,20 +314,20 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
             <div className="max-w-lg">
               <SectionEyebrow>Why LuxAura</SectionEyebrow>
-              <h2 className="mt-5 text-balance font-heading text-[3.55rem] font-semibold leading-[0.92] tracking-[-0.04em] text-[#2C2C2C] sm:text-[4.75rem] lg:text-[5.8rem]">
+              <h2 className="mt-4 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2C2C2C] sm:mt-5 sm:text-[4.75rem] sm:leading-[0.92] lg:text-[5.8rem]">
                 WHY LUXAURA
               </h2>
-              <p className="mt-6 text-pretty text-[1rem] leading-[1.85] text-neutral-700 sm:text-[1.06rem]">
+              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
                 LuxAura replaces fragmented procurement with one coordinated fulfillment model for
                 fabrics, fabrication, hardware, trimmings, and project delivery.
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-5 sm:gap-8 md:grid-cols-2">
               {WHY_LUXAURA_PILLARS.map(pillar => (
                 <article
                   key={pillar.number}
-                  className="rounded-[2rem] border border-[#e4dbc9] bg-white/68 p-7 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur"
+                  className="rounded-[1.7rem] border border-[#e4dbc9] bg-white/68 p-5 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur sm:rounded-[2rem] sm:p-7"
                 >
                   <p className="font-heading text-[2.6rem] font-semibold leading-none text-primary/24">
                     {pillar.number}
@@ -335,10 +335,10 @@ export default function Home() {
                   <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary/66">
                     {pillar.eyebrow}
                   </p>
-                  <h3 className="mt-3 text-balance font-heading text-[2rem] font-semibold leading-[1.05] text-[#2C2C2C]">
+                  <h3 className="mt-3 text-balance font-heading text-[1.65rem] font-semibold leading-[1.05] text-[#2C2C2C] sm:text-[2rem]">
                     {pillar.title}
                   </h3>
-                  <p className="mt-4 text-pretty text-[15px] leading-8 text-neutral-700 sm:text-[0.98rem]">
+                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 sm:text-[0.98rem] sm:leading-8">
                     {pillar.description}
                   </p>
                 </article>
@@ -348,9 +348,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="relative overflow-hidden rounded-[2.4rem] shadow-[0_28px_90px_rgba(27,24,20,0.12)]">
+          <div className="relative overflow-hidden rounded-[2rem] shadow-[0_28px_90px_rgba(27,24,20,0.12)] sm:rounded-[2.4rem]">
             <Image
               src="/images/IMG-H.webp"
               alt="LuxAura project with layered drapery, upholstery and refined coastal light."
@@ -360,27 +360,27 @@ export default function Home() {
             />
             <ImageCodeBadge code="LXA-HOME-09" />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.84)_0%,rgba(13,12,11,0.66)_46%,rgba(13,12,11,0.18)_100%)]" />
-            <div className="relative px-8 py-14 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
+            <div className="relative px-5 py-12 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
               <div className="max-w-3xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
                   Final CTA
                 </p>
-                <h2 className="mt-5 text-balance font-heading text-[2.9rem] font-semibold leading-[0.96] tracking-[-0.03em] text-white sm:text-[4rem] lg:text-[4.8rem]">
+                <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1] tracking-[-0.035em] text-white sm:mt-5 sm:text-[4rem] sm:leading-[0.96] lg:text-[4.8rem]">
                   One partner. One pathway. A more resolved result.
                 </h2>
-                <p className="mt-6 max-w-2xl text-pretty text-[1rem] leading-[1.85] text-white/82 sm:text-[1.06rem]">
+                <p className="mt-5 max-w-2xl text-pretty text-[0.98rem] leading-[1.76] text-white/82 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
                   Bring LuxAura in when sourcing, fabrication, hardware and finishing detail need
                   to move through one commercially accountable project path.
                 </p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:gap-4">
+                  <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
                     Trade Portal Access
                   </Link>
                   <Link
                     href={TRADE_SUPPORT_HREF}
-                    className="btn-secondary border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
+                    className="btn-secondary w-full border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
                   >
-                    Start a Trade Enquiry
+                    Access Trade Support
                   </Link>
                 </div>
               </div>
