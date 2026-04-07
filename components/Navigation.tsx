@@ -136,7 +136,7 @@ export default function Navigation() {
 
           <div className="pointer-events-auto hidden pt-4 lg:flex lg:justify-center">
             <div
-              className={`relative inline-flex items-center gap-2 rounded-full px-3 py-3 transition-all duration-300 xl:gap-3 ${
+              className={`relative flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full px-3 py-3 transition-all duration-300 xl:gap-3 ${
                 isSolid
                   ? 'bg-transparent'
                   : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
@@ -148,7 +148,7 @@ export default function Navigation() {
                   <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
                 </>
               ) : null}
-              <div className="relative flex items-center gap-2 xl:gap-3">
+              <div className="relative flex flex-wrap items-center justify-center gap-2 xl:gap-3">
                 {headerNavItems.map(link => {
                   const isActive = isLinkActive(pathname, link.href);
 
@@ -156,7 +156,7 @@ export default function Navigation() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 xl:text-[15px] ${
+                      className={`whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-medium transition-colors duration-200 xl:text-[15px] ${
                         isActive
                           ? 'bg-primary text-white'
                           : 'text-neutral-800 hover:bg-white/80 hover:text-primary'

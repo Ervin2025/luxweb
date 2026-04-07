@@ -38,13 +38,13 @@ const CAPABILITY_TILES = [
   },
   {
     number: '04',
-    title: 'Hardware & Artisanal Trimmings',
+    title: 'Hardware Systems',
     description:
-      'Silent track systems and thousands of refined trimming options to resolve every detail with precision.',
-    href: '/trimmings',
+      'Premium curtain tracks, motorised system planning and stronger installation logic for cleaner execution and better long-term performance.',
+    href: '/hardware-systems',
     code: 'LXA-HOME-05',
     imageSrc: '/image/04.webp',
-    imageAlt: 'LuxAura hardware and artisanal trimmings capability image',
+    imageAlt: 'LuxAura hardware systems capability image',
   },
   {
     number: '05',

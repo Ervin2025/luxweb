@@ -1,3 +1,5 @@
+import { COLLECTION_ITEMS } from '@/lib/site-data';
+
 export type ImageCodeReference = {
   code: string;
   page: string;
@@ -7,12 +9,33 @@ export type ImageCodeReference = {
   type?: 'image' | 'video';
 };
 
+const CATALOG_EXPLORER_REFERENCES: ImageCodeReference[] = COLLECTION_ITEMS.flatMap(item => {
+  const baseCode = item.imageCodeBase ?? 'LXA-CAT-00';
+
+  return [
+    {
+      code: `${baseCode}-CARD`,
+      page: 'Catalog Explorer',
+      pageHref: '/image-codes',
+      label: `Library card image: ${item.title}`,
+      src: item.image,
+    },
+    {
+      code: `${baseCode}-DETAIL`,
+      page: 'Catalog Explorer',
+      pageHref: '/image-codes',
+      label: `Zoom panel image: ${item.title}`,
+      src: item.image,
+    },
+  ];
+});
+
 export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-HOME-01', page: 'Home', pageHref: '/', label: 'Hero image', src: '/image/hero.webp' },
   { code: 'LXA-HOME-02', page: 'Home', pageHref: '/', label: 'Capability tile: Fabric & Fabrication', src: '/image/01.webp' },
   { code: 'LXA-HOME-03', page: 'Home', pageHref: '/', label: 'Capability tile: Master Window Treatments', src: '/image/02.webp' },
   { code: 'LXA-HOME-04', page: 'Home', pageHref: '/', label: 'Capability tile: Bespoke Upholstery', src: '/image/03.webp' },
-  { code: 'LXA-HOME-05', page: 'Home', pageHref: '/', label: 'Capability tile: Hardware & Artisanal Trimmings', src: '/image/04.webp' },
+  { code: 'LXA-HOME-05', page: 'Home', pageHref: '/', label: 'Capability tile: Hardware Systems', src: '/image/04.webp' },
   { code: 'LXA-HOME-06', page: 'Home', pageHref: '/', label: 'Capability tile: Unified Supply Chain', src: '/image/05.webp' },
   { code: 'LXA-HOME-07', page: 'Home', pageHref: '/', label: 'Capability tile: Partner Excellence', src: '/image/06.webp' },
   { code: 'LXA-HOME-08', page: 'Home', pageHref: '/', label: 'Performance feature image', src: '/images/IMG-K.webp' },
@@ -56,20 +79,25 @@ export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-UPH-09', page: 'Bespoke Upholstery', pageHref: '/cushions-soft-furnishings', label: 'Sunbrella feature image', src: '/images/luxaura/upholstery-pillows.webp' },
   { code: 'LXA-UPH-10', page: 'Bespoke Upholstery', pageHref: '/cushions-soft-furnishings', label: 'Pet-friendly upholstery feature image', src: '/images/IMG-J.webp' },
 
-  { code: 'LXA-TRM-01', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hero image', src: '/images/IMG-G.webp' },
-  { code: 'LXA-TRM-02', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hardware gallery: Architectural track systems', src: '/images/luxaura/hero-project.webp' },
-  { code: 'LXA-TRM-03', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hardware gallery: Decorative poles and finials', src: '/images/IMG-G.webp' },
-  { code: 'LXA-TRM-04', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hardware gallery: Concealed track planning', src: '/images/IMG-I.webp' },
-  { code: 'LXA-TRM-05', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hardware gallery: Wide-opening and feature-window support', src: '/images/IMG-C.webp' },
-  { code: 'LXA-TRM-06', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hardware gallery: Bracket and support detail', src: '/images/IMG-F.webp' },
-  { code: 'LXA-TRM-07', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Hardware gallery: Installed hardware resolution', src: '/images/luxaura/vertical-sheer-pool.webp' },
-  { code: 'LXA-TRM-08', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Motorisation motion clip', src: '/videos/motorisation-demo.mp4', type: 'video' },
-  { code: 'LXA-TRM-09', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Motorisation still image', src: '/images/IMG-I.webp' },
-  { code: 'LXA-TRM-10', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Trimmings feature image', src: '/images/IMG-B.webp' },
-  { code: 'LXA-TRM-11', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Trimming gallery: Braids and borders', src: '/images/IMG-B.webp' },
-  { code: 'LXA-TRM-12', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Trimming gallery: Tassels and tiebacks', src: '/images/IMG-C.webp' },
-  { code: 'LXA-TRM-13', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Trimming gallery: Contrast edge detailing', src: '/images/IMG-D.webp' },
-  { code: 'LXA-TRM-14', page: 'Hardware & Trimmings', pageHref: '/trimmings', label: 'Trimming gallery: Soft furnishing trim carry-through', src: '/images/luxaura/upholstery-pillows.webp' },
+  { code: 'LXA-HWS-01', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Hero image', src: '/images/IMG-G.webp' },
+  { code: 'LXA-HWS-02', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Track systems feature image', src: '/images/carousel/09-Curtain-Track.webp' },
+  { code: 'LXA-HWS-03', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Track systems detail image', src: '/images/IMG-F.webp' },
+  { code: 'LXA-HWS-04', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Track systems architectural integration', src: '/images/IMG-I.webp' },
+  { code: 'LXA-HWS-05', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Track systems installed drapery image', src: '/images/luxaura/hero-project.webp' },
+  { code: 'LXA-HWS-06', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Motorisation feature image', src: '/images/IMG-I.webp' },
+  { code: 'LXA-HWS-07', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Motorisation support image', src: '/images/luxaura/vertical-sheer-pool.webp' },
+  { code: 'LXA-HWS-08', page: 'Hardware Systems', pageHref: '/hardware-systems', label: 'Range and value image', src: '/images/IMG-H.webp' },
+
+  { code: 'LXA-DTR-01', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Hero image', src: '/images/IMG-B.webp' },
+  { code: 'LXA-DTR-02', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Latest collection feature image', src: '/images/IMG-B.webp' },
+  { code: 'LXA-DTR-03', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Latest collection border detail', src: '/images/IMG-D.webp' },
+  { code: 'LXA-DTR-04', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Latest collection tassel detail', src: '/images/IMG-C.webp' },
+  { code: 'LXA-DTR-05', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Latest collection upholstery trim detail', src: '/images/luxaura/upholstery-pillows.webp' },
+  { code: 'LXA-DTR-06', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Application image: On Drapery', src: '/images/IMG-B.webp' },
+  { code: 'LXA-DTR-07', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Application image: On Upholstery', src: '/images/luxaura/upholstery-pillows.webp' },
+  { code: 'LXA-DTR-08', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Application image: On Cushions & Bedding', src: '/images/IMG-D.webp' },
+  { code: 'LXA-DTR-09', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Application image: On Feature Pieces', src: '/images/IMG-C.webp' },
+  { code: 'LXA-DTR-10', page: 'Decorative Trimmings', pageHref: '/decorative-trimmings', label: 'Creative development feature image', src: '/images/IMG-H.webp' },
 
   { code: 'LXA-ABOUT-01', page: 'About', pageHref: '/about', label: 'Hero image', src: '/images/about-hero.webp' },
   { code: 'LXA-CONTACT-01', page: 'Contact', pageHref: '/contact', label: 'Hero image', src: '/images/luxaura/hero-project.webp' },
@@ -78,6 +106,7 @@ export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-FAQ-01', page: 'FAQ', pageHref: '/faq', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-PRIVACY-01', page: 'Privacy Policy', pageHref: '/privacy', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-TERMS-01', page: 'Terms of Service', pageHref: '/terms', label: 'Hero image', src: '/images/luxaura/hero-project.webp' },
+  ...CATALOG_EXPLORER_REFERENCES,
 ];
 
 export const IMAGE_CODE_GROUPS = Array.from(

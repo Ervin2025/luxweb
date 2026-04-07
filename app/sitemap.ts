@@ -31,10 +31,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/trimmings`,
+      url: `${baseUrl}/hardware-systems`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.94,
+    },
+    {
+      url: `${baseUrl}/decorative-trimmings`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.93,
     },
     {
       url: `${baseUrl}/trade-projects`,

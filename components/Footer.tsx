@@ -116,8 +116,8 @@ export default function Footer() {
               </p>
               <p>{CONTACT_INFO.hours}</p>
               <p>
-                Trade enquiries cover fabrics, window treatments, bespoke upholstery, hardware,
-                trimmings and related fabrication support.
+                Trade enquiries cover fabrics, window treatments, bespoke upholstery, hardware
+                systems, decorative trimmings and related fabrication support.
               </p>
             </div>
           </div>

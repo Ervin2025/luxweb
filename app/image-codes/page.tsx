@@ -25,7 +25,7 @@ export default function ImageCodesPage() {
           <SectionHeading
             eyebrow="Internal Reference"
             title="Image code index for faster replacement requests"
-            description="Open any page with ?image-codes=1 to see the codes directly on the images. Then send me the code plus the new file, and I can replace that exact image slot."
+            description="Use the floating Image Codes button on any page to show or hide the image numbers directly on the website. Then send me the code plus the new file, and I can replace that exact image slot."
           />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link href="/?image-codes=1" className="btn-primary">
@@ -53,9 +53,16 @@ export default function ImageCodesPage() {
                     {group.page}
                   </h2>
                 </div>
-                <Link href={`${group.pageHref}?image-codes=1`} className="btn-secondary">
-                  Open This Page With Codes
-                </Link>
+                {group.pageHref === '/image-codes' ? (
+                  <p className="max-w-sm text-sm leading-6 text-neutral-600">
+                    Shared component reference. These codes are ready when the component is used,
+                    even if it is not currently mounted on a live page.
+                  </p>
+                ) : (
+                  <Link href={`${group.pageHref}?image-codes=1`} className="btn-secondary">
+                    Open This Page With Codes
+                  </Link>
+                )}
               </div>
 
               <div className="mt-8 overflow-hidden rounded-[1.6rem] border border-primary/10">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 
 interface ZoomGalleryItem {
   title: string;
@@ -9,6 +10,7 @@ interface ZoomGalleryItem {
   imageSrc: string;
   imageAlt: string;
   eyebrow?: string;
+  imageCodeBase?: string;
 }
 
 interface ZoomGalleryProps {
@@ -16,11 +18,18 @@ interface ZoomGalleryProps {
   theme?: 'light' | 'dark';
 }
 
+function getZoomImageCode(item: ZoomGalleryItem, index: number, slot: 'MAIN' | 'THUMB' | 'MODAL') {
+  const base = item.imageCodeBase ?? `LXA-ZOOM-${String(index + 1).padStart(2, '0')}`;
+  return `${base}-${slot}`;
+}
+
 export default function ZoomGallery({ items, theme = 'light' }: ZoomGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
 
   const selectedItem = items[selectedIndex];
+  const selectedMainCode = getZoomImageCode(selectedItem, selectedIndex, 'MAIN');
+  const selectedModalCode = getZoomImageCode(selectedItem, selectedIndex, 'MODAL');
   const dark = theme === 'dark';
 
   useEffect(() => {
@@ -67,6 +76,7 @@ export default function ZoomGallery({ items, theme = 'light' }: ZoomGalleryProps
                 sizes="(max-width: 1023px) 100vw, 60vw"
                 className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
               />
+              <ImageCodeBadge code={selectedMainCode} />
               <div
                 className={`absolute inset-0 ${
                   dark
@@ -97,6 +107,7 @@ export default function ZoomGallery({ items, theme = 'light' }: ZoomGalleryProps
         <div className="grid gap-4">
           {items.map((item, index) => {
             const isActive = index === selectedIndex;
+            const thumbnailCode = getZoomImageCode(item, index, 'THUMB');
             return (
               <button
                 key={item.title}
@@ -120,6 +131,7 @@ export default function ZoomGallery({ items, theme = 'light' }: ZoomGalleryProps
                     sizes="96px"
                     className="object-cover"
                   />
+                  <ImageCodeBadge code={thumbnailCode} className="right-2 top-2 px-2 py-1 text-[9px]" />
                 </div>
                 <div>
                   <p className={`text-xs font-semibold uppercase tracking-[0.26em] ${dark ? 'text-[#ead7a8]' : 'text-primary/70'}`}>
@@ -179,6 +191,7 @@ export default function ZoomGallery({ items, theme = 'light' }: ZoomGalleryProps
                   sizes="(max-width: 1023px) 100vw, 70vw"
                   className="object-cover"
                 />
+                <ImageCodeBadge code={selectedModalCode} />
               </div>
               <div className="bg-[#111615] p-6 text-white sm:p-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ead7a8]">

@@ -132,6 +132,7 @@ export interface CatalogItem {
   description: string;
   detailFocus: string;
   image: string;
+  imageCodeBase?: string;
 }
 
 export const TRADE_PORTAL_ACCESS_HREF = '/trade-projects?intent=trade-access';
@@ -146,7 +147,8 @@ export const NAV_ITEMS: NavItem[] = [
   { name: 'Fabric & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
-  { name: 'Hardware & Trimmings', href: '/trimmings' },
+  { name: 'Hardware Systems', href: '/hardware-systems' },
+  { name: 'Decorative Trimmings', href: '/decorative-trimmings' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -155,7 +157,8 @@ export const FOOTER_CATEGORY_LINKS: NavItem[] = [
   { name: 'Fabric & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
-  { name: 'Hardware & Trimmings', href: '/trimmings' },
+  { name: 'Hardware Systems', href: '/hardware-systems' },
+  { name: 'Decorative Trimmings', href: '/decorative-trimmings' },
 ];
 
 export const HOME_HERO_STATS: StatItem[] = [
@@ -224,11 +227,11 @@ export const HOME_CATEGORY_LINKS: Array<
     image: '/images/luxaura/upholstery-pillows.webp',
   },
   {
-    eyebrow: 'Hardware & Trimmings',
-    title: 'Hardware & Artisanal Trimmings',
+    eyebrow: 'Hardware Systems',
+    title: 'High-Performance Hardware Systems',
     description:
-      'Premium silent curtain tracks and motorised smart systems, paired with 1,000s of intricate trims, braids and passementerie from Dongli Art Textile for a more differentiated luxury finish.',
-    href: '/trimmings',
+      'Premium curtain tracks, motorised systems and better installation planning for cleaner movement, broader capability and stronger commercial value.',
+    href: '/hardware-systems',
     image: '/images/IMG-D.webp',
   },
   {
@@ -502,9 +505,8 @@ export const TRADE_PROJECT_FOCUS_OPTIONS = [
   'Fabrics',
   'Window treatments',
   'Bespoke upholstery',
-  'Hardware and trimmings',
-  'Tracks and motorisation',
-  'Outdoor solutions',
+  'Hardware systems',
+  'Decorative trimmings',
   'Mixed project package',
 ];
 
@@ -512,7 +514,8 @@ export const QUOTE_PRODUCT_OPTIONS = [
   'Fabric & Fabrication',
   'Window Treatments',
   'Bespoke Upholstery',
-  'Hardware & Trimmings',
+  'Hardware Systems',
+  'Decorative Trimmings',
   'Whole-Home Soft Furnishing Package',
 ];
 
@@ -538,9 +541,46 @@ export const CONTACT_INTEREST_OPTIONS = [
   'Fabric & Fabrication',
   'Window Treatments',
   'Bespoke Upholstery',
-  'Hardware & Trimmings',
+  'Hardware Systems',
+  'Decorative Trimmings',
   'Trade Account Access',
   'General Project Enquiry',
+];
+
+export const HARDWARE_SYSTEMS_FAQ: FaqItem[] = [
+  {
+    question: 'Can LuxAura support track systems for sheers, blockouts and layered drapery?',
+    answer:
+      'Yes. Hardware is guided around stacking behaviour, fabric weight, ceiling condition and the final line of the treatment, including layered sheer and blockout systems.',
+  },
+  {
+    question: 'Do motorised systems sit within the hardware offer?',
+    answer:
+      'Yes. Motorised curtain pathways are considered as part of the hardware layer, including track choice, movement quality, control planning and cleaner installation conditions.',
+  },
+  {
+    question: 'Is the hardware selection suitable for wider residential and project work?',
+    answer:
+      'Yes. LuxAura supports premium residential briefs, developer-led schemes and larger project conditions that need stronger system quality and commercial value together.',
+  },
+];
+
+export const DECORATIVE_TRIMMINGS_FAQ: FaqItem[] = [
+  {
+    question: 'Are decorative trimmings limited to curtains only?',
+    answer:
+      'No. Trims can extend across drapery, Roman blinds, cushions, upholstery and other made soft-furnishing pieces where the detailing language needs to carry through.',
+  },
+  {
+    question: 'Can LuxAura help turn a trimming idea into a finished furnishing detail?',
+    answer:
+      'Yes. The trim resource is connected to fabrication support, helping decorative selections move beyond inspiration into practical, production-ready outcomes.',
+  },
+  {
+    question: 'Is the trimming library broad enough for both restrained and more expressive schemes?',
+    answer:
+      'Yes. The collection is curated to support quieter refined interiors as well as more layered decorative directions across premium residential and hospitality work.',
+  },
 ];
 
 export const WHOLESALE_RESOURCE_PACKS: RelatedLink[] = [
@@ -887,14 +927,14 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Window treatments are stronger when the adjacent categories are already connected.',
       items: [
         {
-          title: 'Tracks & Motorisation',
-          description: 'Add manual or smart-controlled systems for larger openings and smoother operation.',
-          href: '/tracks-motorisation',
+          title: 'Hardware Systems',
+          description: 'Add premium tracks, motorised system planning and cleaner installation logic for stronger window execution.',
+          href: '/hardware-systems',
         },
         {
-          title: 'Hardware & Trimmings',
-          description: 'Refine drapery and soft treatment finishes with borders, piping and decorative detail.',
-          href: '/trimmings',
+          title: 'Decorative Trimmings',
+          description: 'Refine drapery and soft treatment finishes with borders, piping and more layered decorative detail.',
+          href: '/decorative-trimmings',
         },
         {
           title: 'Fabrics & Fabrication',
@@ -1071,9 +1111,9 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/collections',
         },
         {
-          title: 'Hardware & Trimmings',
-          description: 'Use trims, piping and finishing details to sharpen the final upholstery outcome.',
-          href: '/trimmings',
+          title: 'Decorative Trimmings',
+          description: 'Use trims, piping and finishing detail to sharpen the final upholstery outcome.',
+          href: '/decorative-trimmings',
         },
         {
           title: 'Window Treatments',
@@ -1842,19 +1882,14 @@ export const FAQ_GROUPS: Array<{ title: string; href: string; items: FaqItem[] }
     items: BUSINESS_PAGE_CONFIGS['cushions-soft-furnishings'].faqItems,
   },
   {
-    title: 'Hardware & Trimmings',
-    href: '/trimmings',
-    items: BUSINESS_PAGE_CONFIGS.trimmings.faqItems,
+    title: 'Hardware Systems',
+    href: '/hardware-systems',
+    items: HARDWARE_SYSTEMS_FAQ,
   },
   {
-    title: 'Tracks & Motorisation',
-    href: '/tracks-motorisation',
-    items: BUSINESS_PAGE_CONFIGS['tracks-motorisation'].faqItems,
-  },
-  {
-    title: 'Outdoor Solutions',
-    href: '/outdoor-solutions',
-    items: BUSINESS_PAGE_CONFIGS['outdoor-solutions'].faqItems,
+    title: 'Decorative Trimmings',
+    href: '/decorative-trimmings',
+    items: DECORATIVE_TRIMMINGS_FAQ,
   },
   {
     title: 'Trade Portal Access',
@@ -1903,6 +1938,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Tailored decorative weave for layered drapery schemes and elevated Roman blind work.',
     detailFocus: 'Visible slub texture with soft structure for premium fold behaviour.',
     image: '/images/luxaura/hero-project.webp',
+    imageCodeBase: 'LXA-CAT-01',
   },
   {
     id: 'mobus-texture',
@@ -1916,6 +1952,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'European decorative texture designed for interiors that need depth without visual heaviness.',
     detailFocus: 'Textural face and tonal movement reward close inspection.',
     image: '/images/luxaura/beach-sheer.webp',
+    imageCodeBase: 'LXA-CAT-02',
   },
   {
     id: 'fibreguard-harbour',
@@ -1929,6 +1966,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Performance upholstery fabric built for family living, hospitality wear and easy maintenance.',
     detailFocus: 'Dense pile with easy-clean confidence for touch-heavy settings.',
     image: '/images/luxaura/upholstery-pillows.webp',
+    imageCodeBase: 'LXA-CAT-03',
   },
   {
     id: 'linen-pure',
@@ -1942,6 +1980,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Natural luxury linen for softly structured drapery and tactile blind applications.',
     detailFocus: 'Clean woven irregularity creates a natural premium finish.',
     image: '/images/luxaura/roman-blind-lounge.webp',
+    imageCodeBase: 'LXA-CAT-04',
   },
   {
     id: 'linen-cotton',
@@ -1955,6 +1994,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Balanced linen-cotton composition for structure, softness and practical fabrication.',
     detailFocus: 'Tighter weave helps hold crisp Roman blind profiles.',
     image: '/images/IMG-I.webp',
+    imageCodeBase: 'LXA-CAT-05',
   },
   {
     id: 'asia-contract-sheer',
@@ -1968,6 +2008,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Cost-effective sheer developed for broad coverage projects that still need polish.',
     detailFocus: 'Light diffusion and repeatable project-friendly construction.',
     image: '/images/luxaura/vertical-sheer-pool.webp',
+    imageCodeBase: 'LXA-CAT-06',
   },
   {
     id: 'asia-velvet',
@@ -1981,6 +2022,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'A value-conscious velvet story for cushions, bedheads and statement drapery accents.',
     detailFocus: 'Directional pile creates a strong close-up visual read.',
     image: '/images/IMG-O4.webp',
+    imageCodeBase: 'LXA-CAT-07',
   },
   {
     id: 'outdoor-weave',
@@ -1994,6 +2036,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Project-ready performance textile for covered outdoor zones and durable soft furnishing.',
     detailFocus: 'Tight technical yarns suited to sun-exposed applications.',
     image: '/images/IMG-Hero.webp',
+    imageCodeBase: 'LXA-CAT-08',
   },
   {
     id: 'trim-lace',
@@ -2007,6 +2050,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'An accessory reference for soft decorative edging and bespoke drapery finishes.',
     detailFocus: 'Fine edge detailing intended for high-resolution zoom review.',
     image: '/images/IMG-C.webp',
+    imageCodeBase: 'LXA-CAT-09',
   },
   {
     id: 'trim-passementerie',
@@ -2020,6 +2064,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Decorative braid for luxury edging, leading edges and Roman blind border treatments.',
     detailFocus: 'Braided texture supports stitch-by-stitch inspection.',
     image: '/images/IMG-D.webp',
+    imageCodeBase: 'LXA-CAT-10',
   },
   {
     id: 'rod-brass',
@@ -2033,6 +2078,7 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Warm metal hardware family for premium residential and boutique hospitality schemes.',
     detailFocus: 'Finish consistency and bracket detailing benefit from zoom review.',
     image: '/images/IMG-K.webp',
+    imageCodeBase: 'LXA-CAT-11',
   },
   {
     id: 'rod-track',
@@ -2046,5 +2092,6 @@ export const COLLECTION_ITEMS: CatalogItem[] = [
     description: 'Clean profile hardware for wave drapery and longer commercial spans.',
     detailFocus: 'Track geometry and hardware joins are visible at close range.',
     image: '/images/carousel/09-Curtain-Track.webp',
+    imageCodeBase: 'LXA-CAT-12',
   },
 ];

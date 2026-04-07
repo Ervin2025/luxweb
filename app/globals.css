@@ -93,7 +93,46 @@ html[data-image-codes='1'] .image-code-badge {
   transform: translateY(0);
 }
 
+.image-code-toggle {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 90;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(234, 215, 168, 0.42);
+  background: rgba(12, 14, 13, 0.9);
+  padding: 0 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f4dfae;
+  box-shadow: 0 14px 36px rgba(7, 8, 7, 0.26);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.image-code-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(244, 223, 174, 0.7);
+}
+
+html[data-image-codes='1'] .image-code-toggle {
+  background: rgba(20, 67, 53, 0.92);
+}
+
 @media (max-width: 640px) {
+  .image-code-toggle {
+    left: 12px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    padding: 0 14px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+
   body {
     font-size: 16px;
   }

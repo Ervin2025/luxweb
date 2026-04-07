@@ -84,7 +84,7 @@ export default function ContactSection() {
             <SectionHeading
               eyebrow="Trade Support Desk"
               title="Send the brief to the right LuxAura team"
-              description="Use this form for sourcing enquiries, fabrication support, upholstery questions, hardware and trims requests, trade access or wider project coordination."
+              description="Use this form for sourcing enquiries, fabrication support, upholstery questions, hardware system briefs, decorative trimming requests, trade access or wider project coordination."
             />
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
