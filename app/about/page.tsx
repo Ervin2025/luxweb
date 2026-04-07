@@ -1,127 +1,204 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import PageHero from '@/components/PageHero';
+import ProjectEnquiryForm from '@/components/ProjectEnquiryForm';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
-import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import {
+  PROJECT_BRIEF_HREF,
+  TRADE_PORTAL_ACCESS_HREF,
+  TRADE_SUPPORT_HREF,
+} from '@/lib/site-data';
+
+const AUDIENCE_BLOCKS = [
+  {
+    title: 'Interior Designers & Decorators',
+    description:
+      'For projects requiring a stronger bridge between concept, specification and furnishing execution.',
+  },
+  {
+    title: 'Builders & Developers',
+    description:
+      'For sites where soft-furnishing scope needs clearer technical coordination and more reliable delivery.',
+  },
+  {
+    title: 'Stylists',
+    description:
+      'For projects requiring broader categories, cohesive material language and commercially sensible sourcing.',
+  },
+  {
+    title: 'Hospitality & Short-Stay Operators',
+    description:
+      'For spaces where visual impact, durability and procurement efficiency must align.',
+  },
+  {
+    title: 'Residential Upgrade Clients',
+    description:
+      'For larger or more detailed furnishing scopes requiring more than casual retail purchasing.',
+  },
+] as const;
+
+const TRUST_CARDS = [
+  {
+    title: 'Direct Source Advantage',
+    description:
+      'Greater material access and stronger commercial efficiency through a more direct supply structure.',
+  },
+  {
+    title: 'Fabrication Depth',
+    description:
+      'Support backed by real making capability across window treatments, upholstery and finishing layers.',
+  },
+  {
+    title: 'Trade-Aware Project Support',
+    description:
+      'A working model designed for designers, builders and furnishing-led projects rather than only retail transactions.',
+  },
+  {
+    title: 'Local Accountability',
+    description:
+      'Sydney-facing communication and project support with the responsiveness required for real delivery conditions.',
+  },
+] as const;
+
+const TRADE_DESK_SUPPORT = [
+  'Material and category direction',
+  'Curtain and upholstery scope clarification',
+  'Hardware and trimming coordination',
+  'Project support enquiries',
+  'Trade account and portal access',
+  'Submission of drawings, images and project notes',
+] as const;
 
 export const metadata: Metadata = {
-  title: 'About LuxAura | Sydney Trade Partner for Soft-Furnishing Delivery',
+  title: 'About & Trade Desk | Soft Furnishing Trade Partner Sydney | LuxAura',
   description:
-    'Learn how LuxAura brings textile sourcing, fabrication, coordination and finishing capability into one more accountable project path.',
-  keywords:
-    'about LuxAura, Sydney trade partner, soft furnishing fulfillment, premium textile sourcing Sydney, furnishing delivery partner',
+    'Learn how LuxAura supports designers, builders, stylists and project teams through sourcing, fabrication, project support and trade coordination in Sydney.',
+  keywords: [
+    'trade soft furnishings sydney',
+    'furnishing supplier sydney',
+    'custom curtains and upholstery sydney',
+    'soft furnishing trade partner sydney',
+    'designer support furnishing sydney',
+  ],
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
 };
 
-const FRAGMENTATION_ISSUES = [
-  {
-    title: 'Too Many Suppliers',
-    description:
-      'Projects slow down when fabrics, trims, hardware and making are split across too many disconnected providers.',
-  },
-  {
-    title: 'Unclear Making Path',
-    description:
-      'A strong textile selection can still fail if there is no clear route from material choice into fabrication and final execution.',
-  },
-  {
-    title: 'Retail-Led Experience',
-    description:
-      'Retail logic does not serve complex furnishing briefs well. Project teams need coordination, not isolated product transactions.',
-  },
-  {
-    title: 'Lack of Accountability',
-    description:
-      'When the furnishing process fragments, responsibility becomes harder to trace at the point where the project most needs clarity.',
-  },
-] as const;
-
-const LUXAURA_ADVANTAGES = [
-  {
-    title: 'Direct Source',
-    description:
-      'LuxAura combines its own range with broader textile partnerships so selection and pricing can stay more controlled.',
-  },
-  {
-    title: 'Sydney-Backed Accountability',
-    description:
-      'Projects have a local Sydney-facing point of communication while drawing on broader sourcing and fabrication strength.',
-  },
-  {
-    title: 'Fabrication Depth',
-    description:
-      'The business is shaped around making capability, not only product supply, allowing more complex briefs to move forward properly.',
-  },
-  {
-    title: 'Multi-Category Control',
-    description:
-      'Fabric, upholstery, hardware, trims and window treatments can sit inside one broader furnishing pathway rather than several isolated ones.',
-  },
-] as const;
-
-const WHO_WE_SUPPORT = [
-  'Interior designers and decorators',
-  'Builders and developers',
-  'Boutique hospitality and accommodation projects',
-  'Premium residential furnishing briefs',
-  'Clients managing multi-layered soft-furnishing scope',
-] as const;
-
 export default function AboutPage() {
-  const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'About LuxAura', url: '/about' }]);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'About & Trade Desk', url: '/about' },
+  ]);
 
   return (
     <div>
-      <PageHero
-        eyebrow="About LuxAura"
-        title="A Sydney trade partner built for premium soft-furnishing delivery"
-        description="LuxAura was built to solve a common project problem: too many fragmented decisions between sourcing, fabrication, hardware, upholstery and final furnishing execution."
-        imageSrc="/images/about-hero.webp"
-        imageAlt="LuxAura project interior with layered sheers and refined upholstery"
-        imageCode="LXA-ABOUT-01"
-      >
-        <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-          Trade Portal Access
-        </Link>
-        <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Talk to the Trade Desk
-        </Link>
-      </PageHero>
-
-      <div className="container-custom">
-        <Breadcrumb items={[{ label: 'About LuxAura', href: '/about' }]} />
-      </div>
-
-      <section className="section-padding pt-6">
+      <section className="px-4 pb-24 pt-32 sm:px-6 sm:pb-28 lg:px-8 lg:pb-[9rem] lg:pt-40">
         <div className="container-custom">
-          <SectionHeading
-            eyebrow="Business Positioning"
-            title="One partner from textile selection to final project readiness"
-            description="LuxAura is structured to support projects that need more than a product supplier. The model brings together sourcing, fabrication, coordination and finishing capability so design decisions can move forward with greater control and fewer disconnects."
-          />
+          <div className="grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
+                About & Trade Desk
+              </p>
+              <h1 className="mt-5 text-balance font-heading text-[3.35rem] font-semibold leading-[0.94] tracking-[-0.04em] text-[#2C2C2C] sm:text-[4.5rem] lg:text-[5.25rem]">
+                A Sydney Partner for Soft-Furnishing Execution
+              </h1>
+              <p className="mt-6 max-w-[36rem] text-pretty text-[1.04rem] leading-[1.8] text-neutral-700 sm:text-[1.12rem]">
+                LuxAura brings sourcing, fabrication, furnishing coordination and project support
+                into one accountable path.
+              </p>
+              <p className="mt-5 max-w-[38rem] text-pretty text-[15px] leading-8 text-neutral-600 sm:text-[1rem]">
+                Built for designers, builders, stylists and project-led clients, LuxAura helps
+                align materials, fabrication and delivery decisions with greater control and less
+                fragmentation.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                  Trade Portal Access
+                </Link>
+                <Link href="#project-enquiry" className="btn-secondary">
+                  Submit a Project Brief
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[2.4rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)]">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/images/about-hero.webp"
+                  alt="Refined drapery and upholstery detail within a premium Sydney furnishing project"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 54vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-padding pt-0">
+      <div className="container-custom">
+        <Breadcrumb items={[{ label: 'About & Trade Desk', href: '/about' }]} />
+      </div>
+
+      <section className="px-4 pb-28 pt-8 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+            <div className="max-w-3xl">
+              <SectionHeading
+                eyebrow="Brand Positioning"
+                title="What LuxAura Is Built to Do"
+                description="LuxAura is structured to do more than supply fabrics or finished pieces in isolation."
+              />
+              <p className="mt-6 text-pretty text-[15px] leading-8 text-neutral-700 sm:text-[1.02rem]">
+                The business brings together sourcing, specialist fabrication, hardware systems,
+                decorative finishing and project support so soft-furnishing decisions can move
+                toward cleaner execution.
+              </p>
+              <p className="mt-5 text-pretty text-[15px] leading-8 text-neutral-700 sm:text-[1.02rem]">
+                This makes LuxAura particularly relevant for projects where materials, systems and
+                detailing need to work together, not as separate purchases, but as one coordinated
+                furnishing pathway.
+              </p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[2.2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)]">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src="/images/luxaura/hero-project.webp"
+                  alt="Material-led curtain and furnishing detail showing LuxAura’s project delivery focus"
+                  fill
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Why Clients Come To LuxAura"
-            title="Because the furnishing process is often too fragmented"
-            description="This is the problem LuxAura is designed to solve."
+            eyebrow="Audience"
+            title="Who We Work With"
+            description="The LuxAura model is designed for furnishing decisions that need more clarity, coordination and commercial intelligence than a casual retail pathway can offer."
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {FRAGMENTATION_ISSUES.map(item => (
-              <article key={item.title} className="section-shell p-7">
-                <h2 className="font-heading text-3xl font-semibold text-neutral-900">
-                  {item.title}
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+            {AUDIENCE_BLOCKS.map(block => (
+              <article
+                key={block.title}
+                className="rounded-[1.7rem] border border-primary/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(246,240,228,0.72))] p-6 shadow-[0_18px_50px_rgba(26,24,22,0.04)]"
+              >
+                <h2 className="font-heading text-[2rem] font-semibold leading-tight text-neutral-900">
+                  {block.title}
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                  {item.description}
+                  {block.description}
                 </p>
               </article>
             ))}
@@ -129,76 +206,128 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-padding pt-0">
+      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
-          <div className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-8 shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-10 lg:p-12">
+          <SectionHeading
+            eyebrow="Trust"
+            title="Why LuxAura"
+            description="The value is not only what is sourced. It is how materials, making, detailing and delivery stay connected through one more credible trade pathway."
+          />
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {TRUST_CARDS.map(card => (
+              <article key={card.title} className="section-shell p-7">
+                <h2 className="font-heading text-3xl font-semibold text-neutral-900">{card.title}</h2>
+                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
+                  {card.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="trade-desk" className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
+        <div className="container-custom">
+          <div className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-start">
+            <article className="section-shell p-8 sm:p-10">
+              <SectionHeading
+                eyebrow="Trade Desk Support"
+                title="Trade Desk Support"
+                description="LuxAura’s trade desk is designed to support enquiries that need more than a simple price check."
+              />
+              <p className="mt-6 text-pretty text-[15px] leading-8 text-neutral-700 sm:text-[1rem]">
+                This includes specification support, furnishing coordination, project
+                clarification, category alignment and guidance on the next practical step.
+              </p>
+            </article>
+
+            <article className="overflow-hidden rounded-[2.2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
+              <h2 className="font-heading text-4xl font-semibold text-white">
+                Trade Desk Can Support With
+              </h2>
+              <ul className="mt-6 space-y-3 text-sm leading-7 text-white/76 sm:text-base">
+                {TRADE_DESK_SUPPORT.map(item => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#dfc99f]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 rounded-[1.6rem] border border-white/12 bg-white/6 p-6">
+                <h3 className="font-heading text-3xl font-semibold text-white">Contact details</h3>
+                <div className="mt-5 space-y-4 text-sm leading-7 text-white/76 sm:text-base">
+                  <p>
+                    <span className="font-semibold text-white">Phone:</span> {CONTACT_INFO.phone}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-white">Email:</span> {CONTACT_INFO.email}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-white">Location:</span>{' '}
+                    {CONTACT_INFO.address.display}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-white">Availability:</span>{' '}
+                    {CONTACT_INFO.hours}
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="project-enquiry" className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
+        <div className="container-custom">
+          <div className="mx-auto max-w-5xl">
             <SectionHeading
-              eyebrow="What Makes LuxAura Stronger"
-              title="The value is not only what we source. It is how we connect it."
-              description="LuxAura becomes stronger when sourcing, making and delivery are treated as one connected furnishing system."
-              theme="dark"
+              eyebrow="Project Enquiry"
+              title="Send the Brief to the Right LuxAura Team"
+              description="Use this form for project support, sourcing enquiries, specification assistance, upholstery questions, hardware selection, decorative trimming support or broader furnishing coordination."
+              align="center"
             />
-            <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {LUXAURA_ADVANTAGES.map(item => (
-                <article
-                  key={item.title}
-                  className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
-                >
-                  <h2 className="font-heading text-3xl font-semibold text-white">{item.title}</h2>
-                  <p className="mt-4 text-sm leading-7 text-white/78">{item.description}</p>
-                </article>
-              ))}
+            <div className="mt-10">
+              <ProjectEnquiryForm submitLabel="Send to Trade Desk" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding pt-0">
-        <div className="container-custom grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-          <article className="section-shell p-8 sm:p-10">
-            <SectionHeading
-              eyebrow="Local Accountability"
-              title="Sydney-based communication, globally backed capability"
-              description="LuxAura operates with Sydney-facing project support while drawing on broader sourcing and fabrication strength. This allows the business to stay locally accountable without being limited to standard local supply constraints."
-            />
-            <p className="mt-6 text-sm leading-8 text-neutral-700 sm:text-base">
-              The business operates from {CONTACT_INFO.address.display}, giving projects a local
-              trade-facing point of communication while keeping access to a wider execution model.
-            </p>
-          </article>
-
-          <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
-            <SectionHeading
-              eyebrow="Who We Support"
-              title="Built for professionals managing real furnishing decisions"
-              description="The model is best suited to projects where the furnishing scope needs more coordination and accountability."
-              theme="dark"
-            />
-            <ul className="mt-8 space-y-4 text-sm leading-7 text-white/78 sm:text-base">
-              {WHO_WE_SUPPORT.map(group => (
-                <li key={group}>{group}</li>
-              ))}
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section className="section-padding pt-0">
+      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="overflow-hidden rounded-[2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.84)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
-            <div className="max-w-3xl">
-              <p className="eyebrow">Final CTA</p>
-              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-5xl">
-                Bring the furnishing path under better control
+          <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <article className="section-shell p-8 sm:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
+                Closing Reassurance
+              </p>
+              <h2 className="mt-5 text-balance font-heading text-4xl font-semibold leading-tight text-[#2C2C2C] sm:text-5xl">
+                Structured for projects that need more clarity before commitment
               </h2>
-            </div>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={TRADE_SUPPORT_HREF} className="btn-primary">
-                Talk to the Trade Desk
-              </Link>
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary">
-                Trade Portal Access
-              </Link>
+              <p className="mt-6 max-w-3xl text-pretty text-[15px] leading-8 text-neutral-700 sm:text-[1rem]">
+                LuxAura helps shape clearer soft-furnishing pathways before sourcing, fabrication
+                and site coordination become fragmented or costly to correct.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
+                  Submit a Project Brief
+                </Link>
+                <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
+                  Talk to the LuxAura Team
+                </Link>
+              </div>
+            </article>
+
+            <div className="relative overflow-hidden rounded-[2.2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)]">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src="/images/luxaura/beach-sheer.webp"
+                  alt="Quiet soft-furnishing detail with layered material calm and clean finish"
+                  fill
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

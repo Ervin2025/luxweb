@@ -13,7 +13,7 @@ export default function SupportDock() {
           <span className="hidden sm:inline">Trade Portal Access</span>
         </a>
         <a
-          href="/contact#priority-support"
+          href="/about#trade-desk"
           className="inline-flex min-h-[52px] flex-1 items-center justify-center rounded-full border border-primary/15 bg-white/88 px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary shadow-[0_10px_30px_rgba(26,24,22,0.08)] backdrop-blur transition hover:border-primary hover:bg-white sm:min-h-0 sm:flex-none sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.22em]"
         >
           <span className="sm:hidden">Support</span>

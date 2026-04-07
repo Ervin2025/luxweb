@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 export default function NotFound() {
   return (
@@ -15,8 +16,8 @@ export default function NotFound() {
           <Link href="/" className="btn-primary">
             Back to Home
           </Link>
-          <Link href="/contact" className="btn-secondary">
-            Contact Us
+          <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
+            Access Trade Support
           </Link>
         </div>
       </div>

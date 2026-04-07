@@ -136,8 +136,8 @@ export interface CatalogItem {
 }
 
 export const TRADE_PORTAL_ACCESS_HREF = '/trade-projects?intent=trade-access';
-export const PROJECT_BRIEF_HREF = '/quote';
-export const TRADE_SUPPORT_HREF = '/contact';
+export const PROJECT_BRIEF_HREF = '/about#project-enquiry';
+export const TRADE_SUPPORT_HREF = '/about#trade-desk';
 export const REQUEST_CATALOGUE_HREF = TRADE_PORTAL_ACCESS_HREF;
 export const REGISTER_TRADE_ACCOUNT_HREF = TRADE_PORTAL_ACCESS_HREF;
 export const GET_QUOTE_HREF = PROJECT_BRIEF_HREF;
@@ -150,7 +150,7 @@ export const NAV_ITEMS: NavItem[] = [
   { name: 'Hardware Systems', href: '/hardware-systems' },
   { name: 'Decorative Trimmings', href: '/decorative-trimmings' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Contact', href: '/about#trade-desk' },
 ];
 
 export const FOOTER_CATEGORY_LINKS: NavItem[] = [
@@ -543,9 +543,49 @@ export const CONTACT_INTEREST_OPTIONS = [
   'Bespoke Upholstery',
   'Hardware Systems',
   'Decorative Trimmings',
+  'Project Support',
   'Trade Account Access',
   'General Project Enquiry',
 ];
+
+export const PROJECT_CLIENT_TYPE_OPTIONS = [
+  'Designer',
+  'Stylist',
+  'Builder',
+  'Developer',
+  'Hospitality / Short-Stay Operator',
+  'Homeowner',
+  'Other',
+] as const;
+
+export const PROJECT_TYPE_OPTIONS = [
+  'Residential',
+  'Multi-Residential',
+  'Hospitality',
+  'Short-Stay',
+  'Retail / Lifestyle Commercial',
+  'Display Suite',
+  'Other',
+] as const;
+
+export const PROJECT_STAGE_OPTIONS = [
+  'Early Concept',
+  'Design Development',
+  'Specification Stage',
+  'Procurement Stage',
+  'Pre-Installation',
+  'Refresh / Upgrade',
+] as const;
+
+export const PROJECT_SERVICE_OPTIONS = [
+  'Fabric & Fabrication',
+  'Window Treatments',
+  'Bespoke Upholstery',
+  'Hardware Systems',
+  'Decorative Trimmings',
+  'Project Support',
+  'Site Measure / Specification Support',
+] as const;
 
 export const HARDWARE_SYSTEMS_FAQ: FaqItem[] = [
   {
@@ -1914,14 +1954,14 @@ export const THANK_YOU_VARIANTS: Record<
     description:
       'The brief is now in the LuxAura workflow for sourcing alignment, fabrication review and the next step on coordination.',
     primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
-    secondaryCta: { label: 'Access Trade Support', href: '/contact' },
+    secondaryCta: { label: 'Access Trade Support', href: TRADE_SUPPORT_HREF },
   },
   contact: {
     title: 'Your enquiry has been sent to the trade desk',
     description:
       'A team member will review the enquiry category and respond with the most relevant support path for sourcing, fabrication, systems, trims or wider project coordination.',
     primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
-    secondaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+    secondaryCta: { label: 'Submit a Project Brief', href: PROJECT_BRIEF_HREF },
   },
 };
 

@@ -9,6 +9,7 @@ import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import {
+  TRADE_SUPPORT_HREF,
   TRADE_PROJECT_BENEFITS,
   TRADE_PROJECT_FAQ,
   TRADE_PROJECT_PARTNERS,
@@ -60,7 +61,7 @@ export default async function TradeProjectsPage({
         <a href="#trade-projects-form" className="btn-primary">
           Trade Portal Access
         </a>
-        <Link href="/contact" className="btn-secondary">
+        <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
           Access Trade Support
         </Link>
       </PageHero>

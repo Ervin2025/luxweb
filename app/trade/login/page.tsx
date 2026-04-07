@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'Trade Portal Preview | Secure Trade Access',
@@ -57,7 +58,7 @@ export default function TradeLoginPage() {
             <Link href="/trade-projects" className="btn-primary">
               Trade Portal Access
             </Link>
-            <Link href="/contact" className="btn-secondary">
+            <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
               Access Trade Support
             </Link>
           </div>

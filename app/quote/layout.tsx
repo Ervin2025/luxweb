@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Project Brief | Fabric & Fabrication Intake',
+  title: 'Project Enquiry Redirect | LuxAura',
   description:
-    'Submit a LuxAura project brief for fabric sourcing, window treatments, upholstery, hardware and coordinated soft-furnishing delivery.',
+    'Legacy project brief route redirected to the LuxAura About & Trade Desk enquiry page.',
   keywords:
-    'project brief fabric, textile sourcing Sydney, Roman blind fabrication brief, upholstery project enquiry',
+    'LuxAura project enquiry redirect',
   alternates: {
-    canonical: `${SITE_CONFIG.url}/quote`,
+    canonical: `${SITE_CONFIG.url}/about`,
   },
 };
 
