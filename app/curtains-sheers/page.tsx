@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function CurtainsSheersRedirectPage() {
-  redirect('/custom-curtains-sheers');
+  permanentRedirect('/custom-curtains-sheers');
 }

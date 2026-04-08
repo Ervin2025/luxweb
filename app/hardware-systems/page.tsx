@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -16,18 +17,22 @@ import {
 
 const VALUE_CARDS = [
   {
+    marker: '01',
     title: 'Better Track Quality',
     description: 'Smooth operation, stable movement and cleaner long-term performance across premium curtain execution.',
   },
   {
+    marker: '02',
     title: 'Broader System Range',
     description: 'From slim architectural profiles to curved, layered and motorised directions aligned to different project conditions.',
   },
   {
+    marker: '03',
     title: 'Project-Ready Flexibility',
     description: 'Suitable for sheers, blockouts, layered packages and more demanding glazing conditions without losing visual calm.',
   },
   {
+    marker: '04',
     title: 'Stronger Commercial Value',
     description: 'A more competitive hardware resource that keeps finish quality, system capability and pricing discipline in better balance.',
   },
@@ -44,30 +49,35 @@ const TRACK_RANGE_POINTS = [
 const TRACK_IMAGES = [
   {
     title: 'Curtain track close-up',
+    code: 'LXA-HWS-02',
     imageSrc: '/images/carousel/09-Curtain-Track.webp',
     imageAlt: 'Close-up of a premium curtain track profile and glider system',
     className: 'sm:col-span-2 aspect-[16/10]',
   },
   {
     title: 'Glider detail',
+    code: 'LXA-HWS-03',
     imageSrc: '/images/IMG-F.webp',
     imageAlt: 'Curtain hardware glider and bracket detail within a premium interior',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Architectural recess',
+    code: 'LXA-HWS-04',
     imageSrc: '/images/IMG-I.webp',
     imageAlt: 'Concealed curtain hardware integrated into a premium architectural recess',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Refined ceiling integration',
+    code: 'LXA-HWS-05',
     imageSrc: '/images/luxaura/hero-project.webp',
     imageAlt: 'Ceiling-mounted drapery track with a refined layered treatment',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Curved and large-span support',
+    code: 'LXA-HWS-06',
     imageSrc: '/images/luxaura/vertical-sheer-pool.webp',
     imageAlt: 'Installed curtain system across a larger opening with strong stack and line control',
     className: 'aspect-[4/3]',
@@ -137,10 +147,12 @@ export const metadata: Metadata = {
 function ImagePanel({
   imageSrc,
   imageAlt,
+  code,
   className,
 }: {
   imageSrc: string;
   imageAlt: string;
+  code?: string;
   className?: string;
 }) {
   return (
@@ -148,6 +160,7 @@ function ImagePanel({
       className={`relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] ${className ?? 'aspect-[4/3]'}`}
     >
       <Image src={imageSrc} alt={imageAlt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+      {code ? <ImageCodeBadge code={code} /> : null}
     </div>
   );
 }
@@ -171,6 +184,7 @@ export default function HardwareSystemsPage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,14,13,0.78)_0%,rgba(12,14,13,0.58)_34%,rgba(12,14,13,0.18)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.08)_0%,rgba(12,14,13,0.34)_100%)]" />
+        <ImageCodeBadge code="LXA-HWS-01" className="right-5 top-28 sm:top-32" />
 
         <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
           <div className="max-w-4xl text-white">
@@ -218,7 +232,12 @@ export default function HardwareSystemsPage() {
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {VALUE_CARDS.map(card => (
               <article key={card.title} className="section-shell p-7">
-                <h2 className="font-heading text-3xl font-semibold text-neutral-900">{card.title}</h2>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/12 bg-[#f4ede1] font-heading text-lg font-semibold text-primary">
+                  {card.marker}
+                </div>
+                <h2 className="mt-5 font-heading text-3xl font-semibold text-neutral-900">
+                  {card.title}
+                </h2>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                   {card.description}
                 </p>
@@ -256,6 +275,7 @@ export default function HardwareSystemsPage() {
                   key={image.title}
                   imageSrc={image.imageSrc}
                   imageAlt={image.imageAlt}
+                  code={image.code}
                   className={image.className}
                 />
               ))}
@@ -293,16 +313,19 @@ export default function HardwareSystemsPage() {
                 <ImagePanel
                   imageSrc="/images/IMG-I.webp"
                   imageAlt="Motorised curtain system integrated into a premium interior"
+                  code="LXA-HWS-07"
                   className="sm:col-span-2 aspect-[16/10] border-white/10"
                 />
                 <ImagePanel
                   imageSrc="/images/luxaura/vertical-sheer-pool.webp"
                   imageAlt="Layered drapery stack supported by a cleaner motorised track layout"
+                  code="LXA-HWS-08"
                   className="aspect-[4/3] border-white/10"
                 />
                 <ImagePanel
                   imageSrc="/images/carousel/09-Curtain-Track.webp"
                   imageAlt="Motor-ready curtain rail and track hardware detail"
+                  code="LXA-HWS-09"
                   className="aspect-[4/3] border-white/10"
                 />
               </div>
@@ -331,6 +354,7 @@ export default function HardwareSystemsPage() {
             <ImagePanel
               imageSrc="/images/IMG-H.webp"
               imageAlt="Premium curtain hardware detail integrated into a resolved furnishing scheme"
+              code="LXA-HWS-10"
               className="aspect-[16/10]"
             />
             <div className="max-w-xl lg:pl-6">
@@ -384,6 +408,7 @@ export default function HardwareSystemsPage() {
             <ImagePanel
               imageSrc="/images/luxaura/vertical-sheer-pool.webp"
               imageAlt="Installed curtain hardware across a premium opening with clean stack and recess control"
+              code="LXA-HWS-11"
               className="aspect-[16/10]"
             />
           </div>

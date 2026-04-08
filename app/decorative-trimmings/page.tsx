@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
+import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -16,18 +17,22 @@ import {
 
 const VALUE_CARDS = [
   {
+    marker: '01',
     title: 'Broader Decorative Range',
     description: 'More options across braid, border, fringe, tassel and couture-inspired finishing detail.',
   },
   {
+    marker: '02',
     title: 'Latest Collection Access',
     description: 'A more current trimming direction for layered, design-led interiors that need detail without visual clutter.',
   },
   {
+    marker: '03',
     title: 'Creative Design Flexibility',
     description: 'Supports more original detailing across drapery, cushions, upholstery and custom soft furnishings.',
   },
   {
+    marker: '04',
     title: 'Real Project Application',
     description: 'Not just decorative inspiration, but trimming choices that can be carried through to finished production.',
   },
@@ -36,36 +41,42 @@ const VALUE_CARDS = [
 const LATEST_COLLECTION_IMAGES = [
   {
     title: 'Trim close-up',
+    code: 'LXA-DTR-02',
     imageSrc: '/images/IMG-B.webp',
     imageAlt: 'Decorative braid and trim detail applied to premium drapery',
     className: 'sm:col-span-2 lg:row-span-2 aspect-[16/10] lg:aspect-[4/5]',
   },
   {
     title: 'Border detail',
+    code: 'LXA-DTR-03',
     imageSrc: '/images/IMG-D.webp',
     imageAlt: 'Decorative border trim and edge detailing in a premium soft furnishing scheme',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Tassel expression',
+    code: 'LXA-DTR-04',
     imageSrc: '/images/IMG-C.webp',
     imageAlt: 'Tassel and fringe styling detail within a refined interior scheme',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Upholstery finishing',
+    code: 'LXA-DTR-05',
     imageSrc: '/images/luxaura/upholstery-pillows.webp',
     imageAlt: 'Piping and finishing detail across bespoke cushions and upholstery',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Tailored trim application',
+    code: 'LXA-DTR-06',
     imageSrc: '/images/IMG-H.webp',
     imageAlt: 'Tailored trimming detail applied across a composed furnishing scheme',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Soft detail close-up',
+    code: 'LXA-DTR-07',
     imageSrc: '/images/IMG-J.webp',
     imageAlt: 'Soft furnishing texture and trim detail at close range',
     className: 'aspect-[4/3]',
@@ -75,6 +86,7 @@ const LATEST_COLLECTION_IMAGES = [
 const APPLICATION_BLOCKS = [
   {
     title: 'On Drapery',
+    code: 'LXA-DTR-08',
     description:
       'Leading edges, decorative borders, formal hems and statement banding that sharpen line and give curtains greater presence.',
     imageSrc: '/images/IMG-B.webp',
@@ -82,6 +94,7 @@ const APPLICATION_BLOCKS = [
   },
   {
     title: 'On Upholstery',
+    code: 'LXA-DTR-09',
     description:
       'Chair skirts, ottoman detailing, arm framing and tailored seam accents that give upholstered forms more character and finish.',
     imageSrc: '/images/luxaura/upholstery-pillows.webp',
@@ -89,6 +102,7 @@ const APPLICATION_BLOCKS = [
   },
   {
     title: 'On Cushions & Bedding',
+    code: 'LXA-DTR-10',
     description:
       'Soft layered detail that carries colour, texture and finish through the room without breaking the wider textile story.',
     imageSrc: '/images/IMG-D.webp',
@@ -96,6 +110,7 @@ const APPLICATION_BLOCKS = [
   },
   {
     title: 'On Feature Pieces',
+    code: 'LXA-DTR-11',
     description:
       'The final layer for interiors that need one more measure of individuality, softness and decorative confidence.',
     imageSrc: '/images/IMG-C.webp',
@@ -147,10 +162,12 @@ export const metadata: Metadata = {
 function GalleryImage({
   imageSrc,
   imageAlt,
+  code,
   className,
 }: {
   imageSrc: string;
   imageAlt: string;
+  code?: string;
   className?: string;
 }) {
   return (
@@ -158,6 +175,7 @@ function GalleryImage({
       className={`relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] ${className ?? 'aspect-[4/3]'}`}
     >
       <Image src={imageSrc} alt={imageAlt} fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
+      {code ? <ImageCodeBadge code={code} /> : null}
     </div>
   );
 }
@@ -181,6 +199,7 @@ export default function DecorativeTrimmingsPage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,14,13,0.76)_0%,rgba(12,14,13,0.56)_36%,rgba(12,14,13,0.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.08)_0%,rgba(12,14,13,0.3)_100%)]" />
+        <ImageCodeBadge code="LXA-DTR-01" className="right-5 top-28 sm:top-32" />
 
         <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
           <div className="max-w-4xl text-white">
@@ -228,7 +247,12 @@ export default function DecorativeTrimmingsPage() {
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {VALUE_CARDS.map(card => (
               <article key={card.title} className="section-shell p-7">
-                <h2 className="font-heading text-3xl font-semibold text-neutral-900">{card.title}</h2>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/12 bg-[#f4ede1] font-heading text-lg font-semibold text-primary">
+                  {card.marker}
+                </div>
+                <h2 className="mt-5 font-heading text-3xl font-semibold text-neutral-900">
+                  {card.title}
+                </h2>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                   {card.description}
                 </p>
@@ -252,6 +276,7 @@ export default function DecorativeTrimmingsPage() {
                 key={image.title}
                 imageSrc={image.imageSrc}
                 imageAlt={image.imageAlt}
+                code={image.code}
                 className={image.className}
               />
             ))}
@@ -278,6 +303,7 @@ export default function DecorativeTrimmingsPage() {
                     sizes="(min-width: 1024px) 48vw, 100vw"
                     className="object-cover"
                   />
+                  <ImageCodeBadge code={block.code} />
                 </div>
                 <div className="p-7 sm:p-8">
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
@@ -299,6 +325,7 @@ export default function DecorativeTrimmingsPage() {
             <GalleryImage
               imageSrc="/images/IMG-H.webp"
               imageAlt="Decorative concept and trim direction carried into a finished furnishing outcome"
+              code="LXA-DTR-12"
               className="aspect-[16/10]"
             />
 

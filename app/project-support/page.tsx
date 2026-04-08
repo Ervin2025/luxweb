@@ -173,14 +173,14 @@ export default function ProjectSupportPage() {
 
   return (
     <div>
-      <section className="px-4 pb-24 pt-28 sm:px-6 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-[9.5rem] lg:pt-40">
+      <section className="px-4 pb-24 pt-28 max-[430px]:pb-20 max-[430px]:pt-26 sm:px-6 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-[9.5rem] lg:pt-40">
         <div className="container-custom">
           <div className="grid items-center gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:gap-14">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
                 Project Support
               </p>
-              <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
+              <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
                 Project Support That Moves Ideas Into Execution
               </h1>
               <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
@@ -204,8 +204,8 @@ export default function ProjectSupportPage() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] sm:rounded-[2.4rem]">
-              <div className="relative aspect-[16/11] sm:aspect-[4/3]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] max-[430px]:rounded-[1.55rem] sm:rounded-[2.4rem]">
+              <div className="relative aspect-[16/11] max-[430px]:aspect-[5/4] sm:aspect-[4/3]">
                 <Image
                   src="/images/IMG-I.webp"
                   alt="LuxAura project support scene with fabric books, trims and furnishing development"
@@ -245,8 +245,8 @@ export default function ProjectSupportPage() {
                   />
                   <ImageCodeBadge code={card.code} />
                 </div>
-                <div className="p-5 sm:p-8">
-                  <h2 className="font-heading text-[2rem] font-semibold leading-tight text-neutral-900 sm:text-3xl">
+                <div className="p-5 max-[430px]:p-4 sm:p-8">
+                  <h2 className="font-heading text-[2rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.7rem] sm:text-3xl">
                     {card.title}
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
@@ -270,9 +270,9 @@ export default function ProjectSupportPage() {
             {SUPPORT_SCOPE.map(card => (
               <article
                 key={card.title}
-                className="rounded-[1.55rem] border border-primary/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(246,240,228,0.72))] p-5 shadow-[0_18px_50px_rgba(26,24,22,0.04)] sm:rounded-[1.8rem] sm:p-7"
+                className="rounded-[1.55rem] border border-primary/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(246,240,228,0.72))] p-5 shadow-[0_18px_50px_rgba(26,24,22,0.04)] max-[430px]:rounded-[1.35rem] max-[430px]:p-4 sm:rounded-[1.8rem] sm:p-7"
               >
-                <h2 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-3xl">{card.title}</h2>
+                <h2 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">{card.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                   {card.description}
                 </p>
@@ -334,8 +334,8 @@ export default function ProjectSupportPage() {
 
           <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 lg:grid-cols-3">
             {HOSPITALITY_SUPPORT.map(card => (
-              <article key={card.title} className="section-shell p-5 sm:p-7">
-                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-3xl">{card.title}</h3>
+              <article key={card.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
+                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">{card.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                   {card.description}
                 </p>
@@ -354,11 +354,11 @@ export default function ProjectSupportPage() {
           />
           <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 xl:grid-cols-5">
             {PROCESS_STEPS.map(step => (
-              <article key={step.number} className="section-shell p-5 sm:p-6">
+              <article key={step.number} className="section-shell p-5 max-[430px]:p-4 sm:p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
                   {step.number}
                 </p>
-                <h3 className="mt-4 font-heading text-[1.7rem] font-semibold leading-tight text-neutral-900 sm:text-[2rem]">
+                <h3 className="mt-4 font-heading text-[1.7rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.5rem] sm:text-[2rem]">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-neutral-700">{step.description}</p>
@@ -377,8 +377,8 @@ export default function ProjectSupportPage() {
           />
           <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
             {WHY_SUPPORT_WORKS.map(card => (
-              <article key={card.title} className="section-shell p-5 sm:p-7">
-                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-3xl">{card.title}</h3>
+              <article key={card.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
+                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">{card.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                   {card.description}
                 </p>
@@ -390,12 +390,12 @@ export default function ProjectSupportPage() {
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="section-shell p-6 sm:p-10 lg:p-12">
+          <div className="section-shell p-6 max-[430px]:p-5 sm:p-10 lg:p-12">
             <div className="max-w-4xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
                 Final CTA
               </p>
-              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] text-[#2C2C2C] sm:mt-5 sm:text-5xl lg:text-6xl">
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-5xl lg:text-6xl">
                 Need help turning a furnishing idea into a workable project scope?
               </h2>
               <p className="mt-5 max-w-3xl text-pretty text-[14px] leading-7 text-neutral-700 sm:mt-6 sm:text-[1rem] sm:leading-8">

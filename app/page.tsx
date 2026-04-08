@@ -153,15 +153,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.74)_0%,rgba(13,12,11,0.58)_32%,rgba(13,12,11,0.18)_64%,rgba(13,12,11,0.06)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,12,11,0.16)_0%,rgba(13,12,11,0.34)_100%)]" />
 
-        <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-14 pt-32 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8 lg:pb-24">
+        <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-14 pt-32 max-[430px]:pb-12 max-[430px]:pt-28 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8 lg:pb-24">
           <div className="max-w-[34rem] text-white sm:max-w-[38rem]">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
               Premium Trade Soft Furnishing
             </p>
-            <h1 className="mt-5 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] sm:mt-6 sm:text-[4.55rem] sm:leading-[0.92] lg:text-[5.45rem] xl:text-[5.95rem]">
+            <h1 className="mt-5 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:mt-6 sm:text-[4.55rem] sm:leading-[0.92] lg:text-[5.45rem] xl:text-[5.95rem]">
               From Fabric Selection to Full Project Delivery.
             </h1>
-            <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
+            <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 max-[430px]:text-[0.94rem] max-[430px]:leading-[1.68] sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
               LuxAura brings together fabric sourcing, specialist fabrication, window
               treatments, upholstery, hardware and trims into one accountable trade supply path
               for residential, hospitality and commercial interiors.
@@ -186,7 +186,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="max-w-3xl">
             <SectionEyebrow>What We Deliver</SectionEyebrow>
-            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
+            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
               One trade partner across sourcing, making and project execution
             </h2>
             <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
@@ -200,7 +200,7 @@ export default function Home() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group relative min-h-[24rem] overflow-hidden rounded-[1.9rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)] sm:min-h-[31rem] sm:rounded-[2.2rem]"
+                className="group relative min-h-[24rem] overflow-hidden rounded-[1.9rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)] max-[430px]:min-h-[22rem] max-[430px]:rounded-[1.55rem] sm:min-h-[31rem] sm:rounded-[2.2rem]"
               >
                 <Image
                   src={item.imageSrc}
@@ -212,16 +212,16 @@ export default function Home() {
                 <ImageCodeBadge code={item.code} />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.04)_0%,rgba(12,12,11,0.12)_38%,rgba(12,12,11,0.82)_100%)]" />
 
-                <div className="relative flex h-full flex-col justify-between p-5 sm:p-7">
+                <div className="relative flex h-full flex-col justify-between p-5 max-[430px]:p-4 sm:p-7">
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#ead7a8]">
                     {item.number}
                   </p>
 
                   <div className="max-w-[22rem]">
-                    <h3 className="text-balance font-heading text-[1.7rem] font-semibold leading-[1.04] text-white sm:text-[2.3rem]">
+                    <h3 className="text-balance font-heading text-[1.7rem] font-semibold leading-[1.04] text-white max-[430px]:text-[1.5rem] sm:text-[2.3rem]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-pretty text-[14px] leading-7 text-white/78 sm:mt-4 sm:text-[0.98rem] sm:leading-8">
+                    <p className="mt-3 text-pretty text-[14px] leading-7 text-white/78 max-[430px]:text-[13px] max-[430px]:leading-6 sm:mt-4 sm:text-[0.98rem] sm:leading-8">
                       {item.description}
                     </p>
                   </div>
@@ -248,7 +248,7 @@ export default function Home() {
 
             <div className="max-w-xl lg:pl-6">
               <SectionEyebrow>Performance</SectionEyebrow>
-              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
                 Performance for Modern Living
               </h2>
               <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
@@ -273,7 +273,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="mx-auto max-w-3xl">
             <SectionEyebrow align="center">Strategic Brand Partners</SectionEyebrow>
-            <h2 className="mt-4 text-center text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.3rem]">
+            <h2 className="mt-4 text-center text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.3rem]">
               Strategic Brand Partners
             </h2>
             <p className="mx-auto mt-5 max-w-[42rem] text-center text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.04rem] sm:leading-[1.8]">
@@ -287,10 +287,10 @@ export default function Home() {
               {STRATEGIC_PARTNERS.map(partner => (
                 <div
                   key={partner.name}
-                  className="group flex min-h-[8rem] items-center justify-center bg-[#fbf8f2] px-5 py-6 text-center grayscale transition duration-300 hover:grayscale-0 sm:min-h-[9.5rem] sm:py-7"
+                  className="group flex min-h-[8rem] items-center justify-center bg-[#fbf8f2] px-5 py-6 text-center grayscale transition duration-300 hover:grayscale-0 max-[430px]:min-h-[7rem] max-[430px]:px-4 max-[430px]:py-5 sm:min-h-[9.5rem] sm:py-7"
                 >
                   <div>
-                    <p className="font-heading text-[1.35rem] font-semibold leading-tight text-neutral-500 transition group-hover:text-[#2C2C2C] sm:text-[1.6rem]">
+                    <p className="font-heading text-[1.35rem] font-semibold leading-tight text-neutral-500 transition group-hover:text-[#2C2C2C] max-[430px]:text-[1.15rem] sm:text-[1.6rem]">
                       {partner.name}
                     </p>
                     <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-neutral-400 transition group-hover:text-primary/70">
@@ -314,7 +314,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
             <div className="max-w-lg">
               <SectionEyebrow>Why LuxAura</SectionEyebrow>
-              <h2 className="mt-4 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2C2C2C] sm:mt-5 sm:text-[4.75rem] sm:leading-[0.92] lg:text-[5.8rem]">
+              <h2 className="mt-4 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:mt-5 sm:text-[4.75rem] sm:leading-[0.92] lg:text-[5.8rem]">
                 WHY LUXAURA
               </h2>
               <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
@@ -327,7 +327,7 @@ export default function Home() {
               {WHY_LUXAURA_PILLARS.map(pillar => (
                 <article
                   key={pillar.number}
-                  className="rounded-[1.7rem] border border-[#e4dbc9] bg-white/68 p-5 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur sm:rounded-[2rem] sm:p-7"
+                  className="rounded-[1.7rem] border border-[#e4dbc9] bg-white/68 p-5 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur max-[430px]:rounded-[1.45rem] max-[430px]:p-4 sm:rounded-[2rem] sm:p-7"
                 >
                   <p className="font-heading text-[2.6rem] font-semibold leading-none text-primary/24">
                     {pillar.number}
@@ -335,10 +335,10 @@ export default function Home() {
                   <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary/66">
                     {pillar.eyebrow}
                   </p>
-                  <h3 className="mt-3 text-balance font-heading text-[1.65rem] font-semibold leading-[1.05] text-[#2C2C2C] sm:text-[2rem]">
+                  <h3 className="mt-3 text-balance font-heading text-[1.65rem] font-semibold leading-[1.05] text-[#2C2C2C] max-[430px]:text-[1.5rem] sm:text-[2rem]">
                     {pillar.title}
                   </h3>
-                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 sm:text-[0.98rem] sm:leading-8">
+                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 max-[430px]:text-[13px] max-[430px]:leading-6 sm:text-[0.98rem] sm:leading-8">
                     {pillar.description}
                   </p>
                 </article>
@@ -365,7 +365,7 @@ export default function Home() {
                 <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
                   Final CTA
                 </p>
-                <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1] tracking-[-0.035em] text-white sm:mt-5 sm:text-[4rem] sm:leading-[0.96] lg:text-[4.8rem]">
+                <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1] tracking-[-0.035em] text-white max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.96] lg:text-[4.8rem]">
                   One partner. One pathway. A more resolved result.
                 </h2>
                 <p className="mt-5 max-w-2xl text-pretty text-[0.98rem] leading-[1.76] text-white/82 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">

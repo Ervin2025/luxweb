@@ -96,14 +96,14 @@ export default function AboutPage() {
 
   return (
     <div>
-      <section className="px-4 pb-24 pt-28 sm:px-6 sm:pb-28 sm:pt-32 lg:px-8 lg:pb-[9rem] lg:pt-40">
+      <section className="px-4 pb-24 pt-28 max-[430px]:pb-20 max-[430px]:pt-26 sm:px-6 sm:pb-28 sm:pt-32 lg:px-8 lg:pb-[9rem] lg:pt-40">
         <div className="container-custom">
           <div className="grid items-center gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
                 About & Trade Desk
               </p>
-              <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.25rem]">
+              <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.25rem]">
                 A Sydney Partner for Soft-Furnishing Execution
               </h1>
               <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
@@ -126,8 +126,8 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] sm:rounded-[2.4rem]">
-              <div className="relative aspect-[16/11] sm:aspect-[4/3]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] max-[430px]:rounded-[1.55rem] sm:rounded-[2.4rem]">
+              <div className="relative aspect-[16/11] max-[430px]:aspect-[5/4] sm:aspect-[4/3]">
                 <Image
                   src="/images/about-hero.webp"
                   alt="Refined drapery and upholstery detail within a premium Sydney furnishing project"
@@ -195,9 +195,9 @@ export default function AboutPage() {
             {AUDIENCE_BLOCKS.map(block => (
               <article
                 key={block.title}
-                className="rounded-[1.55rem] border border-primary/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(246,240,228,0.72))] p-5 shadow-[0_18px_50px_rgba(26,24,22,0.04)] sm:rounded-[1.7rem] sm:p-6"
+                className="rounded-[1.55rem] border border-primary/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(246,240,228,0.72))] p-5 shadow-[0_18px_50px_rgba(26,24,22,0.04)] max-[430px]:rounded-[1.35rem] max-[430px]:p-4 sm:rounded-[1.7rem] sm:p-6"
               >
-                <h2 className="font-heading text-[1.75rem] font-semibold leading-tight text-neutral-900 sm:text-[2rem]">
+                <h2 className="font-heading text-[1.75rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.55rem] sm:text-[2rem]">
                   {block.title}
                 </h2>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
@@ -218,8 +218,8 @@ export default function AboutPage() {
           />
           <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
             {TRUST_CARDS.map(card => (
-              <article key={card.title} className="section-shell p-5 sm:p-7">
-                <h2 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-3xl">{card.title}</h2>
+              <article key={card.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
+                <h2 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">{card.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                   {card.description}
                 </p>
@@ -232,7 +232,7 @@ export default function AboutPage() {
       <section id="trade-desk" className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <div className="grid gap-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-start lg:gap-8">
-            <article className="section-shell p-6 sm:p-10">
+            <article className="section-shell p-6 max-[430px]:p-5 sm:p-10">
               <SectionHeading
                 eyebrow="Trade Desk Support"
                 title="Trade Desk Support"
@@ -244,8 +244,8 @@ export default function AboutPage() {
               </p>
             </article>
 
-            <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-6 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:rounded-[2.2rem] sm:p-10">
-              <h2 className="font-heading text-[2.35rem] font-semibold leading-[1.02] text-white sm:text-4xl">
+            <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-6 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] max-[430px]:rounded-[1.55rem] max-[430px]:p-5 sm:rounded-[2.2rem] sm:p-10">
+              <h2 className="font-heading text-[2.35rem] font-semibold leading-[1.02] text-white max-[430px]:text-[2.05rem] sm:text-4xl">
                 Trade Desk Can Support With
               </h2>
               <ul className="mt-6 space-y-3 text-sm leading-7 text-white/76 sm:text-base">
@@ -257,8 +257,8 @@ export default function AboutPage() {
                 ))}
               </ul>
 
-              <div className="mt-8 rounded-[1.45rem] border border-white/12 bg-white/6 p-5 sm:rounded-[1.6rem] sm:p-6">
-                <h3 className="font-heading text-[1.95rem] font-semibold text-white sm:text-3xl">Contact details</h3>
+              <div className="mt-8 rounded-[1.45rem] border border-white/12 bg-white/6 p-5 max-[430px]:rounded-[1.25rem] sm:rounded-[1.6rem] sm:p-6">
+                <h3 className="font-heading text-[1.95rem] font-semibold text-white max-[430px]:text-[1.7rem] sm:text-3xl">Contact details</h3>
                 <div className="mt-5 space-y-4 text-sm leading-7 text-white/76 sm:text-base">
                   <p>
                     <span className="font-semibold text-white">Phone:</span> {CONTACT_INFO.phone}
@@ -300,11 +300,11 @@ export default function AboutPage() {
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-8">
-            <article className="section-shell p-6 sm:p-10">
+            <article className="section-shell p-6 max-[430px]:p-5 sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
                 Closing Reassurance
               </p>
-              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] text-[#2C2C2C] sm:mt-5 sm:text-5xl">
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-5xl">
                 Structured for projects that need more clarity before commitment
               </h2>
               <p className="mt-5 max-w-3xl text-pretty text-[14px] leading-7 text-neutral-700 sm:mt-6 sm:text-[1rem] sm:leading-8">
@@ -321,8 +321,8 @@ export default function AboutPage() {
               </div>
             </article>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] sm:rounded-[2.2rem]">
-              <div className="relative aspect-[4/3] sm:aspect-[16/10]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] max-[430px]:rounded-[1.55rem] sm:rounded-[2.2rem]">
+              <div className="relative aspect-[4/3] max-[430px]:aspect-[5/4] sm:aspect-[16/10]">
                 <Image
                   src="/images/luxaura/beach-sheer.webp"
                   alt="Quiet soft-furnishing detail with layered material calm and clean finish"
