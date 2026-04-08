@@ -157,6 +157,7 @@ function ImagePanel({
 }) {
   return (
     <div
+      data-reveal="image"
       className={`relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] ${className ?? 'aspect-[4/3]'}`}
     >
       <Image src={imageSrc} alt={imageAlt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
@@ -187,7 +188,7 @@ export default function HardwareSystemsPage() {
         <ImageCodeBadge code="LXA-HWS-01" className="right-5 top-28 sm:top-32" />
 
         <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
-          <div className="max-w-4xl text-white">
+          <div className="max-w-4xl text-white" data-reveal="text">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
               Hardware Systems
             </p>
@@ -230,8 +231,13 @@ export default function HardwareSystemsPage() {
             description="These are not minor accessories. They are the system decisions that shape curtain line, movement quality, long-term reliability and commercial clarity."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {VALUE_CARDS.map(card => (
-              <article key={card.title} className="section-shell p-7">
+            {VALUE_CARDS.map((card, index) => (
+              <article
+                key={card.title}
+                data-reveal="card"
+                data-reveal-delay={String((index % 4) + 1)}
+                className="section-shell p-7"
+              >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/12 bg-[#f4ede1] font-heading text-lg font-semibold text-primary">
                   {card.marker}
                 </div>
@@ -332,9 +338,11 @@ export default function HardwareSystemsPage() {
             </div>
 
             <div className="mt-10 grid gap-4 lg:grid-cols-3">
-              {MOTOR_POINTS.map(item => (
+              {MOTOR_POINTS.map((item, index) => (
                 <article
                   key={item.title}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 3) + 1)}
                   className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6"
                 >
                   <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
@@ -393,8 +401,13 @@ export default function HardwareSystemsPage() {
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div className="grid gap-5 md:grid-cols-2">
-              {INSTALLATION_BLOCKS.map(block => (
-                <article key={block.title} className="section-shell p-7">
+              {INSTALLATION_BLOCKS.map((block, index) => (
+                <article
+                  key={block.title}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 4) + 1)}
+                  className="section-shell p-7"
+                >
                   <h3 className="font-heading text-3xl font-semibold text-neutral-900">
                     {block.title}
                   </h3>

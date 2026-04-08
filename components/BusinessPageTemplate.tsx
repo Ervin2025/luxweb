@@ -58,9 +58,11 @@ export default function BusinessPageTemplate({
             />
             <div className="mt-8 grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
               <div className="space-y-4">
-                {config.overview.supportingPoints?.map(point => (
+                {config.overview.supportingPoints?.map((point, index) => (
                   <article
                     key={point}
+                    data-reveal="card"
+                    data-reveal-delay={String((index % 3) + 1)}
                     className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5 text-sm leading-7 text-neutral-700"
                   >
                     {point}
@@ -68,9 +70,11 @@ export default function BusinessPageTemplate({
                 ))}
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
-                {config.whySection.items.map(item => (
+                {config.whySection.items.map((item, index) => (
                   <article
                     key={item.title}
+                    data-reveal="card"
+                    data-reveal-delay={String((index % 4) + 1)}
                     className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
                   >
                     <h2 className="font-heading text-2xl font-semibold text-neutral-900">
@@ -95,8 +99,13 @@ export default function BusinessPageTemplate({
             description={config.offerSection.description}
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {config.offerSection.items.map(item => (
-              <article key={item.title} className="section-shell p-7">
+            {config.offerSection.items.map((item, index) => (
+              <article
+                key={item.title}
+                data-reveal="card"
+                data-reveal-delay={String((index % 2) + 1)}
+                className="section-shell p-7"
+              >
                 <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                   {item.title}
                 </h2>
@@ -125,8 +134,13 @@ export default function BusinessPageTemplate({
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="grid gap-6 sm:grid-cols-2">
-              {config.applicationsSection.items.map(item => (
-                <article key={item.title} className="section-shell p-6">
+              {config.applicationsSection.items.map((item, index) => (
+                <article
+                  key={item.title}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 4) + 1)}
+                  className="section-shell p-6"
+                >
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {item.title}
                   </h2>
@@ -135,7 +149,10 @@ export default function BusinessPageTemplate({
               ))}
             </div>
             {config.performanceSection ? (
-              <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
+              <article
+                data-reveal="image"
+                className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10"
+              >
                 <SectionHeading
                   eyebrow="Performance"
                   title={config.performanceSection.title}
@@ -167,9 +184,11 @@ export default function BusinessPageTemplate({
               description={config.oneStopSection.description}
             />
             <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {config.oneStopSection.items.map(item => (
+              {config.oneStopSection.items.map((item, index) => (
                 <article
                   key={item}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 4) + 1)}
                   className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5 text-sm leading-7 text-neutral-700"
                 >
                   {item}
@@ -184,9 +203,11 @@ export default function BusinessPageTemplate({
                 description={config.relatedSection.description}
               />
               <div className="mt-8 grid gap-6 lg:grid-cols-3">
-                {config.relatedSection.items.map(item => (
+                {config.relatedSection.items.map((item, index) => (
                   <article
                     key={item.href}
+                    data-reveal="card"
+                    data-reveal-delay={String((index % 3) + 1)}
                     className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-6"
                   >
                     <h2 className="font-heading text-3xl font-semibold text-neutral-900">
@@ -206,7 +227,7 @@ export default function BusinessPageTemplate({
 
       <section className="section-padding pt-0">
         <div className="container-custom">
-          <div className="section-shell p-8 text-center sm:p-10">
+          <div className="section-shell p-8 text-center sm:p-10" data-reveal="text">
             <p className="eyebrow">CTA</p>
             <h2 className="mt-4 font-heading text-4xl font-semibold text-neutral-900 sm:text-5xl">
               {config.ctaSection.title}

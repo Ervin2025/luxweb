@@ -29,7 +29,7 @@ export default function PageHero({
       <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(212,187,145,0.45),_transparent_38%),radial-gradient(circle_at_top_right,_rgba(39,67,58,0.18),_transparent_35%),linear-gradient(180deg,_#f6f1e7_0%,_rgba(246,241,231,0)_100%)]" />
       <div className="container-custom">
         <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <div className="relative">
+          <div className="relative" data-reveal="text">
             <div className="absolute -left-5 top-1 hidden h-24 w-24 rounded-full border border-primary/15 bg-white/60 blur-2xl lg:block" />
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary/70 sm:tracking-[0.34em]">
               {eyebrow}
@@ -47,9 +47,11 @@ export default function PageHero({
             ) : null}
             {stats.length ? (
               <div className="mt-10 grid gap-3 sm:grid-cols-3 sm:gap-4">
-                {stats.map(stat => (
+                {stats.map((stat, index) => (
                   <div
                     key={stat.label}
+                    data-reveal="card"
+                    data-reveal-delay={String(Math.min(index + 1, 3))}
                     className="rounded-[1.35rem] border border-white/70 bg-white/70 p-4 shadow-[0_20px_60px_rgba(26,24,22,0.08)] backdrop-blur sm:rounded-[1.5rem] sm:p-5"
                   >
                     <div className="text-base font-semibold text-primary sm:text-lg">{stat.value}</div>
@@ -60,7 +62,7 @@ export default function PageHero({
             ) : null}
           </div>
 
-          <div className="relative">
+          <div className="relative" data-reveal="image" data-reveal-delay="1">
             <div className="absolute -right-4 top-6 hidden h-32 w-32 rounded-full bg-primary/10 blur-3xl lg:block" />
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/50 p-2.5 shadow-[0_30px_80px_rgba(26,24,22,0.14)] backdrop-blur sm:rounded-[2rem] sm:p-3">
               <div className="relative aspect-[4/4.65] overflow-hidden rounded-[1.35rem] sm:aspect-[4/4.3] sm:rounded-[1.6rem]">

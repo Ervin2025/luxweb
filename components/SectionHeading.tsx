@@ -19,7 +19,7 @@ export default function SectionHeading({
   const descriptionClass = theme === 'dark' ? 'text-white/78' : 'text-neutral-700';
 
   return (
-    <div className={`max-w-3xl ${alignment}`}>
+    <div className={`max-w-3xl ${alignment}`} data-reveal="text">
       {eyebrow ? (
         <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.3em] ${eyebrowClass}`}>
           {eyebrow}

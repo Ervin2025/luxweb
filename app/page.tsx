@@ -154,7 +154,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,12,11,0.16)_0%,rgba(13,12,11,0.34)_100%)]" />
 
         <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-14 pt-32 max-[430px]:pb-12 max-[430px]:pt-28 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8 lg:pb-24">
-          <div className="max-w-[34rem] text-white sm:max-w-[38rem]">
+          <div className="max-w-[34rem] text-white sm:max-w-[38rem]" data-reveal="text">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
               Premium Trade Soft Furnishing
             </p>
@@ -200,6 +200,8 @@ export default function Home() {
               <Link
                 key={item.title}
                 href={item.href}
+                data-reveal="card"
+                data-reveal-delay={String((Number(item.number) % 3) + 1)}
                 className="group relative min-h-[24rem] overflow-hidden rounded-[1.9rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)] max-[430px]:min-h-[22rem] max-[430px]:rounded-[1.55rem] sm:min-h-[31rem] sm:rounded-[2.2rem]"
               >
                 <Image
@@ -235,7 +237,10 @@ export default function Home() {
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)] sm:aspect-[16/10] sm:rounded-[2.4rem]">
+            <div
+              className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)] sm:aspect-[16/10] sm:rounded-[2.4rem]"
+              data-reveal="image"
+            >
               <Image
                 src="/images/IMG-K.webp"
                 alt="Filtered daylight across performance window treatments in a calm interior."
@@ -246,7 +251,7 @@ export default function Home() {
               <ImageCodeBadge code="LXA-HOME-08" />
             </div>
 
-            <div className="max-w-xl lg:pl-6">
+            <div className="max-w-xl lg:pl-6" data-reveal="text">
               <SectionEyebrow>Performance</SectionEyebrow>
               <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
                 Performance for Modern Living
@@ -271,7 +276,7 @@ export default function Home() {
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl" data-reveal="text">
             <SectionEyebrow align="center">Strategic Brand Partners</SectionEyebrow>
             <h2 className="mt-4 text-center text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.3rem]">
               Strategic Brand Partners
@@ -284,9 +289,11 @@ export default function Home() {
 
           <div className="mt-10 overflow-hidden rounded-[1.7rem] border border-[#ddd4c3] bg-[#ddd4c3] shadow-[0_20px_60px_rgba(27,24,20,0.04)] sm:mt-14 sm:rounded-[2rem]">
             <div className="grid gap-px min-[560px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-              {STRATEGIC_PARTNERS.map(partner => (
+              {STRATEGIC_PARTNERS.map((partner, index) => (
                 <div
                   key={partner.name}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 5) + 1)}
                   className="group flex min-h-[8rem] items-center justify-center bg-[#fbf8f2] px-5 py-6 text-center grayscale transition duration-300 hover:grayscale-0 max-[430px]:min-h-[7rem] max-[430px]:px-4 max-[430px]:py-5 sm:min-h-[9.5rem] sm:py-7"
                 >
                   <div>
@@ -312,7 +319,7 @@ export default function Home() {
 
         <div className="container-custom relative">
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
-            <div className="max-w-lg">
+            <div className="max-w-lg" data-reveal="text">
               <SectionEyebrow>Why LuxAura</SectionEyebrow>
               <h2 className="mt-4 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:mt-5 sm:text-[4.75rem] sm:leading-[0.92] lg:text-[5.8rem]">
                 WHY LUXAURA
@@ -324,9 +331,11 @@ export default function Home() {
             </div>
 
             <div className="grid gap-5 sm:gap-8 md:grid-cols-2">
-              {WHY_LUXAURA_PILLARS.map(pillar => (
+              {WHY_LUXAURA_PILLARS.map((pillar, index) => (
                 <article
                   key={pillar.number}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 4) + 1)}
                   className="rounded-[1.7rem] border border-[#e4dbc9] bg-white/68 p-5 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur max-[430px]:rounded-[1.45rem] max-[430px]:p-4 sm:rounded-[2rem] sm:p-7"
                 >
                   <p className="font-heading text-[2.6rem] font-semibold leading-none text-primary/24">
@@ -350,7 +359,10 @@ export default function Home() {
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="relative overflow-hidden rounded-[2rem] shadow-[0_28px_90px_rgba(27,24,20,0.12)] sm:rounded-[2.4rem]">
+          <div
+            className="relative overflow-hidden rounded-[2rem] shadow-[0_28px_90px_rgba(27,24,20,0.12)] sm:rounded-[2.4rem]"
+            data-reveal="image"
+          >
             <Image
               src="/images/IMG-H.webp"
               alt="LuxAura project with layered drapery, upholstery and refined coastal light."

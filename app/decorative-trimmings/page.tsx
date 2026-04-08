@@ -172,6 +172,7 @@ function GalleryImage({
 }) {
   return (
     <div
+      data-reveal="image"
       className={`relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] ${className ?? 'aspect-[4/3]'}`}
     >
       <Image src={imageSrc} alt={imageAlt} fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
@@ -202,7 +203,7 @@ export default function DecorativeTrimmingsPage() {
         <ImageCodeBadge code="LXA-DTR-01" className="right-5 top-28 sm:top-32" />
 
         <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
-          <div className="max-w-4xl text-white">
+          <div className="max-w-4xl text-white" data-reveal="text">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
               Decorative Trimmings
             </p>
@@ -245,8 +246,13 @@ export default function DecorativeTrimmingsPage() {
             description="This is not a small add-on layer. It is the finishing language that helps a room feel more tailored, more resolved and more distinctly designed."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {VALUE_CARDS.map(card => (
-              <article key={card.title} className="section-shell p-7">
+            {VALUE_CARDS.map((card, index) => (
+              <article
+                key={card.title}
+                data-reveal="card"
+                data-reveal-delay={String((index % 4) + 1)}
+                className="section-shell p-7"
+              >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/12 bg-[#f4ede1] font-heading text-lg font-semibold text-primary">
                   {card.marker}
                 </div>
@@ -293,8 +299,13 @@ export default function DecorativeTrimmingsPage() {
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {APPLICATION_BLOCKS.map(block => (
-              <article key={block.title} className="section-shell overflow-hidden">
+            {APPLICATION_BLOCKS.map((block, index) => (
+              <article
+                key={block.title}
+                data-reveal="card"
+                data-reveal-delay={String((index % 4) + 1)}
+                className="section-shell overflow-hidden"
+              >
                 <div className="relative aspect-[16/10]">
                   <Image
                     src={block.imageSrc}
@@ -342,9 +353,11 @@ export default function DecorativeTrimmingsPage() {
               </p>
 
               <div className="mt-8 space-y-4">
-                {DEVELOPMENT_POINTS.map(point => (
+                {DEVELOPMENT_POINTS.map((point, index) => (
                   <article
                     key={point.title}
+                    data-reveal="card"
+                    data-reveal-delay={String((index % 3) + 1)}
                     className="rounded-[1.4rem] border border-primary/10 bg-white/60 px-5 py-5"
                   >
                     <h3 className="font-heading text-2xl font-semibold text-neutral-900">
