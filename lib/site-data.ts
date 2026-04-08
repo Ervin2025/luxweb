@@ -138,6 +138,7 @@ export interface CatalogItem {
 export const TRADE_PORTAL_ACCESS_HREF = '/trade-projects?intent=trade-access';
 export const PROJECT_BRIEF_HREF = '/about#project-enquiry';
 export const TRADE_SUPPORT_HREF = '/about#trade-desk';
+export const CURTAIN_MEASUREMENT_GUIDE_HREF = '/curtain-measurement-guide';
 export const REQUEST_CATALOGUE_HREF = TRADE_PORTAL_ACCESS_HREF;
 export const REGISTER_TRADE_ACCOUNT_HREF = TRADE_PORTAL_ACCESS_HREF;
 export const GET_QUOTE_HREF = PROJECT_BRIEF_HREF;
@@ -147,18 +148,19 @@ export const NAV_ITEMS: NavItem[] = [
   { name: 'Fabric & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
-  { name: 'Hardware Systems', href: '/hardware-systems' },
-  { name: 'Decorative Trimmings', href: '/decorative-trimmings' },
+  { name: 'Trimmings', href: '/decorative-trimmings' },
   { name: 'Project Support', href: '/project-support' },
-  { name: 'About & Trade Desk', href: '/about' },
+  { name: 'About', href: '/about' },
 ];
 
 export const FOOTER_CATEGORY_LINKS: NavItem[] = [
+  { name: 'Home', href: '/' },
   { name: 'Fabric & Fabrication', href: '/collections' },
   { name: 'Window Treatments', href: '/custom-curtains-sheers' },
   { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
-  { name: 'Hardware Systems', href: '/hardware-systems' },
-  { name: 'Decorative Trimmings', href: '/decorative-trimmings' },
+  { name: 'Trimmings', href: '/decorative-trimmings' },
+  { name: 'Project Support', href: '/project-support' },
+  { name: 'About', href: '/about' },
 ];
 
 export const HOME_HERO_STATS: StatItem[] = [
@@ -227,11 +229,11 @@ export const HOME_CATEGORY_LINKS: Array<
     image: '/images/luxaura/upholstery-pillows.webp',
   },
   {
-    eyebrow: 'Hardware Systems',
-    title: 'High-Performance Hardware Systems',
+    eyebrow: 'Hardware & Finishing',
+    title: 'Hardware & Decorative Finishing',
     description:
-      'Premium curtain tracks, motorised systems and better installation planning for cleaner movement, broader capability and stronger commercial value.',
-    href: '/hardware-systems',
+      'Track systems, motorised curtain direction and decorative finishing layers that bring window treatments to a cleaner, more resolved conclusion.',
+    href: '/custom-curtains-sheers#hardware-motorisation',
     image: '/images/IMG-D.webp',
   },
   {
@@ -244,10 +246,10 @@ export const HOME_CATEGORY_LINKS: Array<
   },
   {
     eyebrow: 'Partnership',
-    title: 'Trusted Partner & Best Price Guarantee',
+    title: 'Project Support & Trade Partnership',
     description:
-      'Collaborating with designers, builders, developers and homeowners, we use our direct factory connection to back every quote with a lowest-price guarantee without compromising quality.',
-    href: '/trade-projects',
+      'Support for designers, builders, developers, stylists and project-led clients who need clearer furnishing coordination before execution.',
+    href: '/project-support',
     image: '/images/about-hero.webp',
   },
 ];
@@ -502,11 +504,10 @@ export const TRADE_PROJECT_BUSINESS_TYPES = [
 ];
 
 export const TRADE_PROJECT_FOCUS_OPTIONS = [
-  'Fabrics',
+  'Fabric & Fabrication',
   'Window treatments',
   'Bespoke upholstery',
-  'Hardware systems',
-  'Decorative trimmings',
+  'Trimmings',
   'Mixed project package',
 ];
 
@@ -514,8 +515,7 @@ export const QUOTE_PRODUCT_OPTIONS = [
   'Fabric & Fabrication',
   'Window Treatments',
   'Bespoke Upholstery',
-  'Hardware Systems',
-  'Decorative Trimmings',
+  'Trimmings',
   'Whole-Home Soft Furnishing Package',
 ];
 
@@ -541,8 +541,7 @@ export const CONTACT_INTEREST_OPTIONS = [
   'Fabric & Fabrication',
   'Window Treatments',
   'Bespoke Upholstery',
-  'Hardware Systems',
-  'Decorative Trimmings',
+  'Trimmings',
   'Project Support',
   'Trade Account Access',
   'General Project Enquiry',
@@ -581,11 +580,89 @@ export const PROJECT_SERVICE_OPTIONS = [
   'Fabric & Fabrication',
   'Window Treatments',
   'Bespoke Upholstery',
-  'Hardware Systems',
-  'Decorative Trimmings',
+  'Trimmings',
   'Project Support',
   'Site Measure / Specification Support',
 ] as const;
+
+export const FABRIC_AND_FABRICATION_FAQ: FaqItem[] = [
+  {
+    question: 'What kinds of projects is LuxAura suitable for?',
+    answer:
+      'LuxAura is suited to design-led residential, boutique hospitality, short-stay and broader furnishing briefs that need sourcing and fabrication to stay aligned.',
+  },
+  {
+    question: 'Can LuxAura support both design-led and practical furnishing requirements?',
+    answer:
+      'Yes. Material selection can balance texture, colour and finish quality with performance, durability and commercial discipline.',
+  },
+  {
+    question: 'Can materials be aligned across multiple furnishing categories within one project?',
+    answer:
+      'Yes. LuxAura can help carry one textile story across curtains, upholstery, cushions and related pieces with better continuity.',
+  },
+  {
+    question: 'Are performance-led options available for higher-use settings?',
+    answer:
+      'Yes. Performance and outdoor directions can be introduced where the brief requires easier maintenance, stronger resilience or practical durability.',
+  },
+];
+
+export const WINDOW_TREATMENTS_FAQ: FaqItem[] = [
+  {
+    question: 'What curtain styles are most suitable for design-led residential projects?',
+    answer:
+      'LuxAura supports S Fold, pinch pleat, box pleat, tailored headings and layered sheer-plus-drape systems, selected according to the architecture and intended finish.',
+  },
+  {
+    question: 'Can LuxAura support layered sheer and drapery systems?',
+    answer:
+      'Yes. Layered systems are planned as one composition, with curtain style, stack, lining behaviour and finish quality considered together.',
+  },
+  {
+    question: 'Are motorised systems available for larger openings or premium interiors?',
+    answer:
+      'Yes. Motorised curtain systems can be integrated into the treatment from the start, including track direction, movement quality and cleaner final presentation.',
+  },
+  {
+    question: 'Can curtain style, hardware and finishing be aligned within one project brief?',
+    answer:
+      'Yes. LuxAura treats style, hardware and finishing as one coordinated window package rather than separate decisions.',
+  },
+  {
+    question: 'Does LuxAura support both aesthetic and practical performance considerations?',
+    answer:
+      'Yes. Window treatments can be shaped around drape, light control, lining performance, operation and daily usability without losing visual refinement.',
+  },
+];
+
+export const BESPOKE_UPHOLSTERY_FAQ: FaqItem[] = [
+  {
+    question: 'Can LuxAura support both residential and commercial upholstery scopes?',
+    answer:
+      'Yes. LuxAura can support bespoke upholstery across premium residential, hospitality and higher-use project environments.',
+  },
+  {
+    question: 'Are outdoor upholstery solutions available for Australian conditions?',
+    answer:
+      'Yes. Outdoor upholstery can be guided toward stronger UV resilience, durability and easier maintenance, including Sunbrella where appropriate.',
+  },
+  {
+    question: 'What makes a fabric more suitable for pet-friendly homes?',
+    answer:
+      'Higher abrasion resistance, stronger stain behaviour, easier maintenance and more forgiving daily performance all contribute to a better upholstery choice.',
+  },
+  {
+    question: 'Can upholstery selections be aligned with curtain and trimming decisions?',
+    answer:
+      'Yes. LuxAura can help coordinate upholstery with wider fabric, window and decorative detailing decisions across the same project.',
+  },
+  {
+    question: 'Can LuxAura assist with both aesthetic direction and practical performance needs?',
+    answer:
+      'Yes. Upholstery guidance is shaped around visual finish, comfort, project suitability and day-to-day use conditions together.',
+  },
+];
 
 export const HARDWARE_SYSTEMS_FAQ: FaqItem[] = [
   {
@@ -607,19 +684,85 @@ export const HARDWARE_SYSTEMS_FAQ: FaqItem[] = [
 
 export const DECORATIVE_TRIMMINGS_FAQ: FaqItem[] = [
   {
-    question: 'Are decorative trimmings limited to curtains only?',
+    question: 'How can decorative trimmings change the overall feel of a furnishing scheme?',
+    answer:
+      'The right trimming layer can sharpen edges, introduce softness, build decorative contrast and make the overall scheme feel more resolved.',
+  },
+  {
+    question: 'Are trims suitable for both curtains and upholstery?',
     answer:
       'No. Trims can extend across drapery, Roman blinds, cushions, upholstery and other made soft-furnishing pieces where the detailing language needs to carry through.',
   },
   {
-    question: 'Can LuxAura help turn a trimming idea into a finished furnishing detail?',
+    question: 'Can LuxAura help coordinate trims with broader fabric selections?',
     answer:
-      'Yes. The trim resource is connected to fabrication support, helping decorative selections move beyond inspiration into practical, production-ready outcomes.',
+      'Yes. Trimmings can be aligned to fabric colour, texture and project tone so the decorative layer feels integrated rather than added late.',
   },
   {
-    question: 'Is the trimming library broad enough for both restrained and more expressive schemes?',
+    question: 'Are more contemporary as well as classic decorative directions available?',
     answer:
       'Yes. The collection is curated to support quieter refined interiors as well as more layered decorative directions across premium residential and hospitality work.',
+  },
+  {
+    question: 'Can trims be incorporated into project-led furnishing execution?',
+    answer:
+      'Yes. LuxAura can help move trimming selections from concept into fabrication-ready detailing across curtains, upholstery and softer furnishing pieces.',
+  },
+];
+
+export const PROJECT_SUPPORT_FAQ: FaqItem[] = [
+  {
+    question: 'What kind of project support can LuxAura provide beyond sourcing?',
+    answer:
+      'LuxAura can support design development, furnishing alignment, specification refinement, procurement coordination and execution readiness across the soft-furnishing scope.',
+  },
+  {
+    question: 'Is Project Support suitable for designers and stylists as well as builders?',
+    answer:
+      'Yes. The support layer is built for designers, stylists, builders, developers and other project-led clients working across real furnishing decisions.',
+  },
+  {
+    question: 'Can LuxAura assist with boutique hospitality or short-stay furnishing scopes?',
+    answer:
+      'Yes. Boutique hotels, short-stay accommodation and lifestyle commercial spaces are well suited to LuxAura’s combined sourcing, procurement and execution support.',
+  },
+  {
+    question: 'Can project support help align multiple furnishing categories more efficiently?',
+    answer:
+      'Yes. LuxAura can help keep fabrics, window treatments, upholstery, trims and wider furnishing decisions connected rather than fragmented.',
+  },
+  {
+    question: 'At what stage of a project is LuxAura best engaged?',
+    answer:
+      'Earlier is better. LuxAura is most useful when brought in before the furnishing scope becomes split across too many disconnected decisions.',
+  },
+];
+
+export const ABOUT_FAQ: FaqItem[] = [
+  {
+    question: 'Who does LuxAura primarily work with?',
+    answer:
+      'LuxAura primarily supports designers, decorators, stylists, builders, developers, hospitality operators and furnishing-led residential clients.',
+  },
+  {
+    question: 'Is LuxAura suitable for both trade and project-led residential clients?',
+    answer:
+      'Yes. The model is trade-facing, but also suited to larger residential furnishing briefs that need more coordination than casual retail purchasing.',
+  },
+  {
+    question: 'Can LuxAura support multiple furnishing categories within one project?',
+    answer:
+      'Yes. Fabric selection, window treatments, upholstery, trimmings and project support can be aligned through one pathway.',
+  },
+  {
+    question: 'How early should a project enquiry be submitted?',
+    answer:
+      'Ideally during concept, design development or specification, before sourcing and fabrication decisions begin to fragment.',
+  },
+  {
+    question: 'What information is most useful when submitting a project brief?',
+    answer:
+      'Drawings, room photos, moodboards, timeline, site conditions and a clear sense of which categories are in scope all help LuxAura support the brief more effectively.',
   },
 ];
 
@@ -967,12 +1110,12 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Window treatments are stronger when the adjacent categories are already connected.',
       items: [
         {
-          title: 'Hardware Systems',
-          description: 'Add premium tracks, motorised system planning and cleaner installation logic for stronger window execution.',
-          href: '/hardware-systems',
+          title: 'Hardware & Motorisation',
+          description: 'Bring track systems and motorised curtain direction into the same more complete window treatment pathway.',
+          href: '/custom-curtains-sheers#hardware-motorisation',
         },
         {
-          title: 'Decorative Trimmings',
+          title: 'Trimmings',
           description: 'Refine drapery and soft treatment finishes with borders, piping and more layered decorative detail.',
           href: '/decorative-trimmings',
         },
@@ -1151,7 +1294,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/collections',
         },
         {
-          title: 'Decorative Trimmings',
+          title: 'Trimmings',
           description: 'Use trims, piping and finishing detail to sharpen the final upholstery outcome.',
           href: '/decorative-trimmings',
         },
@@ -1909,27 +2052,32 @@ export const FAQ_GROUPS: Array<{ title: string; href: string; items: FaqItem[] }
   {
     title: 'Fabric & Fabrication',
     href: '/collections',
-    items: BUSINESS_PAGE_CONFIGS['wholesale-fabrics'].faqItems,
+    items: FABRIC_AND_FABRICATION_FAQ,
   },
   {
     title: 'Window Treatments',
     href: '/custom-curtains-sheers',
-    items: BUSINESS_PAGE_CONFIGS['custom-curtains-sheers'].faqItems,
+    items: WINDOW_TREATMENTS_FAQ,
   },
   {
     title: 'Bespoke Upholstery',
     href: '/cushions-soft-furnishings',
-    items: BUSINESS_PAGE_CONFIGS['cushions-soft-furnishings'].faqItems,
+    items: BESPOKE_UPHOLSTERY_FAQ,
   },
   {
-    title: 'Hardware Systems',
-    href: '/hardware-systems',
-    items: HARDWARE_SYSTEMS_FAQ,
-  },
-  {
-    title: 'Decorative Trimmings',
+    title: 'Trimmings',
     href: '/decorative-trimmings',
     items: DECORATIVE_TRIMMINGS_FAQ,
+  },
+  {
+    title: 'Project Support',
+    href: '/project-support',
+    items: PROJECT_SUPPORT_FAQ,
+  },
+  {
+    title: 'About',
+    href: '/about',
+    items: ABOUT_FAQ,
   },
   {
     title: 'Trade Portal Access',

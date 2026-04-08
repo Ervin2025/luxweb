@@ -11,21 +11,45 @@ interface FaqSectionProps {
 export default function FaqSection({
   eyebrow = 'FAQ',
   title = 'Common questions',
-  description = 'Answers to the questions trade clients ask most often before moving into quoting, sourcing or fabrication support.',
+  description = 'Answers to the questions trade clients ask most often before moving into sourcing, specification or fabrication support.',
   items,
 }: FaqSectionProps) {
   return (
     <section className="section-padding pt-0">
       <div className="container-custom">
         <SectionHeading eyebrow={eyebrow} title={title} description={description} />
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 space-y-4">
           {items.map(item => (
-            <article key={item.question} className="section-shell p-7">
-              <h3 className="font-heading text-3xl font-semibold text-neutral-900">
-                {item.question}
-              </h3>
-              <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">{item.answer}</p>
-            </article>
+            <details
+              key={item.question}
+              className="group section-shell overflow-hidden px-6 py-1 sm:px-8"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6">
+                <h3 className="pr-4 font-heading text-2xl font-semibold text-neutral-900 sm:text-3xl">
+                  {item.question}
+                </h3>
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-primary/10 bg-neutral-50 text-primary transition group-open:rotate-45">
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 5v14" />
+                    <path d="M5 12h14" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="pb-6 pr-1">
+                <p className="max-w-4xl text-sm leading-7 text-neutral-700 sm:text-base">
+                  {item.answer}
+                </p>
+              </div>
+            </details>
           ))}
         </div>
       </div>

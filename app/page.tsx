@@ -3,24 +3,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import { SITE_CONFIG } from '@/lib/constants';
-import { PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import {
+  PROJECT_BRIEF_HREF,
+  TRADE_PORTAL_ACCESS_HREF,
+} from '@/lib/site-data';
 
 const CAPABILITY_TILES = [
   {
     number: '01',
     title: 'Fabric & Fabrication',
     description:
-      'Our signature LuxAura range is paired with globally respected names including PT, Mobus, Sunbrella, and FibreGuard.',
+      'Global textile sourcing paired with fabrication depth, allowing material selection to move directly into project-ready outcomes.',
     href: '/collections',
     code: 'LXA-HOME-02',
     imageSrc: '/image/01.webp',
-    imageAlt: 'LuxAura fabric and textile capability image',
+    imageAlt: 'LuxAura fabric and fabrication capability image',
   },
   {
     number: '02',
     title: 'Master Window Treatments',
     description:
-      'Precision-crafted curtains, sheers, and specialized Roman blinds, fabricated with in-house control.',
+      'Curtains, sheers, Roman blinds and layered systems delivered with stronger craft control, cleaner detailing and site-aware execution.',
     href: '/custom-curtains-sheers',
     code: 'LXA-HOME-03',
     imageSrc: '/image/02.webp',
@@ -30,7 +33,7 @@ const CAPABILITY_TILES = [
     number: '03',
     title: 'Bespoke Upholstery',
     description:
-      'Custom indoor and outdoor seating solutions engineered for performance, longevity, and refined finish.',
+      'Indoor and outdoor upholstery directions for seating, cushions and project-led furnishing pieces that need stronger finish quality.',
     href: '/cushions-soft-furnishings',
     code: 'LXA-HOME-04',
     imageSrc: '/image/03.webp',
@@ -38,20 +41,20 @@ const CAPABILITY_TILES = [
   },
   {
     number: '04',
-    title: 'Hardware Systems',
+    title: 'Hardware & Decorative Finishing',
     description:
-      'Premium curtain tracks, motorised system planning and stronger installation logic for cleaner execution and better long-term performance.',
-    href: '/hardware-systems',
+      'Track systems, motorised direction and decorative detailing that help the furnishing layer resolve with greater control.',
+    href: '/custom-curtains-sheers#hardware-motorisation',
     code: 'LXA-HOME-05',
     imageSrc: '/image/04.webp',
-    imageAlt: 'LuxAura hardware systems capability image',
+    imageAlt: 'LuxAura hardware and decorative finishing capability image',
   },
   {
     number: '05',
     title: 'Unified Supply Chain',
     description:
-      'Sourcing, fabrication and project coordination aligned through one accountable process.',
-    href: '/about',
+      'Direct source access, fabrication planning and coordinated delivery aligned through one accountable project pathway.',
+    href: '/#supply-chain',
     code: 'LXA-HOME-06',
     imageSrc: '/image/05.webp',
     imageAlt: 'LuxAura unified supply chain capability image',
@@ -60,21 +63,12 @@ const CAPABILITY_TILES = [
     number: '06',
     title: 'Partner Excellence',
     description:
-      'Trade responsiveness and project support designed for professionals managing real timelines and decisions.',
-    href: '/trade-projects',
+      'Trade-facing support built for designers, builders, developers and furnishing-led clients working with real project timelines.',
+    href: '/project-support',
     code: 'LXA-HOME-07',
     imageSrc: '/image/06.webp',
     imageAlt: 'LuxAura partner excellence capability image',
   },
-] as const;
-
-const STRATEGIC_PARTNERS = [
-  { name: 'LuxAura', note: 'Signature Range' },
-  { name: 'Prestigious Textiles', note: 'UK' },
-  { name: 'Mobus', note: 'UK' },
-  { name: 'Sunbrella', note: 'USA' },
-  { name: 'FibreGuard', note: 'EU' },
-  { name: 'Curated Asian Ranges', note: 'Sourcing Depth' },
 ] as const;
 
 const WHY_LUXAURA_PILLARS = [
@@ -83,37 +77,55 @@ const WHY_LUXAURA_PILLARS = [
     eyebrow: 'Supply',
     title: 'The Power of Direct Source.',
     description:
-      'We reduce margin layering at the source. Through our own range and close alignment with leading textile partners, we retain pricing control from material selection to final delivery.',
+      'LuxAura keeps sourcing, making and finishing decisions closer together, reducing fragmentation and creating stronger commercial control across the furnishing scope.',
   },
   {
     number: '02',
     eyebrow: 'Craft',
     title: 'Master-Grade Fabrication.',
     description:
-      'We do not simply produce. We protect the standard of execution. From complex window systems to highly detailed trimming work, every piece is fabricated to meet premium Sydney project expectations.',
+      'From tailored drapery and Roman blinds to upholstery and decorative finishing, execution standards are protected through a more disciplined fabrication mindset.',
   },
   {
     number: '03',
     eyebrow: 'Logic',
     title: 'Total Project Fulfillment.',
     description:
-      'Fragmented sourcing slows projects down. We integrate fabric, hardware, trimmings, and fabrication into one accountable path. One partner. One coordinated delivery model.',
+      'Fabric, window treatments, upholstery, hardware and trimmings can move through one connected pathway instead of multiple disconnected suppliers.',
   },
   {
     number: '04',
     eyebrow: 'Trust',
     title: 'Accountable & Local.',
     description:
-      'Backed by a Sydney family business and supported by global production capability, we provide both cost confidence and local responsibility at the point of final delivery.',
+      'Sydney-facing communication and trade-aware support keep the brief commercially grounded while broader sourcing and production capacity stay behind it.',
+  },
+] as const;
+
+const SUPPLY_CHAIN_POINTS = [
+  {
+    title: 'Direct source access',
+    description:
+      'Materials, systems and finishing layers are selected with stronger visibility across pricing, suitability and making potential.',
+  },
+  {
+    title: 'Production strength',
+    description:
+      'Specialist fabrication capability supports curtain making, upholstery, decorative finishing and coordinated soft-furnishing execution.',
+  },
+  {
+    title: 'Local accountability',
+    description:
+      'Sydney project support helps the brief stay aligned from sourcing and specification through to delivery readiness.',
   },
 ] as const;
 
 export const metadata: Metadata = {
   title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
   description:
-    "Sydney's integrated trade partner for fabric sourcing, specialist fabrication, window treatments, upholstery, hardware, trims, and accountable soft-furnishing delivery.",
+    "Sydney's integrated trade partner for soft-furnishing sourcing, fabrication, project support and more coordinated delivery across premium residential, hospitality and commercial interiors.",
   keywords:
-    'Sydney soft furnishing fulfillment, premium textiles Sydney, master fabrication Sydney, trade window treatments Sydney, bespoke upholstery Sydney',
+    'Sydney soft furnishing fulfillment, premium textiles Sydney, project support Sydney, custom soft furnishings Sydney, trade window treatments Sydney, bespoke upholstery Sydney',
   alternates: {
     canonical: SITE_CONFIG.url,
   },
@@ -159,18 +171,18 @@ export default function Home() {
               Premium Trade Soft Furnishing
             </p>
             <h1 className="mt-5 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:mt-6 sm:text-[4.55rem] sm:leading-[0.92] lg:text-[5.45rem] xl:text-[5.95rem]">
-              From Fabric Selection to Full Project Delivery.
+              From Fabric Selection to Full Project Delivery
             </h1>
             <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 max-[430px]:text-[0.94rem] max-[430px]:leading-[1.68] sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
-              LuxAura brings together fabric sourcing, specialist fabrication, window
-              treatments, upholstery, hardware and trims into one accountable trade supply path
-              for residential, hospitality and commercial interiors.
+              LuxAura supports designers, builders, stylists and project-led interiors through
+              sourcing, fabrication, specialist finishing and more coordinated soft-furnishing
+              execution.
             </p>
 
             <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                Trade Portal Access
-              </Link>
+              <a href="#capabilities" className="btn-primary w-full sm:w-auto">
+                Explore Capabilities
+              </a>
               <Link
                 href={PROJECT_BRIEF_HREF}
                 className="btn-secondary w-full border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
@@ -182,16 +194,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-[10rem] lg:pt-[10rem]">
+      <section
+        id="capabilities"
+        className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 sm:pt-32 lg:px-8 lg:pb-[10rem] lg:pt-[10rem]"
+      >
         <div className="container-custom">
           <div className="max-w-3xl">
             <SectionEyebrow>What We Deliver</SectionEyebrow>
             <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
-              One trade partner across sourcing, making and project execution
+              A structured soft-furnishing platform for sourcing, making and project delivery
             </h2>
             <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
-              Six connected capabilities that move a furnishing brief from selection through
-              fabrication, detailing and final delivery with greater control.
+              Six connected capabilities that help the furnishing brief move with greater clarity,
+              stronger fabrication control and less downstream fragmentation.
             </p>
           </div>
 
@@ -234,83 +249,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
-        <div className="container-custom">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-            <div
-              className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)] sm:aspect-[16/10] sm:rounded-[2.4rem]"
-              data-reveal="image"
-            >
-              <Image
-                src="/images/IMG-K.webp"
-                alt="Filtered daylight across performance window treatments in a calm interior."
-                fill
-                sizes="(min-width: 1024px) 54vw, 100vw"
-                className="object-cover"
-              />
-              <ImageCodeBadge code="LXA-HOME-08" />
-            </div>
-
-            <div className="max-w-xl lg:pl-6" data-reveal="text">
-              <SectionEyebrow>Performance</SectionEyebrow>
-              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
-                Performance for Modern Living
-              </h2>
-              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                Selected textile ranges are designed for the realities of contemporary living,
-                including homes with pets, children, and high daily use. With trusted names such as
-                FibreGuard and Mobus, performance options include stain-resistant,
-                water-repellent, and high-rub specifications without compromising visual
-                refinement.
-              </p>
-              <div className="mt-6 rounded-[1.35rem] border border-[#e0d7c8] bg-[#faf7f0] px-5 py-4 sm:mt-7 sm:rounded-[1.5rem] sm:px-6 sm:py-5">
-                <p className="text-pretty text-[14px] leading-7 text-neutral-600 sm:text-[0.98rem] sm:leading-8">
-                  Where specified, OEKO-TEX Standard 100 certified options support more considered
-                  material selection for modern homes and family living.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
-        <div className="container-custom">
-          <div className="mx-auto max-w-3xl" data-reveal="text">
-            <SectionEyebrow align="center">Strategic Brand Partners</SectionEyebrow>
-            <h2 className="mt-4 text-center text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.3rem]">
-              Strategic Brand Partners
-            </h2>
-            <p className="mx-auto mt-5 max-w-[42rem] text-center text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.04rem] sm:leading-[1.8]">
-              A curated network of premium textile and furnishing resources, aligned for project
-              delivery.
-            </p>
-          </div>
-
-          <div className="mt-10 overflow-hidden rounded-[1.7rem] border border-[#ddd4c3] bg-[#ddd4c3] shadow-[0_20px_60px_rgba(27,24,20,0.04)] sm:mt-14 sm:rounded-[2rem]">
-            <div className="grid gap-px min-[560px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-              {STRATEGIC_PARTNERS.map((partner, index) => (
-                <div
-                  key={partner.name}
-                  data-reveal="card"
-                  data-reveal-delay={String((index % 5) + 1)}
-                  className="group flex min-h-[8rem] items-center justify-center bg-[#fbf8f2] px-5 py-6 text-center grayscale transition duration-300 hover:grayscale-0 max-[430px]:min-h-[7rem] max-[430px]:px-4 max-[430px]:py-5 sm:min-h-[9.5rem] sm:py-7"
-                >
-                  <div>
-                    <p className="font-heading text-[1.35rem] font-semibold leading-tight text-neutral-500 transition group-hover:text-[#2C2C2C] max-[430px]:text-[1.15rem] sm:text-[1.6rem]">
-                      {partner.name}
-                    </p>
-                    <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-neutral-400 transition group-hover:text-primary/70">
-                      {partner.note}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section
         id="why-luxaura"
         className="relative overflow-hidden px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
@@ -325,8 +263,9 @@ export default function Home() {
                 WHY LUXAURA
               </h2>
               <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                LuxAura replaces fragmented procurement with one coordinated fulfillment model for
-                fabrics, fabrication, hardware, trimmings, and project delivery.
+                LuxAura is not only a fabric source or curtain maker. It is a more complete
+                project-facing partner for sourcing, fabrication, decorative finishing and local
+                accountability.
               </p>
             </div>
 
@@ -357,6 +296,121 @@ export default function Home() {
         </div>
       </section>
 
+      <section
+        id="supply-chain"
+        className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
+      >
+        <div className="container-custom">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+            <div
+              className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)] sm:aspect-[16/10] sm:rounded-[2.4rem]"
+              data-reveal="image"
+            >
+              <Image
+                src="/images/IMG-I.webp"
+                alt="Material selection and project coordination detail representing LuxAura supply chain strength."
+                fill
+                sizes="(min-width: 1024px) 54vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-HOME-08" />
+            </div>
+
+            <div className="max-w-xl lg:pl-6" data-reveal="text">
+              <SectionEyebrow>Unified Supply Chain</SectionEyebrow>
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
+                Production strength that keeps the brief commercially and visually aligned
+              </h2>
+              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
+                LuxAura connects direct source access, fabrication planning and Sydney-facing
+                project support so the furnishing pathway stays clearer from material direction to
+                delivery readiness.
+              </p>
+              <div className="mt-8 grid gap-4">
+                {SUPPLY_CHAIN_POINTS.map(point => (
+                  <article key={point.title} className="section-shell p-5 sm:p-6">
+                    <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-[2rem]">
+                      {point.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                      {point.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+        <div className="container-custom">
+          <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12">
+            <div className="max-w-2xl">
+              <SectionEyebrow>Trimmings</SectionEyebrow>
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.2rem]">
+                Decorative Detail That Completes the Scheme
+              </h2>
+              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
+                LuxAura offers a broader trimming resource for designers and furnishing-led
+                projects, supporting curtains, upholstery, cushions and decorative finishing
+                layers with greater depth and individuality.
+              </p>
+              <div className="mt-8">
+                <Link href="/decorative-trimmings" className="btn-primary">
+                  Explore Trimmings
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] sm:rounded-[2.3rem]">
+              <Image
+                src="/images/IMG-B.webp"
+                alt="Decorative trimming close-up with refined braid and drapery detail"
+                fill
+                sizes="(min-width: 1024px) 48vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-HOME-09" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+        <div className="container-custom">
+          <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-center lg:gap-12">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] sm:rounded-[2.3rem]">
+              <Image
+                src="/images/about-hero.webp"
+                alt="Designer material selection and project support scene"
+                fill
+                sizes="(min-width: 1024px) 48vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-HOME-10" />
+            </div>
+
+            <div className="max-w-2xl">
+              <SectionEyebrow>Project Support</SectionEyebrow>
+              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.2rem]">
+                Beyond Supply: Project Support That Helps Interiors Move Forward
+              </h2>
+              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
+                LuxAura supports designers, stylists, builders and project-led clients not only
+                through sourcing and fabrication, but through clearer design development,
+                procurement coordination and furnishing delivery support.
+              </p>
+              <div className="mt-8">
+                <Link href="/project-support" className="btn-primary">
+                  Explore Project Support
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div
@@ -370,7 +424,7 @@ export default function Home() {
               sizes="100vw"
               className="object-cover"
             />
-            <ImageCodeBadge code="LXA-HOME-09" />
+            <ImageCodeBadge code="LXA-HOME-11" />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.84)_0%,rgba(13,12,11,0.66)_46%,rgba(13,12,11,0.18)_100%)]" />
             <div className="relative px-5 py-12 text-white sm:px-10 sm:py-16 lg:px-14 lg:py-20">
               <div className="max-w-3xl">
@@ -381,18 +435,18 @@ export default function Home() {
                   One partner. One pathway. A more resolved result.
                 </h2>
                 <p className="mt-5 max-w-2xl text-pretty text-[0.98rem] leading-[1.76] text-white/82 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                  Bring LuxAura in when sourcing, fabrication, hardware and finishing detail need
-                  to move through one commercially accountable project path.
+                  Bring LuxAura in when sourcing, fabrication, specialist finishing and project
+                  coordination need to move through one accountable furnishing path.
                 </p>
                 <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:gap-4">
                   <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
                     Trade Portal Access
                   </Link>
                   <Link
-                    href={TRADE_SUPPORT_HREF}
+                    href={PROJECT_BRIEF_HREF}
                     className="btn-secondary w-full border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
                   >
-                    Access Trade Support
+                    Submit a Project Brief
                   </Link>
                 </div>
               </div>

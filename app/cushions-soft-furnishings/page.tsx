@@ -8,7 +8,11 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import {
+  BESPOKE_UPHOLSTERY_FAQ,
+  TRADE_PORTAL_ACCESS_HREF,
+  TRADE_SUPPORT_HREF,
+} from '@/lib/site-data';
 
 const UPHOLSTERED_APPLICATIONS = [
   {
@@ -136,29 +140,6 @@ const LOOKBOOKS = [
   },
 ] as const;
 
-const FAQ_ITEMS = [
-  {
-    question: 'Can LuxAura support both indoor and outdoor upholstery within one project?',
-    answer:
-      'Yes. LuxAura can guide indoor seating, decorative cushions, bench seating and outdoor upholstery applications as part of one coordinated textile conversation.',
-  },
-  {
-    question: 'Do you offer upholstery options that suit pets and busy family homes?',
-    answer:
-      'Yes. Performance-led directions such as selected Mobus and FibreGuard ranges can support stronger stain resistance, easier maintenance and more practical daily resilience.',
-  },
-  {
-    question: 'Can Sunbrella be used for outdoor furniture briefs?',
-    answer:
-      'Yes. Sunbrella is supported where the brief requires stronger UV resilience, colour stability and long-term outdoor durability across seating and cushions.',
-  },
-  {
-    question: 'Do you provide style references before a brief is finalised?',
-    answer:
-      'Yes. LuxAura can provide downloadable indoor and outdoor furniture style guides to help clients review direction before moving deeper into the project.',
-  },
-] as const;
-
 export const metadata: Metadata = {
   title: 'Bespoke Upholstery | Indoor, Outdoor and Performance Textile Support',
   description:
@@ -233,7 +214,7 @@ export default function CushionsSoftFurnishingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Bespoke Upholstery', url: '/cushions-soft-furnishings' },
   ]);
-  const faqSchema = generateFaqSchema([...FAQ_ITEMS]);
+  const faqSchema = generateFaqSchema([...BESPOKE_UPHOLSTERY_FAQ]);
 
   return (
     <div>
@@ -261,7 +242,7 @@ export default function CushionsSoftFurnishingsPage() {
             <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
               LuxAura supports bespoke upholstery across sofas, cushions, bench seating and outdoor
               furniture applications, combining finish quality with performance-led fabric
-              selection for Australian living.
+              selection for residential, hospitality and higher-use Australian interiors.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_SUPPORT_HREF} className="btn-primary">
@@ -475,9 +456,9 @@ export default function CushionsSoftFurnishingsPage() {
       </section>
 
       <FaqSection
-        items={[...FAQ_ITEMS]}
-        title="Questions on upholstery and performance textile direction"
-        description="Concise answers on indoor seating, outdoor applications, family-use resilience and how LuxAura helps shape the brief."
+        items={[...BESPOKE_UPHOLSTERY_FAQ]}
+        title="Questions on upholstery, outdoor use and performance direction"
+        description="Concise answers on indoor and outdoor scopes, performance fabrics and how LuxAura aligns upholstery with the wider furnishing brief."
       />
 
       <section className="section-padding pt-0">

@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { CONTACT_INFO, SOCIAL_LINKS } from '@/lib/constants';
+import { CONTACT_INFO } from '@/lib/constants';
 import {
+  CURTAIN_MEASUREMENT_GUIDE_HREF,
   FOOTER_CATEGORY_LINKS,
-  NAV_ITEMS,
   TRADE_PORTAL_ACCESS_HREF,
   TRADE_SUPPORT_HREF,
 } from '@/lib/site-data';
@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="mt-8 border-t border-white/60 bg-[#14211c] text-white">
       <div className="container-custom section-padding">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr_0.95fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr_0.9fr_1fr]">
           <div>
             <div className="mb-5 flex items-start gap-3 sm:items-center sm:gap-4">
               <div>
@@ -43,44 +43,10 @@ export default function Footer() {
                 Access Trade Support
               </Link>
             </div>
-            <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
-              <a
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
-              >
-                Facebook
-              </a>
-              <a
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-white/80 transition hover:border-[#d7c29c] hover:text-white"
-              >
-                Instagram
-              </a>
-            </div>
           </div>
 
           <div>
-            <h4 className="font-heading text-2xl font-semibold text-white">Navigate</h4>
-            <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
-              {NAV_ITEMS.map(link => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-heading text-2xl font-semibold text-white">Capabilities</h4>
+            <h4 className="font-heading text-2xl font-semibold text-white">Core Pages</h4>
             <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
               {FOOTER_CATEGORY_LINKS.map(link => (
                 <li key={link.href}>
@@ -96,7 +62,37 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading text-2xl font-semibold text-white">Trade Desk</h4>
+            <h4 className="font-heading text-2xl font-semibold text-white">Specialist Resources</h4>
+            <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
+              <li>
+                <Link
+                  href={CURTAIN_MEASUREMENT_GUIDE_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  Curtain Measurement Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={TRADE_SUPPORT_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  Trade Support
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={TRADE_PORTAL_ACCESS_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  Trade Portal Access
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-heading text-2xl font-semibold text-white">Contact</h4>
             <div className="mt-5 space-y-4 text-sm text-white/72 sm:text-base">
               <p>
                 <a href="tel:+61450871699" className="transition hover:text-[#d7c29c]">
@@ -115,10 +111,6 @@ export default function Footer() {
                 {CONTACT_INFO.address.display}
               </p>
               <p>{CONTACT_INFO.hours}</p>
-              <p>
-                Trade enquiries cover fabrics, window treatments, bespoke upholstery, hardware
-                systems, decorative trimmings and related fabrication support.
-              </p>
             </div>
           </div>
         </div>

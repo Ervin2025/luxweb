@@ -8,7 +8,11 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import {
+  FABRIC_AND_FABRICATION_FAQ,
+  TRADE_PORTAL_ACCESS_HREF,
+  TRADE_SUPPORT_HREF,
+} from '@/lib/site-data';
 
 const MATERIAL_DIRECTIONS = [
   {
@@ -130,24 +134,6 @@ const WHY_THIS_MATTERS = [
   },
 ] as const;
 
-const FAQ_ITEMS = [
-  {
-    question: 'How do you match fabric to the right application?',
-    answer:
-      'LuxAura looks at handle, durability, drape, exposure and fabrication method so the material suits both the look and the build.',
-  },
-  {
-    question: 'Can one fabric story carry across multiple applications?',
-    answer:
-      'Yes. Where suitable, one direction can move through curtains, upholstery, cushions and related pieces with better visual continuity.',
-  },
-  {
-    question: 'Do you only supply the textile, or also make the finished pieces?',
-    answer:
-      'LuxAura supports both. The value is in carrying the selection into fabrication so the final result stays commercially and visually controlled.',
-  },
-] as const;
-
 export const metadata: Metadata = {
   title: 'Fabric & Fabrication | Global Collections and Finished Textile Outcomes',
   description:
@@ -163,7 +149,7 @@ export default function CollectionsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Fabric & Fabrication', url: '/collections' },
   ]);
-  const faqSchema = generateFaqSchema([...FAQ_ITEMS]);
+  const faqSchema = generateFaqSchema([...FABRIC_AND_FABRICATION_FAQ]);
 
   return (
     <div>
@@ -336,9 +322,9 @@ export default function CollectionsPage() {
       </section>
 
       <AccordionFaq
-        items={[...FAQ_ITEMS]}
-        title="Questions on selection, application and fabrication"
-        description="A concise answer set covering fit, continuity and what happens after the textile is chosen."
+        items={[...FABRIC_AND_FABRICATION_FAQ]}
+        title="Questions on project suitability, selection and fabrication"
+        description="Concise answers for designers and project buyers who need material choice and fabrication logic to stay aligned."
       />
 
       <section className="section-padding pt-0">

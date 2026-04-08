@@ -1,13 +1,16 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import ProjectEnquiryForm from '@/components/ProjectEnquiryForm';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
 import {
+  ABOUT_FAQ,
   PROJECT_BRIEF_HREF,
   TRADE_PORTAL_ACCESS_HREF,
   TRADE_SUPPORT_HREF,
@@ -91,8 +94,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'About & Trade Desk', url: '/about' },
+    { name: 'About', url: '/about' },
   ]);
+  const faqSchema = generateFaqSchema([...ABOUT_FAQ]);
 
   return (
     <div>
@@ -144,7 +148,7 @@ export default function AboutPage() {
       </section>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'About & Trade Desk', href: '/about' }]} />
+        <Breadcrumb items={[{ label: 'About', href: '/about' }]} />
       </div>
 
       <section className="px-4 pb-24 pt-8 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
@@ -297,6 +301,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <AccordionFaq
+        items={[...ABOUT_FAQ]}
+        title="About and trade desk questions"
+        description="Concise answers on client fit, project timing and what helps LuxAura support the brief more effectively."
+      />
+
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-8">
@@ -340,6 +350,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

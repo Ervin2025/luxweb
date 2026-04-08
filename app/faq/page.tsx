@@ -66,17 +66,38 @@ export default function FaqPage() {
                     View Category
                   </Link>
                 </div>
-                <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                <div className="mt-8 space-y-4">
                   {group.items.map(item => (
-                    <article
+                    <details
                       key={item.question}
-                      className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-6"
+                      className="group rounded-[1.5rem] border border-primary/10 bg-neutral-50 px-6 py-1"
                     >
-                      <h3 className="font-heading text-3xl font-semibold text-neutral-900">
-                        {item.question}
-                      </h3>
-                      <p className="mt-4 text-sm leading-7 text-neutral-700">{item.answer}</p>
-                    </article>
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6">
+                        <h3 className="pr-4 font-heading text-2xl font-semibold text-neutral-900 sm:text-3xl">
+                          {item.question}
+                        </h3>
+                        <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-primary/10 bg-white text-primary transition group-open:rotate-45">
+                          <svg
+                            className="h-5 w-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M12 5v14" />
+                            <path d="M5 12h14" />
+                          </svg>
+                        </span>
+                      </summary>
+                      <div className="pb-6">
+                        <p className="max-w-4xl text-sm leading-7 text-neutral-700">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </details>
                   ))}
                 </div>
               </section>

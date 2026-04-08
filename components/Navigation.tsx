@@ -39,7 +39,6 @@ export default function Navigation() {
   const isSolid = isScrolled || isMobileMenuOpen;
   const mobileMenuId = 'mobile-navigation-menu';
   const headerNavItems = NAV_ITEMS;
-  const desktopNavItems = headerNavItems.filter(link => link.href !== '/');
 
   useEffect(() => {
     let ticking = false;
@@ -99,7 +98,7 @@ export default function Navigation() {
 
             <div className="hidden min-w-0 flex-1 items-center justify-center px-2 lg:flex xl:px-4">
               <div
-                className={`relative w-full max-w-[52rem] overflow-hidden rounded-full px-2 py-2 transition-all duration-300 xl:max-w-[58rem] xl:px-3 ${
+                className={`relative w-full max-w-[60rem] overflow-hidden rounded-full px-2 py-2 transition-all duration-300 xl:max-w-[66rem] xl:px-3 ${
                   isSolid
                     ? 'bg-transparent'
                     : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
@@ -112,14 +111,14 @@ export default function Navigation() {
                   </>
                 ) : null}
                 <div className="relative flex items-center justify-center gap-1.5 whitespace-nowrap xl:gap-2">
-                  {desktopNavItems.map(link => {
+                  {headerNavItems.map(link => {
                     const isActive = isLinkActive(pathname, link.href);
 
                     return (
                       <Link
                         key={link.name}
                         href={link.href}
-                        className={`flex min-h-[38px] items-center justify-center rounded-full px-2.5 py-2 text-center text-[11px] font-medium transition-colors duration-200 xl:min-h-[40px] xl:px-3 xl:text-[12px] 2xl:px-4 2xl:text-[13px] ${
+                        className={`flex min-h-[38px] items-center justify-center rounded-full px-2 py-2 text-center text-[10px] font-medium transition-colors duration-200 xl:min-h-[40px] xl:px-2.5 xl:text-[11px] 2xl:px-3.5 2xl:text-[12px] ${
                           isActive
                             ? 'bg-primary text-white'
                             : 'text-neutral-800 hover:bg-white/80 hover:text-primary'

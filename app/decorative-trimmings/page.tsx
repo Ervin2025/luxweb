@@ -137,7 +137,7 @@ const DEVELOPMENT_POINTS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Decorative Trimmings | Designer-Led Detail and Finishing Resource',
+  title: 'Trimmings | Designer-Led Detail and Finishing Resource',
   description:
     'LuxAura offers a broader decorative trimming resource for designers, spanning braid, borders, tassels, fringes and upholstery-applied detail that can move into finished execution.',
   keywords: [
@@ -151,7 +151,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/decorative-trimmings`,
   },
   openGraph: {
-    title: 'Decorative Trimmings | Designer-Led Detail and Finishing Resource',
+    title: 'Trimmings | Designer-Led Detail and Finishing Resource',
     description:
       'A broader and more current trimming library for drapery, upholstery and refined soft-furnishing outcomes.',
     url: `${SITE_CONFIG.url}/decorative-trimmings`,
@@ -183,7 +183,7 @@ function GalleryImage({
 
 export default function DecorativeTrimmingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Decorative Trimmings', url: '/decorative-trimmings' },
+    { name: 'Trimmings', url: '/decorative-trimmings' },
   ]);
   const faqSchema = generateFaqSchema([...DECORATIVE_TRIMMINGS_FAQ]);
 
@@ -205,10 +205,10 @@ export default function DecorativeTrimmingsPage() {
         <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
           <div className="max-w-4xl text-white" data-reveal="text">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
-              Decorative Trimmings
+              Trimmings
             </p>
             <h1 className="mt-5 max-w-4xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Decorative Trimmings for More Resolved Interior Schemes
+              Trimmings for More Resolved Interior Schemes
             </h1>
             <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
               A broader and more current trimming resource for designers seeking stronger decorative
@@ -235,15 +235,15 @@ export default function DecorativeTrimmingsPage() {
       </section>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'Decorative Trimmings', href: '/decorative-trimmings' }]} />
+        <Breadcrumb items={[{ label: 'Trimmings', href: '/decorative-trimmings' }]} />
       </div>
 
       <section className="px-4 pb-28 pt-8 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9rem]">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Decorative Value"
-            title="A more current resource for layered, design-led detailing"
-            description="This is not a small add-on layer. It is the finishing language that helps a room feel more tailored, more resolved and more distinctly designed."
+            eyebrow="Why Designers Use LuxAura Trimmings"
+            title="A decorative resource that gives furnishing schemes more depth and completion"
+            description="This is not a secondary accessory layer. It is the finishing language that helps a room feel more tailored, more resolved and more distinctly designed."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {VALUE_CARDS.map((card, index) => (

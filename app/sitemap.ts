@@ -31,28 +31,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/hardware-systems`,
+      url: `${baseUrl}/decorative-trimmings`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.94,
     },
     {
-      url: `${baseUrl}/decorative-trimmings`,
+      url: `${baseUrl}/project-support`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.93,
     },
     {
+      url: `${baseUrl}/curtain-measurement-guide`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.78,
+    },
+    {
       url: `${baseUrl}/trade-projects`,
       lastModified,
       changeFrequency: 'weekly',
-      priority: 0.96,
-    },
-    {
-      url: `${baseUrl}/project-support`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.88,
+      priority: 0.86,
     },
     {
       url: `${baseUrl}/about`,

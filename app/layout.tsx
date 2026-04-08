@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ImageCodeToggle from '@/components/ImageCodeToggle';
 import LoadingFavicon from '@/components/LoadingFavicon';
+import ScrollRevealBoot from '@/components/ScrollRevealBoot';
 import SupportDock from '@/components/SupportDock';
 import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 
@@ -80,7 +81,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const localPhone = phoneDigits.startsWith('0') ? phoneDigits.slice(1) : phoneDigits;
   const internationalPhone = localPhone.startsWith('61') ? `+${localPhone}` : `+61${localPhone}`;
   const imageCodeScript = `(function(){var root=document.documentElement;var storageKey='luxaura-image-codes';var eventName='luxaura-image-codes-change';var isLocalHost=function(){return /^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)$/.test(window.location.hostname)||window.location.hostname.indexOf('192.168.')===0||window.location.hostname.indexOf('10.')===0;};var getQueryEnabled=function(){var query=window.location.search;return query.indexOf('image-codes=1')!==-1||query.indexOf('image-codes=true')!==-1;};var getStoredEnabled=function(){try{return window.localStorage.getItem(storageKey);}catch(error){return null;}};var setStoredEnabled=function(enabled){try{window.localStorage.setItem(storageKey,enabled?'1':'0');}catch(error){}};var isEnabled=function(){var queryEnabled=getQueryEnabled();if(queryEnabled){setStoredEnabled(true);return true;}var stored=getStoredEnabled();if(stored==='1'){return true;}if(stored==='0'){return false;}return isLocalHost();};var apply=function(enabled){if(enabled){root.dataset.imageCodes='1';}else{delete root.dataset.imageCodes;}window.dispatchEvent(new CustomEvent(eventName,{detail:{enabled:enabled}}));};var sync=function(){apply(isEnabled());};var wrap=function(method){var original=history[method];if(!original||original.__imageCodesWrapped){return;}var wrapped=function(){var result=original.apply(this,arguments);setTimeout(sync,0);return result;};wrapped.__imageCodesWrapped=true;history[method]=wrapped;};wrap('pushState');wrap('replaceState');window.addEventListener('popstate',sync);sync();})();`;
-  const revealScript = `(function(){var reduce=false;try{reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(error){}var observer=null;var queued=false;var ensureObserver=function(){if(observer||reduce||!('IntersectionObserver' in window)){return;}observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.setAttribute('data-reveal-visible','1');observer.unobserve(entry.target);}});},{threshold:0.14,rootMargin:'0px 0px -10% 0px'});};var showImmediately=function(node){node.setAttribute('data-reveal-visible','1');};var scan=function(){var nodes=document.querySelectorAll('[data-reveal]');if(!nodes.length){return;}if(reduce||!('IntersectionObserver' in window)){nodes.forEach(showImmediately);return;}ensureObserver();nodes.forEach(function(node){if(node.getAttribute('data-reveal-visible')==='1'||node.getAttribute('data-reveal-observed')==='1'){return;}node.setAttribute('data-reveal-observed','1');observer.observe(node);});};var requestScan=function(){if(queued){return;}queued=true;window.requestAnimationFrame(function(){queued=false;scan();});};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',requestScan,{once:true});}else{requestScan();}window.addEventListener('load',requestScan);if('MutationObserver' in window){var mutationObserver=new MutationObserver(requestScan);mutationObserver.observe(document.body,{childList:true,subtree:true});}})();`;
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
@@ -133,13 +133,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: imageCodeScript,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: revealScript,
-          }}
-        />
       </head>
       <body className="font-sans">
+        <ScrollRevealBoot />
         <LoadingFavicon />
         <Navigation />
         <main>{children}</main>
