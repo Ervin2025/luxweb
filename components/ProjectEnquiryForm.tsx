@@ -7,7 +7,7 @@ import {
   PROJECT_SERVICE_OPTIONS,
   PROJECT_STAGE_OPTIONS,
   PROJECT_TYPE_OPTIONS,
-} from '@/lib/site-data';
+} from '@/lib/form-options';
 
 const timelineOptions = ['Urgent', '2-4 weeks', '1-2 months', '3+ months', 'Planning stage'] as const;
 

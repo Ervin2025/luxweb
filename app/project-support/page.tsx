@@ -166,6 +166,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/project-support`,
   },
+  openGraph: {
+    title:
+      'Project Support Sydney | Design Development, Procurement & Furnishing Delivery | LuxAura',
+    description:
+      'Design development, soft-furnishing procurement, specification support and delivery coordination for Sydney project teams.',
+    url: `${SITE_CONFIG.url}/project-support`,
+    images: ['/images/IMG-I.webp'],
+  },
 };
 
 export default function ProjectSupportPage() {

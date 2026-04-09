@@ -1,19 +1,29 @@
 export type PriceBand = '$' | '$$' | '$$$';
 export type CatalogCategory = 'Fabrics' | 'Trimmings' | 'Rods';
-export type FormIntent = 'trade-access' | 'project-enquiry' | 'catalogue-request';
+import {
+  GET_QUOTE_HREF,
+  PROJECT_BRIEF_HREF,
+  REQUEST_CATALOGUE_HREF,
+  TRADE_SUPPORT_HREF,
+} from '@/lib/navigation-data';
+
+export {
+  CURTAIN_MEASUREMENT_GUIDE_HREF,
+  GET_QUOTE_HREF,
+  PROJECT_BRIEF_HREF,
+  REGISTER_TRADE_ACCOUNT_HREF,
+  REQUEST_CATALOGUE_HREF,
+  TRADE_PORTAL_ACCESS_HREF,
+  TRADE_SUPPORT_HREF,
+} from '@/lib/navigation-data';
+
 export type BusinessPageSlug =
   | 'wholesale-fabrics'
   | 'custom-curtains-sheers'
   | 'cushions-soft-furnishings'
   | 'trimmings'
   | 'blinds-solutions'
-  | 'tracks-motorisation'
   | 'outdoor-solutions';
-
-export interface NavItem {
-  name: string;
-  href: string;
-}
 
 export interface StatItem {
   value: string;
@@ -135,34 +145,6 @@ export interface CatalogItem {
   imageCodeBase?: string;
 }
 
-export const TRADE_PORTAL_ACCESS_HREF = '/trade-projects?intent=trade-access';
-export const PROJECT_BRIEF_HREF = '/about#project-enquiry';
-export const TRADE_SUPPORT_HREF = '/about#trade-desk';
-export const CURTAIN_MEASUREMENT_GUIDE_HREF = '/curtain-measurement-guide';
-export const REQUEST_CATALOGUE_HREF = TRADE_PORTAL_ACCESS_HREF;
-export const REGISTER_TRADE_ACCOUNT_HREF = TRADE_PORTAL_ACCESS_HREF;
-export const GET_QUOTE_HREF = PROJECT_BRIEF_HREF;
-
-export const NAV_ITEMS: NavItem[] = [
-  { name: 'Home', href: '/' },
-  { name: 'Fabric & Fabrication', href: '/collections' },
-  { name: 'Window Treatments', href: '/custom-curtains-sheers' },
-  { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
-  { name: 'Trimmings', href: '/decorative-trimmings' },
-  { name: 'Project Support', href: '/project-support' },
-  { name: 'About', href: '/about' },
-];
-
-export const FOOTER_CATEGORY_LINKS: NavItem[] = [
-  { name: 'Home', href: '/' },
-  { name: 'Fabric & Fabrication', href: '/collections' },
-  { name: 'Window Treatments', href: '/custom-curtains-sheers' },
-  { name: 'Bespoke Upholstery', href: '/cushions-soft-furnishings' },
-  { name: 'Trimmings', href: '/decorative-trimmings' },
-  { name: 'Project Support', href: '/project-support' },
-  { name: 'About', href: '/about' },
-];
-
 export const HOME_HERO_STATS: StatItem[] = [
   {
     value: 'Thousands of Premium Fabrics & Trimmings',
@@ -173,8 +155,8 @@ export const HOME_HERO_STATS: StatItem[] = [
     label: 'From simple elegance to the most complex custom designer requirements',
   },
   {
-    value: '100% Best-Price Guarantee',
-    label: 'Seamless workflow, master craftsmanship and price confidence in one offer',
+    value: 'Commercially Intelligent Value',
+    label: 'Direct sourcing and coordinated making keep quality and cost control aligned',
   },
 ];
 
@@ -195,9 +177,9 @@ export const HOME_VALUE_POINTS: BenefitItem[] = [
       'LuxAura does not stop at fabric supply. Selected materials can move straight into curtains, indoor and outdoor furniture, sofas, cushions, sofa throws, ottomans, table runners, aprons, gloves and other custom pieces.',
   },
   {
-    title: 'Lowest price guarantee',
+    title: 'Commercially intelligent value',
     description:
-      'Efficient management, quantity purchasing and coordinated making support a lowest price guarantee while maintaining quality and customisation.',
+      'Efficient management, quantity purchasing and coordinated making help protect value without compromising finish quality or customisation.',
   },
 ];
 
@@ -271,7 +253,7 @@ export const HOME_WHY_CHOOSE_ITEMS: BenefitItem[] = [
       'FibreGuard and hard-wearing constructions support family homes, rental properties and commercial interiors.',
   },
   {
-    title: 'Friendly project pricing',
+    title: 'Commercially intelligent value',
     description:
       'Quality and commercial realism stay together through efficient management and quantity purchasing.',
   },
@@ -357,7 +339,7 @@ export const HOME_PROCESS_STEPS: Array<{ title: string; description: string }> =
       'Fabrics, fabrication, window treatments, bespoke upholstery and hardware directions are shortlisted against the brief.',
   },
   {
-    title: 'Quote and sampling',
+    title: 'Project brief and sampling',
     description:
       'Clients can request pricing direction, account registration support and samples before production decisions are finalised.',
   },
@@ -417,9 +399,9 @@ export const TRADE_PROJECT_BENEFITS: BenefitItem[] = [
       'Clients can access British, European and curated Asian collections through one relationship.',
   },
   {
-    title: 'Lowest price guarantee and project quoting',
+    title: 'Commercial clarity and project support',
     description:
-      'The team supports quotes, registration and category coordination with a lowest price guarantee.',
+      'The team supports trade access, project pathways and category coordination through one structured relationship.',
   },
   {
     title: 'Pet-friendly and performance-led options',
@@ -445,7 +427,7 @@ export const TRADE_PROJECT_PROCESS: Array<{ title: string; description: string }
       'The team aligns collections, performance needs and related categories to the brief.',
   },
   {
-    title: 'Quote, samples and approvals',
+    title: 'Project brief, samples and approvals',
     description:
       'Samples, pricing and approvals are handled before work moves ahead.',
   },
@@ -472,43 +454,6 @@ export const TRADE_PROJECT_FAQ: FaqItem[] = [
     answer:
       'Yes. If you are interested in entering the industry as a partner, you can apply for dedicated pricing and resource support through the trade account path.',
   },
-];
-
-export const FORM_INTENT_OPTIONS: Array<{
-  value: FormIntent;
-  label: string;
-  description: string;
-}> = [
-  {
-    value: 'trade-access',
-    label: 'Register trade account',
-    description: 'Apply for pricing access, product resources and long-term account support.',
-  },
-  {
-    value: 'project-enquiry',
-    label: 'Project enquiry',
-    description: 'Discuss an active project, required products and fabrication needs.',
-  },
-];
-
-export const TRADE_PROJECT_BUSINESS_TYPES = [
-  'Interior designer',
-  'Curtain or soft-furnishing retailer',
-  'Builder, developer or project team',
-  'Short-stay or hotel owner',
-  'Commercial project owner',
-  'Architect or specification team',
-  'Independent partner or new business entrant',
-  'Key account or multi-site buyer',
-  'Other',
-];
-
-export const TRADE_PROJECT_FOCUS_OPTIONS = [
-  'Fabric & Fabrication',
-  'Window treatments',
-  'Bespoke upholstery',
-  'Trimmings',
-  'Mixed project package',
 ];
 
 export const QUOTE_PRODUCT_OPTIONS = [
@@ -543,47 +488,9 @@ export const CONTACT_INTEREST_OPTIONS = [
   'Bespoke Upholstery',
   'Trimmings',
   'Project Support',
-  'Trade Account Access',
+  'Trade Portal Access',
   'General Project Enquiry',
 ];
-
-export const PROJECT_CLIENT_TYPE_OPTIONS = [
-  'Designer',
-  'Stylist',
-  'Builder',
-  'Developer',
-  'Hospitality / Short-Stay Operator',
-  'Homeowner',
-  'Other',
-] as const;
-
-export const PROJECT_TYPE_OPTIONS = [
-  'Residential',
-  'Multi-Residential',
-  'Hospitality',
-  'Short-Stay',
-  'Retail / Lifestyle Commercial',
-  'Display Suite',
-  'Other',
-] as const;
-
-export const PROJECT_STAGE_OPTIONS = [
-  'Early Concept',
-  'Design Development',
-  'Specification Stage',
-  'Procurement Stage',
-  'Pre-Installation',
-  'Refresh / Upgrade',
-] as const;
-
-export const PROJECT_SERVICE_OPTIONS = [
-  'Fabric & Fabrication',
-  'Window Treatments',
-  'Bespoke Upholstery',
-  'Trimmings',
-  'Project Support',
-  'Site Measure / Specification Support',
-] as const;
 
 export const FABRIC_AND_FABRICATION_FAQ: FaqItem[] = [
   {
@@ -768,9 +675,9 @@ export const ABOUT_FAQ: FaqItem[] = [
 
 export const WHOLESALE_RESOURCE_PACKS: RelatedLink[] = [
   {
-    title: 'Register Trade Account',
+    title: 'Trade Portal Access',
     description:
-      'Open a trade account to access best pricing, product resources and a clearer supply workflow.',
+      'Open the LuxAura trade pathway for product resources, project support and a clearer supply workflow.',
     href: REQUEST_CATALOGUE_HREF,
   },
   {
@@ -780,9 +687,9 @@ export const WHOLESALE_RESOURCE_PACKS: RelatedLink[] = [
     href: '/trade-projects?intent=project-enquiry',
   },
   {
-    title: 'Project Quote Preparation',
+    title: 'Project Brief Pathway',
     description:
-      'Move from material selection into a coordinated quote covering fabrics, trims and related fabrication.',
+      'Move from material selection into a coordinated project brief covering fabrics, trims and related fabrication.',
     href: GET_QUOTE_HREF,
   },
 ];
@@ -807,10 +714,10 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       stats: [
         { value: 'UK + Europe + Asia', label: 'A sourcing mix built for style and pricing flexibility' },
         { value: 'Pet-Friendly Options', label: 'Performance stories available for real-life use' },
-        { value: 'Sydney Guidance', label: 'Local support for samples, quotes and specification help' },
+        { value: 'Sydney Guidance', label: 'Local support for samples, project direction and specification help' },
       ],
-      primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
-      secondaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
+      primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
+      secondaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
     },
     overview: {
       title: 'A complete fabric supply layer for Australian interiors',
@@ -922,7 +829,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Collection guidance and product matching',
         'Sample and trade account support for decision making',
         'Coordination with curtains, soft furnishings, trims and hardware',
-        'Project quoting that reflects the full package, not isolated products',
+        'Project coordination that reflects the full package, not isolated products',
       ],
     },
     relatedSection: {
@@ -941,8 +848,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/cushions-soft-furnishings',
         },
         {
-          title: 'Trade Account',
-          description: 'Move from material selection into wholesale access, project quoting and ongoing support.',
+          title: 'Trade Portal Access',
+          description: 'Move from material selection into wholesale access, project coordination and ongoing support.',
           href: '/trade-projects',
         },
       ],
@@ -951,8 +858,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       title: 'Request fabrics, samples or project support',
       description:
         'Use LuxAura when you need range, practical support and a clearer path to fabrication.',
-      primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
-      secondaryCta: { label: 'Start A Quote', href: GET_QUOTE_HREF },
+      primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
+      secondaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
     },
     faqItems: [
       {
@@ -966,9 +873,9 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           'Yes. LuxAura includes performance-led options such as FibreGuard for family, rental and commercial use.',
       },
       {
-        question: 'Can I request samples before asking for a full quote?',
+        question: 'Can I request samples before moving into a full project brief?',
         answer:
-          'Yes. The trade account workflow supports sample requests and early-stage project discussions before full quoting.',
+          'Yes. The trade account workflow supports sample requests and early-stage project discussions before full brief review.',
       },
     ],
   },
@@ -988,8 +895,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'LuxAura covers S-Fold sheers, tailored drapery, Roman blinds, roller systems, shutters and motorisation-ready solutions through one trade workflow.',
       imageSrc: '/images/luxaura/hero-project.webp',
       imageAlt: 'LuxAura window treatments including curtains, blinds and shutters',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
     },
     overview: {
       title: 'One category, multiple treatment types and one coordinated supply path',
@@ -1100,7 +1007,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       items: [
         'Compare curtains, blinds and shutters against the same room brief',
         'Pair premium fabrics with the right headings, linings and hardware',
-        'Coordinate tracks, rods, motorisation and detailing in one quote path',
+        'Coordinate tracks, rods, motorisation and detailing in one project pathway',
         'Support custom-made measuring and professional installation',
       ],
     },
@@ -1130,8 +1037,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       title: 'Start a window treatment conversation with the full room in mind',
       description:
         'Use LuxAura when the brief needs a clearer decision across curtains, blinds, shutters and motorisation.',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     faqItems: [
       {
@@ -1140,7 +1047,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           'Yes. Complex headings, trim integration, layered systems and performance lining requirements are all part of the fabrication scope.',
       },
       {
-        question: 'Do you quote both homes and larger projects?',
+        question: 'Does LuxAura support both homes and larger projects?',
         answer:
           'Yes. LuxAura supports private homes, boutique accommodation, hospitality sites and wider commercial work.',
       },
@@ -1167,8 +1074,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'LuxAura handles bespoke upholstery from fabric selection through processing, tailored making and efficient delivery.',
       imageSrc: '/images/luxaura/upholstery-pillows.webp',
       imageAlt: 'LuxAura bespoke upholstery and custom furniture softening',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
     },
     overview: {
       title: 'A full upholstery workflow rather than a decorative add-on service',
@@ -1279,7 +1186,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       items: [
         'Select the right fabric for the furniture type and usage level',
         'Coordinate processing, upholstery making and specialty sewing details',
-        'Align indoor, outdoor and decorative finishing decisions in one quote path',
+        'Align indoor, outdoor and decorative finishing decisions in one project pathway',
         'Dispatch completed items through a more efficient delivery workflow',
       ],
     },
@@ -1309,8 +1216,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       title: 'Discuss a bespoke upholstery brief from fabric to finished piece',
       description:
         'Bring LuxAura in when sofas, seating or outdoor furniture need custom fabric direction and reliable delivery support.',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     faqItems: [
       {
@@ -1346,8 +1253,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'LuxAura combines premium curtain tracks, motorised hardware and thousands of trims so clients can resolve both function and finish together.',
       imageSrc: '/images/IMG-D.webp',
       imageAlt: 'LuxAura curtain hardware and trimming references',
-      primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
-      secondaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
+      primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
+      secondaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
     },
     overview: {
       title: 'One page for the hardware that makes it work and the trims that make it special',
@@ -1413,7 +1320,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         {
           title: 'Project-ready coordination',
           description:
-            'Hardware, motorisation and trimming detail can all be captured inside the same trade quote and making workflow.',
+            'Hardware, motorisation and trimming detail can all be captured inside the same trade support and making workflow.',
         },
       ],
     },
@@ -1458,7 +1365,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       items: [
         'Match track quality and motorisation to the curtain or treatment type',
         'Select trims and laces against the same fabric and upholstery direction',
-        'Include hardware and decorative detailing in the same quote path',
+        'Include hardware and decorative detailing in the same project pathway',
         'Keep manufacturing, finishing and installation decisions aligned from the start',
       ],
     },
@@ -1488,14 +1395,14 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       title: 'Request hardware and trimming direction for the full package',
       description:
         'Use LuxAura when the brief needs reliable hardware, motorised options and richer decorative detail in one workflow.',
-      primaryCta: { label: 'Register Trade Account', href: REQUEST_CATALOGUE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     faqItems: [
       {
-        question: 'Can tracks, motors and trims all be quoted together?',
+        question: 'Can tracks, motors and trims all be coordinated together?',
         answer:
-          'Yes. LuxAura can combine hardware, motorisation and decorative trims into one coordinated quote.',
+          'Yes. LuxAura can combine hardware, motorisation and decorative trims into one coordinated pathway.',
       },
       {
         question: 'Do you only supply trims, or can you also sew them into finished products?',
@@ -1525,8 +1432,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'LuxAura supplies blind solutions for projects that need privacy, light control and a cleaner architectural finish, while staying connected to curtains and system support.',
       imageSrc: '/images/luxaura/roman-blind-lounge.webp',
       imageAlt: 'LuxAura blind solutions',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     overview: {
       title: 'Blind solutions that work on their own or as part of a larger scheme',
@@ -1636,7 +1543,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Blind selection aligned with curtain and sheer packages',
         'Track and motorisation compatibility where needed',
         'Fabric and finish coordination for Roman blind solutions',
-        'Quote support that captures the full window strategy',
+        'Project support that captures the full window strategy',
       ],
     },
     relatedSection: {
@@ -1645,9 +1552,9 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Blinds most often connect to these neighbouring categories.',
       items: [
         {
-          title: 'Tracks & Motorisation',
+          title: 'Hardware & Motorisation',
           description: 'Add system logic for large openings and smoother day-to-day operation.',
-          href: '/tracks-motorisation',
+          href: '/custom-curtains-sheers#hardware-motorisation',
         },
         {
           title: 'Window Treatments',
@@ -1655,8 +1562,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/custom-curtains-sheers',
         },
         {
-          title: 'Trade Account',
-          description: 'Coordinate specification, trade account support and multi-category project quotes.',
+          title: 'Trade Portal Access',
+          description: 'Coordinate specification, trade portal support and multi-category project pathways.',
           href: '/trade-projects',
         },
       ],
@@ -1665,8 +1572,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       title: 'Discuss a blind package or layered window solution',
       description:
         'Use LuxAura when you need practical blind performance with the option to integrate curtains, systems and broader project support.',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     faqItems: [
       {
@@ -1691,184 +1598,6 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       },
     ],
   },
-  'tracks-motorisation': {
-    slug: 'tracks-motorisation',
-    pageTitle: 'Tracks & Motorisation',
-    breadcrumbLabel: 'Tracks & Motorisation',
-    metadataTitle: 'Tracks & Motorisation | Curtain System Supply',
-    metadataDescription:
-      'LuxAura supplies curtain tracks and motorisation-ready systems for custom drapery and project interiors.',
-    metadataKeywords:
-      'curtain tracks supplier, motorised curtains Sydney, curtain system supply, tracks and motorisation',
-    hero: {
-      eyebrow: 'Tracks & Motorisation',
-      title: 'Manual and motorised systems for smooth, project-ready operation',
-      description:
-        'LuxAura supports the system side of curtains and window soft furnishings with track and motorisation-ready solutions.',
-      imageSrc: '/images/carousel/09-Curtain-Track.webp',
-      imageAlt: 'LuxAura track and motorisation system',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
-    },
-    overview: {
-      title: 'A curtain package is only as strong as the system behind it',
-      description:
-        'Tracks and motorisation matter for operation, visual neatness and long-term user satisfaction. LuxAura treats them as part of the package, not a late add-on.',
-      supportingPoints: [
-        'Manual tracks and motorisation-ready pathways',
-        'Suitable for large openings and layered curtains',
-        'System choices aligned with the selected curtain package',
-      ],
-    },
-    offerSection: {
-      title: 'What we offer',
-      description:
-        'The tracks and motorisation category supports both simpler residential schemes and more demanding project conditions.',
-      items: [
-        {
-          title: 'Manual track systems',
-          description: 'Reliable and clean-lined systems for everyday curtain operation.',
-          bullets: ['Smooth movement', 'Neat appearance', 'Practical across many project types'],
-        },
-        {
-          title: 'Motorisation-ready solutions',
-          description:
-            'Prepared pathways for projects that require convenience, scale or a more premium operating experience.',
-          bullets: ['Suitable for large spans', 'Future-facing specification', 'Comfort and convenience'],
-        },
-        {
-          title: 'Large opening support',
-          description:
-            'System direction for wide expanses and rooms where operating quality is especially visible.',
-          bullets: ['Project-ready spans', 'Consistent movement', 'Clean integration with drapery'],
-        },
-        {
-          title: 'System coordination',
-          description:
-            'Tracks and controls are matched to curtains, sheers and blind packages to avoid specification gaps.',
-          bullets: ['Curtain compatibility', 'Window package alignment', 'Single supplier coordination'],
-        },
-      ],
-    },
-    whySection: {
-      title: 'Why LuxAura',
-      description:
-        'System supply is most useful when it stays close to the soft furnishing decision.',
-      items: [
-        {
-          title: 'Integrated curtain and system planning',
-          description:
-            'Track decisions are made with the selected curtain package, not after fabric and make-up are already locked.',
-        },
-        {
-          title: 'Smooth operation focus',
-          description:
-            'The system category is approached with function and user experience in mind, not just hardware supply.',
-        },
-        {
-          title: 'Project practicality',
-          description:
-            'Suitable for homes, display suites and larger project openings where operation quality is highly visible.',
-        },
-        {
-          title: 'One-stop supplier logic',
-          description:
-            'Clients can keep fabrics, curtains, systems and quote support within the same business relationship.',
-        },
-      ],
-    },
-    applicationsSection: {
-      title: 'Applications and use cases',
-      description:
-        'Tracks and motorisation matter wherever curtain operation needs to feel reliable and considered.',
-      items: [
-        {
-          title: 'Large residential openings',
-          description: 'Curtain systems for wider spans and frequent day-to-day use.',
-        },
-        {
-          title: 'Display suites and premium homes',
-          description: 'System choices that complement more polished and controlled interior packages.',
-        },
-        {
-          title: 'Commercial and hospitality interiors',
-          description: 'Functional systems for project environments that need durability and consistency.',
-        },
-        {
-          title: 'Layered curtain schemes',
-          description: 'Tracks prepared to support sheer and blockout combinations in one room.',
-        },
-      ],
-    },
-    performanceSection: {
-      title: 'Practical system benefits',
-      description:
-        'The right system decision improves more than movement alone.',
-      items: [
-        'Smoother curtain operation over time',
-        'Better support for large spans and heavier make-ups',
-        'Cleaner coordination with decorative curtain packages',
-        'Preparedness for more premium automation expectations',
-      ],
-    },
-    oneStopSection: {
-      title: 'One-stop from fabric brief to operating system',
-      description:
-        'When systems are integrated with the textile package early, the result is more coherent and easier to deliver.',
-      items: [
-        'Track choices aligned with curtain type and fullness',
-        'System direction included in broader quote support',
-        'Less fragmentation between hardware and soft furnishings',
-        'Sydney-based communication for specification clarification',
-      ],
-    },
-    relatedSection: {
-      title: 'Related services',
-      description:
-        'Tracks and motorisation sit most naturally alongside these categories.',
-      items: [
-        {
-          title: 'Window Treatments',
-          description: 'System supply is usually driven by the drapery package it needs to support.',
-          href: '/custom-curtains-sheers',
-        },
-        {
-          title: 'Fabrics',
-          description: 'Coordinate system direction with the fabric choices driving the wider window package.',
-          href: '/wholesale-fabrics',
-        },
-        {
-          title: 'Trade Account',
-          description: 'Bring systems into a full trade enquiry, account discussion or project quote.',
-          href: '/trade-projects',
-        },
-      ],
-    },
-    ctaSection: {
-      title: 'Request system support for your next window package',
-      description:
-        'LuxAura helps clients carry curtains and window treatments through the hardware decisions that make them work well.',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
-    },
-    faqItems: [
-      {
-        question: 'Do you support both manual and motorised systems?',
-        answer:
-          'Yes. LuxAura can support standard manual track directions as well as pathways for motorisation-ready solutions.',
-      },
-      {
-        question: 'Can track decisions be made together with curtain selection?',
-        answer:
-          'Yes. Track and motorisation support is intended to sit alongside curtain specification, not after it.',
-      },
-      {
-        question: 'Are these systems suitable for large openings?',
-        answer:
-          'Yes. Larger spans are one of the main reasons clients involve LuxAura early in the system discussion.',
-      },
-    ],
-  },
   'outdoor-solutions': {
     slug: 'outdoor-solutions',
     pageTitle: 'Outdoor Solutions',
@@ -1885,8 +1614,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'LuxAura supports outdoor living and project environments with soft furnishings that balance durability, comfort and finish.',
       imageSrc: '/images/IMG-Hero.webp',
       imageAlt: 'Outdoor soft furnishing inspiration',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     overview: {
       title: 'Performance-led outdoor soft furnishings',
@@ -1923,7 +1652,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           title: 'Coordinated outdoor textile packages',
           description:
             'Outdoor products can be aligned with wider residential or hospitality furnishing schemes.',
-          bullets: ['Visual consistency', 'Practical product selection', 'Trade quote support'],
+          bullets: ['Visual consistency', 'Practical product selection', 'Trade support pathway'],
         },
       ],
     },
@@ -1994,7 +1723,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
         'Outdoor products can stay connected to the same textile and project conversation as the rest of the property.',
       items: [
         'Outdoor soft furnishings aligned with interior fabric direction',
-        'Trade quoting that reflects outdoor products alongside broader packages',
+        'Trade coordination that reflects outdoor products alongside broader packages',
         'Sydney support for project coordination and product selection',
         'A single supplier relationship across multiple furnishing categories',
       ],
@@ -2015,7 +1744,7 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
           href: '/cushions-soft-furnishings',
         },
         {
-          title: 'Trade Account',
+          title: 'Trade Portal Access',
           description: 'Bring outdoor requirements into the same trade or project workflow as the rest of the brief.',
           href: '/trade-projects',
         },
@@ -2025,8 +1754,8 @@ export const BUSINESS_PAGE_CONFIGS: Record<BusinessPageSlug, BusinessPageConfig>
       title: 'Discuss an outdoor soft furnishing package',
       description:
         'Bring LuxAura in when exterior comfort and textile durability need to work together.',
-      primaryCta: { label: 'Get Quote', href: GET_QUOTE_HREF },
-      secondaryCta: { label: 'Trade Account', href: '/trade-projects' },
+      primaryCta: { label: 'Submit a Project Brief', href: GET_QUOTE_HREF },
+      secondaryCta: { label: 'Trade Portal Access', href: '/trade-projects' },
     },
     faqItems: [
       {

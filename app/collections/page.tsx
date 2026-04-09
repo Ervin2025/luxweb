@@ -143,6 +143,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/collections`,
   },
+  openGraph: {
+    title: 'Fabric & Fabrication | Global Collections and Finished Textile Outcomes',
+    description:
+      'Global textile sourcing paired with specialist fabrication capability for finished soft-furnishing outcomes in Sydney.',
+    url: `${SITE_CONFIG.url}/collections`,
+    images: ['/images/luxaura/beach-sheer.webp'],
+  },
 };
 
 export default function CollectionsPage() {

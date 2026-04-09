@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
+import { lockBodyScroll } from '@/lib/body-scroll-lock';
+import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -69,11 +70,11 @@ export default function Navigation() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    if (!isMobileMenuOpen) {
+      return;
+    }
 
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return lockBodyScroll();
   }, [isMobileMenuOpen]);
 
   return (
@@ -98,7 +99,7 @@ export default function Navigation() {
 
             <div className="hidden min-w-0 flex-1 items-center justify-center px-2 lg:flex xl:px-4">
               <div
-                className={`relative w-full max-w-[60rem] overflow-hidden rounded-full px-2 py-2 transition-all duration-300 xl:max-w-[66rem] xl:px-3 ${
+                className={`relative w-full max-w-none overflow-hidden rounded-full pl-7 pr-10 py-2 transition-all duration-300 xl:pl-9 xl:pr-12 ${
                   isSolid
                     ? 'bg-transparent'
                     : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
@@ -110,15 +111,19 @@ export default function Navigation() {
                     <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
                   </>
                 ) : null}
-                <div className="relative flex items-center justify-center gap-1.5 whitespace-nowrap xl:gap-2">
+                <div className="relative flex items-center justify-between gap-1 whitespace-nowrap xl:gap-1.5">
                   {headerNavItems.map(link => {
                     const isActive = isLinkActive(pathname, link.href);
+                    const compactWidthClass =
+                      link.name === 'Home' || link.name === 'About'
+                        ? 'min-w-[5.6rem] xl:min-w-[6rem]'
+                        : '';
 
                     return (
                       <Link
                         key={link.name}
                         href={link.href}
-                        className={`flex min-h-[38px] items-center justify-center rounded-full px-2 py-2 text-center text-[10px] font-medium transition-colors duration-200 xl:min-h-[40px] xl:px-2.5 xl:text-[11px] 2xl:px-3.5 2xl:text-[12px] ${
+                        className={`flex min-h-[38px] flex-none items-center justify-center rounded-full px-1.5 py-2 text-center text-[10.5px] font-medium transition-colors duration-200 xl:min-h-[40px] xl:px-2 xl:text-[11.5px] 2xl:px-3 2xl:text-[12.5px] ${compactWidthClass} ${
                           isActive
                             ? 'bg-primary text-white'
                             : 'text-neutral-800 hover:bg-white/80 hover:text-primary'

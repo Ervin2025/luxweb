@@ -11,7 +11,7 @@ interface AccordionFaqProps {
 export default function AccordionFaq({
   eyebrow = 'FAQ',
   title = 'Common questions',
-  description = 'Answers to the practical questions clients usually ask before quoting, specifying or confirming fabrication detail.',
+  description = 'Answers to the practical questions clients usually ask before specifying, coordinating or confirming fabrication detail.',
   items,
 }: AccordionFaqProps) {
   return (

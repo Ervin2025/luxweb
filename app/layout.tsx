@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -6,19 +7,20 @@ import ImageCodeToggle from '@/components/ImageCodeToggle';
 import LoadingFavicon from '@/components/LoadingFavicon';
 import ScrollRevealBoot from '@/components/ScrollRevealBoot';
 import SupportDock from '@/components/SupportDock';
+import { IMAGE_CODE_BOOTSTRAP_SCRIPT } from '@/lib/image-code-bootstrap';
 import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'LuxAura | Sydney Soft-Furnishing Fulfillment Hub',
+    default: 'LuxAura | Sydney Soft-Furnishing Trade Partner',
     template: '%s | LuxAura',
   },
   description:
-    "LuxAura is Sydney's full-service soft-furnishing fulfillment hub, combining global textile sourcing, master fabrication, and accountable local project delivery.",
+    "LuxAura is Sydney's design-aware soft-furnishing and project-support partner, combining sourcing, fabrication, specification support and coordinated delivery.",
   keywords: [
     'Premium textile sourcing Sydney',
-    'Soft-furnishing fulfillment Sydney',
+    'Soft furnishing trade partner Sydney',
     'Roman blind specialist',
     'FibreGuard supplier Australia',
     'Curtain workroom Sydney',
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   openGraph: {
-    title: 'LuxAura | Sydney Soft-Furnishing Fulfillment Hub',
+    title: 'LuxAura | Sydney Soft-Furnishing Trade Partner',
     description:
-      'Sydney-based fulfillment support with global fabric sourcing, integrated fabrication, and local accountability for designers, builders, developers, and project teams.',
+      'Sydney-based sourcing, fabrication, project support and local accountability for designers, builders, developers and furnishing-led project teams.',
     type: 'website',
     locale: 'en_AU',
     siteName: 'LuxAura',
@@ -52,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LuxAura | Sydney Soft-Furnishing Fulfillment Hub',
+    title: 'LuxAura | Sydney Soft-Furnishing Trade Partner',
     description:
-      'Sydney-based sourcing, fabrication, and delivery support for premium soft-furnishing projects.',
+      'Sydney-based sourcing, fabrication and project support for premium soft-furnishing work.',
   },
   robots: {
     index: true,
@@ -77,10 +79,6 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const phoneDigits = CONTACT_INFO.phone.replace(/\D/g, '');
-  const localPhone = phoneDigits.startsWith('0') ? phoneDigits.slice(1) : phoneDigits;
-  const internationalPhone = localPhone.startsWith('61') ? `+${localPhone}` : `+61${localPhone}`;
-  const imageCodeScript = `(function(){var root=document.documentElement;var storageKey='luxaura-image-codes';var eventName='luxaura-image-codes-change';var isLocalHost=function(){return /^(localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0)$/.test(window.location.hostname)||window.location.hostname.indexOf('192.168.')===0||window.location.hostname.indexOf('10.')===0;};var getQueryEnabled=function(){var query=window.location.search;return query.indexOf('image-codes=1')!==-1||query.indexOf('image-codes=true')!==-1;};var getStoredEnabled=function(){try{return window.localStorage.getItem(storageKey);}catch(error){return null;}};var setStoredEnabled=function(enabled){try{window.localStorage.setItem(storageKey,enabled?'1':'0');}catch(error){}};var isEnabled=function(){var queryEnabled=getQueryEnabled();if(queryEnabled){setStoredEnabled(true);return true;}var stored=getStoredEnabled();if(stored==='1'){return true;}if(stored==='0'){return false;}return isLocalHost();};var apply=function(enabled){if(enabled){root.dataset.imageCodes='1';}else{delete root.dataset.imageCodes;}window.dispatchEvent(new CustomEvent(eventName,{detail:{enabled:enabled}}));};var sync=function(){apply(isEnabled());};var wrap=function(method){var original=history[method];if(!original||original.__imageCodesWrapped){return;}var wrapped=function(){var result=original.apply(this,arguments);setTimeout(sync,0);return result;};wrapped.__imageCodesWrapped=true;history[method]=wrapped;};wrap('pushState');wrap('replaceState');window.addEventListener('popstate',sync);sync();})();`;
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
@@ -102,7 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     },
     priceRange: '$$-$$$',
     openingHours: 'Mo-Sa 08:00-18:00',
-    telephone: internationalPhone,
+    telephone: CONTACT_INFO.internationalPhone,
     email: CONTACT_INFO.email,
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram],
     knowsAbout: [
@@ -118,23 +116,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta
-          name="description"
-          content="LuxAura is Sydney's full-service soft-furnishing fulfillment hub, combining global textile sourcing, master fabrication, and accountable local project delivery."
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: imageCodeScript,
-          }}
-        />
       </head>
       <body className="font-sans">
+        <Script
+          id="luxaura-image-codes"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: IMAGE_CODE_BOOTSTRAP_SCRIPT,
+          }}
+        />
         <ScrollRevealBoot />
         <LoadingFavicon />
         <Navigation />

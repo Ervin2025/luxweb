@@ -7,6 +7,7 @@ import SectionHeading from '@/components/SectionHeading';
 import TradeForm from '@/components/TradeForm';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { type FormIntent } from '@/lib/form-options';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import {
   TRADE_SUPPORT_HREF,
@@ -14,7 +15,6 @@ import {
   TRADE_PROJECT_FAQ,
   TRADE_PROJECT_PARTNERS,
   TRADE_PROJECT_PROCESS,
-  type FormIntent,
 } from '@/lib/site-data';
 
 export const metadata: Metadata = {
@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     'trade fabric supplier Sydney, trade portal access, project brief support, curtain workroom Sydney',
   alternates: {
     canonical: `${SITE_CONFIG.url}/trade-projects`,
+  },
+  openGraph: {
+    title: 'Trade Portal Access | Trade Entry and Project Support',
+    description:
+      'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
+    url: `${SITE_CONFIG.url}/trade-projects`,
+    images: ['/images/luxaura/vertical-sheer-pool.webp'],
   },
 };
 
@@ -112,7 +119,7 @@ export default async function TradeProjectsPage({
             <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-8 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] sm:p-10">
               <SectionHeading
                 eyebrow="Workflow"
-                title="Sampling, quoting and fabrication stay connected"
+                title="Sampling, project support and fabrication stay connected"
                 description="Trade access exists to keep sourcing, fabrication and project coordination inside one managed path."
                 theme="dark"
               />

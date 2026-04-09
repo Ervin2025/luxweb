@@ -19,12 +19,6 @@ const nextConfig = {
   reactStrictMode: true,
   // 输出文件追踪根目录（解决警告）
   outputFileTracingRoot: __dirname,
-
-  // 优化页面切换速度
-  experimental: {
-    optimizePackageImports: ['framer-motion'],
-  },
-
   // 安全 Headers
   async headers() {
     return [

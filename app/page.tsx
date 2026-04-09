@@ -125,9 +125,23 @@ export const metadata: Metadata = {
   description:
     "Sydney's integrated trade partner for soft-furnishing sourcing, fabrication, project support and more coordinated delivery across premium residential, hospitality and commercial interiors.",
   keywords:
-    'Sydney soft furnishing fulfillment, premium textiles Sydney, project support Sydney, custom soft furnishings Sydney, trade window treatments Sydney, bespoke upholstery Sydney',
+    'Sydney soft furnishing trade partner, premium textiles Sydney, project support Sydney, custom soft furnishings Sydney, window treatments Sydney, bespoke upholstery Sydney',
   alternates: {
     canonical: SITE_CONFIG.url,
+  },
+  openGraph: {
+    title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
+    description:
+      'Sydney-based sourcing, fabrication, specialist finishing and project support for premium residential, hospitality and commercial interiors.',
+    url: SITE_CONFIG.url,
+    images: ['/image/hero.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
+    description:
+      'Sydney-based sourcing, fabrication, specialist finishing and project support for premium soft-furnishing work.',
+    images: ['/image/hero.webp'],
   },
 };
 

@@ -7,7 +7,7 @@ import {
   TRADE_PROJECT_BUSINESS_TYPES,
   TRADE_PROJECT_FOCUS_OPTIONS,
   type FormIntent,
-} from '@/lib/site-data';
+} from '@/lib/form-options';
 
 const initialFormState = {
   intent: 'trade-access' as FormIntent,

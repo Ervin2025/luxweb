@@ -2,18 +2,19 @@ export const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://luxaura.com.au',
   name: 'LuxAura',
   description:
-    'Sydney-based full-service soft-furnishing fulfillment hub for premium textiles, master fabrication, and accountable project delivery.',
+    'Sydney-based, design-aware soft-furnishing and project-support partner for sourcing, fabrication and coordinated delivery.',
 } as const;
 
 export const CONTACT_INFO = {
   phone: '0450 871 699',
+  internationalPhone: '+61450871699',
   email: 'service@luxaura.com.au',
   address: {
     line1: '4 Wilfred Avenue',
     city: 'Chatswood',
     region: 'NSW',
     country: 'Australia',
-    display: '4 Wilfred Avenue, Chatswood, NSW',
+    display: '4 Wilfred Avenue, Chatswood NSW',
   },
   hours: 'Trade support by appointment',
 } as const;

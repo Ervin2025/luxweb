@@ -5,7 +5,7 @@ import {
   FOOTER_CATEGORY_LINKS,
   TRADE_PORTAL_ACCESS_HREF,
   TRADE_SUPPORT_HREF,
-} from '@/lib/site-data';
+} from '@/lib/navigation-data';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,8 +28,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="max-w-sm text-sm leading-7 text-white/72 sm:text-base">
-              Sydney-based full-service soft-furnishing fulfillment hub for designers, builders,
-              developers, and project partners who need sourcing, fabrication, and accountable
+              Sydney-based soft-furnishing and project-support partner for designers, builders,
+              developers and furnishing-led clients who need sourcing, fabrication and accountable
               local delivery in one coordinated model.
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">

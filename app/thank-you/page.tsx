@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { FORM_INTENT_OPTIONS, THANK_YOU_VARIANTS, type FormIntent } from '@/lib/site-data';
+import { FORM_INTENT_OPTIONS, type FormIntent } from '@/lib/form-options';
+import { THANK_YOU_VARIANTS } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'Thank You | LuxAura',
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
     'Thank you for contacting LuxAura. Your enquiry has been received and the team will respond with the next step.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/thank-you`,
+  },
+  robots: {
+    index: false,
+    follow: false,
   },
 };
 

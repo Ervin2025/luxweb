@@ -77,7 +77,7 @@ const TRADE_DESK_SUPPORT = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'About & Trade Desk | Soft Furnishing Trade Partner Sydney | LuxAura',
+  title: 'About | Soft Furnishing Trade Partner Sydney',
   description:
     'Learn how LuxAura supports designers, builders, stylists and project teams through sourcing, fabrication, project support and trade coordination in Sydney.',
   keywords: [
@@ -89,6 +89,13 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
+  },
+  openGraph: {
+    title: 'About | Soft Furnishing Trade Partner Sydney',
+    description:
+      'LuxAura supports designers, builders, stylists and project teams through sourcing, fabrication, project support and trade coordination in Sydney.',
+    url: `${SITE_CONFIG.url}/about`,
+    images: ['/images/about-hero.webp'],
   },
 };
 
@@ -105,7 +112,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
-                About & Trade Desk
+                About
               </p>
               <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.25rem]">
                 A Sydney Partner for Soft-Furnishing Execution

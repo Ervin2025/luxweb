@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/trade/login`,
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function TradeLoginPage() {
