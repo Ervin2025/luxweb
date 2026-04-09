@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import FaqSection from '@/components/FaqSection';
 import PageHero from '@/components/PageHero';
@@ -10,7 +9,6 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { type FormIntent } from '@/lib/form-options';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import {
-  TRADE_SUPPORT_HREF,
   TRADE_PROJECT_BENEFITS,
   TRADE_PROJECT_FAQ,
   TRADE_PROJECT_PARTNERS,
@@ -68,9 +66,6 @@ export default async function TradeProjectsPage({
         <a href="#trade-projects-form" className="btn-primary">
           Trade Account Access
         </a>
-        <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Find Support
-        </Link>
       </PageHero>
 
       <div className="container-custom">

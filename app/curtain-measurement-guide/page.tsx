@@ -5,7 +5,7 @@ import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { PROJECT_BRIEF_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { PROJECT_BRIEF_HREF } from '@/lib/site-data';
 
 const GUIDE_STEPS = [
   {
@@ -56,9 +56,6 @@ export default function CurtainMeasurementGuidePage() {
       >
         <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
           Submit a Brief
-        </Link>
-        <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Find Support
         </Link>
       </PageHero>
 

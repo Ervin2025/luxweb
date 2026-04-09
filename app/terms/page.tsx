@@ -66,9 +66,6 @@ export default function TermsPage() {
         <Link href="/trade-projects" className="btn-primary">
           Trade Account Access
         </Link>
-        <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Find Support
-        </Link>
       </PageHero>
 
       <div className="container-custom">

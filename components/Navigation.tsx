@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { lockBodyScroll } from '@/lib/body-scroll-lock';
-import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/navigation-data';
+import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -121,13 +121,23 @@ export default function Navigation() {
             </button>
           </div>
 
-          <div className="hidden items-center gap-4 lg:flex xl:gap-6">
-            <Link href="/" className="flex flex-shrink-0 items-center">
+          <div className="hidden lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:items-start lg:gap-x-4 lg:gap-y-3 xl:gap-x-6">
+            <Link href="/" className="row-span-2 flex flex-shrink-0 items-start pt-1">
               <BrandWordmark />
             </Link>
-            <div className="min-w-0 flex-1">
+
+            <div className="flex justify-end">
+              <Link
+                href={TRADE_PORTAL_ACCESS_HREF}
+                className="btn-primary px-4 py-2.5 text-[12px] tracking-[0.16em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.2em] 2xl:px-6 2xl:text-[13px] 2xl:tracking-[0.22em]"
+              >
+                TRADE PORTAL ACCESS
+              </Link>
+            </div>
+
+            <div className="min-w-0">
               <div
-                className={`relative w-full overflow-hidden rounded-[1.8rem] px-5 py-2.5 transition-all duration-300 xl:px-7 ${
+                className={`relative w-full overflow-hidden rounded-[1.8rem] px-6 py-3 transition-all duration-300 xl:px-8 ${
                   isSolid
                     ? 'bg-transparent'
                     : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
@@ -139,7 +149,7 @@ export default function Navigation() {
                     <div className="pointer-events-none absolute inset-0 rounded-[1.8rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
                   </>
                 ) : null}
-                <div className="relative flex items-center justify-center gap-1.5 whitespace-nowrap xl:gap-2">
+                <div className="relative flex flex-wrap items-center justify-center gap-1.5 xl:gap-2">
                   {headerNavItems.map(link => {
                     const isActive = isLinkActive(pathname, link.href);
 
@@ -147,7 +157,7 @@ export default function Navigation() {
                       <Link
                         key={link.name}
                         href={link.href}
-                        className={`flex min-h-[42px] items-center justify-center rounded-full px-3.5 py-2 text-center text-[15px] font-medium transition-colors duration-200 xl:min-h-[44px] xl:px-4 xl:text-[15.5px] 2xl:px-4.5 2xl:text-[16px] ${
+                        className={`flex min-h-[42px] items-center justify-center rounded-full px-4 py-2 text-center text-[13px] font-medium transition-colors duration-200 xl:min-h-[44px] xl:px-4.5 xl:text-[13.5px] 2xl:px-5 2xl:text-[14px] ${
                           isActive
                             ? 'bg-primary text-white'
                             : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
@@ -159,21 +169,6 @@ export default function Navigation() {
                   })}
                 </div>
               </div>
-            </div>
-
-            <div className="flex flex-shrink-0 items-center gap-3">
-              <Link
-                href={TRADE_SUPPORT_HREF}
-                className="btn-secondary px-4 py-2.5 text-[12px] tracking-[0.14em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.18em]"
-              >
-                FIND SUPPORT
-              </Link>
-              <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary px-4 py-2.5 text-[12px] tracking-[0.14em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.18em]"
-              >
-                TRADE ACCOUNT ACCESS
-              </Link>
             </div>
           </div>
 
@@ -203,16 +198,10 @@ export default function Navigation() {
             })}
             <div className="mt-4 grid gap-3">
               <Link
-                href={TRADE_SUPPORT_HREF}
-                className="btn-secondary w-full justify-center text-center text-[18px] active:scale-95 sm:text-[1.2rem]"
-              >
-                FIND SUPPORT
-              </Link>
-              <Link
                 href={TRADE_PORTAL_ACCESS_HREF}
                 className="btn-primary w-full justify-center text-center text-[18px] active:scale-95 sm:text-[1.2rem]"
               >
-                TRADE ACCOUNT ACCESS
+                TRADE PORTAL ACCESS
               </Link>
             </div>
           </div>

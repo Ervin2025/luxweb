@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'Trade Account Preview | Secure Trade Access',
@@ -61,9 +60,6 @@ export default function TradeLoginPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/trade-projects" className="btn-primary">
               Trade Account Access
-            </Link>
-            <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-              Find Support
             </Link>
           </div>
         </section>

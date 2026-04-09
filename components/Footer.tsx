@@ -6,7 +6,6 @@ import {
   PROJECT_BRIEF_HREF,
   REQUEST_CUSTOM_SUPPORT_HREF,
   TRADE_PORTAL_ACCESS_HREF,
-  TRADE_SUPPORT_HREF,
 } from '@/lib/navigation-data';
 
 export default function Footer() {
@@ -38,12 +37,6 @@ export default function Footer() {
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
                 Trade Account Access
               </Link>
-              <Link
-                href={TRADE_SUPPORT_HREF}
-                className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
-              >
-                Find Support
-              </Link>
             </div>
           </div>
 
@@ -72,14 +65,6 @@ export default function Footer() {
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
                   Trade Account Access
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={TRADE_SUPPORT_HREF}
-                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
-                >
-                  Find Support
                 </Link>
               </li>
               <li>

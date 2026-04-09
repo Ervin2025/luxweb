@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import ImageCodeToggle from '@/components/ImageCodeToggle';
 import LoadingFavicon from '@/components/LoadingFavicon';
 import ScrollRevealBoot from '@/components/ScrollRevealBoot';
-import SupportDock from '@/components/SupportDock';
 import { IMAGE_CODE_BOOTSTRAP_SCRIPT } from '@/lib/image-code-bootstrap';
 import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 
@@ -137,7 +136,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <ImageCodeToggle />
         <Footer />
-        <SupportDock />
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { FAQ_GROUPS, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { FAQ_GROUPS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'FAQ | Trade Fabrics, Projects and Fabrication Support',
@@ -35,9 +35,6 @@ export default function FaqPage() {
       >
         <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
           Trade Account Access
-        </Link>
-        <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Find Support
         </Link>
       </PageHero>
 

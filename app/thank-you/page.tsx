@@ -75,9 +75,11 @@ export default async function ThankYouPage({
             <Link href={variant.primaryCta.href} className="btn-primary">
               {variant.primaryCta.label}
             </Link>
-            <Link href={variant.secondaryCta.href} className="btn-secondary">
-              {variant.secondaryCta.label}
-            </Link>
+            {variant.secondaryCta ? (
+              <Link href={variant.secondaryCta.href} className="btn-secondary">
+                {variant.secondaryCta.label}
+              </Link>
+            ) : null}
           </div>
         </section>
       </div>

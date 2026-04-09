@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 export default function NotFound() {
   return (
@@ -15,9 +14,6 @@ export default function NotFound() {
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link href="/" className="btn-primary">
             Back to Home
-          </Link>
-          <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-            Find Support
           </Link>
         </div>
       </div>

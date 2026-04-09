@@ -4,7 +4,6 @@ import {
   GET_QUOTE_HREF,
   PROJECT_BRIEF_HREF,
   REQUEST_CATALOGUE_HREF,
-  TRADE_SUPPORT_HREF,
 } from '@/lib/navigation-data';
 
 export {
@@ -127,7 +126,7 @@ export interface ThankYouContent {
   title: string;
   description: string;
   primaryCta: CtaLink;
-  secondaryCta: CtaLink;
+  secondaryCta?: CtaLink;
 }
 
 export interface CatalogItem {
@@ -1831,7 +1830,6 @@ export const THANK_YOU_VARIANTS: Record<
     description:
       'The brief is now in the LuxAura workflow for sourcing alignment, fabrication review and the next step on coordination.',
     primaryCta: { label: 'Trade Account Access', href: REQUEST_CATALOGUE_HREF },
-    secondaryCta: { label: 'Find Support', href: TRADE_SUPPORT_HREF },
   },
   contact: {
     title: 'Your enquiry has been sent to the trade desk',
