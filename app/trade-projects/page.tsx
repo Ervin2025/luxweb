@@ -18,7 +18,7 @@ import {
 } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Trade Portal Access | Trade Entry and Project Support',
+  title: 'Trade Account Access | Trade Entry and Project Support',
   description:
     'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
   keywords:
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/trade-projects`,
   },
   openGraph: {
-    title: 'Trade Portal Access | Trade Entry and Project Support',
+    title: 'Trade Account Access | Trade Entry and Project Support',
     description:
       'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
     url: `${SITE_CONFIG.url}/trade-projects`,
@@ -51,14 +51,14 @@ export default async function TradeProjectsPage({
   const resolvedSearchParams = await searchParams;
   const initialIntent = resolveIntent(resolvedSearchParams?.intent);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Trade Portal Access', url: '/trade-projects' },
+    { name: 'Trade Account Access', url: '/trade-projects' },
   ]);
   const faqSchema = generateFaqSchema(TRADE_PROJECT_FAQ);
 
   return (
     <div>
       <PageHero
-        eyebrow="Trade Portal Access"
+        eyebrow="Trade Account Access"
         title="Trade entry for pricing, resources and project coordination"
         description="Use this page to request LuxAura trade access, start a project pathway or connect the brief to the right support channel."
         imageSrc="/images/luxaura/vertical-sheer-pool.webp"
@@ -66,15 +66,15 @@ export default async function TradeProjectsPage({
         imageCode="LXA-TRADE-01"
       >
         <a href="#trade-projects-form" className="btn-primary">
-          Trade Portal Access
+          Trade Account Access
         </a>
         <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Access Trade Support
+          Find Support
         </Link>
       </PageHero>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'Trade Portal Access', href: '/trade-projects' }]} />
+        <Breadcrumb items={[{ label: 'Trade Account Access', href: '/trade-projects' }]} />
       </div>
 
       <section className="section-padding pt-6">
@@ -169,10 +169,10 @@ export default async function TradeProjectsPage({
       <section id="trade-projects-form" className="section-padding pt-0">
         <div className="container-custom">
           <div className="mx-auto max-w-5xl">
-              <SectionHeading
-                eyebrow="Form"
-                title="Choose the right intent and send the brief once"
-                description="Trade access requires ABN verification. Project enquiries use the same structured intake flow."
+            <SectionHeading
+              eyebrow="Form"
+              title="Choose the right intent and send the brief once"
+              description="Trade access requires ABN verification. Project enquiries use the same structured intake flow."
               align="center"
             />
             <div className="mt-10">

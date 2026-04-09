@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { lockBodyScroll } from '@/lib/body-scroll-lock';
-import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
+import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/navigation-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -87,64 +87,10 @@ export default function Navigation() {
               : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px] lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0'
           }`}
         >
-          <div className="flex items-center justify-between gap-3 lg:gap-4 xl:gap-6">
+          <div className="flex items-center justify-between gap-3 lg:hidden">
             <Link href="/" className="flex flex-shrink-0 items-center pr-2 lg:pr-0">
-              <span className="lg:hidden">
-                <BrandWordmark mobile />
-              </span>
-              <div className="hidden lg:block">
-                <BrandWordmark />
-              </div>
+              <BrandWordmark mobile />
             </Link>
-
-            <div className="hidden min-w-0 flex-1 items-center justify-center px-2 lg:flex xl:px-4">
-              <div
-                className={`relative w-full max-w-none overflow-hidden rounded-full pl-7 pr-10 py-2 transition-all duration-300 xl:pl-9 xl:pr-12 ${
-                  isSolid
-                    ? 'bg-transparent'
-                    : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
-                }`}
-              >
-                {!isSolid ? (
-                  <>
-                    <div className="pointer-events-none absolute inset-px rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
-                    <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-                  </>
-                ) : null}
-                <div className="relative flex items-center justify-between gap-1 whitespace-nowrap xl:gap-1.5">
-                  {headerNavItems.map(link => {
-                    const isActive = isLinkActive(pathname, link.href);
-                    const compactWidthClass =
-                      link.name === 'Home' || link.name === 'About'
-                        ? 'min-w-[5.6rem] xl:min-w-[6rem]'
-                        : '';
-
-                    return (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className={`flex min-h-[38px] flex-none items-center justify-center rounded-full px-1.5 py-2 text-center text-[10.5px] font-medium transition-colors duration-200 xl:min-h-[40px] xl:px-2 xl:text-[11.5px] 2xl:px-3 2xl:text-[12.5px] ${compactWidthClass} ${
-                          isActive
-                            ? 'bg-primary text-white'
-                            : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
-                        }`}
-                      >
-                        <span className="whitespace-nowrap">{link.name}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden flex-shrink-0 items-center gap-3 lg:flex">
-              <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary px-4 py-2.5 text-[11px] tracking-[0.18em] xl:px-5 xl:text-xs xl:tracking-[0.22em] 2xl:px-6 2xl:text-sm 2xl:tracking-[0.28em]"
-              >
-                TRADE PORTAL ACCESS
-              </Link>
-            </div>
 
             <button
               className={`flex h-11 w-11 items-center justify-center rounded-full text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] focus:outline-none max-[430px]:h-10 max-[430px]:w-10 lg:hidden sm:h-12 sm:w-12 ${
@@ -175,6 +121,62 @@ export default function Navigation() {
             </button>
           </div>
 
+          <div className="hidden items-center gap-4 lg:flex xl:gap-6">
+            <Link href="/" className="flex flex-shrink-0 items-center">
+              <BrandWordmark />
+            </Link>
+            <div className="min-w-0 flex-1">
+              <div
+                className={`relative w-full overflow-hidden rounded-[1.8rem] px-5 py-2.5 transition-all duration-300 xl:px-7 ${
+                  isSolid
+                    ? 'bg-transparent'
+                    : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
+                }`}
+              >
+                {!isSolid ? (
+                  <>
+                    <div className="pointer-events-none absolute inset-px rounded-[1.8rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
+                    <div className="pointer-events-none absolute inset-0 rounded-[1.8rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
+                  </>
+                ) : null}
+                <div className="relative flex items-center justify-center gap-1.5 whitespace-nowrap xl:gap-2">
+                  {headerNavItems.map(link => {
+                    const isActive = isLinkActive(pathname, link.href);
+
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className={`flex min-h-[42px] items-center justify-center rounded-full px-3.5 py-2 text-center text-[15px] font-medium transition-colors duration-200 xl:min-h-[44px] xl:px-4 xl:text-[15.5px] 2xl:px-4.5 2xl:text-[16px] ${
+                          isActive
+                            ? 'bg-primary text-white'
+                            : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
+                        }`}
+                      >
+                        <span className="whitespace-nowrap">{link.name}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-shrink-0 items-center gap-3">
+              <Link
+                href={TRADE_SUPPORT_HREF}
+                className="btn-secondary px-4 py-2.5 text-[12px] tracking-[0.14em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.18em]"
+              >
+                FIND SUPPORT
+              </Link>
+              <Link
+                href={TRADE_PORTAL_ACCESS_HREF}
+                className="btn-primary px-4 py-2.5 text-[12px] tracking-[0.14em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.18em]"
+              >
+                TRADE ACCOUNT ACCESS
+              </Link>
+            </div>
+          </div>
+
         </div>
 
         {isMobileMenuOpen && (
@@ -189,7 +191,7 @@ export default function Navigation() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`flex min-h-[52px] items-center rounded-2xl px-4 py-3 text-[15px] font-medium leading-6 transition-colors active:scale-95 max-[430px]:min-h-[50px] max-[430px]:rounded-[1rem] max-[430px]:px-3.5 max-[430px]:text-[14px] sm:min-h-[56px] sm:py-4 sm:text-lg ${
+                  className={`flex min-h-[56px] items-center rounded-2xl px-4 py-3 text-[18px] font-medium leading-6 transition-colors active:scale-95 max-[430px]:min-h-[52px] max-[430px]:rounded-[1rem] max-[430px]:px-3.5 max-[430px]:text-[17px] sm:min-h-[60px] sm:py-4 sm:text-[1.25rem] ${
                     isActive
                       ? 'bg-primary text-white'
                       : 'text-neutral-800 hover:bg-neutral-50 hover:text-primary'
@@ -201,10 +203,16 @@ export default function Navigation() {
             })}
             <div className="mt-4 grid gap-3">
               <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary w-full justify-center text-center text-base active:scale-95 sm:text-lg"
+                href={TRADE_SUPPORT_HREF}
+                className="btn-secondary w-full justify-center text-center text-[18px] active:scale-95 sm:text-[1.2rem]"
               >
-                TRADE PORTAL ACCESS
+                FIND SUPPORT
+              </Link>
+              <Link
+                href={TRADE_PORTAL_ACCESS_HREF}
+                className="btn-primary w-full justify-center text-center text-[18px] active:scale-95 sm:text-[1.2rem]"
+              >
+                TRADE ACCOUNT ACCESS
               </Link>
             </div>
           </div>

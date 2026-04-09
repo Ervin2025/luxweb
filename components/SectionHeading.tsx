@@ -14,9 +14,9 @@ export default function SectionHeading({
   theme = 'light',
 }: SectionHeadingProps) {
   const alignment = align === 'center' ? 'mx-auto text-center' : 'text-left';
-  const eyebrowClass = theme === 'dark' ? 'text-[#dfc99f]' : 'text-primary/70';
+  const eyebrowClass = theme === 'dark' ? 'text-white' : 'text-primary/70';
   const titleClass = theme === 'dark' ? 'text-white' : 'text-neutral-900';
-  const descriptionClass = theme === 'dark' ? 'text-white/78' : 'text-neutral-700';
+  const descriptionClass = theme === 'dark' ? 'text-white' : 'text-neutral-700';
 
   return (
     <div className={`max-w-3xl ${alignment}`} data-reveal="text">

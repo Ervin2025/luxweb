@@ -3,6 +3,7 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import {
+  PROJECT_ENQUIRY_TYPE_OPTIONS,
   PROJECT_CLIENT_TYPE_OPTIONS,
   PROJECT_SERVICE_OPTIONS,
   PROJECT_STAGE_OPTIONS,
@@ -16,6 +17,7 @@ const initialFormState = {
   company: '',
   email: '',
   phone: '',
+  enquiryType: '',
   clientType: '',
   projectType: '',
   projectStage: '',
@@ -27,11 +29,13 @@ const initialFormState = {
 interface ProjectEnquiryFormProps {
   submitLabel?: string;
   className?: string;
+  note?: string;
 }
 
 export default function ProjectEnquiryForm({
-  submitLabel = 'Send to Trade Desk',
+  submitLabel = 'Submit Brief',
   className = '',
+  note,
 }: ProjectEnquiryFormProps) {
   const router = useRouter();
   const [formData, setFormData] = useState(initialFormState);
@@ -103,6 +107,7 @@ export default function ProjectEnquiryForm({
       body.append('company_or_studio', formData.company);
       body.append('email', formData.email);
       body.append('phone', formData.phone);
+      body.append('enquiry_type', formData.enquiryType);
       body.append('client_type', formData.clientType);
       body.append('project_type', formData.projectType);
       body.append('project_stage', formData.projectStage);
@@ -142,8 +147,14 @@ export default function ProjectEnquiryForm({
       onSubmit={handleSubmit}
       className={`section-shell space-y-5 p-5 sm:space-y-6 sm:p-8 lg:p-10 ${className}`}
     >
+      {note ? (
+        <div className="rounded-[1.2rem] border border-primary/10 bg-[#f6f0e4] px-4 py-3 text-sm leading-7 text-neutral-700">
+          {note}
+        </div>
+      ) : null}
+
       <div className="grid gap-6 md:grid-cols-2">
-        <Field label="Name" htmlFor="name">
+        <Field label="Full Name" htmlFor="name">
           <input
             type="text"
             id="name"
@@ -154,7 +165,7 @@ export default function ProjectEnquiryForm({
             className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
         </Field>
-        <Field label="Company / Studio" htmlFor="company">
+        <Field label="Company / Studio / Brand" htmlFor="company">
           <input
             type="text"
             id="company"
@@ -192,6 +203,23 @@ export default function ProjectEnquiryForm({
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
+        <Field label="Enquiry Type" htmlFor="enquiryType">
+          <select
+            id="enquiryType"
+            name="enquiryType"
+            required
+            value={formData.enquiryType}
+            onChange={handleChange}
+            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+          >
+            <option value="">Select enquiry type</option>
+            {PROJECT_ENQUIRY_TYPE_OPTIONS.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
         <Field label="Client Type" htmlFor="clientType">
           <select
             id="clientType"
@@ -209,6 +237,9 @@ export default function ProjectEnquiryForm({
             ))}
           </select>
         </Field>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2">
         <Field label="Project Type" htmlFor="projectType">
           <select
             id="projectType"
@@ -226,9 +257,6 @@ export default function ProjectEnquiryForm({
             ))}
           </select>
         </Field>
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-2">
         <Field label="Project Stage" htmlFor="projectStage">
           <select
             id="projectStage"
@@ -324,7 +352,7 @@ export default function ProjectEnquiryForm({
         <p className="mt-2 text-xs text-neutral-500">Single file. PDF or image. Up to 5 MB.</p>
       </Field>
 
-      <Field label="Message" htmlFor="message">
+      <Field label="Message / Brief Details" htmlFor="message">
         <textarea
           id="message"
           name="message"

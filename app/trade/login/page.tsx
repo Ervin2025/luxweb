@@ -6,7 +6,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Trade Portal Preview | Secure Trade Access',
+  title: 'Trade Account Preview | Secure Trade Access',
   description:
     'Preview the LuxAura trade portal surface for protected trade pricing, spec sheet access and project support.',
   alternates: {
@@ -20,21 +20,21 @@ export const metadata: Metadata = {
 
 export default function TradeLoginPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Trade Portal Access', url: '/trade-projects' },
-    { name: 'Trade Portal Preview', url: '/trade/login' },
+    { name: 'Trade Account Access', url: '/trade-projects' },
+    { name: 'Trade Account Preview', url: '/trade/login' },
   ]);
 
   return (
     <div className="px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pt-40">
       <div className="container-custom">
-      <Breadcrumb
-        items={[
-            { label: 'Trade Portal Access', href: '/trade-projects' },
-            { label: 'Trade Portal Preview', href: '/trade/login' },
+        <Breadcrumb
+          items={[
+            { label: 'Trade Account Access', href: '/trade-projects' },
+            { label: 'Trade Account Preview', href: '/trade/login' },
           ]}
         />
         <section className="section-shell mt-4 overflow-hidden p-8 sm:p-10">
-          <p className="eyebrow">Secure Trade Portal</p>
+          <p className="eyebrow">Secure Trade Access</p>
           <h1 className="mt-4 font-heading text-5xl font-semibold text-neutral-900 sm:text-6xl">
             Protected pricing and project tools for approved trade members
           </h1>
@@ -60,10 +60,10 @@ export default function TradeLoginPage() {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/trade-projects" className="btn-primary">
-              Trade Portal Access
+              Trade Account Access
             </Link>
             <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-              Access Trade Support
+              Find Support
             </Link>
           </div>
         </section>

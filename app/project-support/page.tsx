@@ -4,34 +4,55 @@ import Link from 'next/link';
 import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
+import PartnerValueSection from '@/components/PartnerValueSection';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { PROJECT_BRIEF_HREF, PROJECT_SUPPORT_FAQ, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import {
+  PROJECT_BRIEF_HREF,
+  PROJECT_SUPPORT_FAQ,
+  TRADE_SUPPORT_HREF,
+} from '@/lib/site-data';
 
 const CLIENT_PATHWAYS = [
   {
-    title: 'For Designers, Builders & Developers',
+    title: 'Designers',
     description:
-      'Design development, drawing refinement, system selection and specification support that helps furnishing ideas move toward project-ready execution.',
+      'Design-aware sourcing, specification refinement and execution support that help schemes stay original and more buildable.',
     code: 'LXA-PS-02',
     imageSrc: '/images/IMG-I.webp',
     imageAlt: 'Fabric books, hardware planning and furnishing drawing development for a project team',
   },
   {
-    title: 'For Stylists',
+    title: 'Stylists',
     description:
-      'Broader category sourcing, cohesive material direction and commercially smart procurement for spaces that need to look resolved without becoming overcomplicated or overbudget.',
+      'Broader category sourcing, stronger finishing language and commercially smart procurement for spaces that need to feel resolved.',
     code: 'LXA-PS-03',
     imageSrc: '/images/luxaura/upholstery-pillows.webp',
     imageAlt: 'Layered soft furnishing palette with cushions, drapery and styling direction',
   },
   {
-    title: 'For Hospitality, Short-Stay & Lifestyle Commercial Spaces',
+    title: 'Builders / Developers',
     description:
-      'A combined support pathway of visual refinement, procurement coordination and furnishing execution for spaces where atmosphere, durability and final presentation must work together.',
+      'Category alignment, technical coordination and furnishing support that reduce disconnected decisions across the soft-furnishing scope.',
     code: 'LXA-PS-04',
+    imageSrc: '/images/IMG-K.webp',
+    imageAlt: 'Builder and developer furnishing coordination in a refined project setting',
+  },
+  {
+    title: 'Retailers / Brand Partners',
+    description:
+      'More distinctive resource access, small-batch custom flexibility and broader fulfilment support for more competitive brand outcomes.',
+    code: 'LXA-PS-12',
+    imageSrc: '/images/IMG-B.webp',
+    imageAlt: 'Decorative resource and product development detail for a retail or brand partner',
+  },
+  {
+    title: 'Hospitality / Short-Stay Operators',
+    description:
+      'A combined pathway of visual refinement, procurement coordination and furnishing execution for spaces where atmosphere and practicality must work together.',
+    code: 'LXA-PS-13',
     imageSrc: '/images/IMG-K.webp',
     imageAlt: 'Boutique hospitality interior with layered soft furnishings and premium seating',
   },
@@ -102,28 +123,28 @@ const HOSPITALITY_SUPPORT = [
 const PROCESS_STEPS = [
   {
     number: '01',
-    title: 'Brief & Visual Direction',
-    description: 'Review the project intent, room function, visual goals and furnishing priorities.',
+    title: 'Brief & Direction',
+    description: 'Understanding the project, design intent and furnishing priorities.',
   },
   {
     number: '02',
-    title: 'Design Development',
-    description: 'Help refine materials, categories, systems and detail logic into a more resolved scope.',
+    title: 'Resource Alignment',
+    description: 'Bringing together suitable materials, decorative layers, technical support and practical requirements.',
   },
   {
     number: '03',
-    title: 'Specification & Selection',
-    description: 'Support practical selection decisions across fabric, window treatments, upholstery, hardware and decorative details.',
+    title: 'Refinement & Coordination',
+    description: 'Helping shape a more coherent and workable furnishing direction.',
   },
   {
     number: '04',
-    title: 'Procurement & Fabrication',
-    description: 'Coordinate sourcing and making pathways so the furnishing scope moves with less fragmentation.',
+    title: 'Fabrication & Fulfilment',
+    description: 'Moving selected scope into controlled production and delivery pathways.',
   },
   {
     number: '05',
-    title: 'Delivery & Installation Readiness',
-    description: 'Help prepare the project for implementation with clearer alignment across product, making and site conditions.',
+    title: 'Final Project Readiness',
+    description: 'Supporting a cleaner handover toward styling, installation or project completion.',
   },
 ] as const;
 
@@ -134,19 +155,19 @@ const WHY_SUPPORT_WORKS = [
       'Fewer disconnected purchasing paths across fabric, curtains, upholstery, hardware and trims.',
   },
   {
-    title: 'Stronger Design-to-Execution Continuity',
+    title: 'Lower Coordination Burden',
     description:
-      'A better bridge between visual direction and real production outcomes.',
+      'Less follow-up, fewer duplicated decisions and more controlled communication across the furnishing brief.',
   },
   {
-    title: 'Better Technical and Material Alignment',
+    title: 'Better Category Alignment',
     description:
-      'Selections made with greater awareness of fabrication, installation and use conditions.',
+      'Fewer mismatched categories between concept, practicality and the final furnishing outcome.',
   },
   {
-    title: 'More Practical Delivery Planning',
+    title: 'Less Time Loss',
     description:
-      'A clearer pathway from furnishing idea to execution-ready scope.',
+      'A cleaner path from furnishing idea to execution-ready scope with fewer downstream delays.',
   },
 ] as const;
 
@@ -192,25 +213,24 @@ export default function ProjectSupportPage() {
                 Project Support
               </p>
               <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
-                Project Support That Moves Ideas Into Execution
+                Project Support That Reduces Workload and Moves Furnishing Decisions Forward
               </h1>
               <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
-                Design development, procurement coordination and furnishing delivery support for
-                designers, builders, stylists and project-led spaces.
+                LuxAura supports designers, builders, retailers, stylists and project-led clients
+                through design-aware sourcing, coordination and furnishing execution support.
               </p>
               <p className="mt-4 max-w-[38rem] text-pretty text-[14px] leading-7 text-neutral-600 sm:mt-5 sm:text-[1rem] sm:leading-8">
-                LuxAura supports projects that need more than sourcing alone. From design
-                development and specification refinement to coordinated procurement and
-                soft-furnishing delivery, we help visual ideas move toward a clearer, more
-                buildable outcome.
+                From design clarification and decorative resources to procurement coordination and
+                execution-ready support, LuxAura helps reduce friction behind the furnishing
+                outcome.
               </p>
 
               <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={PROJECT_BRIEF_HREF} className="btn-primary w-full sm:w-auto">
-                  Submit a Project Brief
+                  Submit a Brief
                 </Link>
                 <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
-                  Access Trade Support
+                  Find Support
                 </Link>
               </div>
             </div>
@@ -239,11 +259,11 @@ export default function ProjectSupportPage() {
       <section className="px-4 pb-24 pt-8 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Client Pathways"
-            title="Built to Support Different Project Roles"
-            description="LuxAura supports a range of project roles, each with different pressures, decision paths and furnishing priorities. Our support model is designed to respond accordingly."
+            eyebrow="Partner Types"
+            title="Built to Support Different Partner Types"
+            description="Different project roles need different forms of support. LuxAura is structured to respond accordingly."
           />
-          <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-5">
             {CLIENT_PATHWAYS.map(card => (
               <article key={card.title} className="section-shell overflow-hidden">
                 <div className="relative aspect-[4/3] sm:aspect-[16/10]">
@@ -273,8 +293,8 @@ export default function ProjectSupportPage() {
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Support Scope"
-            title="What Project Support Can Include"
+            eyebrow="What Support Can Include"
+            title="What Support Can Include"
             description="LuxAura’s role can sit between concept and execution, helping project teams bring greater structure, coordination and specification clarity to the soft-furnishing scope."
           />
           <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
@@ -320,6 +340,28 @@ export default function ProjectSupportPage() {
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
+          <SectionHeading
+            eyebrow="Reduced Friction"
+            title="What LuxAura Helps Reduce"
+            description="This support layer is valuable because it reduces the friction that often sits between concept and execution."
+          />
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {WHY_SUPPORT_WORKS.map(card => (
+              <article key={card.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
+                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">{card.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
+                  {card.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <PartnerValueSection className="pb-0" />
+
+      <section className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
+        <div className="container-custom">
           <div className="grid items-center gap-8 lg:grid-cols-[1.06fr_0.94fr] lg:gap-14">
             <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] sm:rounded-[2.4rem]">
               <div className="relative aspect-[4/3] sm:aspect-[16/10]">
@@ -359,6 +401,35 @@ export default function ProjectSupportPage() {
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
           <SectionHeading
+            eyebrow="Selected Private Projects"
+            title="Selected Private Projects"
+            description="Private clients with furnishing-led residential projects can also access LuxAura’s structured support where a more complete and coordinated outcome is required."
+          />
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+            <article className="section-shell p-6 sm:p-8">
+              <p className="text-sm leading-7 text-neutral-700 sm:text-base">
+                LuxAura primarily supports trade and project-led clients. Private residential
+                projects are accepted on a selective basis where scope, scale and alignment are
+                suitable.
+              </p>
+            </article>
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] sm:rounded-[2.2rem]">
+              <Image
+                src="/images/luxaura/beach-sheer.webp"
+                alt="Quiet luxury private residential furnishing detail suited to selective LuxAura support"
+                fill
+                sizes="(min-width: 1024px) 46vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-PS-14" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
+        <div className="container-custom">
+          <SectionHeading
             eyebrow="Method"
             title="How LuxAura Supports the Project"
             description="From early concept through to furnishing execution, LuxAura helps define a clearer path between visual direction and practical delivery."
@@ -373,26 +444,6 @@ export default function ProjectSupportPage() {
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-neutral-700">{step.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
-        <div className="container-custom">
-          <SectionHeading
-            eyebrow="Commercial Value"
-            title="Why Projects Use This Support Layer"
-            description="The value is not only in what is sourced, but in how the soft-furnishing scope becomes clearer, more coordinated and less vulnerable to downstream errors."
-          />
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {WHY_SUPPORT_WORKS.map(card => (
-              <article key={card.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
-                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">{card.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                  {card.description}
-                </p>
               </article>
             ))}
           </div>
@@ -423,10 +474,10 @@ export default function ProjectSupportPage() {
 
             <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link href={PROJECT_BRIEF_HREF} className="btn-primary w-full sm:w-auto">
-                Submit a Project Brief
+                Submit a Brief
               </Link>
               <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
-                Talk to the LuxAura Team
+                Find Support
               </Link>
             </div>
           </div>

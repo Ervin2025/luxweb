@@ -8,12 +8,8 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import {
-  DECORATIVE_TRIMMINGS_FAQ,
-  PROJECT_BRIEF_HREF,
-  TRADE_PORTAL_ACCESS_HREF,
-  TRADE_SUPPORT_HREF,
-} from '@/lib/site-data';
+import { BRAND_SUPPORT_HREF, REQUEST_CUSTOM_SUPPORT_HREF } from '@/lib/navigation-data';
+import { DECORATIVE_TRIMMINGS_FAQ } from '@/lib/site-data';
 
 const VALUE_CARDS = [
   {
@@ -120,19 +116,19 @@ const APPLICATION_BLOCKS = [
 
 const DEVELOPMENT_POINTS = [
   {
-    title: 'Concept pairing',
+    title: 'Metre-Cut Flexibility',
     description:
-      'Decorative trims can be aligned to fabric character, room tone and the intended level of statement before production begins.',
+      'LuxAura can support metre-cut decorative requests where a scheme needs one more tailored detailing layer without overcommitting volume.',
   },
   {
-    title: 'Fabrication carry-through',
+    title: 'Small-Batch Custom Support',
     description:
-      'Selections are guided toward applications that can be executed properly across curtains, blinds, cushions and upholstery.',
+      'Smaller production runs and more custom decorative carry-through are possible where individuality matters more than a standardised offer.',
   },
   {
-    title: 'Project-ready finishing',
+    title: 'Larger Project Delivery',
     description:
-      'The decorative layer is resolved with the same focus on detail, timing and coordination as the wider soft-furnishing brief.',
+      'Decorative resources can also scale into broader furnishing applications where consistency, fulfilment and timing matter.',
   },
 ] as const;
 
@@ -208,26 +204,27 @@ export default function DecorativeTrimmingsPage() {
               Trimmings
             </p>
             <h1 className="mt-5 max-w-4xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Trimmings for More Resolved Interior Schemes
+              Thousands of Decorative Trimmings for Detail, Customisation and Project Fulfilment
             </h1>
             <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
-              A broader and more current trimming resource for designers seeking stronger decorative
-              flexibility, richer detail and more complete soft furnishing outcomes.
+              LuxAura offers a broad and highly flexible trimming resource for designers, stylists,
+              retailers and project teams supporting everything from metre-cut decorative detail to
+              customised finished applications and larger furnishing execution.
             </p>
             <p className="mt-4 max-w-3xl text-pretty text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
-              From latest braid and border directions to tassels, fringes and upholstery-applied
-              detailing, LuxAura helps transform decorative ideas into specification-ready,
-              project-deliverable results.
+              With thousands of decorative directions across braid, border, fringe and more
+              tailored detailing, LuxAura helps bring individuality, decorative completion and
+              flexible delivery support into furnishing-led projects.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
-                Explore Decorative Directions
+              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
+                Request Custom Support
               </Link>
               <Link
-                href={TRADE_SUPPORT_HREF}
+                href={BRAND_SUPPORT_HREF}
                 className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
               >
-                Curate a Trimming Palette
+                Access Brand Support
               </Link>
             </div>
           </div>
@@ -241,9 +238,9 @@ export default function DecorativeTrimmingsPage() {
       <section className="px-4 pb-28 pt-8 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9rem]">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Why Designers Use LuxAura Trimmings"
-            title="A decorative resource that gives furnishing schemes more depth and completion"
-            description="This is not a secondary accessory layer. It is the finishing language that helps a room feel more tailored, more resolved and more distinctly designed."
+            eyebrow="Why Decorative Detail Matters"
+            title="Decorative detail helps a scheme feel more original, more tailored and more complete"
+            description="This is not a secondary accessory layer. It is the finishing language that protects originality, strengthens the final layer and helps a project feel more fully resolved."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {VALUE_CARDS.map((card, index) => (
@@ -342,14 +339,14 @@ export default function DecorativeTrimmingsPage() {
 
             <div className="max-w-xl lg:pl-6">
               <SectionHeading
-                eyebrow="Creative Development"
-                title="From Decorative Concept to Finished Execution"
-                description="LuxAura helps bridge the gap between decorative concept and finished execution, allowing trimming selections to move beyond inspiration boards and into fully realised furnishing outcomes."
+                eyebrow="Flexible Decorative Support"
+                title="Flexible Decorative Support"
+                description="LuxAura supports decorative trimming needs across both metre-cut custom requirements and larger furnishing or project-led applications, helping teams work with greater flexibility."
               />
               <p className="mt-6 text-sm leading-7 text-neutral-700 sm:text-base">
-                The value is not only decorative access. It is the ability to keep trims within a
-                wider project pathway so the chosen detail can be fabricated properly, coordinated
-                earlier and delivered with greater confidence.
+                Decorative trims become more valuable when they move beyond inspiration into
+                workable project pathways that support both custom individuality and broader
+                fulfilment.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -370,6 +367,28 @@ export default function DecorativeTrimmingsPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9rem]">
+        <div className="container-custom">
+          <SectionHeading
+            eyebrow="Retail & Brand Support"
+            title="Retail & Brand Support"
+            description="LuxAura supports retailers and design-led brands with more flexible sourcing, small-batch customisation, decorative resource access and broader fulfilment support."
+          />
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              'More competitive decorative resource access for product and scheme differentiation.',
+              'Small-batch flexibility where a brand or boutique retailer needs more tailored runs.',
+              'Stronger custom capability that can improve product distinctiveness and customer appeal.',
+              'Broader fulfilment support that helps decorative concepts move beyond samples into finished outcomes.',
+            ].map(item => (
+              <article key={item} className="section-shell p-5 sm:p-7">
+                <p className="text-sm leading-7 text-neutral-700 sm:text-base">{item}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -399,14 +418,14 @@ export default function DecorativeTrimmingsPage() {
             </div>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
-                Submit a Project Brief
+              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
+                Request Custom Support
               </Link>
               <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
+                href={BRAND_SUPPORT_HREF}
                 className="btn-secondary border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
               >
-                Trade Portal Access
+                Access Brand Support
               </Link>
             </div>
           </div>

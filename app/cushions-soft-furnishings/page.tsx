@@ -8,11 +8,8 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import {
-  BESPOKE_UPHOLSTERY_FAQ,
-  TRADE_PORTAL_ACCESS_HREF,
-  TRADE_SUPPORT_HREF,
-} from '@/lib/site-data';
+import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_SUPPORT_HREF } from '@/lib/navigation-data';
+import { BESPOKE_UPHOLSTERY_FAQ } from '@/lib/site-data';
 
 const UPHOLSTERED_APPLICATIONS = [
   {
@@ -83,6 +80,24 @@ const OUTDOOR_SUPPORT_POINTS = [
   },
 ] as const;
 
+const INDOOR_SUPPORT_POINTS = [
+  {
+    title: 'Residential seating with stronger finish control',
+    description:
+      'Indoor upholstery can move across sofas, sectionals, occasional chairs and softer furniture forms without losing proportion, comfort or textile intent.',
+  },
+  {
+    title: 'Project-led flexibility',
+    description:
+      'LuxAura can support indoor upholstery that needs to suit premium residential, hospitality and higher-use interior conditions with clearer material logic.',
+  },
+  {
+    title: 'Better room-level coordination',
+    description:
+      'Indoor upholstery selections can stay aligned with curtains, cushions, trims and the wider furnishing language instead of being resolved in isolation.',
+  },
+] as const;
+
 const SUNBRELLA_FEATURES = [
   'UV-resistant performance for harsher exterior exposure',
   'Outdoor durability and colour stability over longer use cycles',
@@ -127,13 +142,13 @@ const PERFORMANCE_BRAND_POINTS = [
 
 const LOOKBOOKS = [
   {
-    title: 'Download Indoor Furniture Styles PDF',
+    title: 'Indoor Upholstery Styles PDF',
     description:
       'Review sofas, ottomans, bench seating and indoor upholstery directions before moving further into the brief.',
     href: '/downloads/luxaura-indoor-furniture-styles.pdf',
   },
   {
-    title: 'Download Outdoor Furniture Styles PDF',
+    title: 'Outdoor Upholstery Styles PDF',
     description:
       'Review alfresco seating, outdoor cushion and exterior upholstery directions suited to higher-performance use.',
     href: '/downloads/luxaura-outdoor-furniture-styles.pdf',
@@ -237,23 +252,28 @@ export default function CushionsSoftFurnishingsPage() {
               Bespoke Upholstery
             </p>
             <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Indoor and outdoor upholstery guided by stronger textile intelligence
+              Versatile Upholstery for Indoor, Outdoor and Performance-Led Living
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              LuxAura supports bespoke upholstery across sofas, cushions, bench seating and outdoor
-              furniture applications, combining finish quality with performance-led fabric
-              selection for residential, hospitality and higher-use Australian interiors.
+              LuxAura supports a wide range of upholstered furniture styles, fabric applications
+              and furnishing outcomes, from design-led indoor seating to pet-friendly family
+              pieces and outdoor furniture built with high-performance materials.
+            </p>
+            <p className="mt-4 max-w-3xl text-pretty text-sm leading-7 text-white/74 sm:text-base sm:leading-8">
+              From statement sofas and occasional chairs to durable family upholstery and
+              competitively positioned Sunbrella outdoor solutions, LuxAura helps bring a broader
+              range of furniture concepts into practical, project-ready reality.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_SUPPORT_HREF} className="btn-primary">
-                Discuss a Project
+                Find Support
               </Link>
-              <a
-                href="#applications"
+              <Link
+                href={REQUEST_CUSTOM_SUPPORT_HREF}
                 className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
               >
-                Explore Upholstery Scope
-              </a>
+                Request Custom Support
+              </Link>
             </div>
           </div>
         </div>
@@ -266,9 +286,9 @@ export default function CushionsSoftFurnishingsPage() {
       <section id="applications" className="section-padding pt-6">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Applications"
-            title="A broader upholstery program for layered residential and project briefs"
-            description="LuxAura can move from indoor seating and decorative layers through to exterior cushions and harder-working furniture applications without losing finish quality."
+            eyebrow="Broad Upholstery Style Capability"
+            title="A broader upholstery style capability across seating, soft forms and layered furnishing pieces"
+            description="LuxAura can support a wide variety of furniture styles and upholstery forms, helping indoor, outdoor and decorative upholstery decisions stay inside one more coherent textile language."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {UPHOLSTERED_APPLICATIONS.map(item => (
@@ -294,6 +314,45 @@ export default function CushionsSoftFurnishingsPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Indoor Upholstery"
+                title="Indoor upholstery for residential and project-led interiors"
+                description="Refined upholstered forms for homes, styled projects and furnishing schemes that need comfort, proportion and stronger finish quality to work together."
+              />
+              <div className="mt-8 grid gap-4">
+                {INDOOR_SUPPORT_POINTS.map(item => (
+                  <article
+                    key={item.title}
+                    className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
+                  >
+                    <h3 className="font-heading text-2xl font-semibold text-neutral-900">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
+              <Image
+                src="/images/IMG-J.webp"
+                alt="Indoor upholstery direction for sofas, chairs and project-led seating"
+                fill
+                sizes="(min-width: 1024px) 52vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-UPH-14" />
+            </div>
           </div>
         </div>
       </section>
@@ -363,7 +422,7 @@ export default function CushionsSoftFurnishingsPage() {
                   {SUNBRELLA_FEATURES.map(item => (
                     <article
                       key={item}
-                      className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5 text-sm leading-7 text-white/78"
+                      className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5 text-sm leading-7 text-white"
                     >
                       {item}
                     </article>
@@ -425,7 +484,7 @@ export default function CushionsSoftFurnishingsPage() {
               {PERFORMANCE_BRAND_POINTS.map(item => (
                 <article
                   key={item}
-                  className="rounded-[1.5rem] border border-white/10 bg-white/6 p-5 text-sm leading-7 text-white/76"
+                  className="rounded-[1.5rem] border border-white/10 bg-white/6 p-5 text-sm leading-7 text-white"
                 >
                   {item}
                 </article>
@@ -439,8 +498,8 @@ export default function CushionsSoftFurnishingsPage() {
         <div className="container-custom">
           <SectionHeading
             eyebrow="Downloads"
-            title="Download Furniture Style Guides"
-            description="LuxAura provides downloadable style references to help clients review indoor and outdoor upholstery directions before moving further into the brief."
+            title="Downloadable Style Resources"
+            description="LuxAura provides useful style references to help clients review indoor and outdoor upholstery directions before moving further into the brief."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {LOOKBOOKS.map(item => (
@@ -477,10 +536,10 @@ export default function CushionsSoftFurnishingsPage() {
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_SUPPORT_HREF} className="btn-primary">
-                Discuss a Project
+                Find Support
               </Link>
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary">
-                Trade Portal Access
+              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-secondary">
+                Request Custom Support
               </Link>
             </div>
           </div>

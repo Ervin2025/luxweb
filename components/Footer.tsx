@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { CONTACT_INFO } from '@/lib/constants';
 import {
-  CURTAIN_MEASUREMENT_GUIDE_HREF,
+  BRAND_SUPPORT_HREF,
   FOOTER_CATEGORY_LINKS,
+  PROJECT_BRIEF_HREF,
+  REQUEST_CUSTOM_SUPPORT_HREF,
   TRADE_PORTAL_ACCESS_HREF,
   TRADE_SUPPORT_HREF,
 } from '@/lib/navigation-data';
@@ -29,18 +31,18 @@ export default function Footer() {
             </div>
             <p className="max-w-sm text-sm leading-7 text-white/72 sm:text-base">
               Sydney-based soft-furnishing and project-support partner for designers, builders,
-              developers and furnishing-led clients who need sourcing, fabrication and accountable
-              local delivery in one coordinated model.
+              developers, retailers and furnishing-led clients who need sourcing, fabrication and
+              accountable local delivery in one coordinated model.
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                Trade Portal Access
+                Trade Account Access
               </Link>
               <Link
                 href={TRADE_SUPPORT_HREF}
                 className="btn-secondary w-full border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary sm:w-auto"
               >
-                Access Trade Support
+                Find Support
               </Link>
             </div>
           </div>
@@ -62,14 +64,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading text-2xl font-semibold text-white">Specialist Resources</h4>
+            <h4 className="font-heading text-2xl font-semibold text-white">Trade & Resources</h4>
             <ul className="mt-5 space-y-3 text-sm text-white/72 sm:text-base">
               <li>
                 <Link
-                  href={CURTAIN_MEASUREMENT_GUIDE_HREF}
+                  href={TRADE_PORTAL_ACCESS_HREF}
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
-                  Curtain Measurement Guide
+                  Trade Account Access
                 </Link>
               </li>
               <li>
@@ -77,15 +79,31 @@ export default function Footer() {
                   href={TRADE_SUPPORT_HREF}
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
-                  Trade Support
+                  Find Support
                 </Link>
               </li>
               <li>
                 <Link
-                  href={TRADE_PORTAL_ACCESS_HREF}
+                  href={PROJECT_BRIEF_HREF}
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
-                  Trade Portal Access
+                  Submit a Brief
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={REQUEST_CUSTOM_SUPPORT_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  Request Custom Support
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={BRAND_SUPPORT_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  Access Brand Support
                 </Link>
               </li>
             </ul>

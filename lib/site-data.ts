@@ -645,7 +645,7 @@ export const PROJECT_SUPPORT_FAQ: FaqItem[] = [
   },
 ];
 
-export const ABOUT_FAQ: FaqItem[] = [
+export const CONTACT_FAQ: FaqItem[] = [
   {
     question: 'Who does LuxAura primarily work with?',
     answer:
@@ -1804,12 +1804,12 @@ export const FAQ_GROUPS: Array<{ title: string; href: string; items: FaqItem[] }
     items: PROJECT_SUPPORT_FAQ,
   },
   {
-    title: 'About',
-    href: '/about',
-    items: ABOUT_FAQ,
+    title: 'Contact',
+    href: '/contact',
+    items: CONTACT_FAQ,
   },
   {
-    title: 'Trade Portal Access',
+    title: 'Trade Account Access',
     href: '/trade-projects',
     items: TRADE_PROJECT_FAQ,
   },
@@ -1824,21 +1824,21 @@ export const THANK_YOU_VARIANTS: Record<
     description:
       'We will review the enquiry type, business details and project focus, then come back with the right next step for trade access or coordinated support.',
     primaryCta: { label: 'Explore Fabric & Fabrication', href: '/collections' },
-    secondaryCta: { label: 'View Trade Portal Preview', href: '/trade/login' },
+    secondaryCta: { label: 'View Trade Account Preview', href: '/trade/login' },
   },
   quote: {
     title: 'Your project brief has been submitted',
     description:
       'The brief is now in the LuxAura workflow for sourcing alignment, fabrication review and the next step on coordination.',
-    primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
-    secondaryCta: { label: 'Access Trade Support', href: TRADE_SUPPORT_HREF },
+    primaryCta: { label: 'Trade Account Access', href: REQUEST_CATALOGUE_HREF },
+    secondaryCta: { label: 'Find Support', href: TRADE_SUPPORT_HREF },
   },
   contact: {
     title: 'Your enquiry has been sent to the trade desk',
     description:
       'A team member will review the enquiry category and respond with the most relevant support path for sourcing, fabrication, systems, trims or wider project coordination.',
-    primaryCta: { label: 'Trade Portal Access', href: REQUEST_CATALOGUE_HREF },
-    secondaryCta: { label: 'Submit a Project Brief', href: PROJECT_BRIEF_HREF },
+    primaryCta: { label: 'Trade Account Access', href: REQUEST_CATALOGUE_HREF },
+    secondaryCta: { label: 'Submit a Brief', href: PROJECT_BRIEF_HREF },
   },
 };
 

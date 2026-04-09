@@ -8,11 +8,8 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import {
-  FABRIC_AND_FABRICATION_FAQ,
-  TRADE_PORTAL_ACCESS_HREF,
-  TRADE_SUPPORT_HREF,
-} from '@/lib/site-data';
+import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
+import { FABRIC_AND_FABRICATION_FAQ } from '@/lib/site-data';
 
 const MATERIAL_DIRECTIONS = [
   {
@@ -134,6 +131,24 @@ const WHY_THIS_MATTERS = [
   },
 ] as const;
 
+const PERFORMANCE_DIRECTIONS = [
+  {
+    title: 'Hospitality and higher-use suitability',
+    description:
+      'Performance-led directions can support boutique hospitality, short-stay and higher-use residential settings without drifting into purely utilitarian finishes.',
+  },
+  {
+    title: 'Pet-friendly and family-aware options',
+    description:
+      'Collections such as Mobus and FibreGuard help projects respond to daily life, pet ownership and easier maintenance more intelligently.',
+  },
+  {
+    title: 'Practical beauty',
+    description:
+      'LuxAura helps keep durability, stain resistance and material practicality aligned with visual refinement instead of forcing a compromise.',
+  },
+] as const;
+
 export const metadata: Metadata = {
   title: 'Fabric & Fabrication | Global Collections and Finished Textile Outcomes',
   description:
@@ -179,22 +194,26 @@ export default function CollectionsPage() {
               Fabric & Fabrication
             </p>
             <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Global collections. Fabric into form.
+              Material Direction That Supports Better Design and Better Delivery
             </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              LuxAura combines a globally sourced textile library with specialist fabrication
-              capability, helping projects move from material selection into finished
-              soft-furnishing execution with clarity and control.
+            <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
+              More useful fabric sourcing, fabrication flexibility and performance-aware selection
+              for projects that need both visual refinement and real-world practicality.
+            </p>
+            <p className="mt-4 max-w-3xl text-pretty text-sm leading-7 text-white/74 sm:text-base sm:leading-8">
+              LuxAura helps bring together material suitability, fabrication logic and project
+              needs, allowing furnishing decisions to move more smoothly from concept into
+              production-ready direction.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#materials" className="btn-primary">
-                View Material Directions
-              </a>
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account Access
+              </Link>
               <Link
-                href={TRADE_SUPPORT_HREF}
+                href={REQUEST_CUSTOM_SUPPORT_HREF}
                 className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
               >
-                Discuss a Project
+                Request Custom Support
               </Link>
             </div>
           </div>
@@ -210,13 +229,13 @@ export default function CollectionsPage() {
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
               <SectionHeading
-                eyebrow="Introduction"
-                title="Fabric is only the beginning"
-                description="Selection matters, but so does what happens next. LuxAura supports the transition from fabric choice into curtains, upholstery, cushions, table linens and other made textile applications."
+                eyebrow="More Useful Material Resources"
+                title="More useful material resources for design-led and project-practical briefs"
+                description="LuxAura supports textile decisions that need more than surface appeal by aligning material suitability, decorative character and end-use practicality from the start."
               />
               <p className="mt-6 max-w-xl text-sm leading-8 text-neutral-700 sm:text-base">
-                The material needs to be not only beautiful, but buildable. LuxAura connects the
-                sourcing decision to the fabrication path so the final result remains controlled
+                The material needs to be not only beautiful, but buildable. LuxAura connects
+                sourcing decisions to fabrication logic so the final result remains more controlled
                 from the beginning.
               </p>
             </div>
@@ -272,9 +291,9 @@ export default function CollectionsPage() {
       <section className="section-padding pt-0">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Made Applications"
-            title="Where the fabric goes next"
-            description="These are project applications, not product tiles. Each outcome reflects how LuxAura carries the textile story into finished use."
+            eyebrow="Flexible Fabrication Capability"
+            title="Flexible fabrication capability for custom, small-batch and project-led outcomes"
+            description="LuxAura adapts material direction into curtains, upholstery, cushions and softer furnishing categories with more flexibility across boutique, staged and broader project scopes."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {MADE_APPLICATIONS.map(item => (
@@ -306,11 +325,50 @@ export default function CollectionsPage() {
 
       <section className="section-padding pt-0">
         <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
+              <Image
+                src="/images/luxaura/hero-project.webp"
+                alt="Performance-aware textile direction for hospitality and higher-use furnishing applications"
+                fill
+                sizes="(min-width: 1024px) 52vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-COL-15" />
+            </div>
+            <div>
+              <SectionHeading
+                eyebrow="Performance Material Direction"
+                title="Performance material direction that stays visually refined"
+                description="Selected textile ranges help projects handle hospitality use, pet-friendly family life and heavier daily wear without forcing the scheme into a purely practical look."
+              />
+              <div className="mt-8 grid gap-4">
+                {PERFORMANCE_DIRECTIONS.map(item => (
+                  <article
+                    key={item.title}
+                    className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
+                  >
+                    <h2 className="font-heading text-2xl font-semibold text-neutral-900">
+                      {item.title}
+                    </h2>
+                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding pt-0">
+        <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-8 shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-10 lg:p-12">
             <SectionHeading
-              eyebrow="Why This Matters"
+              eyebrow="From Selection to Fabrication Readiness"
               title="Making control is what turns a good fabric into a finished result"
-              description="The commercial advantage comes from connecting material choice to real fabrication logic and a coordinated project outcome."
+              description="The commercial advantage comes from reducing mismatch between selection and execution so the textile direction stays practical, buildable and coordinated."
               theme="dark"
             />
             <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -320,7 +378,7 @@ export default function CollectionsPage() {
                   className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
                 >
                   <h2 className="font-heading text-3xl font-semibold text-white">{item.title}</h2>
-                  <p className="mt-4 text-sm leading-7 text-white/78">{item.description}</p>
+                  <p className="mt-4 text-sm leading-7 text-white">{item.description}</p>
                 </article>
               ))}
             </div>
@@ -349,11 +407,11 @@ export default function CollectionsPage() {
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={TRADE_SUPPORT_HREF} className="btn-primary">
-                Discuss a Project
+              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
+                Request Custom Support
               </Link>
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary">
-                Trade Portal Access
+                Trade Account Access
               </Link>
             </div>
           </div>

@@ -17,7 +17,7 @@ export default function NotFound() {
             Back to Home
           </Link>
           <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-            Access Trade Support
+            Find Support
           </Link>
         </div>
       </div>

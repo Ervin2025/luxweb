@@ -38,12 +38,12 @@ export const TRADE_PROJECT_FOCUS_OPTIONS = [
 ] as const;
 
 export const PROJECT_CLIENT_TYPE_OPTIONS = [
-  'Designer',
-  'Stylist',
-  'Builder',
-  'Developer',
+  'Interior Designer',
+  'Stylist / Decorator',
+  'Builder / Developer',
+  'Retailer / Brand',
   'Hospitality / Short-Stay Operator',
-  'Homeowner',
+  'Private Client (Project-Led)',
   'Other',
 ] as const;
 
@@ -51,9 +51,9 @@ export const PROJECT_TYPE_OPTIONS = [
   'Residential',
   'Multi-Residential',
   'Hospitality',
-  'Short-Stay',
-  'Retail / Lifestyle Commercial',
-  'Display Suite',
+  'Retail / Commercial',
+  'Styling / Visual Merchandising',
+  'Product / Collection Development',
   'Other',
 ] as const;
 
@@ -66,11 +66,22 @@ export const PROJECT_STAGE_OPTIONS = [
   'Refresh / Upgrade',
 ] as const;
 
+export const PROJECT_ENQUIRY_TYPE_OPTIONS = [
+  'Trade Account Access',
+  'Trade Support',
+  'Project Brief',
+  'Retail & Brand Support',
+  'Custom / Small-Batch Support',
+  'Selected Private Project',
+] as const;
+
 export const PROJECT_SERVICE_OPTIONS = [
   'Fabric & Fabrication',
   'Window Treatments',
   'Bespoke Upholstery',
   'Trimmings',
+  'Hardware / Motorisation',
   'Project Support',
-  'Site Measure / Specification Support',
+  'Custom Development',
+  'Procurement / Fulfilment',
 ] as const;

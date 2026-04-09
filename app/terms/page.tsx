@@ -64,10 +64,10 @@ export default function TermsPage() {
         imageCode="LXA-TERMS-01"
       >
         <Link href="/trade-projects" className="btn-primary">
-          Trade Portal Access
+          Trade Account Access
         </Link>
         <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-          Access Trade Support
+          Find Support
         </Link>
       </PageHero>
 

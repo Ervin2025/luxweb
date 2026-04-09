@@ -10,7 +10,6 @@ import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import {
-  PROJECT_BRIEF_HREF,
   TRADE_PORTAL_ACCESS_HREF,
   TRADE_SUPPORT_HREF,
   WINDOW_TREATMENTS_FAQ,
@@ -183,7 +182,7 @@ export default function CustomCurtainsSheersPage() {
               Window Treatments
             </p>
             <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Window Treatments with Greater Craft, Control and Completion
+              Window Treatments with Greater Craft, Better Control and More Resolved Results
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
               LuxAura delivers window treatments that combine refined drapery form, elevated
@@ -191,14 +190,14 @@ export default function CustomCurtainsSheersPage() {
               motorised solutions.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#drapery-typologies" className="btn-primary">
-                Explore Window Treatments
-              </a>
               <Link
                 href={TRADE_SUPPORT_HREF}
                 className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
               >
-                Discuss a Window Project
+                Find Support
+              </Link>
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account Access
               </Link>
             </div>
           </div>
@@ -300,7 +299,7 @@ export default function CustomCurtainsSheersPage() {
                     className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
                   >
                     <h2 className="font-heading text-2xl font-semibold text-white">{item.title}</h2>
-                    <p className="mt-3 text-sm leading-7 text-white/78">{item.description}</p>
+                    <p className="mt-3 text-sm leading-7 text-white">{item.description}</p>
                   </article>
                 ))}
               </div>
@@ -403,13 +402,10 @@ export default function CustomCurtainsSheersPage() {
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_SUPPORT_HREF} className="btn-primary">
-                Discuss a Window Project
-              </Link>
-              <Link href={PROJECT_BRIEF_HREF} className="btn-secondary">
-                Submit a Project Brief
+                Find Support
               </Link>
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary">
-                Trade Portal Access
+                Trade Account Access
               </Link>
             </div>
           </div>
