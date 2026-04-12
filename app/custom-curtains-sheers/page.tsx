@@ -113,6 +113,55 @@ const HARDWARE_MOTORISATION_BLOCKS = [
   },
 ] as const;
 
+const ROMAN_BLIND_STYLES = [
+  {
+    title: 'Flat & Ribbed',
+    description: 'Clean, architectural lines for modern and more structured interiors.',
+    imageSrc: '/images/IMG-G.webp',
+    imageAlt: 'Structured Roman blind detail with clean, architectural fold behaviour',
+    code: 'LXA-WIN-13',
+  },
+  {
+    title: 'Relaxed & London',
+    description: 'Softer, more decorative forms suited to elegant residential and boutique project settings.',
+    imageSrc: '/images/IMG-F.webp',
+    imageAlt: 'Softer Roman blind expression with more decorative fabric character',
+    code: 'LXA-WIN-14',
+  },
+  {
+    title: 'Hobbled',
+    description: 'Permanent cascading folds that add depth, softness and stronger decorative character.',
+    imageSrc: '/images/IMG-C.webp',
+    imageAlt: 'Close-up workmanship detail showing richer fold depth and decorative finish',
+    code: 'LXA-WIN-15',
+  },
+] as const;
+
+const ROMAN_BLIND_TECHNICAL_POINTS = [
+  'Premium natural linens with stronger density and durability.',
+  'High-performance fabrics suitable for both luxury residential and higher-use commercial interiors.',
+  'Custom lining options from light-filtering to full blockout.',
+  'Millimetric workshop precision and reliable hardware integration.',
+] as const;
+
+const ROMAN_BLIND_TRADE_ADVANTAGES = [
+  {
+    title: 'Direct-to-Trade Pricing',
+    description:
+      'Optimised sourcing and production pathways help LuxAura deliver high-end Roman blinds at a significant trade advantage.',
+  },
+  {
+    title: 'Project-Ready Reliability',
+    description:
+      'Scalable production and dependable lead times support both boutique and larger furnishing programmes.',
+  },
+  {
+    title: 'Trade-Focused Support',
+    description:
+      'LuxAura can assist with tailored direction, specification support and customisation for professional clients.',
+  },
+] as const;
+
 export const metadata: Metadata = {
   title: 'Window Treatments | Curtains, Sheers, Roman Blinds and Motorised Systems',
   description:
@@ -264,6 +313,110 @@ export default function CustomCurtainsSheersPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="roman-blinds" className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
+              <Image
+                src="/images/luxaura/roman-blind-lounge.webp"
+                alt="Professional Roman blind manufacturing shown in a refined residential interior"
+                fill
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-WIN-12" />
+            </div>
+
+            <div>
+              <SectionHeading
+                eyebrow="Professional Roman Blind Manufacturing"
+                title="Bespoke Roman Blinds with Trade-Level Precision, Material Depth and Competitive Value"
+                description="LuxAura Living is a premier B2B manufacturing partner for interior designers, architects and furnishing-led projects. We combine premium raw materials with industrial precision to deliver bespoke Roman blind solutions at highly competitive trade prices."
+              />
+              <p className="mt-6 text-sm leading-7 text-neutral-700 sm:text-base">
+                LuxAura supports a full range of Roman blind constructions to suit different
+                project aesthetics, furnishing directions and performance requirements.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {ROMAN_BLIND_STYLES.map(item => (
+              <article key={item.title} className="group section-shell overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-primary/10">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 32vw, 100vw"
+                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                  <ImageCodeBadge code={item.code} />
+                </div>
+                <div className="p-7">
+                  <h2 className="font-heading text-3xl font-semibold text-neutral-900">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
+            <article className="section-shell p-7 sm:p-8 lg:p-10">
+              <p className="eyebrow">Technical Excellence & Materials</p>
+              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-[2.8rem]">
+                Better textile selection and controlled construction make the difference
+              </h2>
+              <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
+                Roman blinds must perform both visually and technically. LuxAura’s strength lies in
+                combining better textile selection with controlled construction and dependable
+                workshop precision.
+              </p>
+              <div className="mt-8 grid gap-4">
+                {ROMAN_BLIND_TECHNICAL_POINTS.map(item => (
+                  <article
+                    key={item}
+                    className="rounded-[1.4rem] border border-primary/10 bg-[#f8f3e8] px-5 py-4"
+                  >
+                    <p className="text-sm leading-7 text-neutral-700 sm:text-base">{item}</p>
+                  </article>
+                ))}
+              </div>
+            </article>
+
+            <article className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-7 text-white shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-8 lg:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
+                The LuxAura Trade Advantage
+              </p>
+              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-white sm:text-[2.8rem]">
+                One of LuxAura’s strongest trade categories for flexibility, control and value
+              </h2>
+              <p className="mt-5 text-sm leading-7 text-white/78 sm:text-base">
+                Roman blinds are one of LuxAura’s strongest trade categories because they combine
+                design flexibility, fabrication control and strong commercial value.
+              </p>
+              <div className="mt-8 grid gap-4">
+                {ROMAN_BLIND_TRADE_ADVANTAGES.map(item => (
+                  <article
+                    key={item.title}
+                    className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
+                  >
+                    <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-white sm:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </article>
           </div>
         </div>
       </section>

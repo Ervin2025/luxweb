@@ -149,6 +149,51 @@ const PERFORMANCE_DIRECTIONS = [
   },
 ] as const;
 
+const SIGNATURE_LINEN_VERSATILITY = [
+  'Weight range from lightweight 170gsm sheers to robust 850gsm upholstery and drapery weights.',
+  'A broad palette of solids and stripe directions suited to classic and contemporary interiors.',
+  'Suitable for curtains, Roman blinds, upholstery and softer decorative furnishing applications.',
+  'Strong fit for both quiet-luxury residential work and larger furnishing-led project briefs.',
+] as const;
+
+const LINEN_FINISHING_POINTS = [
+  'Garment-washed linen for a softer, more relaxed hand feel.',
+  'Stone-washed linen for richer texture and a more lived-in material character.',
+  'Improved dimensional stability for cleaner fabrication outcomes.',
+  'A tactile finish that keeps natural linen elegance commercially useful in real interiors.',
+] as const;
+
+const LINEN_WORKFLOW = [
+  {
+    title: 'Selection',
+    description:
+      'Choose from a broader range of premium linens sourced through strategic mill partnerships and curated for real furnishing use.',
+  },
+  {
+    title: 'Engineering',
+    description:
+      'Specialised sewing and workshop capability support the demands of denser linen, softer sheers and more structured Roman blind applications.',
+  },
+  {
+    title: 'Creation',
+    description:
+      'From tailored Roman blinds to bespoke upholstery, LuxAura helps carry linen from textile selection into a finished furnishing outcome.',
+  },
+] as const;
+
+const LINEN_TRADE_EDGE = [
+  {
+    title: 'Unrivalled Price Competitiveness',
+    description:
+      'Direct supply relationships and an efficient sourcing structure help LuxAura offer premium French linen with exceptional trade value.',
+  },
+  {
+    title: 'B2B Scale & Customisation',
+    description:
+      'LuxAura supports both boutique residential projects and larger-scale commercial developments while maintaining precision and pricing discipline.',
+  },
+] as const;
+
 export const metadata: Metadata = {
   title: 'Fabric & Fabrication | Global Collections and Finished Textile Outcomes',
   description:
@@ -253,6 +298,141 @@ export default function CollectionsPage() {
         </div>
       </section>
 
+      <section id="signature-linen" className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+            <div>
+              <SectionHeading
+                eyebrow="Our Signature Linen"
+                title="French Elegance, Technical Versatility and Trade-Level Value"
+                description="At LuxAura Living, linen is not just another fabric category. It is a core material strength that balances organic luxury with stronger performance, versatility and commercial value for trade clients."
+              />
+              <p className="mt-6 max-w-xl text-sm leading-8 text-neutral-700 sm:text-base">
+                LuxAura’s linen collection is curated to support a wide range of furnishing
+                outcomes, from soft sheers to heavier upholstery and architectural applications,
+                with a material language that remains calm, tactile and commercially useful.
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {SIGNATURE_LINEN_VERSATILITY.map(item => (
+                  <article
+                    key={item}
+                    className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
+                  >
+                    <p className="text-sm leading-7 text-neutral-700 sm:text-base">{item}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
+                <Image
+                  src="/images/luxaura/beach-sheer.webp"
+                  alt="Draped linen sheer with warm natural light and quiet editorial composition"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <ImageCodeBadge code="LXA-COL-15" />
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_22px_70px_rgba(20,24,22,0.1)]">
+                  <Image
+                    src="/images/luxaura/roman-blind-lounge.webp"
+                    alt="Linen-led Roman blind application in a premium residential interior"
+                    fill
+                    sizes="(min-width: 1024px) 24vw, 100vw"
+                    className="object-cover"
+                  />
+                  <ImageCodeBadge code="LXA-COL-16" />
+                </div>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_22px_70px_rgba(20,24,22,0.1)]">
+                  <Image
+                    src="/images/luxaura/upholstery-pillows.webp"
+                    alt="Tactile linen-forward upholstery and cushion texture detail"
+                    fill
+                    sizes="(min-width: 1024px) 24vw, 100vw"
+                    className="object-cover"
+                  />
+                  <ImageCodeBadge code="LXA-COL-17" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+            <article className="section-shell p-7 sm:p-8 lg:p-10">
+              <p className="eyebrow">Specialized Linen Finishing</p>
+              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-[2.8rem]">
+                Elevated finishing that changes how linen feels and performs
+              </h2>
+              <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
+                The tactile and visual quality of linen is heavily shaped by finishing. LuxAura
+                supports a more elevated linen offer through finishing processes that improve both
+                feel and usability.
+              </p>
+              <div className="mt-8 grid gap-4">
+                {LINEN_FINISHING_POINTS.map(item => (
+                  <article
+                    key={item}
+                    className="rounded-[1.4rem] border border-primary/10 bg-[#f8f3e8] px-5 py-4"
+                  >
+                    <p className="text-sm leading-7 text-neutral-700 sm:text-base">{item}</p>
+                  </article>
+                ))}
+              </div>
+            </article>
+
+            <article className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-7 text-white shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-8 lg:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
+                From Fibre to Finished Product
+              </p>
+              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-white sm:text-[2.8rem]">
+                Linen becomes more valuable when selection and making stay connected
+              </h2>
+              <p className="mt-5 text-sm leading-7 text-white/78 sm:text-base">
+                LuxAura’s advantage lies not only in access to premium linen, but in the ability to
+                carry that material through a more controlled making process.
+              </p>
+              <div className="mt-8 grid gap-4">
+                {LINEN_WORKFLOW.map(item => (
+                  <article
+                    key={item.title}
+                    className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
+                  >
+                    <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-white sm:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-8 border-t border-white/12 pt-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
+                  The LuxAura Trade Edge
+                </p>
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  {LINEN_TRADE_EDGE.map(item => (
+                    <article
+                      key={item.title}
+                      className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
+                    >
+                      <h3 className="font-heading text-2xl font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-white sm:text-base">
+                        {item.description}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="materials" className="section-padding pt-0">
         <div className="container-custom">
           <SectionHeading
@@ -334,7 +514,7 @@ export default function CollectionsPage() {
                 sizes="(min-width: 1024px) 52vw, 100vw"
                 className="object-cover"
               />
-              <ImageCodeBadge code="LXA-COL-15" />
+              <ImageCodeBadge code="LXA-COL-18" />
             </div>
             <div>
               <SectionHeading

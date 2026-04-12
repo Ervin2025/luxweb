@@ -118,6 +118,29 @@ const SUPPLY_CHAIN_POINTS = [
   },
 ] as const;
 
+const SIGNATURE_STRENGTHS = [
+  {
+    title: 'Roman Blinds, Made to a Higher Standard',
+    description:
+      'LuxAura offers professional Roman blind manufacturing for trade clients, combining premium textiles, precise construction and scalable production support across both boutique residential and larger project applications.',
+    href: '/custom-curtains-sheers#roman-blinds',
+    ctaLabel: 'Explore Window Treatments',
+    code: 'LXA-HOME-09',
+    imageSrc: '/images/luxaura/roman-blind-lounge.webp',
+    imageAlt: 'Roman blind feature image in a quiet luxury interior',
+  },
+  {
+    title: 'Signature Linen as a Core Material Strength',
+    description:
+      'From lightweight sheers to heavy upholstery weights, LuxAura’s linen offering combines French elegance, versatile application and trade-focused value across window treatments, upholstery and furnishing-led interiors.',
+    href: '/collections#signature-linen',
+    ctaLabel: 'Explore Fabric & Fabrication',
+    code: 'LXA-HOME-10',
+    imageSrc: '/images/luxaura/beach-sheer.webp',
+    imageAlt: 'Draped linen and sheer texture in a warm neutral interior setting',
+  },
+] as const;
+
 const PAIN_POINTS = [
   'Too many disconnected suppliers across fabric, curtains, upholstery, trims and systems.',
   'Design outcomes that lose originality as execution becomes fragmented.',
@@ -359,6 +382,57 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+        <div className="container-custom">
+          <div className="max-w-3xl">
+            <SectionEyebrow>Flagship Strengths</SectionEyebrow>
+            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.7rem] sm:leading-[0.98] lg:text-[4.1rem]">
+              Two specialist capabilities that make LuxAura more distinctive in real project work
+            </h2>
+            <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
+              Roman blind manufacturing and signature linen expertise are not secondary add-ons.
+              They are two of the categories where LuxAura can offer stronger control, better
+              material depth and more useful trade value.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 sm:mt-12 lg:grid-cols-2">
+            {SIGNATURE_STRENGTHS.map(item => (
+              <article
+                key={item.title}
+                className="section-shell overflow-hidden rounded-[2rem] max-[430px]:rounded-[1.55rem] sm:rounded-[2.2rem]"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 48vw, 100vw"
+                    className="object-cover transition duration-700 ease-out hover:scale-[1.02]"
+                  />
+                  <ImageCodeBadge code={item.code} />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.03)_0%,rgba(12,12,11,0.22)_100%)]" />
+                </div>
+                <div className="p-6 sm:p-8">
+                  <h3 className="text-balance font-heading text-[2rem] font-semibold leading-[1.04] text-[#2C2C2C] max-[430px]:text-[1.75rem] sm:text-[2.5rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 sm:text-[0.98rem] sm:leading-8">
+                    {item.description}
+                  </p>
+                  <Link
+                    href={item.href}
+                    className="mt-7 inline-flex min-h-[44px] items-center rounded-full border border-primary/10 bg-[#f6f0e4] px-5 py-3 text-sm font-semibold text-primary transition hover:border-primary hover:bg-white"
+                  >
+                    {item.ctaLabel}
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>

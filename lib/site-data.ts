@@ -512,6 +512,26 @@ export const FABRIC_AND_FABRICATION_FAQ: FaqItem[] = [
     answer:
       'Yes. Performance and outdoor directions can be introduced where the brief requires easier maintenance, stronger resilience or practical durability.',
   },
+  {
+    question: 'Why is linen one of LuxAura’s core material strengths?',
+    answer:
+      'Linen is a flagship LuxAura material because it can move across sheers, Roman blinds, upholstery and decorative applications while retaining both tactile elegance and practical project versatility.',
+  },
+  {
+    question: 'Can LuxAura support different linen weights for sheers, Roman blinds and upholstery?',
+    answer:
+      'Yes. Linen directions can be selected across lighter sheer qualities through to denser drapery and upholstery weights depending on the required finish and use condition.',
+  },
+  {
+    question: 'Are washed linen finishes available?',
+    answer:
+      'Yes. Garment-washed and stone-washed linen directions can be considered where a softer hand feel, richer texture or more relaxed finish is preferred.',
+  },
+  {
+    question: 'Is LuxAura linen suitable for both boutique residential and larger-scale projects?',
+    answer:
+      'Yes. LuxAura’s linen offer is structured to support both smaller design-led interiors and broader project applications where quality, value and fabrication readiness must stay aligned.',
+  },
 ];
 
 export const WINDOW_TREATMENTS_FAQ: FaqItem[] = [
@@ -539,6 +559,26 @@ export const WINDOW_TREATMENTS_FAQ: FaqItem[] = [
     question: 'Does LuxAura support both aesthetic and practical performance considerations?',
     answer:
       'Yes. Window treatments can be shaped around drape, light control, lining performance, operation and daily usability without losing visual refinement.',
+  },
+  {
+    question: 'Can LuxAura support different Roman blind styles for different project aesthetics?',
+    answer:
+      'Yes. Roman blind construction can be shaped toward cleaner architectural lines, softer decorative forms or fuller cascaded expressions depending on the room and overall furnishing direction.',
+  },
+  {
+    question: 'Are Roman blinds available in both decorative and blockout constructions?',
+    answer:
+      'Yes. Roman blinds can be developed with lighter decorative linings or more controlled light-filtering and blockout constructions according to the brief.',
+  },
+  {
+    question: 'Can Roman blinds be produced in premium linens and performance fabrics?',
+    answer:
+      'Yes. LuxAura can align Roman blind fabrication with premium linens, denser decorative textiles and selected higher-performance fabrics where practicality also matters.',
+  },
+  {
+    question: 'Is LuxAura suitable for both boutique residential and larger-scale Roman blind supply?',
+    answer:
+      'Yes. LuxAura supports Roman blind work across boutique custom briefs and broader project programmes where pricing, repeatability and workshop precision all matter.',
   },
 ];
 
