@@ -546,6 +546,16 @@ export const WINDOW_TREATMENTS_FAQ: FaqItem[] = [
       'Yes. Layered systems are planned as one composition, with curtain style, stack, lining behaviour and finish quality considered together.',
   },
   {
+    question: 'Can LuxAura support track systems for sheers, blockouts and layered drapery?',
+    answer:
+      'Yes. LuxAura can align track selection to lighter sheers, heavier drapery and layered systems so movement quality and final presentation remain consistent.',
+  },
+  {
+    question: 'Are curved or custom track systems available for more difficult window conditions?',
+    answer:
+      'Yes. Curved and shaped track options can be considered for bay windows, wrapped glazing and other openings where a standard straight run would weaken the result.',
+  },
+  {
     question: 'Are motorised systems available for larger openings or premium interiors?',
     answer:
       'Yes. Motorised curtain systems can be integrated into the treatment from the start, including track direction, movement quality and cleaner final presentation.',

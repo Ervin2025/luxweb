@@ -53,15 +53,6 @@ const DRAPERY_TYPES = [
     imageAlt: 'Tailored curtain heading detail in a refined interior',
   },
   {
-    title: 'Roman Blinds',
-    code: 'LXA-WIN-06',
-    eyebrow: 'Structured Fabrication',
-    description:
-      'Roman blind fabrication handled with a stronger eye on fold behaviour, hardware integration and clean presentation.',
-    imageSrc: '/images/IMG-G.webp',
-    imageAlt: 'Roman blind detail with clean fold structure',
-  },
-  {
     title: 'Layered Sheer + Drape Systems',
     code: 'LXA-WIN-07',
     eyebrow: 'Day-to-Night Control',
@@ -95,45 +86,107 @@ const CRAFT_DISCIPLINES = [
   },
 ] as const;
 
-const HARDWARE_MOTORISATION_BLOCKS = [
+const HARDWARE_TRACK_VISUALS = [
   {
-    title: 'Track Systems',
+    title: 'Minimal ceiling track',
     description:
-      'Refined track solutions selected for movement quality, cleaner stacking, ceiling conditions and a stronger final curtain line.',
+      'Discreet ceiling-fixed systems that let the drapery line read quietly against the architecture.',
+    code: 'LXA-WIN-15',
+    imageSrc: '/images/luxaura/window-track/concealed-ceiling-track.webp',
+    imageAlt: 'Concealed ceiling-mounted track integrated into a clean architectural interior',
+    className: 'lg:col-span-2',
   },
   {
-    title: 'Motorised Curtain Systems',
+    title: 'Wall-mounted system',
     description:
-      'Automation planned from the beginning so movement, control access and visual integration stay resolved rather than improvised later.',
+      'Architectural exposed systems used where the mounting condition needs to stay visible and resolved.',
+    code: 'LXA-WIN-16',
+    imageSrc: '/images/luxaura/window-track/wall-mounted-system.webp',
+    imageAlt: 'Wall-mounted curtain system shown in a premium residential installation',
+    className: '',
   },
   {
-    title: 'Better System Selection, Better Project Outcome',
+    title: 'Double track layers',
     description:
-      'Hardware and motorisation decisions are aligned to the full treatment brief, helping aesthetics, usability and execution quality stay connected.',
+      'Layered sheer and drapery systems coordinated for privacy, blackout support and cleaner day-to-night control.',
+    code: 'LXA-WIN-17',
+    imageSrc: '/images/luxaura/window-track/double-track-system.webp',
+    imageAlt: 'Installed double-track curtain system combining sheer and drapery layers',
+    className: '',
+  },
+  {
+    title: 'Curved and custom track conditions',
+    description:
+      'Corner and shaped track solutions for bay windows, wrapped glazing and other more difficult openings.',
+    code: 'LXA-WIN-18',
+    imageSrc: '/images/luxaura/window-track/curved-custom-track.webp',
+    imageAlt: 'Custom curved curtain track condition wrapping a premium corner window',
+    className: '',
+  },
+  {
+    title: 'Track detail and finish quality',
+    description:
+      'Closer attention to hardware detailing helps the finished curtain line look calmer and operate more smoothly over time.',
+    code: 'LXA-WIN-19',
+    imageSrc: '/images/luxaura/window-track/track-detail.webp',
+    imageAlt: 'Close-up of curtain hardware detailing and mounting finish',
+    className: '',
+  },
+  {
+    title: 'Installed real-world application',
+    description:
+      'Track systems are selected for how they sit in the room once curtains are made, stacked and fully installed.',
+    code: 'LXA-WIN-20',
+    imageSrc: '/images/luxaura/window-track/installed-track-with-curtain.webp',
+    imageAlt: 'Installed curtain system showing the relationship between track, heading and final drapery fall',
+    className: 'lg:col-span-2',
+  },
+] as const;
+
+const HARDWARE_TRACK_POINTS = [
+  'Wide range of track profiles and configurations for cleaner visual alignment.',
+  'Ceiling-mounted and wall-mounted systems suited to different site conditions.',
+  'Curved and custom track capability for bay windows, corners and shaped openings.',
+  'Smooth gliding performance designed for daily usability and longer-term reliability.',
+  'Suitable for both light sheers and heavier drapery packages.',
+  'Compatibility with motorisation pathways where automation is required.',
+  'Strong price competitiveness for trade clients without collapsing finish quality.',
+] as const;
+
+const MOTORISATION_BLOCKS = [
+  {
+    title: 'Smooth automated operation',
+    description:
+      'Motorised curtain systems improve usability on wider openings and help larger treatments move with less manual strain and cleaner consistency.',
+  },
+  {
+    title: 'Integrated with the track system',
+    description:
+      'Automation is planned with the supporting track, stack behaviour and installation condition so the final treatment stays visually controlled.',
+  },
+  {
+    title: 'Project-ready value',
+    description:
+      'Light integration with trusted systems such as Somfy can be considered while keeping the overall package commercially sensible for trade clients.',
   },
 ] as const;
 
 const ROMAN_BLIND_STYLES = [
   {
-    title: 'Flat & Ribbed',
-    description: 'Clean, architectural lines for modern and more structured interiors.',
-    imageSrc: '/images/IMG-G.webp',
-    imageAlt: 'Structured Roman blind detail with clean, architectural fold behaviour',
-    code: 'LXA-WIN-13',
+    title: 'Flat Roman Blind',
+    description: 'Clean, structured lines for modern and more architectural interiors.',
   },
   {
-    title: 'Relaxed & London',
-    description: 'Softer, more decorative forms suited to elegant residential and boutique project settings.',
-    imageSrc: '/images/IMG-F.webp',
-    imageAlt: 'Softer Roman blind expression with more decorative fabric character',
-    code: 'LXA-WIN-14',
+    title: 'Relaxed Roman Blind',
+    description: 'A softer bottom curve suited to elegant residential and furnishing-led project settings.',
   },
   {
-    title: 'Hobbled',
+    title: 'London Roman Blind',
+    description: 'Tail-detail expression that adds decorative softness while still keeping a tailored look.',
+  },
+  {
+    title: 'Hobbled Roman Blind',
     description: 'Permanent cascading folds that add depth, softness and stronger decorative character.',
-    imageSrc: '/images/IMG-C.webp',
-    imageAlt: 'Close-up workmanship detail showing richer fold depth and decorative finish',
-    code: 'LXA-WIN-15',
   },
 ] as const;
 
@@ -259,7 +312,7 @@ export default function CustomCurtainsSheersPage() {
           <SectionHeading
             eyebrow="Curtain Styles / Drapery Typologies"
             title="A broader window treatment language for design-led interiors"
-            description="LuxAura supports a wide range of premium curtain styles, Roman blinds and layered window schemes, allowing the treatment to respond to architecture, room tone and project ambition."
+            description="LuxAura supports a wide range of premium curtain styles and layered window schemes, allowing the treatment to respond to architecture, room tone and project ambition before specialist categories are refined further."
           />
 
           <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:overflow-visible xl:grid-cols-3">
@@ -317,6 +370,70 @@ export default function CustomCurtainsSheersPage() {
         </div>
       </section>
 
+      <section id="hardware-motorisation" className="section-padding pt-0">
+        <div className="container-custom">
+          <SectionHeading
+            eyebrow="Hardware & Track Systems"
+            title="Precision Track Systems for Smooth Operation and Clean Integration"
+            description="LuxAura provides a wide range of curtain track systems designed for smooth operation, visual integration and long-term reliability across residential and project applications. From discreet ceiling-mounted tracks to more architectural exposed systems, LuxAura supports both design intent and practical performance with strong product variety and competitive trade positioning."
+          />
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-5">
+            {HARDWARE_TRACK_VISUALS.map(item => (
+              <article
+                key={item.title}
+                className={`group overflow-hidden rounded-[2rem] border border-[#e4dbc9] bg-white shadow-[0_22px_70px_rgba(22,18,12,0.08)] ${item.className}`}
+              >
+                <div className="relative aspect-[16/11] overflow-hidden">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 1023px) 100vw, 33vw"
+                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                  <ImageCodeBadge code={item.code} />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,14,13,0.02),rgba(11,14,13,0.34)_100%)]" />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <h2 className="font-heading text-[1.7rem] font-semibold leading-[1.06] text-neutral-900 sm:text-[1.95rem]">
+                    {item.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <article className="section-shell p-7 sm:p-8 lg:p-10">
+              <p className="eyebrow">Track System Capability</p>
+              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-[2.8rem]">
+                A broader hardware layer helps the full window package perform properly
+              </h2>
+              <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
+                Track choice affects stacking, movement quality, bracket logic, long-term
+                reliability and the final discipline of the drapery line. LuxAura treats this as a
+                core part of the window package rather than an afterthought.
+              </p>
+            </article>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {HARDWARE_TRACK_POINTS.map(point => (
+                <article
+                  key={point}
+                  className="rounded-[1.5rem] border border-[#e4dbc9] bg-[#f8f3e8] p-5"
+                >
+                  <p className="text-sm leading-7 text-neutral-700 sm:text-base">{point}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="roman-blinds" className="section-padding pt-0">
         <div className="container-custom">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
@@ -341,32 +458,60 @@ export default function CustomCurtainsSheersPage() {
                 LuxAura supports a full range of Roman blind constructions to suit different
                 project aesthetics, furnishing directions and performance requirements.
               </p>
+              <p className="mt-4 text-sm font-medium leading-7 text-neutral-700 sm:text-base">
+                Roman blinds are one of LuxAura’s strongest specialist manufacturing categories.
+              </p>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {ROMAN_BLIND_STYLES.map(item => (
-              <article key={item.title} className="group section-shell overflow-hidden">
-                <div className="relative aspect-[16/10] overflow-hidden border-b border-primary/10">
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="grid gap-4">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_24px_80px_rgba(20,24,22,0.12)]">
+                <Image
+                  src="/images/luxaura/roman-blind-lounge.webp"
+                  alt="Flat Roman blind installation in a premium interior with correct stacking and proportion"
+                  fill
+                  sizes="(min-width: 1024px) 48vw, 100vw"
+                  className="object-cover"
+                />
+                <ImageCodeBadge code="LXA-WIN-12" />
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_20px_70px_rgba(20,24,22,0.1)]">
                   <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
+                    src="/images/luxaura/roman-blind-lounge.webp"
+                    alt="Linen Roman blind fold and stacking detail"
                     fill
-                    sizes="(min-width: 1024px) 32vw, 100vw"
-                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(min-width: 1024px) 24vw, 100vw"
+                    className="object-cover"
                   />
-                  <ImageCodeBadge code={item.code} />
+                  <ImageCodeBadge code="LXA-WIN-13" />
                 </div>
-                <div className="p-7">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_20px_70px_rgba(20,24,22,0.1)]">
+                  <Image
+                    src="/images/luxaura/beach-sheer.webp"
+                    alt="Premium linen material direction suited to Roman blind fabrication"
+                    fill
+                    sizes="(min-width: 1024px) 24vw, 100vw"
+                    className="object-cover"
+                  />
+                  <ImageCodeBadge code="LXA-WIN-14" />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              {ROMAN_BLIND_STYLES.map(item => (
+                <article key={item.title} className="section-shell p-6 sm:p-7">
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {item.title}
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                     {item.description}
                   </p>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
@@ -421,6 +566,78 @@ export default function CustomCurtainsSheersPage() {
         </div>
       </section>
 
+      <section id="motorised-curtain-systems" className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="overflow-hidden rounded-[2.3rem] bg-[#15110d] text-white shadow-[0_32px_90px_rgba(17,12,8,0.24)]">
+            <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+              <div className="grid gap-4 p-4 sm:p-6 lg:p-8">
+                <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster="/images/IMG-I.webp"
+                    className="h-full w-full object-cover"
+                  >
+                    <source src="/videos/motorisation-demo.mp4" type="video/mp4" />
+                  </video>
+                  <ImageCodeBadge code="LXA-WIN-09" />
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
+                    <Image
+                      src="/images/IMG-I.webp"
+                      alt="Motorised curtain rail detail in a premium bedroom scheme"
+                      fill
+                      sizes="(min-width: 1024px) 24vw, 100vw"
+                      className="object-cover"
+                    />
+                    <ImageCodeBadge code="LXA-WIN-10" />
+                  </div>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
+                    <Image
+                      src="/images/luxaura/hero-project.webp"
+                      alt="Layered motorised drapery system shown in a premium installed interior"
+                      fill
+                      sizes="(min-width: 1024px) 24vw, 100vw"
+                      className="object-cover"
+                    />
+                    <ImageCodeBadge code="LXA-WIN-11" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-8 sm:p-10 lg:p-14">
+                <SectionHeading
+                  eyebrow="Motorised Curtain Systems"
+                  title="Motorised operation that stays clean, smooth and project-ready"
+                  description="LuxAura supports motorised curtain systems as part of a more complete window treatment pathway, helping automation work with the selected track, the fabric weight and the intended room experience rather than being added too late."
+                  theme="dark"
+                />
+                <p className="mt-5 text-sm leading-7 text-white/68 sm:text-base">
+                  Trusted systems such as Somfy can be considered where the project requires a
+                  more integrated motorised direction across residential or broader project use.
+                </p>
+                <div className="mt-8 grid gap-4">
+                  {MOTORISATION_BLOCKS.map(item => (
+                    <article
+                      key={item.title}
+                      className="rounded-[1.5rem] border border-white/10 bg-white/6 p-5"
+                    >
+                      <h3 className="font-heading text-2xl font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-white/72">{item.description}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="master-craft-finishing" className="section-padding pt-0">
         <div className="container-custom">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
@@ -458,78 +675,6 @@ export default function CustomCurtainsSheersPage() {
         </div>
       </section>
 
-      <section id="hardware-motorisation" className="section-padding pt-0">
-        <div className="container-custom">
-          <div className="overflow-hidden rounded-[2.3rem] bg-[#15110d] text-white shadow-[0_32px_90px_rgba(17,12,8,0.24)]">
-            <div className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]">
-              <div className="grid gap-4 p-4 sm:p-6 lg:p-8">
-                <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    poster="/images/IMG-I.webp"
-                    className="h-full w-full object-cover"
-                  >
-                    <source src="/videos/motorisation-demo.mp4" type="video/mp4" />
-                  </video>
-                  <ImageCodeBadge code="LXA-WIN-09" />
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
-                    <Image
-                      src="/images/IMG-I.webp"
-                      alt="Motorised curtain rail detail in a premium bedroom scheme"
-                      fill
-                      sizes="(min-width: 1024px) 24vw, 100vw"
-                      className="object-cover"
-                    />
-                    <ImageCodeBadge code="LXA-WIN-10" />
-                  </div>
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
-                    <Image
-                      src="/images/carousel/09-Curtain-Track.webp"
-                      alt="Curtain track profile and glider detail"
-                      fill
-                      sizes="(min-width: 1024px) 24vw, 100vw"
-                      className="object-cover"
-                    />
-                    <ImageCodeBadge code="LXA-WIN-11" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-8 sm:p-10 lg:p-14">
-                <SectionHeading
-                  eyebrow="Hardware & Motorisation"
-                  title="Track Systems and Motorised Solutions That Complete the Window Treatment"
-                  description="LuxAura approaches hardware not as an afterthought, but as a critical part of curtain performance, movement quality and final presentation. From refined track systems to motorised operation, the right hardware layer helps ensure cleaner execution, better usability and more complete project outcomes."
-                  theme="dark"
-                />
-                <p className="mt-5 text-sm leading-7 text-white/68 sm:text-base">
-                  Trusted systems such as Somfy can be considered where the project requires a
-                  more integrated motorised direction.
-                </p>
-                <div className="mt-8 grid gap-4">
-                  {HARDWARE_MOTORISATION_BLOCKS.map(item => (
-                    <article
-                      key={item.title}
-                      className="rounded-[1.5rem] border border-white/10 bg-white/6 p-5"
-                    >
-                      <h3 className="font-heading text-2xl font-semibold text-white">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-7 text-white/72">{item.description}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <FaqSection
         items={[...WINDOW_TREATMENTS_FAQ]}
         title="Window treatment questions"
@@ -545,8 +690,8 @@ export default function CustomCurtainsSheersPage() {
                 Bring the window package into one controlled path
               </h2>
               <p className="mt-5 text-pretty text-[15px] leading-7 text-neutral-700 sm:text-lg">
-                Bring LuxAura in when drapery style, finishing, hardware and motorisation need to
-                move together rather than through fragmented decisions.
+                Bring LuxAura in when curtain style, track systems, Roman blinds, motorisation and
+                finishing need to move together rather than through fragmented decisions.
               </p>
             </div>
 

@@ -133,19 +133,24 @@ const WHY_THIS_MATTERS = [
 
 const PERFORMANCE_DIRECTIONS = [
   {
-    title: 'Hospitality and higher-use suitability',
+    title: 'Durability & Abrasion Resistance',
     description:
-      'Performance-led directions can support boutique hospitality, short-stay and higher-use residential settings without drifting into purely utilitarian finishes.',
+      'Selected performance fabrics are better suited to higher-use upholstery, layered furnishing schemes and project conditions where resilience matters.',
   },
   {
-    title: 'Pet-friendly and family-aware options',
+    title: 'Stain and Maintenance Practicality',
     description:
-      'Collections such as Mobus and FibreGuard help projects respond to daily life, pet ownership and easier maintenance more intelligently.',
+      'Stain-resistant and easier-clean directions help everyday use stay more manageable without forcing the interior into a purely utilitarian look.',
   },
   {
-    title: 'Practical beauty',
+    title: 'Pet-Friendly and Family-Aware',
     description:
-      'LuxAura helps keep durability, stain resistance and material practicality aligned with visual refinement instead of forcing a compromise.',
+      'Collections such as Mobus and FibreGuard help briefs respond more intelligently to pets, children and heavier day-to-day wear.',
+  },
+  {
+    title: 'Hospitality and Project Suitability',
+    description:
+      'Performance-led directions can support boutique hospitality, short-stay and higher-use residential settings where practicality and finish quality need to coexist.',
   },
 ] as const;
 
@@ -192,6 +197,14 @@ const LINEN_TRADE_EDGE = [
     description:
       'LuxAura supports both boutique residential projects and larger-scale commercial developments while maintaining precision and pricing discipline.',
   },
+] as const;
+
+const SUNBRELLA_SOLUTIONS = [
+  'UV resistance and colour stability for stronger long-term outdoor use.',
+  'Fade resistance suited to exposed terraces, balconies and hospitality settings.',
+  'Water resistance and easier maintenance for practical day-to-day upkeep.',
+  'Suitable for cushions, seating and outdoor upholstery across residential and commercial applications.',
+  'Well suited to Australian outdoor conditions where durability and visual calm both matter.',
 ] as const;
 
 export const metadata: Metadata = {
@@ -274,14 +287,14 @@ export default function CollectionsPage() {
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
               <SectionHeading
-                eyebrow="More Useful Material Resources"
-                title="More useful material resources for design-led and project-practical briefs"
-                description="LuxAura supports textile decisions that need more than surface appeal by aligning material suitability, decorative character and end-use practicality from the start."
+                eyebrow="Material Direction Across Multiple Applications"
+                title="Material direction across sheers, drapery, upholstery, Roman blinds and decorative applications"
+                description="LuxAura supports a wider furnishing material pathway from the start, helping textiles move across multiple applications without losing practical clarity or visual control."
               />
               <p className="mt-6 max-w-xl text-sm leading-8 text-neutral-700 sm:text-base">
                 The material needs to be not only beautiful, but buildable. LuxAura connects
-                sourcing decisions to fabrication logic so the final result remains more controlled
-                from the beginning.
+                sourcing decisions to curtains, sheers, Roman blinds, upholstery and decorative
+                layers so the brief remains broader than any one category.
               </p>
             </div>
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
@@ -295,6 +308,32 @@ export default function CollectionsPage() {
               <ImageCodeBadge code="LXA-COL-02" />
             </div>
           </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {MATERIAL_DIRECTIONS.map(item => (
+              <article key={item.title} className="group section-shell overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-primary/10">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 1023px) 100vw, 33vw"
+                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                  <ImageCodeBadge code={item.code} />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.05)_0%,rgba(12,14,13,0.24)_100%)]" />
+                </div>
+                <div className="p-7">
+                  <h2 className="font-heading text-3xl font-semibold text-neutral-900">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -305,7 +344,7 @@ export default function CollectionsPage() {
               <SectionHeading
                 eyebrow="Our Signature Linen"
                 title="French Elegance, Technical Versatility and Trade-Level Value"
-                description="At LuxAura Living, linen is not just another fabric category. It is a core material strength that balances organic luxury with stronger performance, versatility and commercial value for trade clients."
+                description="At LuxAura Living, linen is a signature material strength within a broader furnishing offer, balancing organic luxury with stronger versatility and commercially useful trade value."
               />
               <p className="mt-6 max-w-xl text-sm leading-8 text-neutral-700 sm:text-base">
                 LuxAura’s linen collection is curated to support a wide range of furnishing
@@ -433,37 +472,75 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <section id="materials" className="section-padding pt-0">
+      <section className="section-padding pt-0">
         <div className="container-custom">
-          <SectionHeading
-            eyebrow="Material Directions"
-            title="A considered textile library for varied project needs"
-            description="Premium material directions shaped around how different projects actually specify, perform and furnish."
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {MATERIAL_DIRECTIONS.map(item => (
-              <article key={item.title} className="group section-shell overflow-hidden">
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-primary/10">
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 1023px) 100vw, 33vw"
-                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
-                  />
-                  <ImageCodeBadge code={item.code} />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.05)_0%,rgba(12,14,13,0.24)_100%)]" />
-                </div>
-                <div className="p-7">
-                  <h2 className="font-heading text-3xl font-semibold text-neutral-900">
-                    {item.title}
-                  </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
+              <Image
+                src="/images/luxaura/hero-project.webp"
+                alt="Performance-aware textile direction for hospitality and higher-use furnishing applications"
+                fill
+                sizes="(min-width: 1024px) 52vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-COL-18" />
+            </div>
+            <div>
+              <SectionHeading
+                eyebrow="Performance Fabrics"
+                title="Performance Fabrics for Real Living and Project Use"
+                description="Selected performance fabrics help projects manage durability, stain resistance, abrasion resistance and heavier daily use without compromising visual refinement."
+              />
+              <div className="mt-8 grid gap-4">
+                {PERFORMANCE_DIRECTIONS.map(item => (
+                  <article
+                    key={item.title}
+                    className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
+                  >
+                    <h2 className="font-heading text-2xl font-semibold text-neutral-900">
+                      {item.title}
+                    </h2>
+                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
+              <Image
+                src="/images/IMG-Hero.webp"
+                alt="Outdoor seating and cushion setting representing Sunbrella-led exterior fabric solutions"
+                fill
+                sizes="(min-width: 1024px) 52vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-COL-19" />
+            </div>
+            <div>
+              <SectionHeading
+                eyebrow="Sunbrella Outdoor Fabric Solutions"
+                title="Outdoor fabric solutions for cushions, seating and exposed project conditions"
+                description="LuxAura supports outdoor furnishing applications using high-performance Sunbrella fabrics designed for durability, colour stability and long-term outdoor use in residential, hospitality and commercial environments."
+              />
+              <div className="mt-8 grid gap-4">
+                {SUNBRELLA_SOLUTIONS.map(item => (
+                  <article
+                    key={item}
+                    className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
+                  >
+                    <p className="text-sm leading-7 text-neutral-700 sm:text-base">{item}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -499,45 +576,6 @@ export default function CollectionsPage() {
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding pt-0">
-        <div className="container-custom">
-          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
-              <Image
-                src="/images/luxaura/hero-project.webp"
-                alt="Performance-aware textile direction for hospitality and higher-use furnishing applications"
-                fill
-                sizes="(min-width: 1024px) 52vw, 100vw"
-                className="object-cover"
-              />
-              <ImageCodeBadge code="LXA-COL-18" />
-            </div>
-            <div>
-              <SectionHeading
-                eyebrow="Performance Material Direction"
-                title="Performance material direction that stays visually refined"
-                description="Selected textile ranges help projects handle hospitality use, pet-friendly family life and heavier daily wear without forcing the scheme into a purely practical look."
-              />
-              <div className="mt-8 grid gap-4">
-                {PERFORMANCE_DIRECTIONS.map(item => (
-                  <article
-                    key={item.title}
-                    className="rounded-[1.5rem] border border-primary/10 bg-neutral-50 p-5"
-                  >
-                    <h2 className="font-heading text-2xl font-semibold text-neutral-900">
-                      {item.title}
-                    </h2>
-                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
-                      {item.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>

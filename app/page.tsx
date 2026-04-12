@@ -244,14 +244,14 @@ export default function Home() {
               Soft Furnishing Support for Projects That Need More Than Supply
             </h1>
             <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 max-[430px]:text-[0.94rem] max-[430px]:leading-[1.68] sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
-              LuxAura helps designers, builders, retailers, stylists and project-led clients
-              reduce sourcing fragmentation, protect design intent and deliver more resolved
-              interiors.
+              LuxAura brings together material sourcing, specialist making and project support to
+              create more resolved, more complete and more commercially viable interiors.
             </p>
             <p className="mt-4 max-w-[34rem] text-pretty text-[0.95rem] leading-[1.72] text-white/78 max-[430px]:text-[0.9rem] sm:text-[1.02rem] sm:leading-[1.78]">
-              From materials and specialist making to decorative detailing, performance-led
-              selections and project support, LuxAura brings more of the furnishing process into
-              one more controlled, design-aware path.
+              From premium linen fabrics to professionally manufactured Roman blinds, custom
+              drapery, upholstery and decorative finishing, LuxAura delivers furnishing solutions
+              that improve presentation, reduce coordination workload and support more reliable
+              project outcomes.
             </p>
 
             <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
