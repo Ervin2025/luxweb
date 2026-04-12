@@ -55,7 +55,7 @@ export default function CurtainMeasurementGuidePage() {
         imageAlt="Refined curtain detail used for LuxAura measurement guide"
       >
         <Link href={PROJECT_BRIEF_HREF} className="btn-primary">
-          Submit a Brief
+          Project Enquiry
         </Link>
       </PageHero>
 

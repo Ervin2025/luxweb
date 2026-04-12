@@ -1,4 +1,4 @@
-export type FormIntent = 'trade-access' | 'project-enquiry' | 'catalogue-request';
+export type FormIntent = 'trade-access' | 'project-enquiry';
 
 export const FORM_INTENT_OPTIONS: Array<{
   value: FormIntent;
@@ -7,13 +7,13 @@ export const FORM_INTENT_OPTIONS: Array<{
 }> = [
   {
     value: 'trade-access',
-    label: 'Register trade account',
-    description: 'Apply for pricing access, product resources and long-term account support.',
+    label: 'Trade Account',
+    description: 'Apply for pricing access, product resources and ongoing account support.',
   },
   {
     value: 'project-enquiry',
-    label: 'Project enquiry',
-    description: 'Discuss an active project, required products and fabrication needs.',
+    label: 'Project Enquiry',
+    description: 'Submit a project enquiry for sourcing, fabrication and furnishing support. No ABN is required.',
   },
 ];
 
@@ -64,15 +64,6 @@ export const PROJECT_STAGE_OPTIONS = [
   'Procurement Stage',
   'Pre-Installation',
   'Refresh / Upgrade',
-] as const;
-
-export const PROJECT_ENQUIRY_TYPE_OPTIONS = [
-  'Trade Account Access',
-  'Trade Support',
-  'Project Brief',
-  'Retail & Brand Support',
-  'Custom / Small-Batch Support',
-  'Selected Private Project',
 ] as const;
 
 export const PROJECT_SERVICE_OPTIONS = [

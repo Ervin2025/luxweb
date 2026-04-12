@@ -8,7 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { REQUEST_CUSTOM_SUPPORT_HREF } from '@/lib/navigation-data';
+import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 import { BESPOKE_UPHOLSTERY_FAQ } from '@/lib/site-data';
 
 const UPHOLSTERED_APPLICATIONS = [
@@ -265,11 +265,14 @@ export default function CushionsSoftFurnishingsPage() {
               range of furniture concepts into practical, project-ready reality.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account
+              </Link>
               <Link
                 href={REQUEST_CUSTOM_SUPPORT_HREF}
-                className="btn-primary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+                className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
               >
-                Request Custom Support
+                Project Enquiry
               </Link>
             </div>
           </div>
@@ -532,8 +535,11 @@ export default function CushionsSoftFurnishingsPage() {
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
-                Request Custom Support
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account
+              </Link>
+              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-secondary">
+                Project Enquiry
               </Link>
             </div>
           </div>

@@ -8,7 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { BRAND_SUPPORT_HREF, REQUEST_CUSTOM_SUPPORT_HREF } from '@/lib/navigation-data';
+import { BRAND_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 import { DECORATIVE_TRIMMINGS_FAQ } from '@/lib/site-data';
 
 const VALUE_CARDS = [
@@ -217,14 +217,14 @@ export default function DecorativeTrimmingsPage() {
               flexible delivery support into furnishing-led projects.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
-                Request Custom Support
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account
               </Link>
               <Link
                 href={BRAND_SUPPORT_HREF}
                 className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
               >
-                Access Brand Support
+                Project Enquiry
               </Link>
             </div>
           </div>
@@ -418,14 +418,14 @@ export default function DecorativeTrimmingsPage() {
             </div>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
-                Request Custom Support
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account
               </Link>
               <Link
                 href={BRAND_SUPPORT_HREF}
                 className="btn-secondary border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
               >
-                Access Brand Support
+                Project Enquiry
               </Link>
             </div>
           </div>

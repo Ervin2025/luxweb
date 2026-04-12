@@ -12,6 +12,7 @@ import { generateFaqSchema } from '@/lib/faq-schema';
 import {
   PROJECT_BRIEF_HREF,
   PROJECT_SUPPORT_FAQ,
+  TRADE_PORTAL_ACCESS_HREF,
 } from '@/lib/site-data';
 
 const CLIENT_PATHWAYS = [
@@ -226,7 +227,10 @@ export default function ProjectSupportPage() {
 
               <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={PROJECT_BRIEF_HREF} className="btn-primary w-full sm:w-auto">
-                  Submit a Brief
+                  Project Enquiry
+                </Link>
+                <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary w-full sm:w-auto">
+                  Trade Account
                 </Link>
               </div>
             </div>
@@ -470,7 +474,10 @@ export default function ProjectSupportPage() {
 
             <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link href={PROJECT_BRIEF_HREF} className="btn-primary w-full sm:w-auto">
-                Submit a Brief
+                Project Enquiry
+              </Link>
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary w-full sm:w-auto">
+                Trade Account
               </Link>
             </div>
           </div>

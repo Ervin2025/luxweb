@@ -18,41 +18,21 @@ import {
 
 const SUPPORT_CATEGORIES = [
   {
-    title: 'Trade Account Access',
+    title: 'Trade Account',
     description:
-      'Open the LuxAura trade pathway for pricing review, resources and longer-term account support.',
+      'Use Trade Account when you need pricing access, product resources and ongoing account support.',
   },
   {
-    title: 'Trade Support',
+    title: 'Project Enquiry',
     description:
-      'Request direction on sourcing, fabrication, category alignment or the next most practical support step.',
-  },
-  {
-    title: 'Project Brief Submission',
-    description:
-      'Send a clearer furnishing brief when the scope needs coordination across materials, making, trims and delivery.',
-  },
-  {
-    title: 'Custom / Small-Batch Support',
-    description:
-      'Use LuxAura where custom development, flexible batch size or more tailored support matters to the outcome.',
-  },
-  {
-    title: 'Retail & Brand Support',
-    description:
-      'Support for retailers and boutique brands needing stronger decorative resources, customisation and fulfilment flexibility.',
-  },
-  {
-    title: 'Selected Private Projects',
-    description:
-      'Private residential projects are accepted selectively where scope, alignment and delivery suitability fit the LuxAura model.',
+      'Use Project Enquiry for furnishing scopes, custom requirements and project-led support. Project Enquiry does not require ABN registration.',
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Contact | Trade, Project and Custom Support Enquiries',
+  title: 'Contact | Trade Account and Project Enquiry',
   description:
-    'Structured access for trade accounts, project-led briefs, custom support requests and selected private enquiries through the LuxAura trade desk.',
+    'Structured access for Trade Account applications and Project Enquiry submissions through the LuxAura contact pathway.',
   keywords: [
     'trade soft furnishings sydney',
     'furnishing supplier sydney',
@@ -64,9 +44,9 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
   openGraph: {
-    title: 'Contact | Trade, Project and Custom Support Enquiries',
+    title: 'Contact | Trade Account and Project Enquiry',
     description:
-      'Structured access for trade accounts, project-led briefs, custom support requests and selected private enquiries.',
+      'Structured access for Trade Account applications and Project Enquiry submissions.',
     url: `${SITE_CONFIG.url}/contact`,
     images: ['/images/about-hero.webp'],
   },
@@ -86,24 +66,22 @@ export default function ContactPage() {
                 Contact
               </p>
               <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
-                Trade, Project and Custom Support Enquiries
+                Trade Account and Project Enquiry
               </h1>
               <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
-                Structured access for trade accounts, project-led briefs, custom support requests
-                and selected private enquiries.
+                Structured access for Trade Account applications and Project Enquiry submissions.
               </p>
               <p className="mt-4 max-w-[38rem] text-pretty text-[14px] leading-7 text-neutral-600 sm:mt-5 sm:text-[1rem] sm:leading-8">
-                LuxAura supports designers, builders, retailers, stylists, hospitality operators
-                and furnishing-led clients through a more coordinated enquiry and project intake
-                pathway.
+                Project Enquiry is available for furnishing scopes, custom requirements and
+                project-led support, and it does not require ABN registration.
               </p>
 
               <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account Access
+                  Trade Account
                 </Link>
                 <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
-                  Submit a Brief
+                  Project Enquiry
                 </Link>
               </div>
             </div>
@@ -134,18 +112,20 @@ export default function ContactPage() {
           <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-8">
             <article className="section-shell p-6 max-[430px]:p-5 sm:p-10">
               <SectionHeading
-                eyebrow="Trade Desk & Project Intake"
-                title="Trade Desk & Project Intake"
-                description="LuxAura’s trade desk is structured for enquiries that need more than a simple price check."
+                eyebrow="Trade Account & Project Enquiry"
+                title="Trade Account & Project Enquiry"
+                description="Use one of two clear pathways depending on whether you need account access or a project-led enquiry."
               />
               <p className="mt-5 text-pretty text-[14px] leading-7 text-neutral-700 sm:mt-6 sm:text-[1rem] sm:leading-8">
-                Use this pathway for trade account access, furnishing coordination, project
-                clarification, category alignment and the next practical step for a more
-                controlled brief.
+                Trade Account is for pricing access and ongoing account support. Project Enquiry is
+                for active furnishing scopes and does not require ABN registration.
               </p>
               <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account Access
+                  Trade Account
+                </Link>
+                <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
+                  Project Enquiry
                 </Link>
               </div>
             </article>
@@ -210,8 +190,8 @@ export default function ContactPage() {
             />
             <div className="mt-8 sm:mt-10">
               <ProjectEnquiryForm
-                submitLabel="Submit Brief"
-                note="Trade accounts and project-led enquiries are prioritised. Private residential projects are reviewed selectively based on scope, alignment and delivery suitability."
+                submitLabel="Project Enquiry"
+                note="Project Enquiry does not require ABN registration. Trade Account applications and project-led enquiries are prioritised."
               />
             </div>
           </div>
@@ -240,7 +220,10 @@ export default function ContactPage() {
               </p>
               <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={PROJECT_BRIEF_HREF} className="btn-primary w-full sm:w-auto">
-                  Submit a Brief
+                  Project Enquiry
+                </Link>
+                <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary w-full sm:w-auto">
+                  Trade Account
                 </Link>
               </div>
             </article>

@@ -3,7 +3,6 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  PROJECT_ENQUIRY_TYPE_OPTIONS,
   PROJECT_CLIENT_TYPE_OPTIONS,
   PROJECT_SERVICE_OPTIONS,
   PROJECT_STAGE_OPTIONS,
@@ -17,7 +16,6 @@ const initialFormState = {
   company: '',
   email: '',
   phone: '',
-  enquiryType: '',
   clientType: '',
   projectType: '',
   projectStage: '',
@@ -33,7 +31,7 @@ interface ProjectEnquiryFormProps {
 }
 
 export default function ProjectEnquiryForm({
-  submitLabel = 'Submit Brief',
+  submitLabel = 'Project Enquiry',
   className = '',
   note,
 }: ProjectEnquiryFormProps) {
@@ -102,12 +100,12 @@ export default function ProjectEnquiryForm({
 
       const body = new FormData();
       body.append('access_key', accessKey);
-      body.append('subject', 'LuxAura Project Enquiry - Trade Desk');
+      body.append('subject', 'LuxAura Project Enquiry');
       body.append('name', formData.name);
       body.append('company_or_studio', formData.company);
       body.append('email', formData.email);
       body.append('phone', formData.phone);
-      body.append('enquiry_type', formData.enquiryType);
+      body.append('enquiry_type', 'Project Enquiry');
       body.append('client_type', formData.clientType);
       body.append('project_type', formData.projectType);
       body.append('project_stage', formData.projectStage);
@@ -203,23 +201,6 @@ export default function ProjectEnquiryForm({
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        <Field label="Enquiry Type" htmlFor="enquiryType">
-          <select
-            id="enquiryType"
-            name="enquiryType"
-            required
-            value={formData.enquiryType}
-            onChange={handleChange}
-            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
-          >
-            <option value="">Select enquiry type</option>
-            {PROJECT_ENQUIRY_TYPE_OPTIONS.map(option => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </Field>
         <Field label="Client Type" htmlFor="clientType">
           <select
             id="clientType"
@@ -375,7 +356,7 @@ export default function ProjectEnquiryForm({
         className="btn-primary w-full justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Sending to Trade Desk...' : submitLabel}
+        {isSubmitting ? 'Sending Project Enquiry...' : submitLabel}
       </button>
     </form>
   );

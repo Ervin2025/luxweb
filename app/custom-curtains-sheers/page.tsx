@@ -11,6 +11,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import {
   TRADE_PORTAL_ACCESS_HREF,
+  TRADE_SUPPORT_HREF,
   WINDOW_TREATMENTS_FAQ,
 } from '@/lib/site-data';
 
@@ -190,7 +191,10 @@ export default function CustomCurtainsSheersPage() {
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Account Access
+                Trade Account
+              </Link>
+              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
+                Project Enquiry
               </Link>
             </div>
           </div>
@@ -395,7 +399,10 @@ export default function CustomCurtainsSheersPage() {
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Account Access
+                Trade Account
+              </Link>
+              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
+                Project Enquiry
               </Link>
             </div>
           </div>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function TradeLoginPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Trade Account Access', url: '/trade-projects' },
+    { name: 'Trade Account', url: '/trade-projects' },
     { name: 'Trade Account Preview', url: '/trade/login' },
   ]);
 
@@ -28,7 +28,7 @@ export default function TradeLoginPage() {
       <div className="container-custom">
         <Breadcrumb
           items={[
-            { label: 'Trade Account Access', href: '/trade-projects' },
+            { label: 'Trade Account', href: '/trade-projects' },
             { label: 'Trade Account Preview', href: '/trade/login' },
           ]}
         />
@@ -59,7 +59,10 @@ export default function TradeLoginPage() {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/trade-projects" className="btn-primary">
-              Trade Account Access
+              Trade Account
+            </Link>
+            <Link href="/contact#project-enquiry" className="btn-secondary">
+              Project Enquiry
             </Link>
           </div>
         </section>

@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { CONTACT_INFO } from '@/lib/constants';
 import {
-  BRAND_SUPPORT_HREF,
   FOOTER_CATEGORY_LINKS,
   PROJECT_BRIEF_HREF,
-  REQUEST_CUSTOM_SUPPORT_HREF,
   TRADE_PORTAL_ACCESS_HREF,
 } from '@/lib/navigation-data';
 
@@ -35,7 +33,10 @@ export default function Footer() {
             </p>
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                Trade Account Access
+                Trade Account
+              </Link>
+              <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
+                Project Enquiry
               </Link>
             </div>
           </div>
@@ -64,7 +65,7 @@ export default function Footer() {
                   href={TRADE_PORTAL_ACCESS_HREF}
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
-                  Trade Account Access
+                  Trade Account
                 </Link>
               </li>
               <li>
@@ -72,23 +73,7 @@ export default function Footer() {
                   href={PROJECT_BRIEF_HREF}
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
-                  Submit a Brief
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={REQUEST_CUSTOM_SUPPORT_HREF}
-                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
-                >
-                  Request Custom Support
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={BRAND_SUPPORT_HREF}
-                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
-                >
-                  Access Brand Support
+                  Project Enquiry
                 </Link>
               </li>
             </ul>

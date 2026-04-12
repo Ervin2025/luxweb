@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import PageHero from '@/components/PageHero';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { PROJECT_BRIEF_HREF } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | LuxAura',
@@ -64,7 +64,10 @@ export default function TermsPage() {
         imageCode="LXA-TERMS-01"
       >
         <Link href="/trade-projects" className="btn-primary">
-          Trade Account Access
+          Trade Account
+        </Link>
+        <Link href={PROJECT_BRIEF_HREF} className="btn-secondary">
+          Project Enquiry
         </Link>
       </PageHero>
 
@@ -90,7 +93,7 @@ export default function TermsPage() {
                 </h2>
                 <p className="mt-4 text-base leading-8 text-neutral-700">
                   If anything in these terms is unclear, please{' '}
-                  <Link href={TRADE_SUPPORT_HREF} className="text-primary transition hover:underline">
+                  <Link href={PROJECT_BRIEF_HREF} className="text-primary transition hover:underline">
                     contact LuxAura
                   </Link>{' '}
                   before relying on website information for a project decision.

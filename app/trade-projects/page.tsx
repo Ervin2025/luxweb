@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import FaqSection from '@/components/FaqSection';
 import PageHero from '@/components/PageHero';
@@ -16,7 +17,7 @@ import {
 } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Trade Account Access | Trade Entry and Project Support',
+  title: 'Trade Account | Trade Entry and Project Enquiry',
   description:
     'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
   keywords:
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/trade-projects`,
   },
   openGraph: {
-    title: 'Trade Account Access | Trade Entry and Project Support',
+    title: 'Trade Account | Trade Entry and Project Enquiry',
     description:
       'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
     url: `${SITE_CONFIG.url}/trade-projects`,
@@ -48,28 +49,29 @@ export default async function TradeProjectsPage({
 }) {
   const resolvedSearchParams = await searchParams;
   const initialIntent = resolveIntent(resolvedSearchParams?.intent);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Trade Account Access', url: '/trade-projects' },
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Trade Account', url: '/trade-projects' }]);
   const faqSchema = generateFaqSchema(TRADE_PROJECT_FAQ);
 
   return (
     <div>
       <PageHero
-        eyebrow="Trade Account Access"
+        eyebrow="Trade Account"
         title="Trade entry for pricing, resources and project coordination"
-        description="Use this page to request LuxAura trade access, start a project pathway or connect the brief to the right support channel."
+        description="Use this page to apply for Trade Account access or send a Project Enquiry. Project Enquiry does not require ABN registration."
         imageSrc="/images/luxaura/vertical-sheer-pool.webp"
         imageAlt="LuxAura trade and project support"
         imageCode="LXA-TRADE-01"
       >
         <a href="#trade-projects-form" className="btn-primary">
-          Trade Account Access
+          Trade Account
         </a>
+        <Link href="/trade-projects?intent=project-enquiry#trade-projects-form" className="btn-secondary">
+          Project Enquiry
+        </Link>
       </PageHero>
 
       <div className="container-custom">
-        <Breadcrumb items={[{ label: 'Trade Account Access', href: '/trade-projects' }]} />
+        <Breadcrumb items={[{ label: 'Trade Account', href: '/trade-projects' }]} />
       </div>
 
       <section className="section-padding pt-6">

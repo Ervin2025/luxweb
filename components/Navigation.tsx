@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { lockBodyScroll } from '@/lib/body-scroll-lock';
-import { NAV_ITEMS, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
+import { NAV_ITEMS, PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 
 function isLinkActive(pathname: string, href: string) {
   if (href === '/') {
@@ -127,15 +127,23 @@ export default function Navigation() {
             </Link>
 
             <div className="flex justify-end">
-              <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary px-4 py-2.5 text-[12px] tracking-[0.16em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.2em] 2xl:px-6 2xl:text-[13px] 2xl:tracking-[0.22em]"
-              >
-                TRADE PORTAL ACCESS
-              </Link>
+              <div className="flex items-center gap-3">
+                <Link
+                  href={PROJECT_BRIEF_HREF}
+                  className="btn-secondary px-4 py-2.5 text-[12px] tracking-[0.16em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.2em] 2xl:px-6 2xl:text-[13px] 2xl:tracking-[0.22em]"
+                >
+                  PROJECT ENQUIRY
+                </Link>
+                <Link
+                  href={TRADE_PORTAL_ACCESS_HREF}
+                  className="btn-primary px-4 py-2.5 text-[12px] tracking-[0.16em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.2em] 2xl:px-6 2xl:text-[13px] 2xl:tracking-[0.22em]"
+                >
+                  TRADE ACCOUNT
+                </Link>
+              </div>
             </div>
 
-            <div className="min-w-0">
+            <div className="col-span-2 min-w-0 lg:ml-[7.2rem] xl:ml-[8.4rem] 2xl:ml-[9rem]">
               <div
                 className={`relative w-full overflow-hidden rounded-[1.8rem] px-6 py-3 transition-all duration-300 xl:px-8 ${
                   isSolid
@@ -198,10 +206,16 @@ export default function Navigation() {
             })}
             <div className="mt-4 grid gap-3">
               <Link
+                href={PROJECT_BRIEF_HREF}
+                className="btn-secondary w-full justify-center text-center text-[18px] active:scale-95 sm:text-[1.2rem]"
+              >
+                PROJECT ENQUIRY
+              </Link>
+              <Link
                 href={TRADE_PORTAL_ACCESS_HREF}
                 className="btn-primary w-full justify-center text-center text-[18px] active:scale-95 sm:text-[1.2rem]"
               >
-                TRADE PORTAL ACCESS
+                TRADE ACCOUNT
               </Link>
             </div>
           </div>

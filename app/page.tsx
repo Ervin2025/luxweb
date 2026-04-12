@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import PartnerValueSection from '@/components/PartnerValueSection';
 import { SITE_CONFIG } from '@/lib/constants';
-import { TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
+import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const CAPABILITY_TILES = [
   {
@@ -236,7 +236,10 @@ export default function Home() {
                 href={TRADE_PORTAL_ACCESS_HREF}
                 className="btn-primary w-full sm:w-auto"
               >
-                Trade Account Access
+                Trade Account
+              </Link>
+              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
+                Project Enquiry
               </Link>
             </div>
           </div>
@@ -460,7 +463,10 @@ export default function Home() {
                 </p>
                 <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:gap-4">
                   <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                    Trade Account Access
+                    Trade Account
+                  </Link>
+                  <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
+                    Project Enquiry
                   </Link>
                 </div>
               </div>

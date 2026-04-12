@@ -136,7 +136,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
     <form onSubmit={handleSubmit} className="section-shell space-y-5 p-6 sm:space-y-6 sm:p-10">
       <fieldset>
         <legend className="text-sm font-semibold uppercase tracking-[0.28em] text-primary/70">
-          Choose your intent
+          Choose enquiry type
         </legend>
         <div className="mt-4 grid gap-4 lg:grid-cols-3">
           {FORM_INTENT_OPTIONS.map(option => {
@@ -179,36 +179,32 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
             className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
           />
         </Field>
-        <Field label={requiresAbn ? 'ABN' : 'ABN (Optional)'} htmlFor="abn">
-          <input
-            type="text"
-            id="abn"
-            name="abn"
-            required={requiresAbn}
-            inputMode="numeric"
-            value={formData.abn}
-            onChange={handleChange}
-            placeholder={requiresAbn ? 'Required for trade access' : 'Only needed for trade access'}
-            className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
-          />
-          <p
-            className={`mt-2 text-xs ${
-              !requiresAbn
-                ? 'text-neutral-500'
-                : abnDigits.length === 11 && isAbnValid
-                  ? 'text-primary'
-                  : 'text-neutral-500'
-            }`}
-          >
-            {!requiresAbn
-              ? 'ABN verification is only required when requesting trade access.'
-              : abnDigits.length === 11
+        {requiresAbn ? (
+          <Field label="ABN" htmlFor="abn">
+            <input
+              type="text"
+              id="abn"
+              name="abn"
+              required
+              inputMode="numeric"
+              value={formData.abn}
+              onChange={handleChange}
+              placeholder="Required for Trade Account"
+              className="w-full rounded-[1rem] border border-primary/15 bg-neutral-50 px-4 py-3.5 text-neutral-800 outline-none transition focus:border-primary"
+            />
+            <p className={`mt-2 text-xs ${abnDigits.length === 11 && isAbnValid ? 'text-primary' : 'text-neutral-500'}`}>
+              {abnDigits.length === 11
                 ? isAbnValid
                   ? 'ABN checksum passed.'
                   : 'ABN format is invalid.'
                 : 'Enter 11 digits for ABN verification.'}
-          </p>
-        </Field>
+            </p>
+          </Field>
+        ) : (
+          <div className="rounded-[1rem] border border-primary/10 bg-[#f6f0e4] px-4 py-3.5 text-sm leading-7 text-neutral-700">
+            Project Enquiry does not require ABN registration.
+          </div>
+        )}
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -312,9 +308,9 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
       <div className="rounded-[1.5rem] bg-neutral-50 p-5 text-sm leading-7 text-neutral-700 sm:p-6">
         <p className="font-semibold text-neutral-900">What happens next?</p>
         <ul className="mt-3 space-y-2">
-          <li>Trade access requests are reviewed with ABN-backed business details.</li>
-          <li>Project enquiries are routed to the right product and fabrication support lane.</li>
-          <li>Approved accounts move into the right support path for pricing, sampling and follow-up.</li>
+          <li>Trade Account requests are reviewed with ABN-backed business details.</li>
+          <li>Project Enquiry submissions are reviewed without ABN registration.</li>
+          <li>LuxAura routes each enquiry into the right next step for pricing, support and follow-up.</li>
         </ul>
       </div>
 
@@ -329,7 +325,7 @@ export default function TradeForm({ initialIntent = 'trade-access' }: TradeFormP
         className="btn-primary w-full justify-center text-center disabled:cursor-not-allowed disabled:opacity-50"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Submitting...' : 'Submit Trade & Project Request'}
+        {isSubmitting ? 'Submitting...' : formData.intent === 'trade-access' ? 'Trade Account' : 'Project Enquiry'}
       </button>
     </form>
   );
