@@ -103,8 +103,6 @@ export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-DTR-12', page: 'Trimmings', pageHref: '/decorative-trimmings', label: 'Creative development feature image', src: '/images/IMG-H.webp' },
 
   { code: 'LXA-ABOUT-01', page: 'About', pageHref: '/about', label: 'Hero image', src: '/images/about-hero.webp' },
-  { code: 'LXA-ABOUT-02', page: 'About', pageHref: '/about', label: 'Brand positioning support image', src: '/images/luxaura/hero-project.webp' },
-  { code: 'LXA-ABOUT-03', page: 'About', pageHref: '/about', label: 'Closing reassurance image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-PS-01', page: 'Project Support', pageHref: '/project-support', label: 'Hero image', src: '/images/IMG-I.webp' },
   { code: 'LXA-PS-02', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Designers, Builders & Developers', src: '/images/IMG-I.webp' },
   { code: 'LXA-PS-03', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Stylists', src: '/images/luxaura/upholstery-pillows.webp' },
