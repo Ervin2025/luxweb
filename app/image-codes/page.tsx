@@ -25,14 +25,14 @@ export default function ImageCodesPage() {
           <SectionHeading
             eyebrow="Internal Reference"
             title="Image code index for faster replacement requests"
-            description="Use the floating Image Codes button on any page to show or hide the image numbers directly on the website. Then send me the code plus the new file, and I can replace that exact image slot."
+            description="Image codes are now displayed directly on the live website. Use this index to confirm the page, current asset and code, then send me the code plus the new file and I can replace that exact image slot."
           />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Link href="/?image-codes=1" className="btn-primary">
-              Open Home With Codes
+            <Link href="/" className="btn-primary">
+              Open Home
             </Link>
-            <Link href="/custom-curtains-sheers?image-codes=1" className="btn-secondary">
-              Open Window Treatments With Codes
+            <Link href="/custom-curtains-sheers" className="btn-secondary">
+              Open Window Treatments
             </Link>
           </div>
         </div>
@@ -59,8 +59,8 @@ export default function ImageCodesPage() {
                     even if it is not currently mounted on a live page.
                   </p>
                 ) : (
-                  <Link href={`${group.pageHref}?image-codes=1`} className="btn-secondary">
-                    Open This Page With Codes
+                  <Link href={group.pageHref} className="btn-secondary">
+                    Open This Page
                   </Link>
                 )}
               </div>

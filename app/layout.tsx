@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ImageCodeToggle from '@/components/ImageCodeToggle';
 import LoadingFavicon from '@/components/LoadingFavicon';
 import ScrollRevealBoot from '@/components/ScrollRevealBoot';
-import { IMAGE_CODE_BOOTSTRAP_SCRIPT } from '@/lib/image-code-bootstrap';
 import { CONTACT_INFO, SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -123,18 +120,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans">
-        <Script
-          id="luxaura-image-codes"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: IMAGE_CODE_BOOTSTRAP_SCRIPT,
-          }}
-        />
         <ScrollRevealBoot />
         <LoadingFavicon />
         <Navigation />
         <main>{children}</main>
-        <ImageCodeToggle />
         <Footer />
       </body>
     </html>
