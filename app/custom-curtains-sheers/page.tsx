@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
-import QuickInquiryDialog from '@/components/QuickInquiryDialog';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -15,74 +14,95 @@ import {
   WINDOW_TREATMENTS_FAQ,
 } from '@/lib/site-data';
 
-const DRAPERY_TYPES = [
+type CurtainHeadingProfile =
+  | 's-fold'
+  | 'double-pinch'
+  | 'single-pleat'
+  | 'box-pleat'
+  | 'eyelet'
+  | 'pencil-pleat';
+
+const CURTAIN_STYLES = [
   {
     title: 'S Fold',
+    profile: 's-fold' as CurtainHeadingProfile,
     code: 'LXA-WIN-02',
-    eyebrow: 'Architectural Rhythm',
-    description:
-      'A cleaner, more contemporary drapery line for full-height glazing, refined living spaces and layered residential briefs.',
-    imageSrc: '/images/luxaura/vertical-sheer-pool.webp',
-    imageAlt: 'S Fold sheer curtain detail in a refined interior',
+    description: 'Clean, continuous wave folds ideal for modern interiors and large-scale glazing.',
+    imageSrc: '/images/luxaura/window-styles/s-fold.webp',
+    imageAlt: 'S-Fold curtains with continuous wave folds in a calm architectural interior',
   },
   {
     title: 'Double Pinch Pleat',
+    profile: 'double-pinch' as CurtainHeadingProfile,
     code: 'LXA-WIN-03',
-    eyebrow: 'Tailored Formality',
     description:
-      'A fuller pleated profile that brings stronger structure, proportion and classic softness to premium interiors.',
-    imageSrc: '/images/IMG-F.webp',
-    imageAlt: 'Double pinch pleat curtains in a premium room',
+      'A tailored, structured heading suited to more refined and formal interiors.',
+    imageSrc: '/images/luxaura/window-styles/double-pinch-pleat.webp',
+    imageAlt: 'Double pinch pleat curtains in a refined European-style room',
+  },
+  {
+    title: 'Single Pleat',
+    profile: 'single-pleat' as CurtainHeadingProfile,
+    code: 'LXA-WIN-04',
+    description:
+      'A lighter pleated style that balances clean structure with a softer overall feel.',
+    imageSrc: '/images/luxaura/window-styles/single-pleat.webp',
+    imageAlt: 'Single pleat curtain styling in a softly lit European-style interior',
   },
   {
     title: 'Box Pleat',
-    code: 'LXA-WIN-04',
-    eyebrow: 'Controlled Geometry',
-    description:
-      'Sharper spacing and a more composed drapery rhythm suited to interiors that require clearer architectural order.',
-    imageSrc: '/images/curtains-hero.webp',
-    imageAlt: 'Box pleat curtain detail with clean architectural rhythm',
-  },
-  {
-    title: 'Tailored Headings',
+    profile: 'box-pleat' as CurtainHeadingProfile,
     code: 'LXA-WIN-05',
-    eyebrow: 'Detail Discipline',
     description:
-      'Heading design can be refined to support the room tone, hardware condition and the intended balance between softness and control.',
-    imageSrc: '/images/IMG-C.webp',
-    imageAlt: 'Tailored curtain heading detail in a refined interior',
+      'Defined, architectural folds for interiors that require stronger structure and visual discipline.',
+    imageSrc: '/images/luxaura/window-styles/box-pleat.webp',
+    imageAlt: 'Box pleat curtain styling with stronger structure and tailored folds',
   },
   {
-    title: 'Layered Sheer + Drape Systems',
-    code: 'LXA-WIN-07',
-    eyebrow: 'Day-to-Night Control',
+    title: 'Eyelet',
+    profile: 'eyelet' as CurtainHeadingProfile,
+    code: 'LXA-WIN-06',
     description:
-      'Layered systems that balance light filtration, privacy and blackout performance while keeping the scheme visually calm.',
-    imageSrc: '/images/luxaura/beach-sheer.webp',
-    imageAlt: 'Layered sheers and drapery in a premium interior',
+      'A simpler heading style suited to more casual or straightforward curtain applications.',
+    imageSrc: '/images/luxaura/window-styles/eyelet.webp',
+    imageAlt: 'Eyelet curtains with visible ring-top heading on a wall-mounted rod',
+  },
+  {
+    title: 'Pencil Pleat',
+    profile: 'pencil-pleat' as CurtainHeadingProfile,
+    code: 'LXA-WIN-07',
+    description:
+      'A traditional gathered heading that remains flexible across a wide range of window types.',
+    imageSrc: '/images/luxaura/window-styles/pencil-pleat.webp',
+    imageAlt: 'Pencil pleat curtains with a traditional gathered heading style',
   },
 ] as const;
 
-const CRAFT_DISCIPLINES = [
+const MASTER_CRAFT_POINTS = [
   {
-    title: 'Tailored pleating discipline',
+    title: 'Precision sewing',
     description:
-      'Pleat structure, heading proportion and stack behaviour are controlled as part of the final drapery composition.',
+      'Specialist sewing workflows support cleaner headings, neater joins and stronger consistency across the finished treatment.',
   },
   {
-    title: 'Specialist sewing and detailing',
+    title: 'Complex fabric handling',
     description:
-      'Construction quality is treated as visible design discipline rather than hidden production mechanics.',
+      'Heavier fabrics, fine linens and layered systems are handled with greater control so the final drape stays calm and properly weighted.',
   },
   {
-    title: 'High-temperature setting and pressing',
+    title: 'Clean edge finishing',
     description:
-      'Shaping, setting and finishing processes help support cleaner folds, stronger drape memory and better presentation.',
+      'Hems, returns, leading edges and lining relationships are resolved with a stronger finishing standard rather than treated as hidden production detail.',
   },
   {
-    title: 'Finish and delivery standards',
+    title: 'Presentation standards',
     description:
-      'Window treatments are prepared with a stronger focus on visual calm, consistency and delivery-ready quality.',
+      'Treatments are prepared for cleaner handover, stronger visual presentation and a more reliable finished result on site.',
+  },
+  {
+    title: 'Consistency across styles and scales',
+    description:
+      'LuxAura applies the same fabrication discipline across sheers, formal drapery, Roman blinds and larger project-led programmes.',
   },
 ] as const;
 
@@ -190,35 +210,151 @@ const ROMAN_BLIND_STYLES = [
   },
 ] as const;
 
-const ROMAN_BLIND_TECHNICAL_POINTS = [
-  'Premium natural linens with stronger density and durability.',
-  'High-performance fabrics suitable for both luxury residential and higher-use commercial interiors.',
-  'Custom lining options from light-filtering to full blockout.',
-  'Millimetric workshop precision and reliable hardware integration.',
+const ROMAN_BLIND_CAPABILITY_POINTS = [
+  'Premium linen suitability for softer, more tailored Roman blind expressions.',
+  'Performance fabric suitability where practicality, durability or heavier use also matter.',
+  'Custom sizing for more defined and smaller window areas where proportion is critical.',
+  'Specialist lining options from decorative light-filtering to more controlled blockout.',
+  'Trade-level workshop capability with reliable hardware integration and repeatable quality.',
 ] as const;
 
-const ROMAN_BLIND_TRADE_ADVANTAGES = [
+const PERFORMANCE_FUNCTION_BLOCKS = [
   {
-    title: 'Direct-to-Trade Pricing',
+    title: 'Light Control',
     description:
-      'Optimised sourcing and production pathways help LuxAura deliver high-end Roman blinds at a significant trade advantage.',
+      'Sheer, light-filtering and full blockout options tailored to different interior needs.',
   },
   {
-    title: 'Project-Ready Reliability',
+    title: 'Thermal Performance',
     description:
-      'Scalable production and dependable lead times support both boutique and larger furnishing programmes.',
+      'Improved thermal comfort through lined curtains and layered window treatment construction.',
   },
   {
-    title: 'Trade-Focused Support',
+    title: 'Acoustic Comfort',
     description:
-      'LuxAura can assist with tailored direction, specification support and customisation for professional clients.',
+      'Dense fabrics and fuller curtain construction can help improve comfort and soften sound within the room.',
   },
 ] as const;
+
+const LARGE_WINDOW_POINTS = [
+  'Full-height glazing support for more architectural residential and project interiors.',
+  'Wide-span curtain capability aligned to stack, weight and drape behaviour.',
+  'Integrated track solutions that keep larger openings visually cleaner.',
+  'Motorisation pathways where scale or convenience makes automation more useful.',
+  'Stronger visual control across larger curtain widths and more demanding openings.',
+] as const;
+
+function CurtainHeadingIllustration({ profile }: { profile: CurtainHeadingProfile }) {
+  const commonStroke = '#6d6359';
+  const accent = '#b89e72';
+
+  if (profile === 's-fold') {
+    return (
+      <svg viewBox="0 0 220 72" className="h-16 w-full" aria-hidden="true">
+        <path d="M14 18h192" stroke={accent} strokeWidth="4" strokeLinecap="round" />
+        <path
+          d="M18 54c12-28 28-28 40 0s28 28 40 0 28-28 40 0 28 28 40 0 28-28 40 0"
+          fill="none"
+          stroke={commonStroke}
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+
+  if (profile === 'double-pinch') {
+    return (
+      <svg viewBox="0 0 220 72" className="h-16 w-full" aria-hidden="true">
+        <path d="M14 16h192" stroke={accent} strokeWidth="4" strokeLinecap="round" />
+        {[28, 68, 108, 148, 188].map(x => (
+          <g key={x}>
+            <path d={`M${x - 7} 18 L${x - 2} 54 L${x + 3} 18`} fill="none" stroke={commonStroke} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <path d={`M${x + 3} 18 L${x + 8} 54 L${x + 13} 18`} fill="none" stroke={commonStroke} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+        ))}
+      </svg>
+    );
+  }
+
+  if (profile === 'single-pleat') {
+    return (
+      <svg viewBox="0 0 220 72" className="h-16 w-full" aria-hidden="true">
+        <path d="M14 16h192" stroke={accent} strokeWidth="4" strokeLinecap="round" />
+        {[30, 70, 110, 150, 190].map(x => (
+          <path
+            key={x}
+            d={`M${x - 8} 18 L${x} 54 L${x + 8} 18`}
+            fill="none"
+            stroke={commonStroke}
+            strokeWidth="4.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ))}
+      </svg>
+    );
+  }
+
+  if (profile === 'box-pleat') {
+    return (
+      <svg viewBox="0 0 220 72" className="h-16 w-full" aria-hidden="true">
+        <path d="M14 16h192" stroke={accent} strokeWidth="4" strokeLinecap="round" />
+        {[24, 64, 104, 144, 184].map(x => (
+          <path
+            key={x}
+            d={`M${x} 18h24v36h-24z`}
+            fill="none"
+            stroke={commonStroke}
+            strokeWidth="4"
+            strokeLinejoin="round"
+          />
+        ))}
+      </svg>
+    );
+  }
+
+  if (profile === 'eyelet') {
+    return (
+      <svg viewBox="0 0 220 72" className="h-16 w-full" aria-hidden="true">
+        <path d="M18 20h184" stroke={accent} strokeWidth="6" strokeLinecap="round" />
+        {[34, 66, 98, 130, 162, 194].map(x => (
+          <g key={x}>
+            <circle cx={x} cy={26} r="8" fill="none" stroke={commonStroke} strokeWidth="4" />
+            <path d={`M${x - 8} 34c4 16 12 16 16 0`} fill="none" stroke={commonStroke} strokeWidth="4" strokeLinecap="round" />
+          </g>
+        ))}
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 220 72" className="h-16 w-full" aria-hidden="true">
+      <path d="M14 16h192" stroke={accent} strokeWidth="4" strokeLinecap="round" />
+      <path
+        d="M18 26c14-12 28 12 42 0s28 12 42 0 28 12 42 0 28 12 42 0 28 12 42 0"
+        fill="none"
+        stroke={commonStroke}
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      {[22, 34, 46, 58, 70, 82, 94, 106, 118, 130, 142, 154, 166, 178, 190].map(x => (
+        <path
+          key={x}
+          d={`M${x} 26v28`}
+          stroke={commonStroke}
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+      ))}
+    </svg>
+  );
+}
 
 export const metadata: Metadata = {
-  title: 'Window Treatments | Curtains, Sheers, Roman Blinds and Motorised Systems',
+  title: 'Window Treatments by LuxAura | Curtains, Roman Blinds and Track Systems',
   description:
-    'LuxAura delivers window treatments with stronger drapery craft, refined finishing and integrated hardware and motorisation support for project-led interiors.',
+    'LuxAura delivers complete window furnishing solutions across curtain styles, integrated track systems, Roman blind manufacturing, motorised operation and master-level fabrication.',
   keywords: [
     'window treatments Sydney',
     'custom curtains Sydney',
@@ -231,31 +367,13 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/custom-curtains-sheers`,
   },
   openGraph: {
-    title: 'Window Treatments | Curtains, Sheers, Roman Blinds and Motorised Systems',
+    title: 'Window Treatments by LuxAura | Curtains, Roman Blinds and Track Systems',
     description:
-      'Refined drapery, elevated finishing and project-aware hardware and motorisation support in one more complete window treatment pathway.',
+      'Curtain styles, integrated tracks, Roman blind expertise, motorised systems and refined fabrication in one more complete window furnishing pathway.',
     url: `${SITE_CONFIG.url}/custom-curtains-sheers`,
     images: ['/images/luxaura/hero-project.webp'],
   },
 };
-
-function ArrowUpRight() {
-  return (
-    <svg
-      className="h-4 w-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M7 17 17 7" />
-      <path d="M7 7h10v10" />
-    </svg>
-  );
-}
 
 export default function CustomCurtainsSheersPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -284,16 +402,18 @@ export default function CustomCurtainsSheersPage() {
               Window Treatments
             </p>
             <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Window Treatments with Greater Craft, Better Control and More Resolved Results
+              Window Treatments by LuxAura
             </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              LuxAura delivers window treatments that combine refined drapery form, elevated
-              finishing and project-aware execution, from tailored sheers to layered systems and
-              motorised solutions.
+            <p className="mt-5 max-w-2xl text-balance font-heading text-[1.4rem] font-medium leading-[1.14] tracking-[-0.02em] text-white/92 sm:text-[2rem] sm:leading-[1.12]">
+              Material, System and Craft — Delivered as One
+            </p>
+            <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
+              From European Linen and British Fabrics to Precision Roman Blinds, Integrated Track
+              Systems and Master-Level Fabrication
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Account
+                Trade Portal Access
               </Link>
               <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
                 Project Enquiry
@@ -307,62 +427,48 @@ export default function CustomCurtainsSheersPage() {
         <Breadcrumb items={[{ label: 'Window Treatments', href: '/custom-curtains-sheers' }]} />
       </div>
 
-      <section id="drapery-typologies" className="section-padding pt-6">
+      <section id="curtain-styles" className="section-padding pt-6">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Curtain Styles / Drapery Typologies"
-            title="A broader window treatment language for design-led interiors"
-            description="LuxAura supports a wide range of premium curtain styles and layered window schemes, allowing the treatment to respond to architecture, room tone and project ambition before specialist categories are refined further."
+            eyebrow="Curtain Styles"
+            title="Curtain Styles"
+            description="LuxAura supports a full range of curtain styles across modern, classic and project-led interiors — allowing designers and furnishing clients to select the right balance of proportion, movement, structure and finish."
           />
 
-          <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 md:grid md:grid-cols-2 md:overflow-visible xl:grid-cols-3">
-            {DRAPERY_TYPES.map(item => (
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {CURTAIN_STYLES.map(item => (
               <article
                 key={item.title}
-                className="group section-shell flex min-w-[86%] snap-center flex-col overflow-hidden md:min-w-0"
+                className="overflow-hidden rounded-[2rem] border border-[#e4dbc9] bg-white shadow-[0_22px_70px_rgba(22,18,12,0.08)]"
               >
-                <div className="relative h-72 overflow-hidden">
+                <div className="border-b border-[#eadfcb] bg-[#f7f0e2] px-5 py-4 sm:px-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary/64">
+                    Heading Profile
+                  </p>
+                  <div className="mt-3">
+                    <CurtainHeadingIllustration profile={item.profile} />
+                  </div>
+                </div>
+
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={item.imageSrc}
                     alt={item.imageAlt}
                     fill
-                    sizes="(max-width: 767px) 86vw, (max-width: 1279px) 50vw, 33vw"
-                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
+                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                    className="object-cover"
                   />
                   <ImageCodeBadge code={item.code} />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,16,14,0.02),rgba(11,16,14,0.56))]" />
-                  <div className="absolute inset-x-5 bottom-5">
-                    <p className="inline-flex rounded-full border border-white/18 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-white backdrop-blur-md">
-                      {item.eyebrow}
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,16,14,0.02),rgba(11,16,14,0.38)_100%)]" />
                 </div>
 
-                <div className="flex flex-1 flex-col p-6">
-                  <h2 className="font-heading text-3xl font-semibold text-neutral-900">
+                <div className="p-6 sm:p-7">
+                  <h2 className="font-heading text-[2rem] font-semibold leading-[1.04] text-neutral-900">
                     {item.title}
                   </h2>
                   <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
                     {item.description}
                   </p>
-                  <div className="mt-6 flex flex-wrap items-center gap-3">
-                    <a
-                      href="#master-craft-finishing"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:text-primary-dark"
-                    >
-                      See Craft Detail
-                      <ArrowUpRight />
-                    </a>
-                    <QuickInquiryDialog
-                      styleName={item.title}
-                      title={`Discuss: ${item.title}`}
-                      subjectPrefix="Window Treatments Enquiry"
-                      enquiryType="window-treatments-enquiry"
-                      introText="Share the treatment type, rough dimensions, lining requirements and any stack, hardware or motorisation conditions that matter."
-                      label="Discuss This Style"
-                      className="px-5 py-3 text-[11px] sm:text-xs"
-                    />
-                  </div>
                 </div>
               </article>
             ))}
@@ -373,9 +479,9 @@ export default function CustomCurtainsSheersPage() {
       <section id="hardware-motorisation" className="section-padding pt-0">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="Hardware & Track Systems"
+            eyebrow="Integrated Track Systems"
             title="Precision Track Systems for Smooth Operation and Clean Integration"
-            description="LuxAura provides a wide range of curtain track systems designed for smooth operation, visual integration and long-term reliability across residential and project applications. From discreet ceiling-mounted tracks to more architectural exposed systems, LuxAura supports both design intent and practical performance with strong product variety and competitive trade positioning."
+            description="LuxAura provides a wide range of curtain track systems designed for smooth movement, visual integration and dependable long-term use across residential and project applications. From discreet ceiling-mounted systems to double-track and curved track configurations, LuxAura supports both design intent and practical performance with strong variety and trade-level value."
           />
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-5">
@@ -409,14 +515,13 @@ export default function CustomCurtainsSheersPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
             <article className="section-shell p-7 sm:p-8 lg:p-10">
-              <p className="eyebrow">Track System Capability</p>
+              <p className="eyebrow">System Capability</p>
               <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-[2.8rem]">
-                A broader hardware layer helps the full window package perform properly
+                Complete track direction is part of the window outcome, not a late-stage add-on
               </h2>
               <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
-                Track choice affects stacking, movement quality, bracket logic, long-term
-                reliability and the final discipline of the drapery line. LuxAura treats this as a
-                core part of the window package rather than an afterthought.
+                LuxAura treats tracks as part of the finished furnishing system, allowing style,
+                movement, stacking and installation logic to remain aligned from the outset.
               </p>
             </article>
 
@@ -440,7 +545,7 @@ export default function CustomCurtainsSheersPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
               <Image
                 src="/images/luxaura/roman-blind-lounge.webp"
-                alt="Professional Roman blind manufacturing shown in a refined residential interior"
+                alt="Roman blind manufacturing shown in a premium installed interior"
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
@@ -450,17 +555,10 @@ export default function CustomCurtainsSheersPage() {
 
             <div>
               <SectionHeading
-                eyebrow="Professional Roman Blind Manufacturing"
-                title="Bespoke Roman Blinds with Trade-Level Precision, Material Depth and Competitive Value"
-                description="LuxAura Living is a premier B2B manufacturing partner for interior designers, architects and furnishing-led projects. We combine premium raw materials with industrial precision to deliver bespoke Roman blind solutions at highly competitive trade prices."
+                eyebrow="Roman Blind Manufacturing"
+                title="One of LuxAura’s Key Specialisations"
+                description="LuxAura delivers precision-built Roman blinds across a full range of styles, combining better textile selection, specialist construction and dependable workshop control. This category is one of LuxAura’s strongest manufacturing capabilities and should be positioned as a major advantage for both residential and project-led interiors."
               />
-              <p className="mt-6 text-sm leading-7 text-neutral-700 sm:text-base">
-                LuxAura supports a full range of Roman blind constructions to suit different
-                project aesthetics, furnishing directions and performance requirements.
-              </p>
-              <p className="mt-4 text-sm font-medium leading-7 text-neutral-700 sm:text-base">
-                Roman blinds are one of LuxAura’s strongest specialist manufacturing categories.
-              </p>
             </div>
           </div>
 
@@ -480,7 +578,7 @@ export default function CustomCurtainsSheersPage() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_20px_70px_rgba(20,24,22,0.1)]">
                   <Image
                     src="/images/luxaura/roman-blind-lounge.webp"
-                    alt="Linen Roman blind fold and stacking detail"
+                    alt="Roman blind detail showing fold logic and stacking"
                     fill
                     sizes="(min-width: 1024px) 24vw, 100vw"
                     className="object-cover"
@@ -514,54 +612,15 @@ export default function CustomCurtainsSheersPage() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr]">
-            <article className="section-shell p-7 sm:p-8 lg:p-10">
-              <p className="eyebrow">Technical Excellence & Materials</p>
-              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-[2.8rem]">
-                Better textile selection and controlled construction make the difference
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
-                Roman blinds must perform both visually and technically. LuxAura’s strength lies in
-                combining better textile selection with controlled construction and dependable
-                workshop precision.
-              </p>
-              <div className="mt-8 grid gap-4">
-                {ROMAN_BLIND_TECHNICAL_POINTS.map(item => (
-                  <article
-                    key={item}
-                    className="rounded-[1.4rem] border border-primary/10 bg-[#f8f3e8] px-5 py-4"
-                  >
-                    <p className="text-sm leading-7 text-neutral-700 sm:text-base">{item}</p>
-                  </article>
-                ))}
-              </div>
-            </article>
-
-            <article className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-7 text-white shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-8 lg:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
-                The LuxAura Trade Advantage
-              </p>
-              <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-white sm:text-[2.8rem]">
-                One of LuxAura’s strongest trade categories for flexibility, control and value
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-white/78 sm:text-base">
-                Roman blinds are one of LuxAura’s strongest trade categories because they combine
-                design flexibility, fabrication control and strong commercial value.
-              </p>
-              <div className="mt-8 grid gap-4">
-                {ROMAN_BLIND_TRADE_ADVANTAGES.map(item => (
-                  <article
-                    key={item.title}
-                    className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
-                  >
-                    <h3 className="font-heading text-2xl font-semibold text-white">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-white sm:text-base">
-                      {item.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </article>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {ROMAN_BLIND_CAPABILITY_POINTS.map(point => (
+              <article
+                key={point}
+                className="rounded-[1.5rem] border border-[#e4dbc9] bg-[#f8f3e8] p-5"
+              >
+                <p className="text-sm leading-7 text-neutral-700 sm:text-base">{point}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -588,7 +647,7 @@ export default function CustomCurtainsSheersPage() {
                   <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
                     <Image
                       src="/images/IMG-I.webp"
-                      alt="Motorised curtain rail detail in a premium bedroom scheme"
+                      alt="Motorised curtain system suited to larger glazed openings"
                       fill
                       sizes="(min-width: 1024px) 24vw, 100vw"
                       className="object-cover"
@@ -598,7 +657,7 @@ export default function CustomCurtainsSheersPage() {
                   <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
                     <Image
                       src="/images/luxaura/hero-project.webp"
-                      alt="Layered motorised drapery system shown in a premium installed interior"
+                      alt="Layered curtain system showing a clean cord-free motorised presentation"
                       fill
                       sizes="(min-width: 1024px) 24vw, 100vw"
                       className="object-cover"
@@ -611,13 +670,13 @@ export default function CustomCurtainsSheersPage() {
               <div className="p-8 sm:p-10 lg:p-14">
                 <SectionHeading
                   eyebrow="Motorised Curtain Systems"
-                  title="Motorised operation that stays clean, smooth and project-ready"
-                  description="LuxAura supports motorised curtain systems as part of a more complete window treatment pathway, helping automation work with the selected track, the fabric weight and the intended room experience rather than being added too late."
+                  title="Designed for Larger Windows and Everyday Convenience"
+                  description="Motorised curtain systems offer smoother operation, cleaner presentation and more practical day-to-day use across larger windows and full-height glazing. LuxAura supports motorised solutions that integrate cleanly with modern track systems and larger curtain spans."
                   theme="dark"
                 />
-                <p className="mt-5 text-sm leading-7 text-white/68 sm:text-base">
-                  Trusted systems such as Somfy can be considered where the project requires a
-                  more integrated motorised direction across residential or broader project use.
+                <p className="mt-5 text-sm leading-7 text-white/70 sm:text-base">
+                  Light integration with systems such as Somfy can be considered where automation
+                  supports a cleaner and more usable project outcome.
                 </p>
                 <div className="mt-8 grid gap-4">
                   {MOTORISATION_BLOCKS.map(item => (
@@ -628,10 +687,89 @@ export default function CustomCurtainsSheersPage() {
                       <h3 className="font-heading text-2xl font-semibold text-white">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-7 text-white/72">{item.description}</p>
+                      <p className="mt-3 text-sm leading-7 text-white/78 sm:text-base">
+                        {item.description}
+                      </p>
                     </article>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="performance-function" className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
+              <Image
+                src="/images/luxaura/beach-sheer.webp"
+                alt="Layered curtains and sheers supporting light control and comfort performance"
+                fill
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-WIN-21" />
+            </div>
+
+            <div>
+              <SectionHeading
+                eyebrow="Performance & Function"
+                title="Performance & Function"
+                description="LuxAura supports window treatments not only for appearance, but also for light control, comfort and practical living performance through better fabric selection and layered construction."
+              />
+
+              <div className="mt-8 grid gap-4">
+                {PERFORMANCE_FUNCTION_BLOCKS.map(item => (
+                  <article key={item.title} className="section-shell p-6 sm:p-7">
+                    <h2 className="font-heading text-[1.95rem] font-semibold leading-[1.06] text-neutral-900">
+                      {item.title}
+                    </h2>
+                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                      {item.description}
+                    </p>
+                  </article>
+                ))}
+              </div>
+
+              <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-primary/70 sm:text-[13px]">
+                Achieved through layered curtain systems
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="designed-for-large-windows" className="section-padding pt-0">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
+            <div className="relative aspect-[16/11] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(18,22,20,0.16)]">
+              <Image
+                src="/images/luxaura/window-styles/large-windows.webp"
+                alt="Large-scale window treatment with full-height curtains, refined track integration and strong architectural proportions"
+                fill
+                sizes="(min-width: 1024px) 52vw, 100vw"
+                className="object-cover"
+              />
+              <ImageCodeBadge code="LXA-WIN-22" />
+            </div>
+
+            <div>
+              <SectionHeading
+                eyebrow="Designed for Large Windows"
+                title="Designed for Large Windows"
+                description="Modern interiors increasingly feature wider openings and full-height glazing. LuxAura supports these conditions through appropriate style selection, integrated track systems, fabric control and motorised solutions where required."
+              />
+              <div className="mt-8 grid gap-4">
+                {LARGE_WINDOW_POINTS.map(point => (
+                  <article
+                    key={point}
+                    className="rounded-[1.5rem] border border-[#e4dbc9] bg-[#f8f3e8] p-5"
+                  >
+                    <p className="text-sm leading-7 text-neutral-700 sm:text-base">{point}</p>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
@@ -644,7 +782,7 @@ export default function CustomCurtainsSheersPage() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
               <Image
                 src="/images/IMG-C.webp"
-                alt="Advanced pleating and tailored curtain finish detail"
+                alt="Tailored drapery finish with specialist sewing and presentation detail"
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="object-cover"
@@ -655,12 +793,12 @@ export default function CustomCurtainsSheersPage() {
             <div className="overflow-hidden rounded-[2.2rem] bg-[#163228] p-8 shadow-[0_30px_90px_rgba(17,27,24,0.18)] sm:p-10 lg:p-12">
               <SectionHeading
                 eyebrow="Master Craft & Finishing"
-                title="Where drapery becomes more refined, more controlled and more complete"
-                description="LuxAura approaches window treatments with a stronger emphasis on form, finishing and technical discipline, combining tailored construction, specialist sewing, high-temperature setting, pressing and finishing processes to achieve a more resolved result."
+                title="Master Craft & Finishing"
+                description="LuxAura combines material knowledge with specialist sewing, controlled fabrication and refined finishing standards to deliver more complete and more reliable window furnishing outcomes."
                 theme="dark"
               />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {CRAFT_DISCIPLINES.map(item => (
+                {MASTER_CRAFT_POINTS.map(item => (
                   <article
                     key={item.title}
                     className="rounded-[1.5rem] border border-white/12 bg-white/7 p-5"
@@ -677,8 +815,8 @@ export default function CustomCurtainsSheersPage() {
 
       <FaqSection
         items={[...WINDOW_TREATMENTS_FAQ]}
-        title="Window treatment questions"
-        description="Concise answers for designers and project clients looking to align style, hardware, finishing and performance within one window brief."
+        title="Window treatment FAQ"
+        description="Concise answers for designers and project clients comparing curtain styles, Roman blinds, track systems, motorisation and wider project suitability."
       />
 
       <section className="section-padding pt-0">
@@ -687,17 +825,17 @@ export default function CustomCurtainsSheersPage() {
             <div className="max-w-3xl">
               <p className="eyebrow">Final CTA</p>
               <h2 className="mt-4 text-balance font-heading text-4xl font-semibold text-neutral-900 sm:text-5xl">
-                Bring the window package into one controlled path
+                Trade, Project and Custom Window Enquiries
               </h2>
               <p className="mt-5 text-pretty text-[15px] leading-7 text-neutral-700 sm:text-lg">
-                Bring LuxAura in when curtain style, track systems, Roman blinds, motorisation and
-                finishing need to move together rather than through fragmented decisions.
+                LuxAura supports designers, builders, retailers, stylists and project-led clients
+                with more complete window furnishing solutions across style, system and fabrication.
               </p>
             </div>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Account
+                Trade Portal Access
               </Link>
               <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
                 Project Enquiry

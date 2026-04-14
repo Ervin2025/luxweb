@@ -536,59 +536,34 @@ export const FABRIC_AND_FABRICATION_FAQ: FaqItem[] = [
 
 export const WINDOW_TREATMENTS_FAQ: FaqItem[] = [
   {
-    question: 'What curtain styles are most suitable for design-led residential projects?',
+    question: 'Which curtain styles are best suited to large windows?',
     answer:
-      'LuxAura supports S Fold, pinch pleat, box pleat, tailored headings and layered sheer-plus-drape systems, selected according to the architecture and intended finish.',
+      'S Fold, box pleat and selected pleated headings are often well suited to larger openings because they maintain cleaner rhythm, more controlled stack behaviour and stronger visual proportion at scale.',
   },
   {
-    question: 'Can LuxAura support layered sheer and drapery systems?',
+    question: 'Can LuxAura supply both curtains and Roman blinds?',
     answer:
-      'Yes. Layered systems are planned as one composition, with curtain style, stack, lining behaviour and finish quality considered together.',
+      'Yes. LuxAura supports full curtain packages alongside Roman blind manufacturing, allowing both categories to sit within one more coordinated window furnishing pathway.',
   },
   {
-    question: 'Can LuxAura support track systems for sheers, blockouts and layered drapery?',
+    question: 'Are motorised curtain systems available?',
     answer:
-      'Yes. LuxAura can align track selection to lighter sheers, heavier drapery and layered systems so movement quality and final presentation remain consistent.',
+      'Yes. Motorised curtain systems can be integrated with the selected track and curtain package where larger spans, full-height glazing or day-to-day ease of use make automation more useful.',
   },
   {
-    question: 'Are curved or custom track systems available for more difficult window conditions?',
+    question: 'Can LuxAura support curved tracks or bay windows?',
     answer:
       'Yes. Curved and shaped track options can be considered for bay windows, wrapped glazing and other openings where a standard straight run would weaken the result.',
   },
   {
-    question: 'Are motorised systems available for larger openings or premium interiors?',
+    question: 'Are blockout and layered curtain solutions available?',
     answer:
-      'Yes. Motorised curtain systems can be integrated into the treatment from the start, including track direction, movement quality and cleaner final presentation.',
+      'Yes. LuxAura can support sheer, light-filtering and fuller blockout directions, including layered curtain systems where light control and visual softness need to work together.',
   },
   {
-    question: 'Can curtain style, hardware and finishing be aligned within one project brief?',
+    question: 'Can LuxAura support both residential and larger project work?',
     answer:
-      'Yes. LuxAura treats style, hardware and finishing as one coordinated window package rather than separate decisions.',
-  },
-  {
-    question: 'Does LuxAura support both aesthetic and practical performance considerations?',
-    answer:
-      'Yes. Window treatments can be shaped around drape, light control, lining performance, operation and daily usability without losing visual refinement.',
-  },
-  {
-    question: 'Can LuxAura support different Roman blind styles for different project aesthetics?',
-    answer:
-      'Yes. Roman blind construction can be shaped toward cleaner architectural lines, softer decorative forms or fuller cascaded expressions depending on the room and overall furnishing direction.',
-  },
-  {
-    question: 'Are Roman blinds available in both decorative and blockout constructions?',
-    answer:
-      'Yes. Roman blinds can be developed with lighter decorative linings or more controlled light-filtering and blockout constructions according to the brief.',
-  },
-  {
-    question: 'Can Roman blinds be produced in premium linens and performance fabrics?',
-    answer:
-      'Yes. LuxAura can align Roman blind fabrication with premium linens, denser decorative textiles and selected higher-performance fabrics where practicality also matters.',
-  },
-  {
-    question: 'Is LuxAura suitable for both boutique residential and larger-scale Roman blind supply?',
-    answer:
-      'Yes. LuxAura supports Roman blind work across boutique custom briefs and broader project programmes where pricing, repeatability and workshop precision all matter.',
+      'Yes. LuxAura supports boutique residential interiors as well as broader project-led programmes where style, systems, fabrication and delivery control all need to stay aligned.',
   },
 ];
 
