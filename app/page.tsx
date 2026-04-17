@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import PartnerValueSection from '@/components/PartnerValueSection';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const CAPABILITY_TILES = [
@@ -14,7 +15,7 @@ const CAPABILITY_TILES = [
       'Material direction and specialist making that help projects move from sourcing into finished outcomes with less mismatch.',
     href: '/collections',
     code: 'LXA-HOME-02',
-    imageSrc: '/image/01.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-02', '/image/01.webp'),
     imageAlt: 'LuxAura fabric and fabrication capability image',
   },
   {
@@ -24,7 +25,7 @@ const CAPABILITY_TILES = [
       'Curtains, sheers, Roman blinds and layered systems with stronger craft control, cleaner detailing and project-ready execution.',
     href: '/custom-curtains-sheers',
     code: 'LXA-HOME-03',
-    imageSrc: '/image/02.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-03', '/image/02.webp'),
     imageAlt: 'LuxAura window treatments capability image',
   },
   {
@@ -34,7 +35,7 @@ const CAPABILITY_TILES = [
       'Indoor, outdoor and performance-led upholstery for seating, cushions and furnishing pieces that need durability and finish quality.',
     href: '/cushions-soft-furnishings',
     code: 'LXA-HOME-04',
-    imageSrc: '/image/03.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-04', '/image/03.webp'),
     imageAlt: 'LuxAura bespoke upholstery capability image',
   },
   {
@@ -44,7 +45,7 @@ const CAPABILITY_TILES = [
       'Decorative trims, refined finishing language and greater customisation that help schemes feel less generic and more resolved.',
     href: '/decorative-trimmings',
     code: 'LXA-HOME-05',
-    imageSrc: '/image/04.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-05', '/image/04.webp'),
     imageAlt: 'LuxAura hardware and decorative finishing capability image',
   },
   {
@@ -54,7 +55,7 @@ const CAPABILITY_TILES = [
       'Refined track systems and motorised direction that help window treatments finish with better movement, usability and control.',
     href: '/custom-curtains-sheers#hardware-motorisation',
     code: 'LXA-HOME-06',
-    imageSrc: '/image/05.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-06', '/image/05.webp'),
     imageAlt: 'LuxAura unified supply chain capability image',
   },
   {
@@ -64,7 +65,7 @@ const CAPABILITY_TILES = [
       'Design-aware support that reduces workload, aligns categories and helps furnishing decisions move forward with less friction.',
     href: '/project-support',
     code: 'LXA-HOME-07',
-    imageSrc: '/image/06.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-07', '/image/06.webp'),
     imageAlt: 'LuxAura partner excellence capability image',
   },
 ] as const;
@@ -126,7 +127,7 @@ const SIGNATURE_STRENGTHS = [
     href: '/custom-curtains-sheers#roman-blinds',
     ctaLabel: 'Explore Window Treatments',
     code: 'LXA-HOME-09',
-    imageSrc: '/images/luxaura/roman-blind-lounge.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-09', '/images/luxaura/roman-blind-lounge.webp'),
     imageAlt: 'Roman blind feature image in a quiet luxury interior',
   },
   {
@@ -136,7 +137,7 @@ const SIGNATURE_STRENGTHS = [
     href: '/collections#signature-linen',
     ctaLabel: 'Explore Fabric & Fabrication',
     code: 'LXA-HOME-10',
-    imageSrc: '/images/luxaura/beach-sheer.webp',
+    imageSrc: getReplacementImageSrc('LXA-HOME-10', '/images/luxaura/beach-sheer.webp'),
     imageAlt: 'Draped linen and sheer texture in a warm neutral interior setting',
   },
 ] as const;
@@ -192,14 +193,14 @@ export const metadata: Metadata = {
     description:
       'Sydney-based sourcing, fabrication, specialist finishing and project support for premium residential, hospitality and commercial interiors.',
     url: SITE_CONFIG.url,
-    images: ['/image/hero.webp'],
+    images: [getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
     description:
       'Sydney-based sourcing, fabrication, specialist finishing and project support for premium soft-furnishing work.',
-    images: ['/image/hero.webp'],
+    images: [getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')],
   },
 };
 
@@ -226,7 +227,7 @@ export default function Home() {
     <>
       <section className="relative isolate min-h-[100svh] overflow-hidden">
         <Image
-          src="/image/hero.webp"
+          src={getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')}
           alt="LuxAura homepage hero image"
           fill
           priority
@@ -449,7 +450,7 @@ export default function Home() {
               data-reveal="image"
             >
               <Image
-                src="/images/IMG-I.webp"
+                src={getReplacementImageSrc('LXA-HOME-08', '/images/IMG-I.webp')}
                 alt="Material selection and project coordination detail representing LuxAura supply chain strength."
                 fill
                 sizes="(min-width: 1024px) 54vw, 100vw"
@@ -515,7 +516,7 @@ export default function Home() {
             data-reveal="image"
           >
             <Image
-              src="/images/IMG-H.webp"
+              src={getReplacementImageSrc('LXA-HOME-11', '/images/IMG-H.webp')}
               alt="LuxAura project with layered drapery, upholstery and refined coastal light."
               fill
               sizes="100vw"

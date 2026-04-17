@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/sync-image-replacements.mjs",
+    "prebuild": "node scripts/sync-image-replacements.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

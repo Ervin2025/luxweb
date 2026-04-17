@@ -1,3 +1,4 @@
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { COLLECTION_ITEMS } from '@/lib/site-data';
 
 export type ImageCodeReference = {
@@ -30,7 +31,7 @@ const CATALOG_EXPLORER_REFERENCES: ImageCodeReference[] = COLLECTION_ITEMS.flatM
   ];
 });
 
-export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
+const BASE_IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-HOME-01', page: 'Home', pageHref: '/', label: 'Hero image', src: '/image/hero.webp' },
   { code: 'LXA-HOME-02', page: 'Home', pageHref: '/', label: 'Capability tile: Fabric & Fabrication', src: '/image/01.webp' },
   { code: 'LXA-HOME-03', page: 'Home', pageHref: '/', label: 'Capability tile: Master Window Treatments', src: '/image/02.webp' },
@@ -124,6 +125,15 @@ export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-TERMS-01', page: 'Terms of Service', pageHref: '/terms', label: 'Hero image', src: '/images/luxaura/hero-project.webp' },
   ...CATALOG_EXPLORER_REFERENCES,
 ];
+
+export const IMAGE_CODE_REFERENCES: ImageCodeReference[] = BASE_IMAGE_CODE_REFERENCES.map(item =>
+  item.type === 'video'
+    ? item
+    : {
+        ...item,
+        src: getReplacementImageSrc(item.code, item.src),
+      }
+);
 
 export const IMAGE_CODE_GROUPS = Array.from(
   IMAGE_CODE_REFERENCES.reduce((map, item) => {

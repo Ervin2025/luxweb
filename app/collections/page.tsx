@@ -8,6 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 import { FABRIC_AND_FABRICATION_FAQ } from '@/lib/site-data';
 
@@ -17,7 +18,7 @@ const MATERIAL_DIRECTIONS = [
     code: 'LXA-COL-03',
     description:
       'A balanced in-house direction combining practical versatility with refined texture, suitable across curtains, upholstery and decorative applications.',
-    imageSrc: '/images/luxaura/upholstery-pillows.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-03', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'LuxAura signature fabric textures and upholstery detailing',
   },
   {
@@ -25,7 +26,7 @@ const MATERIAL_DIRECTIONS = [
     code: 'LXA-COL-04',
     description:
       'Pattern, colour and layered decorative expression for projects requiring character, softness and visual richness, including PT and other British directions.',
-    imageSrc: '/images/IMG-C.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-04', '/images/IMG-C.webp'),
     imageAlt: 'British decorative drapery with layered softness and statement detailing',
   },
   {
@@ -33,7 +34,7 @@ const MATERIAL_DIRECTIONS = [
     code: 'LXA-COL-05',
     description:
       'Hard-wearing textile directions from collections such as Mobus and FibreGuard for more forgiving everyday use without sacrificing design quality.',
-    imageSrc: '/images/luxaura/hero-project.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-05', '/images/luxaura/hero-project.webp'),
     imageAlt: 'Pet-friendly upholstery textiles in a refined interior setting',
   },
   {
@@ -41,7 +42,7 @@ const MATERIAL_DIRECTIONS = [
     code: 'LXA-COL-06',
     description:
       'Relaxed texture, breathable elegance and softer drape for elevated residential and boutique interior settings.',
-    imageSrc: '/images/luxaura/beach-sheer.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-06', '/images/luxaura/beach-sheer.webp'),
     imageAlt: 'French linen and linen-blend drapery in a calm coastal interior',
   },
   {
@@ -49,7 +50,7 @@ const MATERIAL_DIRECTIONS = [
     code: 'LXA-COL-07',
     description:
       'Textiles selected for stronger UV resilience, durability and outdoor or semi-exposed furnishing use, including Sunbrella.',
-    imageSrc: '/images/IMG-H.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-07', '/images/IMG-H.webp'),
     imageAlt: 'Performance fabric used across outdoor-adjacent furnishing applications',
   },
   {
@@ -57,7 +58,7 @@ const MATERIAL_DIRECTIONS = [
     code: 'LXA-COL-08',
     description:
       'Dependable material solutions for broader rollouts, staged projects and furnishing briefs that require pricing discipline without visual compromise.',
-    imageSrc: '/images/IMG-I.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-08', '/images/IMG-I.webp'),
     imageAlt: 'Commercial furnishing material direction with performance-ready window treatment',
   },
 ] as const;
@@ -68,7 +69,7 @@ const MADE_APPLICATIONS = [
     code: 'LXA-COL-09',
     description:
       'Fabric developed into site-ready window layers with cleaner headings, stronger fabric behaviour and controlled finish.',
-    imageSrc: '/images/luxaura/hero-project.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-09', '/images/luxaura/hero-project.webp'),
     imageAlt: 'Curtains and sheers made from LuxAura-sourced fabrics',
   },
   {
@@ -76,7 +77,7 @@ const MADE_APPLICATIONS = [
     code: 'LXA-COL-10',
     description:
       'Custom cushions, bolsters and accent pieces that continue the textile story across the room with greater coherence.',
-    imageSrc: '/images/IMG-D.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-10', '/images/IMG-D.webp'),
     imageAlt: 'Bespoke cushions with refined textile detailing',
   },
   {
@@ -84,7 +85,7 @@ const MADE_APPLICATIONS = [
     code: 'LXA-COL-11',
     description:
       'Tailored upholstery, sofa covers and protective layers where material choice and fabrication quality need to work together.',
-    imageSrc: '/images/IMG-G.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-11', '/images/IMG-G.webp'),
     imageAlt: 'Upholstery and slipcover application with layered drapery',
   },
   {
@@ -92,7 +93,7 @@ const MADE_APPLICATIONS = [
     code: 'LXA-COL-12',
     description:
       'Structured soft-furnishing pieces that connect upholstery, padding and material continuity back into the room.',
-    imageSrc: '/images/IMG-J.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-12', '/images/IMG-J.webp'),
     imageAlt: 'Ottoman and bench seat applications in a premium interior',
   },
   {
@@ -100,7 +101,7 @@ const MADE_APPLICATIONS = [
     code: 'LXA-COL-13',
     description:
       'Table runners, tablecloths and dining linen applications for residential styling and boutique hospitality settings.',
-    imageSrc: '/images/IMG-K.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-13', '/images/IMG-K.webp'),
     imageAlt: 'Soft dining and table linen direction for premium living spaces',
   },
   {
@@ -108,7 +109,7 @@ const MADE_APPLICATIONS = [
     code: 'LXA-COL-14',
     description:
       'Material stories extended into smaller textile outcomes where a brief needs more than the standard furnishing categories.',
-    imageSrc: '/images/IMG-Hero.webp',
+    imageSrc: getReplacementImageSrc('LXA-COL-14', '/images/IMG-Hero.webp'),
     imageAlt: 'Specialty textile applications with clean, controlled fabrication lines',
   },
 ] as const;
@@ -221,7 +222,7 @@ export const metadata: Metadata = {
     description:
       'Global textile sourcing paired with specialist fabrication capability for finished soft-furnishing outcomes in Sydney.',
     url: `${SITE_CONFIG.url}/collections`,
-    images: ['/images/luxaura/beach-sheer.webp'],
+    images: [getReplacementImageSrc('LXA-COL-01', '/images/luxaura/beach-sheer.webp')],
   },
 };
 
@@ -235,7 +236,7 @@ export default function CollectionsPage() {
     <div>
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/luxaura/beach-sheer.webp"
+          src={getReplacementImageSrc('LXA-COL-01', '/images/luxaura/beach-sheer.webp')}
           alt="LuxAura fabric sourcing and fabrication direction with drape, upholstery texture and premium detail"
           fill
           priority
@@ -299,7 +300,7 @@ export default function CollectionsPage() {
             </div>
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
-                src="/images/IMG-H.webp"
+                src={getReplacementImageSrc('LXA-COL-02', '/images/IMG-H.webp')}
                 alt="Fabric carried from selection into upholstery and drapery applications"
                 fill
                 sizes="(min-width: 1024px) 54vw, 100vw"
@@ -366,7 +367,7 @@ export default function CollectionsPage() {
             <div className="grid gap-4">
               <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
                 <Image
-                  src="/images/luxaura/beach-sheer.webp"
+                  src={getReplacementImageSrc('LXA-COL-15', '/images/luxaura/beach-sheer.webp')}
                   alt="Draped linen sheer with warm natural light and quiet editorial composition"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -377,7 +378,7 @@ export default function CollectionsPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_22px_70px_rgba(20,24,22,0.1)]">
                   <Image
-                    src="/images/luxaura/roman-blind-lounge.webp"
+                    src={getReplacementImageSrc('LXA-COL-16', '/images/luxaura/roman-blind-lounge.webp')}
                     alt="Linen-led Roman blind application in a premium residential interior"
                     fill
                     sizes="(min-width: 1024px) 24vw, 100vw"
@@ -387,7 +388,7 @@ export default function CollectionsPage() {
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_22px_70px_rgba(20,24,22,0.1)]">
                   <Image
-                    src="/images/luxaura/upholstery-pillows.webp"
+                    src={getReplacementImageSrc('LXA-COL-17', '/images/luxaura/upholstery-pillows.webp')}
                     alt="Tactile linen-forward upholstery and cushion texture detail"
                     fill
                     sizes="(min-width: 1024px) 24vw, 100vw"
@@ -477,7 +478,7 @@ export default function CollectionsPage() {
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
-                src="/images/luxaura/hero-project.webp"
+                src={getReplacementImageSrc('LXA-COL-18', '/images/luxaura/hero-project.webp')}
                 alt="Performance-aware textile direction for hospitality and higher-use furnishing applications"
                 fill
                 sizes="(min-width: 1024px) 52vw, 100vw"
@@ -516,7 +517,7 @@ export default function CollectionsPage() {
           <div className="grid gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
-                src="/images/IMG-Hero.webp"
+                src={getReplacementImageSrc('LXA-COL-19', '/images/IMG-Hero.webp')}
                 alt="Outdoor seating and cushion setting representing Sunbrella-led exterior fabric solutions"
                 fill
                 sizes="(min-width: 1024px) 52vw, 100vw"

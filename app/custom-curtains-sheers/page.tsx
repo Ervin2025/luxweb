@@ -8,6 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import {
   TRADE_PORTAL_ACCESS_HREF,
   TRADE_SUPPORT_HREF,
@@ -28,7 +29,7 @@ const CURTAIN_STYLES = [
     profile: 's-fold' as CurtainHeadingProfile,
     code: 'LXA-WIN-02',
     description: 'Clean, continuous wave folds ideal for modern interiors and large-scale glazing.',
-    imageSrc: '/images/luxaura/window-styles/s-fold.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-02', '/images/luxaura/window-styles/s-fold.webp'),
     imageAlt: 'S-Fold curtains with continuous wave folds in a calm architectural interior',
   },
   {
@@ -37,7 +38,7 @@ const CURTAIN_STYLES = [
     code: 'LXA-WIN-03',
     description:
       'A tailored, structured heading suited to more refined and formal interiors.',
-    imageSrc: '/images/luxaura/window-styles/double-pinch-pleat.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-03', '/images/luxaura/window-styles/double-pinch-pleat.webp'),
     imageAlt: 'Double pinch pleat curtains in a refined European-style room',
   },
   {
@@ -46,7 +47,7 @@ const CURTAIN_STYLES = [
     code: 'LXA-WIN-04',
     description:
       'A lighter pleated style that balances clean structure with a softer overall feel.',
-    imageSrc: '/images/luxaura/window-styles/single-pleat.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-04', '/images/luxaura/window-styles/single-pleat.webp'),
     imageAlt: 'Single pleat curtain styling in a softly lit European-style interior',
   },
   {
@@ -55,7 +56,7 @@ const CURTAIN_STYLES = [
     code: 'LXA-WIN-05',
     description:
       'Defined, architectural folds for interiors that require stronger structure and visual discipline.',
-    imageSrc: '/images/luxaura/window-styles/box-pleat.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-05', '/images/luxaura/window-styles/box-pleat.webp'),
     imageAlt: 'Box pleat curtain styling with stronger structure and tailored folds',
   },
   {
@@ -64,7 +65,7 @@ const CURTAIN_STYLES = [
     code: 'LXA-WIN-06',
     description:
       'A simpler heading style suited to more casual or straightforward curtain applications.',
-    imageSrc: '/images/luxaura/window-styles/eyelet.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-06', '/images/luxaura/window-styles/eyelet.webp'),
     imageAlt: 'Eyelet curtains with visible ring-top heading on a wall-mounted rod',
   },
   {
@@ -73,7 +74,7 @@ const CURTAIN_STYLES = [
     code: 'LXA-WIN-07',
     description:
       'A traditional gathered heading that remains flexible across a wide range of window types.',
-    imageSrc: '/images/luxaura/window-styles/pencil-pleat.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-07', '/images/luxaura/window-styles/pencil-pleat.webp'),
     imageAlt: 'Pencil pleat curtains with a traditional gathered heading style',
   },
 ] as const;
@@ -112,7 +113,7 @@ const HARDWARE_TRACK_VISUALS = [
     description:
       'Discreet ceiling-fixed systems that let the drapery line read quietly against the architecture.',
     code: 'LXA-WIN-15',
-    imageSrc: '/images/luxaura/window-track/concealed-ceiling-track.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-15', '/images/luxaura/window-track/concealed-ceiling-track.webp'),
     imageAlt: 'Concealed ceiling-mounted track integrated into a clean architectural interior',
     className: 'lg:col-span-2',
   },
@@ -121,7 +122,7 @@ const HARDWARE_TRACK_VISUALS = [
     description:
       'Architectural exposed systems used where the mounting condition needs to stay visible and resolved.',
     code: 'LXA-WIN-16',
-    imageSrc: '/images/luxaura/window-track/wall-mounted-system.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-16', '/images/luxaura/window-track/wall-mounted-system.webp'),
     imageAlt: 'Wall-mounted curtain system shown in a premium residential installation',
     className: '',
   },
@@ -130,7 +131,7 @@ const HARDWARE_TRACK_VISUALS = [
     description:
       'Layered sheer and drapery systems coordinated for privacy, blackout support and cleaner day-to-night control.',
     code: 'LXA-WIN-17',
-    imageSrc: '/images/luxaura/window-track/double-track-system.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-17', '/images/luxaura/window-track/double-track-system.webp'),
     imageAlt: 'Installed double-track curtain system combining sheer and drapery layers',
     className: '',
   },
@@ -139,7 +140,7 @@ const HARDWARE_TRACK_VISUALS = [
     description:
       'Corner and shaped track solutions for bay windows, wrapped glazing and other more difficult openings.',
     code: 'LXA-WIN-18',
-    imageSrc: '/images/luxaura/window-track/curved-custom-track.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-18', '/images/luxaura/window-track/curved-custom-track.webp'),
     imageAlt: 'Custom curved curtain track condition wrapping a premium corner window',
     className: '',
   },
@@ -148,7 +149,7 @@ const HARDWARE_TRACK_VISUALS = [
     description:
       'Closer attention to hardware detailing helps the finished curtain line look calmer and operate more smoothly over time.',
     code: 'LXA-WIN-19',
-    imageSrc: '/images/luxaura/window-track/track-detail.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-19', '/images/luxaura/window-track/track-detail.webp'),
     imageAlt: 'Close-up of curtain hardware detailing and mounting finish',
     className: '',
   },
@@ -157,7 +158,7 @@ const HARDWARE_TRACK_VISUALS = [
     description:
       'Track systems are selected for how they sit in the room once curtains are made, stacked and fully installed.',
     code: 'LXA-WIN-20',
-    imageSrc: '/images/luxaura/window-track/installed-track-with-curtain.webp',
+    imageSrc: getReplacementImageSrc('LXA-WIN-20', '/images/luxaura/window-track/installed-track-with-curtain.webp'),
     imageAlt: 'Installed curtain system showing the relationship between track, heading and final drapery fall',
     className: 'lg:col-span-2',
   },
@@ -371,7 +372,7 @@ export const metadata: Metadata = {
     description:
       'Curtain styles, integrated tracks, Roman blind expertise, motorised systems and refined fabrication in one more complete window furnishing pathway.',
     url: `${SITE_CONFIG.url}/custom-curtains-sheers`,
-    images: ['/images/luxaura/hero-project.webp'],
+    images: [getReplacementImageSrc('LXA-WIN-01', '/images/luxaura/hero-project.webp')],
   },
 };
 
@@ -385,7 +386,7 @@ export default function CustomCurtainsSheersPage() {
     <div>
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/luxaura/hero-project.webp"
+          src={getReplacementImageSrc('LXA-WIN-01', '/images/luxaura/hero-project.webp')}
           alt="Layered curtains and sheers in a premium Sydney interior"
           fill
           priority
@@ -544,7 +545,7 @@ export default function CustomCurtainsSheersPage() {
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
               <Image
-                src="/images/luxaura/roman-blind-lounge.webp"
+                src={getReplacementImageSrc('LXA-WIN-12', '/images/luxaura/roman-blind-lounge.webp')}
                 alt="Roman blind manufacturing shown in a premium installed interior"
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
@@ -566,7 +567,7 @@ export default function CustomCurtainsSheersPage() {
             <div className="grid gap-4">
               <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_24px_80px_rgba(20,24,22,0.12)]">
                 <Image
-                  src="/images/luxaura/roman-blind-lounge.webp"
+                  src={getReplacementImageSrc('LXA-WIN-12', '/images/luxaura/roman-blind-lounge.webp')}
                   alt="Flat Roman blind installation in a premium interior with correct stacking and proportion"
                   fill
                   sizes="(min-width: 1024px) 48vw, 100vw"
@@ -577,7 +578,7 @@ export default function CustomCurtainsSheersPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_20px_70px_rgba(20,24,22,0.1)]">
                   <Image
-                    src="/images/luxaura/roman-blind-lounge.webp"
+                    src={getReplacementImageSrc('LXA-WIN-13', '/images/luxaura/roman-blind-lounge.webp')}
                     alt="Roman blind detail showing fold logic and stacking"
                     fill
                     sizes="(min-width: 1024px) 24vw, 100vw"
@@ -587,7 +588,7 @@ export default function CustomCurtainsSheersPage() {
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] shadow-[0_20px_70px_rgba(20,24,22,0.1)]">
                   <Image
-                    src="/images/luxaura/beach-sheer.webp"
+                    src={getReplacementImageSrc('LXA-WIN-14', '/images/luxaura/beach-sheer.webp')}
                     alt="Premium linen material direction suited to Roman blind fabrication"
                     fill
                     sizes="(min-width: 1024px) 24vw, 100vw"
@@ -636,7 +637,7 @@ export default function CustomCurtainsSheersPage() {
                     muted
                     loop
                     playsInline
-                    poster="/images/IMG-I.webp"
+                    poster={getReplacementImageSrc('LXA-WIN-10', '/images/IMG-I.webp')}
                     className="h-full w-full object-cover"
                   >
                     <source src="/videos/motorisation-demo.mp4" type="video/mp4" />
@@ -646,7 +647,7 @@ export default function CustomCurtainsSheersPage() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
                     <Image
-                      src="/images/IMG-I.webp"
+                      src={getReplacementImageSrc('LXA-WIN-10', '/images/IMG-I.webp')}
                       alt="Motorised curtain system suited to larger glazed openings"
                       fill
                       sizes="(min-width: 1024px) 24vw, 100vw"
@@ -656,7 +657,7 @@ export default function CustomCurtainsSheersPage() {
                   </div>
                   <div className="relative aspect-[16/10] overflow-hidden rounded-[1.8rem] border border-white/10">
                     <Image
-                      src="/images/luxaura/hero-project.webp"
+                      src={getReplacementImageSrc('LXA-WIN-11', '/images/luxaura/hero-project.webp')}
                       alt="Layered curtain system showing a clean cord-free motorised presentation"
                       fill
                       sizes="(min-width: 1024px) 24vw, 100vw"
@@ -704,7 +705,7 @@ export default function CustomCurtainsSheersPage() {
           <div className="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
               <Image
-                src="/images/luxaura/beach-sheer.webp"
+                src={getReplacementImageSrc('LXA-WIN-21', '/images/luxaura/beach-sheer.webp')}
                 alt="Layered curtains and sheers supporting light control and comfort performance"
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
@@ -746,7 +747,7 @@ export default function CustomCurtainsSheersPage() {
           <div className="grid gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
             <div className="relative aspect-[16/11] overflow-hidden rounded-[2.4rem] shadow-[0_30px_90px_rgba(18,22,20,0.16)]">
               <Image
-                src="/images/luxaura/window-styles/large-windows.webp"
+                src={getReplacementImageSrc('LXA-WIN-22', '/images/luxaura/window-styles/large-windows.webp')}
                 alt="Large-scale window treatment with full-height curtains, refined track integration and strong architectural proportions"
                 fill
                 sizes="(min-width: 1024px) 52vw, 100vw"
@@ -781,7 +782,7 @@ export default function CustomCurtainsSheersPage() {
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.14)]">
               <Image
-                src="/images/IMG-C.webp"
+                src={getReplacementImageSrc('LXA-WIN-08', '/images/IMG-C.webp')}
                 alt="Tailored drapery finish with specialist sewing and presentation detail"
                 fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
