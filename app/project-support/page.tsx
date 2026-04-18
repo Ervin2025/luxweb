@@ -9,6 +9,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import {
   PROJECT_BRIEF_HREF,
   PROJECT_SUPPORT_FAQ,
@@ -21,7 +22,7 @@ const CLIENT_PATHWAYS = [
     description:
       'Design-aware sourcing, specification refinement and execution support that help schemes stay original and more buildable.',
     code: 'LXA-PS-02',
-    imageSrc: '/images/IMG-I.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-02', '/images/IMG-I.webp'),
     imageAlt: 'Fabric books, hardware planning and furnishing drawing development for a project team',
   },
   {
@@ -29,7 +30,7 @@ const CLIENT_PATHWAYS = [
     description:
       'Broader category sourcing, stronger finishing language and commercially smart procurement for spaces that need to feel resolved.',
     code: 'LXA-PS-03',
-    imageSrc: '/images/luxaura/upholstery-pillows.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-03', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'Layered soft furnishing palette with cushions, drapery and styling direction',
   },
   {
@@ -37,7 +38,7 @@ const CLIENT_PATHWAYS = [
     description:
       'Category alignment, technical coordination and furnishing support that reduce disconnected decisions across the soft-furnishing scope.',
     code: 'LXA-PS-04',
-    imageSrc: '/images/IMG-K.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-04', '/images/IMG-K.webp'),
     imageAlt: 'Builder and developer furnishing coordination in a refined project setting',
   },
   {
@@ -45,7 +46,7 @@ const CLIENT_PATHWAYS = [
     description:
       'More distinctive resource access, small-batch custom flexibility and broader fulfilment support for more competitive brand outcomes.',
     code: 'LXA-PS-12',
-    imageSrc: '/images/IMG-B.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-12', '/images/IMG-B.webp'),
     imageAlt: 'Decorative resource and product development detail for a retail or brand partner',
   },
   {
@@ -53,7 +54,7 @@ const CLIENT_PATHWAYS = [
     description:
       'A combined pathway of visual refinement, procurement coordination and furnishing execution for spaces where atmosphere and practicality must work together.',
     code: 'LXA-PS-13',
-    imageSrc: '/images/IMG-K.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-13', '/images/IMG-K.webp'),
     imageAlt: 'Boutique hospitality interior with layered soft furnishings and premium seating',
   },
 ] as const;
@@ -64,7 +65,7 @@ const SUPPORT_EDITORIAL_IMAGES = [
     description:
       'Supporting design development with calmer material pairing, furnishing hierarchy and more resolved soft-furnishing language.',
     code: 'LXA-PS-06',
-    imageSrc: '/images/about-hero.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-06', '/images/about-hero.webp'),
     imageAlt: 'Material-led project detail supporting furnishing scheme development',
     aspectClassName: 'aspect-[4/5]',
   },
@@ -73,7 +74,7 @@ const SUPPORT_EDITORIAL_IMAGES = [
     description:
       'Helping drawings, categories and finish decisions align before procurement and fabrication move too far downstream.',
     code: 'LXA-PS-07',
-    imageSrc: '/images/luxaura/hero-project.webp',
+    imageSrc: getReplacementImageSrc('LXA-PS-07', '/images/luxaura/hero-project.webp'),
     imageAlt: 'Calm project interior detail showing coordinated furnishing execution',
     aspectClassName: 'aspect-[16/10]',
   },
@@ -193,7 +194,7 @@ export const metadata: Metadata = {
     description:
       'Design development, soft-furnishing procurement, specification support and delivery coordination for Sydney project teams.',
     url: `${SITE_CONFIG.url}/project-support`,
-    images: ['/images/IMG-I.webp'],
+    images: [getReplacementImageSrc('LXA-PS-01', '/images/IMG-I.webp')],
   },
 };
 
@@ -238,7 +239,7 @@ export default function ProjectSupportPage() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] max-[430px]:rounded-[1.55rem] sm:rounded-[2.4rem]">
               <div className="relative aspect-[16/11] max-[430px]:aspect-[5/4] sm:aspect-[4/3]">
                 <Image
-                  src="/images/IMG-I.webp"
+                  src={getReplacementImageSrc('LXA-PS-01', '/images/IMG-I.webp')}
                   alt="LuxAura project support scene with fabric books, trims and furnishing development"
                   fill
                   priority
@@ -366,7 +367,7 @@ export default function ProjectSupportPage() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] sm:rounded-[2.4rem]">
               <div className="relative aspect-[4/3] sm:aspect-[16/10]">
                 <Image
-                  src="/images/IMG-K.webp"
+                  src={getReplacementImageSrc('LXA-PS-05', '/images/IMG-K.webp')}
                   alt="Boutique hospitality interior with refined drapery, seating and soft furnishing atmosphere"
                   fill
                   sizes="(min-width: 1024px) 56vw, 100vw"
@@ -415,7 +416,7 @@ export default function ProjectSupportPage() {
             </article>
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_24px_80px_rgba(26,24,22,0.08)] sm:rounded-[2.2rem]">
               <Image
-                src="/images/luxaura/beach-sheer.webp"
+                src={getReplacementImageSrc('LXA-PS-14', '/images/luxaura/beach-sheer.webp')}
                 alt="Quiet luxury private residential furnishing detail suited to selective LuxAura support"
                 fill
                 sizes="(min-width: 1024px) 46vw, 100vw"

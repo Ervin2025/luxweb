@@ -8,6 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { BRAND_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 import { DECORATIVE_TRIMMINGS_FAQ } from '@/lib/site-data';
 
@@ -38,42 +39,42 @@ const LATEST_COLLECTION_IMAGES = [
   {
     title: 'Trim close-up',
     code: 'LXA-DTR-02',
-    imageSrc: '/images/IMG-B.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-02', '/images/IMG-B.webp'),
     imageAlt: 'Decorative braid and trim detail applied to premium drapery',
     className: 'sm:col-span-2 lg:row-span-2 aspect-[16/10] lg:aspect-[4/5]',
   },
   {
     title: 'Border detail',
     code: 'LXA-DTR-03',
-    imageSrc: '/images/IMG-D.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-03', '/images/IMG-D.webp'),
     imageAlt: 'Decorative border trim and edge detailing in a premium soft furnishing scheme',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Tassel expression',
     code: 'LXA-DTR-04',
-    imageSrc: '/images/IMG-C.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-04', '/images/IMG-C.webp'),
     imageAlt: 'Tassel and fringe styling detail within a refined interior scheme',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Upholstery finishing',
     code: 'LXA-DTR-05',
-    imageSrc: '/images/luxaura/upholstery-pillows.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-05', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'Piping and finishing detail across bespoke cushions and upholstery',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Tailored trim application',
     code: 'LXA-DTR-06',
-    imageSrc: '/images/IMG-H.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-06', '/images/IMG-H.webp'),
     imageAlt: 'Tailored trimming detail applied across a composed furnishing scheme',
     className: 'aspect-[4/3]',
   },
   {
     title: 'Soft detail close-up',
     code: 'LXA-DTR-07',
-    imageSrc: '/images/IMG-J.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-07', '/images/IMG-J.webp'),
     imageAlt: 'Soft furnishing texture and trim detail at close range',
     className: 'aspect-[4/3]',
   },
@@ -85,7 +86,7 @@ const APPLICATION_BLOCKS = [
     code: 'LXA-DTR-08',
     description:
       'Leading edges, decorative borders, formal hems and statement banding that sharpen line and give curtains greater presence.',
-    imageSrc: '/images/IMG-B.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-08', '/images/IMG-B.webp'),
     imageAlt: 'Decorative trim and braid detail along a drapery leading edge',
   },
   {
@@ -93,7 +94,7 @@ const APPLICATION_BLOCKS = [
     code: 'LXA-DTR-09',
     description:
       'Chair skirts, ottoman detailing, arm framing and tailored seam accents that give upholstered forms more character and finish.',
-    imageSrc: '/images/luxaura/upholstery-pillows.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-09', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'Decorative trim detailing across custom upholstery and cushion edges',
   },
   {
@@ -101,7 +102,7 @@ const APPLICATION_BLOCKS = [
     code: 'LXA-DTR-10',
     description:
       'Soft layered detail that carries colour, texture and finish through the room without breaking the wider textile story.',
-    imageSrc: '/images/IMG-D.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-10', '/images/IMG-D.webp'),
     imageAlt: 'Decorative cushion detailing with braided and piped edges',
   },
   {
@@ -109,7 +110,7 @@ const APPLICATION_BLOCKS = [
     code: 'LXA-DTR-11',
     description:
       'The final layer for interiors that need one more measure of individuality, softness and decorative confidence.',
-    imageSrc: '/images/IMG-C.webp',
+    imageSrc: getReplacementImageSrc('LXA-DTR-11', '/images/IMG-C.webp'),
     imageAlt: 'Feature furnishing detail with tassel and decorative edge application',
   },
 ] as const;
@@ -151,7 +152,7 @@ export const metadata: Metadata = {
     description:
       'A broader and more current trimming library for drapery, upholstery and refined soft-furnishing outcomes.',
     url: `${SITE_CONFIG.url}/decorative-trimmings`,
-    images: ['/images/IMG-B.webp'],
+    images: [getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')],
   },
 };
 
@@ -187,7 +188,7 @@ export default function DecorativeTrimmingsPage() {
     <div>
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/IMG-B.webp"
+          src={getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')}
           alt="Decorative trimming close-up applied to refined drapery"
           fill
           priority
@@ -331,7 +332,7 @@ export default function DecorativeTrimmingsPage() {
         <div className="container-custom">
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <GalleryImage
-              imageSrc="/images/IMG-H.webp"
+              imageSrc={getReplacementImageSrc('LXA-DTR-12', '/images/IMG-H.webp')}
               imageAlt="Decorative concept and trim direction carried into a finished furnishing outcome"
               code="LXA-DTR-12"
               className="aspect-[16/10]"

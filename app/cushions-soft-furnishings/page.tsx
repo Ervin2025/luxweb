@@ -8,6 +8,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 import { BESPOKE_UPHOLSTERY_FAQ } from '@/lib/site-data';
 
@@ -17,7 +18,7 @@ const UPHOLSTERED_APPLICATIONS = [
     code: 'LXA-UPH-02',
     description:
       'Custom upholstery directions that carry the textile brief into larger family seating with stronger finish control and more considered room fit.',
-    imageSrc: '/images/IMG-J.webp',
+    imageSrc: getReplacementImageSrc('LXA-UPH-02', '/images/IMG-J.webp'),
     imageAlt: 'Custom indoor sofa upholstery in a premium residential living room',
   },
   {
@@ -25,7 +26,7 @@ const UPHOLSTERED_APPLICATIONS = [
     code: 'LXA-UPH-03',
     description:
       'Built-in seating and tailored bench formats aligned to comfort, proportion and the broader architectural scheme.',
-    imageSrc: '/images/IMG-K.webp',
+    imageSrc: getReplacementImageSrc('LXA-UPH-03', '/images/IMG-K.webp'),
     imageAlt: 'Tailored bench and banquette upholstery with refined room integration',
   },
   {
@@ -33,7 +34,7 @@ const UPHOLSTERED_APPLICATIONS = [
     code: 'LXA-UPH-04',
     description:
       'Protective upholstery pathways that preserve finish quality while making day-to-day maintenance easier for active homes.',
-    imageSrc: '/images/IMG-A.webp',
+    imageSrc: getReplacementImageSrc('LXA-UPH-04', '/images/IMG-A.webp'),
     imageAlt: 'Loose-cover seating and soft furnishing layer in a calm interior',
   },
   {
@@ -41,7 +42,7 @@ const UPHOLSTERED_APPLICATIONS = [
     code: 'LXA-UPH-05',
     description:
       'Textile-led seating directions for covered terraces, pool-adjacent lounges and outdoor furniture programs that need stronger resilience.',
-    imageSrc: '/images/IMG-Hero.webp',
+    imageSrc: getReplacementImageSrc('LXA-UPH-05', '/images/IMG-Hero.webp'),
     imageAlt: 'Indoor-outdoor seating setting suited to alfresco upholstery planning',
   },
   {
@@ -49,7 +50,7 @@ const UPHOLSTERED_APPLICATIONS = [
     code: 'LXA-UPH-06',
     description:
       'Ottomans, upholstered accessories and softer forms that complete the furnishing language with greater material continuity.',
-    imageSrc: '/images/luxaura/upholstery-pillows.webp',
+    imageSrc: getReplacementImageSrc('LXA-UPH-06', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'Ottoman and accent upholstery detail with premium textile styling',
   },
   {
@@ -57,7 +58,7 @@ const UPHOLSTERED_APPLICATIONS = [
     code: 'LXA-UPH-07',
     description:
       'Decorative cushions, bolster forms and softer layers that help upholstery schemes feel resolved rather than isolated.',
-    imageSrc: '/images/IMG-D.webp',
+    imageSrc: getReplacementImageSrc('LXA-UPH-07', '/images/IMG-D.webp'),
     imageAlt: 'Decorative cushions and accent upholstery layers in a premium room',
   },
 ] as const;
@@ -174,7 +175,7 @@ export const metadata: Metadata = {
     description:
       'Custom upholstery support across indoor seating, outdoor applications and performance-led textile direction for more demanding briefs.',
     url: `${SITE_CONFIG.url}/cushions-soft-furnishings`,
-    images: ['/images/luxaura/upholstery-pillows.webp'],
+    images: [getReplacementImageSrc('LXA-UPH-01', '/images/luxaura/upholstery-pillows.webp')],
   },
 };
 
@@ -235,7 +236,7 @@ export default function CushionsSoftFurnishingsPage() {
     <div>
       <section className="relative isolate overflow-hidden">
         <Image
-          src="/images/luxaura/upholstery-pillows.webp"
+          src={getReplacementImageSrc('LXA-UPH-01', '/images/luxaura/upholstery-pillows.webp')}
           alt="Bespoke upholstery, cushions and performance textile layering"
           fill
           priority
@@ -345,7 +346,7 @@ export default function CushionsSoftFurnishingsPage() {
             </div>
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
-                src="/images/IMG-J.webp"
+                src={getReplacementImageSrc('LXA-UPH-14', '/images/IMG-J.webp')}
                 alt="Indoor upholstery direction for sofas, chairs and project-led seating"
                 fill
                 sizes="(min-width: 1024px) 52vw, 100vw"
@@ -362,7 +363,7 @@ export default function CushionsSoftFurnishingsPage() {
           <div className="grid gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:items-center">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
-                src="/images/IMG-Hero.webp"
+                src={getReplacementImageSrc('LXA-UPH-08', '/images/IMG-Hero.webp')}
                 alt="Indoor-outdoor lounge setting suited to alfresco upholstery planning"
                 fill
                 sizes="(min-width: 1024px) 52vw, 100vw"
@@ -402,7 +403,7 @@ export default function CushionsSoftFurnishingsPage() {
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div className="relative aspect-[4/4.2] overflow-hidden rounded-[2rem] border border-white/10">
                 <Image
-                  src="/images/luxaura/upholstery-pillows.webp"
+                  src={getReplacementImageSrc('LXA-UPH-09', '/images/luxaura/upholstery-pillows.webp')}
                   alt="Premium upholstery fabric and cushion detail suited to exterior and indoor soft furnishing use"
                   fill
                   sizes="(min-width: 1024px) 38vw, 100vw"
@@ -459,7 +460,7 @@ export default function CushionsSoftFurnishingsPage() {
             </div>
             <div className="relative aspect-[4/4.5] overflow-hidden rounded-[2.3rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
-                src="/images/IMG-J.webp"
+                src={getReplacementImageSrc('LXA-UPH-10', '/images/IMG-J.webp')}
                 alt="Family-friendly sofa upholstery with softer performance-focused textile direction"
                 fill
                 sizes="(min-width: 1024px) 46vw, 100vw"

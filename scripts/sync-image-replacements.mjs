@@ -1,5 +1,5 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
-import { extname, join } from 'node:path';
+import { basename, extname, join } from 'node:path';
 
 const sourceDirectory = join(process.cwd(), 'image');
 const targetDirectory = join(process.cwd(), 'public', 'image');
@@ -12,7 +12,7 @@ if (!existsSync(sourceDirectory)) {
 mkdirSync(targetDirectory, { recursive: true });
 
 for (const fileName of readdirSync(sourceDirectory)) {
-  if (fileName.startsWith('.') || /\s/u.test(fileName)) {
+  if (fileName.startsWith('.')) {
     continue;
   }
 
@@ -22,5 +22,9 @@ for (const fileName of readdirSync(sourceDirectory)) {
     continue;
   }
 
-  copyFileSync(join(sourceDirectory, fileName), join(targetDirectory, fileName));
+  const normalizedFileName = fileName.startsWith('LXA-')
+    ? `${basename(fileName, extension).replace(/\s*-\s*/gu, '-').toUpperCase()}${extension}`
+    : fileName;
+
+  copyFileSync(join(sourceDirectory, fileName), join(targetDirectory, normalizedFileName));
 }
