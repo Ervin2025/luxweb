@@ -76,6 +76,7 @@ const BASE_IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-WIN-10', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#motorised-curtain-systems', label: 'Motorised curtain system still image', src: '/images/IMG-I.webp' },
   { code: 'LXA-WIN-11', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#motorised-curtain-systems', label: 'Motorised and layered window application support image', src: '/images/luxaura/hero-project.webp' },
   { code: 'LXA-WIN-12', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#roman-blinds', label: 'Roman blind specialist feature image', src: '/images/luxaura/roman-blind-lounge.webp' },
+  { code: 'LXA-WIN-23', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#roman-blinds', label: 'Roman blind application image: flat Roman blind installation', src: '/images/luxaura/roman-blind-lounge.webp' },
   { code: 'LXA-WIN-13', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#roman-blinds', label: 'Roman blind detail image: linen fold and stack detail', src: '/images/luxaura/roman-blind-lounge.webp' },
   { code: 'LXA-WIN-14', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#roman-blinds', label: 'Roman blind support image: linen material direction', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-WIN-15', page: 'Window Treatments', pageHref: '/custom-curtains-sheers#hardware-motorisation', label: 'Track systems image: concealed ceiling track', src: '/images/luxaura/window-track/concealed-ceiling-track.webp' },
