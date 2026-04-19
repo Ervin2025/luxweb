@@ -4,28 +4,25 @@ import Link from 'next/link';
 import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
-import PartnerValueSection from '@/components/PartnerValueSection';
 import ProjectEnquiryForm from '@/components/ProjectEnquiryForm';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import {
-  CONTACT_FAQ,
-  PROJECT_BRIEF_HREF,
-  TRADE_PORTAL_ACCESS_HREF,
-} from '@/lib/site-data';
+import { CONTACT_FAQ, PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
 
 const SUPPORT_CATEGORIES = [
   {
-    title: 'Trade Account',
-    description:
-      'Use Trade Account when you need pricing access, product resources and ongoing account support.',
+    title: 'Trade Account Access',
+    description: 'Pricing access and account setup',
   },
   {
-    title: 'Project Enquiry',
-    description:
-      'Use Project Enquiry for furnishing scopes, custom requirements and project-led support. Project Enquiry does not require ABN registration.',
+    title: 'Trade Support',
+    description: 'Project-led trade coordination',
+  },
+  {
+    title: 'Small-Batch Custom Enquiries',
+    description: 'Custom scopes and shorter runs',
   },
 ] as const;
 
@@ -66,24 +63,8 @@ export default function ContactPage() {
                 Contact
               </p>
               <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
-                Trade Account and Project Enquiry
+                Trade Access and Project Enquiries
               </h1>
-              <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
-                Structured access for Trade Account applications and Project Enquiry submissions.
-              </p>
-              <p className="mt-4 max-w-[38rem] text-pretty text-[14px] leading-7 text-neutral-600 sm:mt-5 sm:text-[1rem] sm:leading-8">
-                Project Enquiry is available for furnishing scopes, custom requirements and
-                project-led support, and it does not require ABN registration.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account
-                </Link>
-                <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
-                  Project Enquiry
-                </Link>
-              </div>
             </div>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] max-[430px]:rounded-[1.55rem] sm:rounded-[2.4rem]">
@@ -109,26 +90,42 @@ export default function ContactPage() {
 
       <section id="trade-desk" className="px-4 pb-24 pt-8 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
-          <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-8">
-            <article className="section-shell p-6 max-[430px]:p-5 sm:p-10">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Trade Desk"
+            description="Trade account, trade support and custom enquiries."
+          />
+          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
+            {SUPPORT_CATEGORIES.map(item => (
+              <article key={item.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
+                <h2 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">
+                  {item.title}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="project-enquiry" className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
+        <div className="container-custom">
+          <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-8">
+            <div className="mx-auto w-full max-w-4xl lg:mx-0">
               <SectionHeading
-                eyebrow="Trade Account & Project Enquiry"
-                title="Trade Account & Project Enquiry"
-                description="Use one of two clear pathways depending on whether you need account access or a project-led enquiry."
+                eyebrow="Project Enquiry Form"
+                title="Project Enquiry"
+                description="Trade accounts and project-led enquiries are prioritised."
               />
-              <p className="mt-5 text-pretty text-[14px] leading-7 text-neutral-700 sm:mt-6 sm:text-[1rem] sm:leading-8">
-                Trade Account is for pricing access and ongoing account support. Project Enquiry is
-                for active furnishing scopes and does not require ABN registration.
-              </p>
-              <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account
-                </Link>
-                <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
-                  Project Enquiry
-                </Link>
+              <div className="mt-8 sm:mt-10">
+                <ProjectEnquiryForm
+                  submitLabel="Project Enquiry"
+                  note="Project Enquiry does not require ABN registration."
+                />
               </div>
-            </article>
+            </div>
 
             <article className="overflow-hidden rounded-[2rem] bg-[#14221c] p-6 text-white shadow-[0_28px_90px_rgba(20,25,21,0.18)] max-[430px]:rounded-[1.55rem] max-[430px]:p-5 sm:rounded-[2.2rem] sm:p-10">
               <h2 className="font-heading text-[2.35rem] font-semibold leading-[1.02] text-white max-[430px]:text-[2.05rem] sm:text-4xl">
@@ -155,53 +152,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
-        <div className="container-custom">
-          <SectionHeading
-            eyebrow="Support Categories"
-            title="How LuxAura Can Support"
-            description="This contact pathway is designed for trade accounts, project-led support, custom work and selected private briefs rather than retail-style enquiries."
-          />
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {SUPPORT_CATEGORIES.map(item => (
-              <article key={item.title} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
-                <h2 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.6rem] sm:text-3xl">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <PartnerValueSection className="pb-0" />
-
-      <section id="project-enquiry" className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
-        <div className="container-custom">
-          <div className="mx-auto max-w-5xl">
-            <SectionHeading
-              eyebrow="Project Enquiry Form"
-              title="Send the Brief to the Right LuxAura Team"
-              description="Use this intake form for trade support, project-led enquiries, custom development, retail and brand support or selected private furnishing scopes."
-              align="center"
-            />
-            <div className="mt-8 sm:mt-10">
-              <ProjectEnquiryForm
-                submitLabel="Project Enquiry"
-                note="Project Enquiry does not require ABN registration. Trade Account applications and project-led enquiries are prioritised."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <AccordionFaq
         items={[...CONTACT_FAQ]}
-        title="Contact and project enquiry questions"
-        description="Concise answers on client fit, enquiry timing and what helps LuxAura support the brief more effectively."
+        title="Contact questions"
+        description="Short answers on timing and enquiry fit."
       />
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
@@ -209,15 +163,11 @@ export default function ContactPage() {
           <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-8">
             <article className="section-shell p-6 max-[430px]:p-5 sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
-                Closing Reassurance
+                Final CTA
               </p>
               <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-5xl">
-                Structured for projects that need more clarity before commitment
+                Trade Access and Project Enquiries
               </h2>
-              <p className="mt-5 max-w-3xl text-pretty text-[14px] leading-7 text-neutral-700 sm:mt-6 sm:text-[1rem] sm:leading-8">
-                LuxAura helps shape clearer furnishing pathways before sourcing, fabrication and
-                site coordination become fragmented or costly to correct.
-              </p>
               <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={PROJECT_BRIEF_HREF} className="btn-primary w-full sm:w-auto">
                   Project Enquiry

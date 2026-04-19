@@ -2,180 +2,74 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
-import PartnerValueSection from '@/components/PartnerValueSection';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const CAPABILITY_TILES = [
   {
-    number: '01',
     title: 'Fabric & Fabrication',
-    description:
-      'Material direction and specialist making that help projects move from sourcing into finished outcomes with less mismatch.',
+    description: 'Material direction and controlled making',
     href: '/collections',
     code: 'LXA-HOME-02',
     imageSrc: getReplacementImageSrc('LXA-HOME-02', '/image/01.webp'),
     imageAlt: 'LuxAura fabric and fabrication capability image',
   },
   {
-    number: '02',
     title: 'Window Treatments',
-    description:
-      'Curtains, sheers, Roman blinds and layered systems with stronger craft control, cleaner detailing and project-ready execution.',
+    description: 'Curtains, Roman blinds and integrated systems',
     href: '/custom-curtains-sheers',
     code: 'LXA-HOME-03',
     imageSrc: getReplacementImageSrc('LXA-HOME-03', '/image/02.webp'),
     imageAlt: 'LuxAura window treatments capability image',
   },
   {
-    number: '03',
     title: 'Bespoke Upholstery',
-    description:
-      'Indoor, outdoor and performance-led upholstery for seating, cushions and furnishing pieces that need durability and finish quality.',
+    description: 'Indoor, outdoor and performance-led',
     href: '/cushions-soft-furnishings',
     code: 'LXA-HOME-04',
     imageSrc: getReplacementImageSrc('LXA-HOME-04', '/image/03.webp'),
     imageAlt: 'LuxAura bespoke upholstery capability image',
   },
   {
-    number: '04',
-    title: 'Trimmings & Decorative Detail',
-    description:
-      'Decorative trims, refined finishing language and greater customisation that help schemes feel less generic and more resolved.',
+    title: 'Trimmings',
+    description: 'Decorative detail and finishing flexibility',
     href: '/decorative-trimmings',
     code: 'LXA-HOME-05',
     imageSrc: getReplacementImageSrc('LXA-HOME-05', '/image/04.webp'),
-    imageAlt: 'LuxAura hardware and decorative finishing capability image',
-  },
-  {
-    number: '05',
-    title: 'Hardware & Motorisation',
-    description:
-      'Refined track systems and motorised direction that help window treatments finish with better movement, usability and control.',
-    href: '/custom-curtains-sheers#hardware-motorisation',
-    code: 'LXA-HOME-06',
-    imageSrc: getReplacementImageSrc('LXA-HOME-06', '/image/05.webp'),
-    imageAlt: 'LuxAura unified supply chain capability image',
-  },
-  {
-    number: '06',
-    title: 'Project Support',
-    description:
-      'Design-aware support that reduces workload, aligns categories and helps furnishing decisions move forward with less friction.',
-    href: '/project-support',
-    code: 'LXA-HOME-07',
-    imageSrc: getReplacementImageSrc('LXA-HOME-07', '/image/06.webp'),
-    imageAlt: 'LuxAura partner excellence capability image',
-  },
-] as const;
-
-const WHY_LUXAURA_PILLARS = [
-  {
-    number: '01',
-    eyebrow: 'Design Protection',
-    title: 'Protect original design outcomes.',
-    description:
-      'LuxAura helps preserve originality, detail integrity and design intent instead of allowing projects to become diluted through disconnected supplier decisions.',
-  },
-  {
-    number: '02',
-    eyebrow: 'Less Fragmentation',
-    title: 'Reduce fragmented sourcing.',
-    description:
-      'Fabrics, window treatments, upholstery, decorative detail and project support can move through one more useful furnishing pathway.',
-  },
-  {
-    number: '03',
-    eyebrow: 'Lower Workload',
-    title: 'Lower partner workload.',
-    description:
-      'LuxAura reduces sourcing admin, follow-up and coordination burden for designers, stylists, builders, developers and retailers.',
-  },
-  {
-    number: '04',
-    eyebrow: 'Resolved Results',
-    title: 'Deliver more complete final results.',
-    description:
-      'Specialist making, decorative completion, hardware integration and project-aware support help interiors finish with stronger control and refinement.',
-  },
-] as const;
-
-const SUPPLY_CHAIN_POINTS = [
-  {
-    title: 'Decorative depth',
-    description:
-      'Trimmings, decorative detailing and more tailored finishing options help projects avoid a generic supplier feel.',
-  },
-  {
-    title: 'Performance-led selection',
-    description:
-      'Performance fabrics, hospitality-ready directions and pet-friendly selections bring more practical beauty into the furnishing brief.',
-  },
-  {
-    title: 'Motorisation and specialist making',
-    description:
-      'Motorisation, refined fabrication and flexible custom support keep technical and decorative decisions connected to execution.',
+    imageAlt: 'LuxAura decorative trimming capability image',
   },
 ] as const;
 
 const SIGNATURE_STRENGTHS = [
   {
     title: 'Roman Blinds, Made to a Higher Standard',
-    description:
-      'LuxAura offers professional Roman blind manufacturing for trade clients, combining premium textiles, precise construction and scalable production support across both boutique residential and larger project applications.',
-    href: '/custom-curtains-sheers#roman-blinds',
-    ctaLabel: 'Explore Window Treatments',
+    description: 'Precision-built for design-led projects',
     code: 'LXA-HOME-09',
     imageSrc: getReplacementImageSrc('LXA-HOME-09', '/images/luxaura/roman-blind-lounge.webp'),
     imageAlt: 'Roman blind feature image in a quiet luxury interior',
   },
   {
     title: 'Signature Linen as a Core Material Strength',
-    description:
-      'From lightweight sheers to heavy upholstery weights, LuxAura’s linen offering combines French elegance, versatile application and trade-focused value across window treatments, upholstery and furnishing-led interiors.',
-    href: '/collections#signature-linen',
-    ctaLabel: 'Explore Fabric & Fabrication',
+    description: 'From sheers to upholstery weights',
     code: 'LXA-HOME-10',
     imageSrc: getReplacementImageSrc('LXA-HOME-10', '/images/luxaura/beach-sheer.webp'),
     imageAlt: 'Draped linen and sheer texture in a warm neutral interior setting',
   },
 ] as const;
 
-const PAIN_POINTS = [
-  'Too many disconnected suppliers across fabric, curtains, upholstery, trims and systems.',
-  'Design outcomes that lose originality as execution becomes fragmented.',
-  'Too much coordination burden placed on designers, builders and retailers.',
-  'Not enough useful decorative resources to finish the scheme properly.',
-  'Performance needs that fail to align with the visual ambition of the project.',
-  'Difficulty balancing originality, practicality and budget across one brief.',
-] as const;
-
-const PROCESS_STEPS = [
+const SUPPORT_BLOCKS = [
   {
-    number: '01',
-    title: 'Brief & Direction',
-    description: 'Clarify the project intent, furnishing priorities and design language.',
+    title: 'Trimmings & Decorative Detail',
+    description: 'Detail-driven finishing',
   },
   {
-    number: '02',
-    title: 'Resource Alignment',
-    description: 'Bring together the right materials, detailing, systems and practical requirements.',
+    title: 'Hardware & Motorisation',
+    description: 'Refined track systems and control',
   },
   {
-    number: '03',
-    title: 'Refinement & Coordination',
-    description: 'Shape a more coherent furnishing direction with fewer disconnected decisions.',
-  },
-  {
-    number: '04',
-    title: 'Fabrication & Fulfilment',
-    description: 'Move selected scope into controlled making and more reliable delivery pathways.',
-  },
-  {
-    number: '05',
-    title: 'Final Project Readiness',
-    description: 'Support a cleaner handover toward styling, installation or completion.',
+    title: 'Project Support',
+    description: 'Design-aware project coordination',
   },
 ] as const;
 
@@ -241,137 +135,41 @@ export default function Home() {
         <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-14 pt-32 max-[430px]:pb-12 max-[430px]:pt-28 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8 lg:pb-24">
           <div className="max-w-[34rem] text-white sm:max-w-[38rem]" data-reveal="text">
             <h1 className="text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:text-[4.55rem] sm:leading-[0.92] lg:text-[5.45rem] xl:text-[5.95rem]">
-              Soft Furnishing Support for Projects That Need More Than Supply
+              From Fabric Selection to Full Project Delivery
             </h1>
             <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 max-[430px]:text-[0.94rem] max-[430px]:leading-[1.68] sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
-              LuxAura brings together material sourcing, specialist making and project support to
-              create more resolved, more complete and more commercially viable interiors.
+              European Linen, global fabrics and precision fabrication
             </p>
-            <p className="mt-4 max-w-[34rem] text-pretty text-[0.95rem] leading-[1.72] text-white/78 max-[430px]:text-[0.9rem] sm:text-[1.02rem] sm:leading-[1.78]">
-              From premium linen fabrics to professionally manufactured Roman blinds, custom
-              drapery, upholstery and decorative finishing, LuxAura delivers furnishing solutions
-              that improve presentation, reduce coordination workload and support more reliable
-              project outcomes.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary w-full sm:w-auto"
-              >
-                Trade Account
-              </Link>
-              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
-                Project Enquiry
-              </Link>
-            </div>
           </div>
         </div>
       </section>
 
-      <section
-        id="why-luxaura"
-        className="relative overflow-hidden px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
-      >
-        <div className="absolute inset-x-0 top-16 h-[24rem] bg-[radial-gradient(circle_at_12%_0%,rgba(201,177,136,0.26),transparent_42%),radial-gradient(circle_at_88%_18%,rgba(30,58,50,0.08),transparent_24%)]" />
-
-        <div className="container-custom relative">
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
-            <div className="max-w-lg" data-reveal="text">
-              <SectionEyebrow>Why LuxAura Matters</SectionEyebrow>
-              <h2 className="mt-4 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:mt-5 sm:text-[4.75rem] sm:leading-[0.92] lg:text-[5.8rem]">
-                WHY LUXAURA
-              </h2>
-              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                LuxAura is more useful than an ordinary supplier network because it helps partners
-                protect design intent, reduce sourcing fragmentation and reach more resolved final
-                results with less coordination burden.
-              </p>
-            </div>
-
-            <div className="grid gap-5 sm:gap-8 md:grid-cols-2">
-              {WHY_LUXAURA_PILLARS.map((pillar, index) => (
-                <article
-                  key={pillar.number}
-                  data-reveal="card"
-                  data-reveal-delay={String((index % 4) + 1)}
-                  className="rounded-[1.7rem] border border-[#e4dbc9] bg-white/68 p-5 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur max-[430px]:rounded-[1.45rem] max-[430px]:p-4 sm:rounded-[2rem] sm:p-7"
-                >
-                  <p className="font-heading text-[2.6rem] font-semibold leading-none text-primary/24">
-                    {pillar.number}
-                  </p>
-                  <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary/66">
-                    {pillar.eyebrow}
-                  </p>
-                  <h3 className="mt-3 text-balance font-heading text-[1.65rem] font-semibold leading-[1.05] text-[#2C2C2C] max-[430px]:text-[1.5rem] sm:text-[2rem]">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 max-[430px]:text-[13px] max-[430px]:leading-6 sm:text-[0.98rem] sm:leading-8">
-                    {pillar.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
+      <section id="capabilities" className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <SectionEyebrow>What LuxAura Helps Solve</SectionEyebrow>
-          <h2 className="mt-4 max-w-4xl text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.5rem]">
-            The real furnishing problems most supplier mixes still leave unresolved
+          <SectionEyebrow>Capabilities</SectionEyebrow>
+          <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.2rem]">
+            Core capabilities
           </h2>
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {PAIN_POINTS.map(point => (
-              <article key={point} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
-                <p className="text-sm leading-7 text-neutral-700 sm:text-base">{point}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section
-        id="capabilities"
-        className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
-      >
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <SectionEyebrow>Capability Overview</SectionEyebrow>
-            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
-              A more complete furnishing platform across sourcing, making and project execution
-            </h2>
-            <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
-              Six connected capabilities designed to reduce workload, protect design outcomes and
-              help furnishing briefs move with less downstream fragmentation.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-7 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-7 lg:grid-cols-2">
             {CAPABILITY_TILES.map(item => (
               <Link
                 key={item.title}
                 href={item.href}
                 data-reveal="card"
-                data-reveal-delay={String((Number(item.number) % 3) + 1)}
                 className="group relative min-h-[24rem] overflow-hidden rounded-[1.9rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)] max-[430px]:min-h-[22rem] max-[430px]:rounded-[1.55rem] sm:min-h-[31rem] sm:rounded-[2.2rem]"
               >
                 <Image
                   src={item.imageSrc}
                   alt={item.imageAlt}
                   fill
-                  sizes="(min-width: 1024px) 30vw, 100vw"
+                  sizes="(min-width: 1024px) 48vw, 100vw"
                   className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
                 />
                 <ImageCodeBadge code={item.code} />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.04)_0%,rgba(12,12,11,0.12)_38%,rgba(12,12,11,0.82)_100%)]" />
 
-                <div className="relative flex h-full flex-col justify-between p-5 max-[430px]:p-4 sm:p-7">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-white">
-                    {item.number}
-                  </p>
-
+                <div className="relative flex h-full flex-col justify-end p-5 max-[430px]:p-4 sm:p-7">
                   <div className="max-w-[22rem]">
                     <h3 className="text-balance font-heading text-[1.7rem] font-semibold leading-[1.04] text-white max-[430px]:text-[1.5rem] sm:text-[2.3rem]">
                       {item.title}
@@ -389,17 +187,10 @@ export default function Home() {
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <SectionEyebrow>Flagship Strengths</SectionEyebrow>
-            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.7rem] sm:leading-[0.98] lg:text-[4.1rem]">
-              Two specialist capabilities that make LuxAura more distinctive in real project work
-            </h2>
-            <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
-              Roman blind manufacturing and signature linen expertise are not secondary add-ons.
-              They are two of the categories where LuxAura can offer stronger control, better
-              material depth and more useful trade value.
-            </p>
-          </div>
+          <SectionEyebrow>Feature</SectionEyebrow>
+          <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.7rem] sm:leading-[0.98] lg:text-[4rem]">
+            Signature strengths
+          </h2>
 
           <div className="mt-10 grid gap-6 sm:mt-12 lg:grid-cols-2">
             {SIGNATURE_STRENGTHS.map(item => (
@@ -416,7 +207,6 @@ export default function Home() {
                     className="object-cover transition duration-700 ease-out hover:scale-[1.02]"
                   />
                   <ImageCodeBadge code={item.code} />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.03)_0%,rgba(12,12,11,0.22)_100%)]" />
                 </div>
                 <div className="p-6 sm:p-8">
                   <h3 className="text-balance font-heading text-[2rem] font-semibold leading-[1.04] text-[#2C2C2C] max-[430px]:text-[1.75rem] sm:text-[2.5rem]">
@@ -425,12 +215,6 @@ export default function Home() {
                   <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 sm:text-[0.98rem] sm:leading-8">
                     {item.description}
                   </p>
-                  <Link
-                    href={item.href}
-                    className="mt-7 inline-flex min-h-[44px] items-center rounded-full border border-primary/10 bg-[#f6f0e4] px-5 py-3 text-sm font-semibold text-primary transition hover:border-primary hover:bg-white"
-                  >
-                    {item.ctaLabel}
-                  </Link>
                 </div>
               </article>
             ))}
@@ -438,70 +222,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="supply-chain"
-        className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
-      >
+      <section id="support-blocks" className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
-            <div
-              className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-[#e3ddd1] shadow-[0_28px_80px_rgba(27,24,20,0.08)] sm:aspect-[16/10] sm:rounded-[2.4rem]"
-              data-reveal="image"
-            >
-              <Image
-                src={getReplacementImageSrc('LXA-HOME-08', '/images/IMG-I.webp')}
-                alt="Material selection and project coordination detail representing LuxAura supply chain strength."
-                fill
-                sizes="(min-width: 1024px) 54vw, 100vw"
-                className="object-cover"
-              />
-              <ImageCodeBadge code="LXA-HOME-08" />
-            </div>
-
-            <div className="max-w-xl lg:pl-6" data-reveal="text">
-              <SectionEyebrow>Decorative + Technical Resource Advantage</SectionEyebrow>
-              <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4.35rem]">
-                More useful decorative and technical resources behind the final result
-              </h2>
-              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                Trimmings, performance fabrics, motorisation, specialist making and flexible custom
-                support help partners carry interiors further than basic sourcing alone.
-              </p>
-              <div className="mt-8 grid gap-4">
-                {SUPPLY_CHAIN_POINTS.map(point => (
-                  <article key={point.title} className="section-shell p-5 sm:p-6">
-                    <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-[2rem]">
-                      {point.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
-                      {point.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <PartnerValueSection className="pb-0" />
-
-      <section className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
-        <div className="container-custom">
-          <SectionEyebrow>LuxAura Process</SectionEyebrow>
-          <h2 className="mt-4 max-w-4xl text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.5rem]">
-            A clearer path from design idea to final project readiness
+          <SectionEyebrow>Support</SectionEyebrow>
+          <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[3.8rem] sm:leading-[1] lg:text-[4rem]">
+            Support blocks
           </h2>
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 xl:grid-cols-5">
-            {PROCESS_STEPS.map(step => (
-              <article key={step.number} className="section-shell p-5 max-[430px]:p-4 sm:p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/70">
-                  {step.number}
-                </p>
-                <h3 className="mt-4 font-heading text-[1.7rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.5rem] sm:text-[2rem]">
-                  {step.title}
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {SUPPORT_BLOCKS.map(point => (
+              <article key={point.title} className="section-shell p-5 sm:p-6">
+                <h3 className="font-heading text-[1.8rem] font-semibold leading-tight text-neutral-900 sm:text-[2rem]">
+                  {point.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-neutral-700">{step.description}</p>
+                <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
+                  {point.description}
+                </p>
               </article>
             ))}
           </div>
@@ -529,12 +265,8 @@ export default function Home() {
                   Final CTA
                 </p>
                 <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1] tracking-[-0.035em] text-white max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.96] lg:text-[4.8rem]">
-                  One partner. One pathway. A more resolved result.
+                  Trade & Project Enquiries
                 </h2>
-                <p className="mt-5 max-w-2xl text-pretty text-[0.98rem] leading-[1.76] text-white/82 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                  Bring LuxAura in when sourcing, fabrication, specialist finishing and project
-                  coordination need to move through one accountable furnishing path.
-                </p>
                 <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:gap-4">
                   <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
                     Trade Account
