@@ -565,14 +565,16 @@ export default function CustomCurtainsSheersPage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="grid gap-4">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_24px_80px_rgba(20,24,22,0.12)]">
-                <Image
-                  src={getReplacementImageSrc('LXA-WIN-23', '/images/luxaura/roman-blind-lounge.webp')}
-                  alt="Flat Roman blind installation in a premium interior with correct stacking and proportion"
-                  fill
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                  className="object-cover"
-                />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(180deg,rgba(247,242,234,0.98),rgba(233,225,210,0.94))] shadow-[0_24px_80px_rgba(20,24,22,0.12)]">
+                <div className="absolute inset-4 sm:inset-5">
+                  <Image
+                    src={getReplacementImageSrc('LXA-WIN-23', '/images/luxaura/roman-blind-lounge.webp')}
+                    alt="Flat Roman blind installation in a premium interior with correct stacking and proportion"
+                    fill
+                    sizes="(min-width: 1024px) 48vw, 100vw"
+                    className="object-contain"
+                  />
+                </div>
                 <ImageCodeBadge code="LXA-WIN-23" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
