@@ -98,6 +98,7 @@ const BASE_IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-UPH-08', page: 'Bespoke Upholstery', pageHref: '/cushions-soft-furnishings', label: 'Outdoor upholstery feature image', src: '/images/IMG-Hero.webp' },
   { code: 'LXA-UPH-09', page: 'Bespoke Upholstery', pageHref: '/cushions-soft-furnishings', label: 'Sunbrella feature image', src: '/images/luxaura/upholstery-pillows.webp' },
   { code: 'LXA-UPH-10', page: 'Bespoke Upholstery', pageHref: '/cushions-soft-furnishings', label: 'Pet-friendly upholstery feature image', src: '/images/IMG-J.webp' },
+  { code: 'LXA-UPH-14', page: 'Bespoke Upholstery', pageHref: '/cushions-soft-furnishings', label: 'Indoor upholstery support image: residential seating direction', src: '/images/IMG-J.webp' },
 
   { code: 'LXA-DTR-01', page: 'Trimmings', pageHref: '/decorative-trimmings', label: 'Hero image', src: '/images/IMG-B.webp' },
   { code: 'LXA-DTR-02', page: 'Trimmings', pageHref: '/decorative-trimmings', label: 'Latest collection feature image', src: '/images/IMG-B.webp' },
@@ -120,6 +121,9 @@ const BASE_IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-PS-05', page: 'Project Support', pageHref: '/project-support', label: 'Hospitality feature image', src: '/images/IMG-K.webp' },
   { code: 'LXA-PS-06', page: 'Project Support', pageHref: '/project-support', label: 'Support editorial image: Material direction and scheme review', src: '/images/about-hero.webp' },
   { code: 'LXA-PS-07', page: 'Project Support', pageHref: '/project-support', label: 'Support editorial image: Specification clarity and project alignment', src: '/images/luxaura/hero-project.webp' },
+  { code: 'LXA-PS-12', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Retailers and brand partners', src: '/images/IMG-B.webp' },
+  { code: 'LXA-PS-13', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Hospitality and short-stay operators', src: '/images/IMG-K.webp' },
+  { code: 'LXA-PS-14', page: 'Project Support', pageHref: '/project-support', label: 'Support editorial image: procurement and delivery coordination', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-TRADE-01', page: 'Trade Account', pageHref: '/trade-projects', label: 'Hero image', src: '/images/luxaura/vertical-sheer-pool.webp' },
   { code: 'LXA-FAQ-01', page: 'FAQ', pageHref: '/faq', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-PRIVACY-01', page: 'Privacy Policy', pageHref: '/privacy', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },

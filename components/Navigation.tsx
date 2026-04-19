@@ -85,13 +85,15 @@ export default function Navigation() {
             </button>
           </div>
 
-          <div className="hidden lg:flex lg:items-center lg:gap-5 xl:gap-6">
-            <Link href="/" className="flex flex-shrink-0 items-center">
-              <BrandWordmark />
-            </Link>
+          <div className="hidden lg:grid lg:gap-3">
+            <div className="flex items-center justify-center xl:justify-start">
+              <Link href="/" className="flex flex-shrink-0 items-center">
+                <BrandWordmark />
+              </Link>
+            </div>
 
-            <div className="min-w-0 flex-1 overflow-hidden">
-              <div className="flex flex-nowrap items-center justify-center gap-1 overflow-x-auto xl:gap-1.5">
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 xl:flex-nowrap">
+              <div className="flex min-w-0 flex-1 flex-wrap items-center justify-center gap-1.5 xl:justify-start xl:gap-2">
                 {headerNavItems.map(link => {
                   const isActive = isLinkActive(pathname, link.href);
 
@@ -99,7 +101,7 @@ export default function Navigation() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`flex min-h-[42px] flex-shrink-0 items-center justify-center rounded-full px-3.5 py-2 text-center text-[12.5px] font-medium transition-colors duration-200 xl:min-h-[44px] xl:px-4 xl:text-[13px] 2xl:px-4.5 2xl:text-[13.5px] ${
+                      className={`flex min-h-[40px] items-center justify-center rounded-full px-3 py-2 text-center text-[11.5px] font-medium transition-colors duration-200 xl:min-h-[42px] xl:px-3.5 xl:text-[12.5px] 2xl:min-h-[44px] 2xl:px-4 2xl:text-[13px] ${
                         isActive
                           ? 'bg-primary text-white'
                           : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
@@ -110,21 +112,21 @@ export default function Navigation() {
                   );
                 })}
               </div>
-            </div>
 
-            <div className="flex flex-shrink-0 items-center gap-2.5 xl:gap-3">
-              <Link
-                href={PROJECT_BRIEF_HREF}
-                className="btn-secondary whitespace-nowrap px-3.5 py-2.5 text-[11.5px] tracking-[0.14em] xl:px-4.5 xl:text-[12px] xl:tracking-[0.18em] 2xl:px-5.5 2xl:text-[12.5px] 2xl:tracking-[0.2em]"
-              >
-                PROJECT ENQUIRY
-              </Link>
-              <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary whitespace-nowrap px-3.5 py-2.5 text-[11.5px] tracking-[0.14em] xl:px-4.5 xl:text-[12px] xl:tracking-[0.18em] 2xl:px-5.5 2xl:text-[12.5px] 2xl:tracking-[0.2em]"
-              >
-                TRADE ACCOUNT
-              </Link>
+              <div className="flex w-full flex-wrap items-center justify-center gap-2.5 xl:w-auto xl:flex-shrink-0 xl:justify-end xl:gap-3">
+                <Link
+                  href={PROJECT_BRIEF_HREF}
+                  className="btn-secondary whitespace-nowrap px-3.5 py-2.5 text-[11px] tracking-[0.12em] xl:px-4 xl:text-[11.5px] xl:tracking-[0.14em] 2xl:px-5 2xl:text-[12px] 2xl:tracking-[0.18em]"
+                >
+                  PROJECT ENQUIRY
+                </Link>
+                <Link
+                  href={TRADE_PORTAL_ACCESS_HREF}
+                  className="btn-primary whitespace-nowrap px-3.5 py-2.5 text-[11px] tracking-[0.12em] xl:px-4 xl:text-[11.5px] xl:tracking-[0.14em] 2xl:px-5 2xl:text-[12px] 2xl:tracking-[0.18em]"
+                >
+                  TRADE ACCOUNT
+                </Link>
+              </div>
             </div>
           </div>
         </div>
