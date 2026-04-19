@@ -34,36 +34,10 @@ function BrandWordmark({ mobile = false }: { mobile?: boolean }) {
 }
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isSolid = isScrolled || isMobileMenuOpen;
   const mobileMenuId = 'mobile-navigation-menu';
   const headerNavItems = NAV_ITEMS;
-
-  useEffect(() => {
-    let ticking = false;
-
-    const updateScrollState = () => {
-      const scrolled = window.scrollY > 50;
-      setIsScrolled(prev => (prev !== scrolled ? scrolled : prev));
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(updateScrollState);
-      }
-    };
-
-    updateScrollState();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -79,25 +53,15 @@ export default function Navigation() {
 
   return (
     <nav className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="container-custom pt-3 max-[430px]:pt-2.5 sm:pt-4 lg:pt-5">
-        <div
-          className={`pointer-events-auto rounded-[1.45rem] px-3 py-3 shadow-[0_18px_40px_rgba(26,24,22,0.08)] transition-all duration-300 sm:px-4 lg:rounded-[2rem] lg:px-4 lg:py-3 ${
-            isSolid
-              ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px] lg:border-[#e5dccd] lg:bg-[#f6f0e4] lg:shadow-[0_20px_50px_rgba(26,24,22,0.08)] lg:backdrop-blur-0'
-              : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px] lg:border-transparent lg:bg-transparent lg:shadow-none lg:backdrop-blur-0'
-          }`}
-        >
+      <div className="pointer-events-auto border-b border-white/90 bg-[rgba(255,255,255,0.72)] shadow-[0_18px_40px_rgba(26,24,22,0.08)] backdrop-blur-[22px] lg:border-[#e5dccd] lg:bg-[#f6f0e4] lg:shadow-[0_20px_50px_rgba(26,24,22,0.08)] lg:backdrop-blur-0">
+        <div className="container-custom px-4 py-3 max-[430px]:py-2.5 sm:px-6 sm:py-4 lg:px-8 lg:py-4">
           <div className="flex items-center justify-between gap-3 lg:hidden">
             <Link href="/" className="flex flex-shrink-0 items-center pr-2 lg:pr-0">
               <BrandWordmark mobile />
             </Link>
 
             <button
-              className={`flex h-11 w-11 items-center justify-center rounded-full text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] focus:outline-none max-[430px]:h-10 max-[430px]:w-10 lg:hidden sm:h-12 sm:w-12 ${
-                isSolid
-                  ? 'border border-white/90 bg-[rgba(255,255,255,0.72)] backdrop-blur-[22px]'
-                  : 'border border-white/70 bg-[rgba(255,255,255,0.48)] backdrop-blur-[26px]'
-              }`}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/90 bg-[rgba(255,255,255,0.72)] text-neutral-800 shadow-[0_18px_40px_rgba(26,24,22,0.08)] backdrop-blur-[22px] focus:outline-none max-[430px]:h-10 max-[430px]:w-10 lg:hidden sm:h-12 sm:w-12"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
@@ -121,67 +85,52 @@ export default function Navigation() {
             </button>
           </div>
 
-          <div className="hidden lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:items-start lg:gap-x-4 lg:gap-y-3 xl:gap-x-6">
-            <Link href="/" className="row-span-2 flex flex-shrink-0 items-start pt-1">
+          <div className="hidden lg:flex lg:items-center lg:gap-5 xl:gap-6">
+            <Link href="/" className="flex flex-shrink-0 items-center">
               <BrandWordmark />
             </Link>
 
-            <div className="flex justify-end">
-              <div className="flex items-center gap-3">
-                <Link
-                  href={PROJECT_BRIEF_HREF}
-                  className="btn-secondary px-4 py-2.5 text-[12px] tracking-[0.16em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.2em] 2xl:px-6 2xl:text-[13px] 2xl:tracking-[0.22em]"
-                >
-                  PROJECT ENQUIRY
-                </Link>
-                <Link
-                  href={TRADE_PORTAL_ACCESS_HREF}
-                  className="btn-primary px-4 py-2.5 text-[12px] tracking-[0.16em] xl:px-5 xl:text-[12.5px] xl:tracking-[0.2em] 2xl:px-6 2xl:text-[13px] 2xl:tracking-[0.22em]"
-                >
-                  TRADE ACCOUNT
-                </Link>
+            <div className="min-w-0 flex-1 overflow-hidden">
+              <div className="flex flex-nowrap items-center justify-center gap-1 overflow-x-auto xl:gap-1.5">
+                {headerNavItems.map(link => {
+                  const isActive = isLinkActive(pathname, link.href);
+
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={`flex min-h-[42px] flex-shrink-0 items-center justify-center rounded-full px-3.5 py-2 text-center text-[12.5px] font-medium transition-colors duration-200 xl:min-h-[44px] xl:px-4 xl:text-[13px] 2xl:px-4.5 2xl:text-[13.5px] ${
+                        isActive
+                          ? 'bg-primary text-white'
+                          : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
+                      }`}
+                    >
+                      <span className="whitespace-nowrap">{link.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
-            <div className="col-span-2 min-w-0 lg:ml-[7.2rem] xl:ml-[8.4rem] 2xl:ml-[9rem]">
-              <div
-                className={`relative w-full overflow-hidden rounded-[1.8rem] px-6 py-3 transition-all duration-300 xl:px-8 ${
-                  isSolid
-                    ? 'bg-transparent'
-                    : 'border border-white/70 bg-white/58 shadow-[0_18px_48px_rgba(26,24,22,0.08)] backdrop-blur-2xl'
-                }`}
+            <div className="flex flex-shrink-0 items-center gap-2.5 xl:gap-3">
+              <Link
+                href={PROJECT_BRIEF_HREF}
+                className="btn-secondary whitespace-nowrap px-3.5 py-2.5 text-[11.5px] tracking-[0.14em] xl:px-4.5 xl:text-[12px] xl:tracking-[0.18em] 2xl:px-5.5 2xl:text-[12.5px] 2xl:tracking-[0.2em]"
               >
-                {!isSolid ? (
-                  <>
-                    <div className="pointer-events-none absolute inset-px rounded-[1.8rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.54),rgba(255,255,255,0.18))]" />
-                    <div className="pointer-events-none absolute inset-0 rounded-[1.8rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-                  </>
-                ) : null}
-                <div className="relative flex flex-wrap items-center justify-center gap-1.5 xl:gap-2">
-                  {headerNavItems.map(link => {
-                    const isActive = isLinkActive(pathname, link.href);
-
-                    return (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className={`flex min-h-[42px] items-center justify-center rounded-full px-4 py-2 text-center text-[13px] font-medium transition-colors duration-200 xl:min-h-[44px] xl:px-4.5 xl:text-[13.5px] 2xl:px-5 2xl:text-[14px] ${
-                          isActive
-                            ? 'bg-primary text-white'
-                            : 'text-neutral-800 hover:bg-white/80 hover:text-primary'
-                        }`}
-                      >
-                        <span className="whitespace-nowrap">{link.name}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
+                PROJECT ENQUIRY
+              </Link>
+              <Link
+                href={TRADE_PORTAL_ACCESS_HREF}
+                className="btn-primary whitespace-nowrap px-3.5 py-2.5 text-[11.5px] tracking-[0.14em] xl:px-4.5 xl:text-[12px] xl:tracking-[0.18em] 2xl:px-5.5 2xl:text-[12.5px] 2xl:tracking-[0.2em]"
+              >
+                TRADE ACCOUNT
+              </Link>
             </div>
           </div>
-
         </div>
+      </div>
 
+      <div className="container-custom">
         {isMobileMenuOpen && (
           <div
             id={mobileMenuId}

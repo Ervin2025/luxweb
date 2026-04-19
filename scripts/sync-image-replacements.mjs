@@ -1,10 +1,7 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
-import { basename, extname, join } from 'node:path';
-import sharp from 'sharp';
+import { extname, join } from 'node:path';
 
 const sourceDirectory = join(process.cwd(), 'image');
-const convertedDirectory = join(process.cwd(), 'untitled folder');
-const preparedDirectory = join(process.cwd(), 'untitled-folder-webp');
 const targetDirectory = join(process.cwd(), 'public', 'image');
 const supportedExtensions = new Set(['.webp', '.png', '.jpg', '.jpeg', '.avif']);
 
@@ -42,60 +39,4 @@ function syncBaseImageDirectory() {
   }
 }
 
-async function syncConvertedOverrideDirectory() {
-  if (!existsSync(convertedDirectory)) {
-    return;
-  }
-
-  for (const fileName of readdirSync(convertedDirectory)) {
-    if (fileName.startsWith('.')) {
-      continue;
-    }
-
-    const extension = extname(fileName).toLowerCase();
-
-    if (!supportedExtensions.has(extension) || !fileName.toUpperCase().startsWith('LXA-')) {
-      continue;
-    }
-
-    const normalizedCode = normalizeCodeStem(fileName);
-    const normalizedFileName = `${normalizedCode}.webp`;
-    const sourcePath = join(convertedDirectory, fileName);
-    const imageTargetPath = join(sourceDirectory, normalizedFileName);
-    const publicTargetPath = join(targetDirectory, normalizedFileName);
-
-    await sharp(sourcePath).webp({ quality: 86, effort: 6 }).toFile(imageTargetPath);
-    copyFileSync(imageTargetPath, publicTargetPath);
-  }
-}
-
-function syncPreparedOverrideDirectory() {
-  if (!existsSync(preparedDirectory)) {
-    return;
-  }
-
-  for (const fileName of readdirSync(preparedDirectory)) {
-    if (fileName.startsWith('.')) {
-      continue;
-    }
-
-    const extension = extname(fileName).toLowerCase();
-
-    if (extension !== '.webp' || !fileName.toUpperCase().startsWith('LXA-')) {
-      continue;
-    }
-
-    const normalizedFileName = `${normalizeCodeStem(fileName)}.webp`;
-    const sourcePath = join(preparedDirectory, fileName);
-    const imageTargetPath = join(sourceDirectory, normalizedFileName);
-    const publicTargetPath = join(targetDirectory, normalizedFileName);
-
-    copyFileSync(sourcePath, imageTargetPath);
-    copyFileSync(sourcePath, publicTargetPath);
-  }
-}
-
 syncBaseImageDirectory();
-
-await syncConvertedOverrideDirectory();
-syncPreparedOverrideDirectory();
