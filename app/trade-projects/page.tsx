@@ -1,17 +1,13 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import FaqSection from '@/components/FaqSection';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import TradeForm from '@/components/TradeForm';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { type FormIntent } from '@/lib/form-options';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import {
   TRADE_PROJECT_BENEFITS,
-  TRADE_PROJECT_FAQ,
   TRADE_PROJECT_PARTNERS,
   TRADE_PROJECT_PROCESS,
 } from '@/lib/site-data';
@@ -50,7 +46,6 @@ export default async function TradeProjectsPage({
   const resolvedSearchParams = await searchParams;
   const initialIntent = resolveIntent(resolvedSearchParams?.intent);
   const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Trade Account', url: '/trade-projects' }]);
-  const faqSchema = generateFaqSchema(TRADE_PROJECT_FAQ);
 
   return (
     <div>
@@ -61,14 +56,7 @@ export default async function TradeProjectsPage({
         imageSrc="/images/luxaura/vertical-sheer-pool.webp"
         imageAlt="LuxAura trade and project support"
         imageCode="LXA-TRADE-01"
-      >
-        <a href="#trade-projects-form" className="btn-primary">
-          Trade Account
-        </a>
-        <Link href="/trade-projects?intent=project-enquiry#trade-projects-form" className="btn-secondary">
-          Project Enquiry
-        </Link>
-      </PageHero>
+      />
 
       <div className="container-custom">
         <Breadcrumb items={[{ label: 'Trade Account', href: '/trade-projects' }]} />
@@ -179,19 +167,9 @@ export default async function TradeProjectsPage({
         </div>
       </section>
 
-      <FaqSection
-        items={TRADE_PROJECT_FAQ}
-        title="Frequently asked questions"
-        description="Quick answers on trade access and project support."
-      />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

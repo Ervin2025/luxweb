@@ -1,16 +1,11 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import {
-  TRADE_PORTAL_ACCESS_HREF,
-  TRADE_SUPPORT_HREF,
-} from '@/lib/site-data';
 
 type CurtainHeadingProfile =
   | 's-fold'
@@ -25,7 +20,7 @@ const CURTAIN_STYLES = [
     title: 'S Fold',
     profile: 's-fold' as CurtainHeadingProfile,
     code: 'LXA-WIN-02',
-    description: 'Clean, continuous wave folds ideal for modern interiors and large-scale glazing.',
+    description: 'Clean wave folds for modern interiors.',
     imageSrc: getReplacementImageSrc('LXA-WIN-02', '/images/luxaura/window-styles/s-fold.webp'),
     imageAlt: 'S-Fold curtains with continuous wave folds in a calm architectural interior',
   },
@@ -33,8 +28,7 @@ const CURTAIN_STYLES = [
     title: 'Double Pinch Pleat',
     profile: 'double-pinch' as CurtainHeadingProfile,
     code: 'LXA-WIN-03',
-    description:
-      'A tailored, structured heading suited to more refined and formal interiors.',
+    description: 'A tailored heading for refined interiors.',
     imageSrc: getReplacementImageSrc('LXA-WIN-03', '/images/luxaura/window-styles/double-pinch-pleat.webp'),
     imageAlt: 'Double pinch pleat curtains in a refined European-style room',
   },
@@ -42,8 +36,7 @@ const CURTAIN_STYLES = [
     title: 'Single Pleat',
     profile: 'single-pleat' as CurtainHeadingProfile,
     code: 'LXA-WIN-04',
-    description:
-      'A lighter pleated style that balances clean structure with a softer overall feel.',
+    description: 'A lighter pleat with softer structure.',
     imageSrc: getReplacementImageSrc('LXA-WIN-04', '/images/luxaura/window-styles/single-pleat.webp'),
     imageAlt: 'Single pleat curtain styling in a softly lit European-style interior',
   },
@@ -51,8 +44,7 @@ const CURTAIN_STYLES = [
     title: 'Box Pleat',
     profile: 'box-pleat' as CurtainHeadingProfile,
     code: 'LXA-WIN-05',
-    description:
-      'Defined, architectural folds for interiors that require stronger structure and visual discipline.',
+    description: 'Defined folds with architectural structure.',
     imageSrc: getReplacementImageSrc('LXA-WIN-05', '/images/luxaura/window-styles/box-pleat.webp'),
     imageAlt: 'Box pleat curtain styling with stronger structure and tailored folds',
   },
@@ -60,8 +52,7 @@ const CURTAIN_STYLES = [
     title: 'Eyelet',
     profile: 'eyelet' as CurtainHeadingProfile,
     code: 'LXA-WIN-06',
-    description:
-      'A simpler heading style suited to more casual or straightforward curtain applications.',
+    description: 'A simpler heading for straightforward applications.',
     imageSrc: getReplacementImageSrc('LXA-WIN-06', '/images/luxaura/window-styles/eyelet.webp'),
     imageAlt: 'Eyelet curtains with visible ring-top heading on a wall-mounted rod',
   },
@@ -69,8 +60,7 @@ const CURTAIN_STYLES = [
     title: 'Pencil Pleat',
     profile: 'pencil-pleat' as CurtainHeadingProfile,
     code: 'LXA-WIN-07',
-    description:
-      'A traditional gathered heading that remains flexible across a wide range of window types.',
+    description: 'A traditional gathered heading with flexibility.',
     imageSrc: getReplacementImageSrc('LXA-WIN-07', '/images/luxaura/window-styles/pencil-pleat.webp'),
     imageAlt: 'Pencil pleat curtains with a traditional gathered heading style',
   },
@@ -79,36 +69,30 @@ const CURTAIN_STYLES = [
 const MASTER_CRAFT_POINTS = [
   {
     title: 'Precision sewing',
-    description:
-      'Specialist sewing workflows support cleaner headings, neater joins and stronger consistency across the finished treatment.',
+    description: 'Cleaner headings, joins and finishing.',
   },
   {
     title: 'Complex fabric handling',
-    description:
-      'Heavier fabrics, fine linens and layered systems are handled with greater control so the final drape stays calm and properly weighted.',
+    description: 'Controlled handling across linens and layered systems.',
   },
   {
     title: 'Clean edge finishing',
-    description:
-      'Hems, returns, leading edges and lining relationships are resolved with a stronger finishing standard rather than treated as hidden production detail.',
+    description: 'Hems and edges resolved with stronger finish quality.',
   },
   {
     title: 'Presentation standards',
-    description:
-      'Treatments are prepared for cleaner handover, stronger visual presentation and a more reliable finished result on site.',
+    description: 'Prepared for cleaner handover and presentation.',
   },
   {
     title: 'Consistency across styles and scales',
-    description:
-      'LuxAura applies the same fabrication discipline across sheers, formal drapery, Roman blinds and larger project-led programmes.',
+    description: 'Fabrication discipline across styles and scales.',
   },
 ] as const;
 
 const HARDWARE_TRACK_VISUALS = [
   {
     title: 'Minimal ceiling track',
-    description:
-      'Discreet ceiling-fixed systems that let the drapery line read quietly against the architecture.',
+    description: 'Discreet ceiling-fixed systems for quieter drapery lines.',
     code: 'LXA-WIN-15',
     imageSrc: getReplacementImageSrc('LXA-WIN-15', '/images/luxaura/window-track/concealed-ceiling-track.webp'),
     imageAlt: 'Concealed ceiling-mounted track integrated into a clean architectural interior',
@@ -116,8 +100,7 @@ const HARDWARE_TRACK_VISUALS = [
   },
   {
     title: 'Wall-mounted system',
-    description:
-      'Architectural exposed systems used where the mounting condition needs to stay visible and resolved.',
+    description: 'Exposed systems for visible mounting conditions.',
     code: 'LXA-WIN-16',
     imageSrc: getReplacementImageSrc('LXA-WIN-16', '/images/luxaura/window-track/wall-mounted-system.webp'),
     imageAlt: 'Wall-mounted curtain system shown in a premium residential installation',
@@ -125,8 +108,7 @@ const HARDWARE_TRACK_VISUALS = [
   },
   {
     title: 'Double track layers',
-    description:
-      'Layered sheer and drapery systems coordinated for privacy, blackout support and cleaner day-to-night control.',
+    description: 'Layered systems for privacy and blackout control.',
     code: 'LXA-WIN-17',
     imageSrc: getReplacementImageSrc('LXA-WIN-17', '/images/luxaura/window-track/double-track-system.webp'),
     imageAlt: 'Installed double-track curtain system combining sheer and drapery layers',
@@ -134,8 +116,7 @@ const HARDWARE_TRACK_VISUALS = [
   },
   {
     title: 'Curved and custom track conditions',
-    description:
-      'Corner and shaped track solutions for bay windows, wrapped glazing and other more difficult openings.',
+    description: 'Curved solutions for shaped and corner openings.',
     code: 'LXA-WIN-18',
     imageSrc: getReplacementImageSrc('LXA-WIN-18', '/images/luxaura/window-track/curved-custom-track.webp'),
     imageAlt: 'Custom curved curtain track condition wrapping a premium corner window',
@@ -143,8 +124,7 @@ const HARDWARE_TRACK_VISUALS = [
   },
   {
     title: 'Track detail and finish quality',
-    description:
-      'Closer attention to hardware detailing helps the finished curtain line look calmer and operate more smoothly over time.',
+    description: 'Hardware detailing for calmer operation and finish.',
     code: 'LXA-WIN-19',
     imageSrc: getReplacementImageSrc('LXA-WIN-19', '/images/luxaura/window-track/track-detail.webp'),
     imageAlt: 'Close-up of curtain hardware detailing and mounting finish',
@@ -152,8 +132,7 @@ const HARDWARE_TRACK_VISUALS = [
   },
   {
     title: 'Installed real-world application',
-    description:
-      'Track systems are selected for how they sit in the room once curtains are made, stacked and fully installed.',
+    description: 'Track systems selected for final installed performance.',
     code: 'LXA-WIN-20',
     imageSrc: getReplacementImageSrc('LXA-WIN-20', '/images/luxaura/window-track/installed-track-with-curtain.webp'),
     imageAlt: 'Installed curtain system showing the relationship between track, heading and final drapery fall',
@@ -174,37 +153,34 @@ const HARDWARE_TRACK_POINTS = [
 const MOTORISATION_BLOCKS = [
   {
     title: 'Smooth automated operation',
-    description:
-      'Motorised curtain systems improve usability on wider openings and help larger treatments move with less manual strain and cleaner consistency.',
+    description: 'Smooth movement across wider openings and larger spans.',
   },
   {
     title: 'Integrated with the track system',
-    description:
-      'Automation is planned with the supporting track, stack behaviour and installation condition so the final treatment stays visually controlled.',
+    description: 'Automation planned with track, stack and installation.',
   },
   {
     title: 'Project-ready value',
-    description:
-      'Light integration with trusted systems such as Somfy can be considered while keeping the overall package commercially sensible for trade clients.',
+    description: 'Trusted systems with project-ready commercial logic.',
   },
 ] as const;
 
 const ROMAN_BLIND_STYLES = [
   {
     title: 'Flat Roman Blind',
-    description: 'Clean, structured lines for modern and more architectural interiors.',
+    description: 'Clean lines for modern interiors.',
   },
   {
     title: 'Relaxed Roman Blind',
-    description: 'A softer bottom curve suited to elegant residential and furnishing-led project settings.',
+    description: 'A softer profile for residential settings.',
   },
   {
     title: 'London Roman Blind',
-    description: 'Tail-detail expression that adds decorative softness while still keeping a tailored look.',
+    description: 'Decorative softness with a tailored look.',
   },
   {
     title: 'Hobbled Roman Blind',
-    description: 'Permanent cascading folds that add depth, softness and stronger decorative character.',
+    description: 'Cascading folds with richer decorative depth.',
   },
 ] as const;
 
@@ -405,17 +381,8 @@ export default function CustomCurtainsSheersPage() {
               Material, System and Craft — Delivered as One
             </p>
             <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
-              From European Linen and British Fabrics to Precision Roman Blinds, Integrated Track
-              Systems and Master-Level Fabrication
+              Curtains, Roman blinds, track systems and motorisation in one pathway.
             </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Portal Access
-              </Link>
-              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-                Project Enquiry
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -429,7 +396,7 @@ export default function CustomCurtainsSheersPage() {
           <SectionHeading
             eyebrow="Curtain Styles"
             title="Curtain Styles"
-            description="LuxAura supports a full range of curtain styles across modern, classic and project-led interiors — allowing designers and furnishing clients to select the right balance of proportion, movement, structure and finish."
+            description="A wide range of curtain styles for modern and classic interiors."
           />
 
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -478,7 +445,7 @@ export default function CustomCurtainsSheersPage() {
           <SectionHeading
             eyebrow="Integrated Track Systems"
             title="Precision Track Systems for Smooth Operation and Clean Integration"
-            description="LuxAura provides a wide range of curtain track systems designed for smooth movement, visual integration and dependable long-term use across residential and project applications. From discreet ceiling-mounted systems to double-track and curved track configurations, LuxAura supports both design intent and practical performance with strong variety and trade-level value."
+            description="Track systems selected for movement, finish and integration."
           />
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-5">
@@ -517,8 +484,7 @@ export default function CustomCurtainsSheersPage() {
                 Complete track direction is part of the window outcome, not a late-stage add-on
               </h2>
               <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
-                LuxAura treats tracks as part of the finished furnishing system, allowing style,
-                movement, stacking and installation logic to remain aligned from the outset.
+                Track choice stays aligned with style, movement and installation.
               </p>
             </article>
 
@@ -554,7 +520,7 @@ export default function CustomCurtainsSheersPage() {
               <SectionHeading
                 eyebrow="Roman Blind Manufacturing"
                 title="One of LuxAura’s Key Specialisations"
-                description="LuxAura delivers precision-built Roman blinds across a full range of styles, combining better textile selection, specialist construction and dependable workshop control. This category is one of LuxAura’s strongest manufacturing capabilities and should be positioned as a major advantage for both residential and project-led interiors."
+                description="Precision-built Roman blinds across multiple styles."
               />
             </div>
           </div>
@@ -667,16 +633,12 @@ export default function CustomCurtainsSheersPage() {
               </div>
 
               <div className="p-8 sm:p-10 lg:p-14">
-                <SectionHeading
-                  eyebrow="Motorised Curtain Systems"
-                  title="Designed for Larger Windows and Everyday Convenience"
-                  description="Motorised curtain systems offer smoother operation, cleaner presentation and more practical day-to-day use across larger windows and full-height glazing. LuxAura supports motorised solutions that integrate cleanly with modern track systems and larger curtain spans."
-                  theme="dark"
-                />
-                <p className="mt-5 text-sm leading-7 text-white/70 sm:text-base">
-                  Light integration with systems such as Somfy can be considered where automation
-                  supports a cleaner and more usable project outcome.
-                </p>
+              <SectionHeading
+                eyebrow="Motorised Curtain Systems"
+                title="Designed for Larger Windows and Everyday Convenience"
+                description="Motorised solutions for larger windows and daily convenience."
+                theme="dark"
+              />
                 <div className="mt-8 grid gap-4">
                   {MOTORISATION_BLOCKS.map(item => (
                     <article
@@ -716,7 +678,7 @@ export default function CustomCurtainsSheersPage() {
               <SectionHeading
                 eyebrow="Performance & Function"
                 title="Performance & Function"
-                description="LuxAura supports window treatments not only for appearance, but also for light control, comfort and practical living performance through better fabric selection and layered construction."
+                description="Window treatments shaped for light, comfort and use."
               />
 
               <div className="mt-8 grid gap-4">
@@ -758,7 +720,7 @@ export default function CustomCurtainsSheersPage() {
               <SectionHeading
                 eyebrow="Designed for Large Windows"
                 title="Designed for Large Windows"
-                description="Modern interiors increasingly feature wider openings and full-height glazing. LuxAura supports these conditions through appropriate style selection, integrated track systems, fabric control and motorised solutions where required."
+                description="Full-height glazing and wider openings with cleaner control."
               />
               <div className="mt-8 grid gap-4">
                 {LARGE_WINDOW_POINTS.map(point => (
@@ -793,7 +755,7 @@ export default function CustomCurtainsSheersPage() {
               <SectionHeading
                 eyebrow="Master Craft & Finishing"
                 title="Master Craft & Finishing"
-                description="LuxAura combines material knowledge with specialist sewing, controlled fabrication and refined finishing standards to deliver more complete and more reliable window furnishing outcomes."
+                description="Specialist sewing, controlled fabrication and refined finishing."
                 theme="dark"
               />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -821,18 +783,8 @@ export default function CustomCurtainsSheersPage() {
                 Trade, Project and Custom Window Enquiries
               </h2>
               <p className="mt-5 text-pretty text-[15px] leading-7 text-neutral-700 sm:text-lg">
-                LuxAura supports designers, builders, retailers, stylists and project-led clients
-                with more complete window furnishing solutions across style, system and fabrication.
+                Window furnishing solutions across style, system and fabrication.
               </p>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Portal Access
-              </Link>
-              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary">
-                Project Enquiry
-              </Link>
             </div>
           </div>
         </div>

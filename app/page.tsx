@@ -5,14 +5,12 @@ import ImageCodeBadge from '@/components/ImageCodeBadge';
 import PartnerValueSection from '@/components/PartnerValueSection';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const CAPABILITY_TILES = [
   {
     number: '01',
     title: 'Fabric & Fabrication',
-    description:
-      'Material direction and specialist making that help projects move from sourcing into finished outcomes with less mismatch.',
+    description: 'Material direction and specialist making for finished outcomes.',
     href: '/collections',
     code: 'LXA-HOME-02',
     imageSrc: getReplacementImageSrc('LXA-HOME-02', '/image/01.webp'),
@@ -21,8 +19,7 @@ const CAPABILITY_TILES = [
   {
     number: '02',
     title: 'Window Treatments',
-    description:
-      'Curtains, sheers, Roman blinds and layered systems with stronger craft control, cleaner detailing and project-ready execution.',
+    description: 'Curtains, sheers and Roman blinds with stronger control.',
     href: '/custom-curtains-sheers',
     code: 'LXA-HOME-03',
     imageSrc: getReplacementImageSrc('LXA-HOME-03', '/image/02.webp'),
@@ -31,8 +28,7 @@ const CAPABILITY_TILES = [
   {
     number: '03',
     title: 'Bespoke Upholstery',
-    description:
-      'Indoor, outdoor and performance-led upholstery for seating, cushions and furnishing pieces that need durability and finish quality.',
+    description: 'Indoor and outdoor upholstery with durable finish quality.',
     href: '/cushions-soft-furnishings',
     code: 'LXA-HOME-04',
     imageSrc: getReplacementImageSrc('LXA-HOME-04', '/image/03.webp'),
@@ -41,8 +37,7 @@ const CAPABILITY_TILES = [
   {
     number: '04',
     title: 'Trimmings & Decorative Detail',
-    description:
-      'Decorative trims, refined finishing language and greater customisation that help schemes feel less generic and more resolved.',
+    description: 'Decorative trims and refined finishing for resolved schemes.',
     href: '/decorative-trimmings',
     code: 'LXA-HOME-05',
     imageSrc: getReplacementImageSrc('LXA-HOME-05', '/image/04.webp'),
@@ -51,8 +46,7 @@ const CAPABILITY_TILES = [
   {
     number: '05',
     title: 'Hardware & Motorisation',
-    description:
-      'Refined track systems and motorised direction that help window treatments finish with better movement, usability and control.',
+    description: 'Track systems and motorisation with cleaner movement and control.',
     href: '/custom-curtains-sheers#hardware-motorisation',
     code: 'LXA-HOME-06',
     imageSrc: getReplacementImageSrc('LXA-HOME-06', '/image/05.webp'),
@@ -61,8 +55,7 @@ const CAPABILITY_TILES = [
   {
     number: '06',
     title: 'Project Support',
-    description:
-      'Design-aware support that reduces workload, aligns categories and helps furnishing decisions move forward with less friction.',
+    description: 'Design-aware support that reduces friction across project decisions.',
     href: '/project-support',
     code: 'LXA-HOME-07',
     imageSrc: getReplacementImageSrc('LXA-HOME-07', '/image/06.webp'),
@@ -75,55 +68,47 @@ const WHY_LUXAURA_PILLARS = [
     number: '01',
     eyebrow: 'Design Protection',
     title: 'Protect original design outcomes.',
-    description:
-      'LuxAura helps preserve originality, detail integrity and design intent instead of allowing projects to become diluted through disconnected supplier decisions.',
+    description: 'Preserve design intent through cleaner furnishing execution.',
   },
   {
     number: '02',
     eyebrow: 'Less Fragmentation',
     title: 'Reduce fragmented sourcing.',
-    description:
-      'Fabrics, window treatments, upholstery, decorative detail and project support can move through one more useful furnishing pathway.',
+    description: 'Keep sourcing decisions inside one furnishing pathway.',
   },
   {
     number: '03',
     eyebrow: 'Lower Workload',
     title: 'Lower partner workload.',
-    description:
-      'LuxAura reduces sourcing admin, follow-up and coordination burden for designers, stylists, builders, developers and retailers.',
+    description: 'Reduce sourcing admin, follow-up and coordination burden.',
   },
   {
     number: '04',
     eyebrow: 'Resolved Results',
     title: 'Deliver more complete final results.',
-    description:
-      'Specialist making, decorative completion, hardware integration and project-aware support help interiors finish with stronger control and refinement.',
+    description: 'Deliver interiors with stronger control and refinement.',
   },
 ] as const;
 
 const SUPPLY_CHAIN_POINTS = [
   {
     title: 'Decorative depth',
-    description:
-      'Trimmings, decorative detailing and more tailored finishing options help projects avoid a generic supplier feel.',
+    description: 'Trims and finishing add individuality to the scheme.',
   },
   {
     title: 'Performance-led selection',
-    description:
-      'Performance fabrics, hospitality-ready directions and pet-friendly selections bring more practical beauty into the furnishing brief.',
+    description: 'Performance fabrics support practical and beautiful interiors.',
   },
   {
     title: 'Motorisation and specialist making',
-    description:
-      'Motorisation, refined fabrication and flexible custom support keep technical and decorative decisions connected to execution.',
+    description: 'Technical and decorative decisions stay connected to execution.',
   },
 ] as const;
 
 const SIGNATURE_STRENGTHS = [
   {
     title: 'Roman Blinds, Made to a Higher Standard',
-    description:
-      'LuxAura offers professional Roman blind manufacturing for trade clients, combining premium textiles, precise construction and scalable production support across both boutique residential and larger project applications.',
+    description: 'Roman blind making with cleaner construction and finish.',
     href: '/custom-curtains-sheers#roman-blinds',
     ctaLabel: 'Explore Window Treatments',
     code: 'LXA-HOME-09',
@@ -132,23 +117,13 @@ const SIGNATURE_STRENGTHS = [
   },
   {
     title: 'Signature Linen as a Core Material Strength',
-    description:
-      'From lightweight sheers to heavy upholstery weights, LuxAura’s linen offering combines French elegance, versatile application and trade-focused value across window treatments, upholstery and furnishing-led interiors.',
+    description: 'French linen with versatile application and trade value.',
     href: '/collections#signature-linen',
     ctaLabel: 'Explore Fabric & Fabrication',
     code: 'LXA-HOME-10',
     imageSrc: getReplacementImageSrc('LXA-HOME-10', '/images/luxaura/beach-sheer.webp'),
     imageAlt: 'Draped linen and sheer texture in a warm neutral interior setting',
   },
-] as const;
-
-const PAIN_POINTS = [
-  'Too many disconnected suppliers across fabric, curtains, upholstery, trims and systems.',
-  'Design outcomes that lose originality as execution becomes fragmented.',
-  'Too much coordination burden placed on designers, builders and retailers.',
-  'Not enough useful decorative resources to finish the scheme properly.',
-  'Performance needs that fail to align with the visual ambition of the project.',
-  'Difficulty balancing originality, practicality and budget across one brief.',
 ] as const;
 
 const PROCESS_STEPS = [
@@ -244,27 +219,8 @@ export default function Home() {
               Soft Furnishing Support for Projects That Need More Than Supply
             </h1>
             <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 max-[430px]:text-[0.94rem] max-[430px]:leading-[1.68] sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
-              LuxAura brings together material sourcing, specialist making and project support to
-              create more resolved, more complete and more commercially viable interiors.
+              Sourcing, fabrication and project support in one furnishing pathway.
             </p>
-            <p className="mt-4 max-w-[34rem] text-pretty text-[0.95rem] leading-[1.72] text-white/78 max-[430px]:text-[0.9rem] sm:text-[1.02rem] sm:leading-[1.78]">
-              From premium linen fabrics to professionally manufactured Roman blinds, custom
-              drapery, upholstery and decorative finishing, LuxAura delivers furnishing solutions
-              that improve presentation, reduce coordination workload and support more reliable
-              project outcomes.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Link
-                href={TRADE_PORTAL_ACCESS_HREF}
-                className="btn-primary w-full sm:w-auto"
-              >
-                Trade Account
-              </Link>
-              <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
-                Project Enquiry
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -283,9 +239,7 @@ export default function Home() {
                 WHY LUXAURA
               </h2>
               <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                LuxAura is more useful than an ordinary supplier network because it helps partners
-                protect design intent, reduce sourcing fragmentation and reach more resolved final
-                results with less coordination burden.
+                A more complete path from sourcing to finished furnishing delivery.
               </p>
             </div>
 
@@ -316,22 +270,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
-        <div className="container-custom">
-          <SectionEyebrow>What LuxAura Helps Solve</SectionEyebrow>
-          <h2 className="mt-4 max-w-4xl text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.5rem]">
-            The real furnishing problems most supplier mixes still leave unresolved
-          </h2>
-          <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {PAIN_POINTS.map(point => (
-              <article key={point} className="section-shell p-5 max-[430px]:p-4 sm:p-7">
-                <p className="text-sm leading-7 text-neutral-700 sm:text-base">{point}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section
         id="capabilities"
         className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
@@ -343,8 +281,7 @@ export default function Home() {
               A more complete furnishing platform across sourcing, making and project execution
             </h2>
             <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
-              Six connected capabilities designed to reduce workload, protect design outcomes and
-              help furnishing briefs move with less downstream fragmentation.
+              Six connected capabilities across sourcing, making and support.
             </p>
           </div>
 
@@ -395,9 +332,7 @@ export default function Home() {
               Two specialist capabilities that make LuxAura more distinctive in real project work
             </h2>
             <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
-              Roman blind manufacturing and signature linen expertise are not secondary add-ons.
-              They are two of the categories where LuxAura can offer stronger control, better
-              material depth and more useful trade value.
+              Roman blinds and linen remain two core LuxAura strengths.
             </p>
           </div>
 
@@ -425,12 +360,6 @@ export default function Home() {
                   <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 sm:text-[0.98rem] sm:leading-8">
                     {item.description}
                   </p>
-                  <Link
-                    href={item.href}
-                    className="mt-7 inline-flex min-h-[44px] items-center rounded-full border border-primary/10 bg-[#f6f0e4] px-5 py-3 text-sm font-semibold text-primary transition hover:border-primary hover:bg-white"
-                  >
-                    {item.ctaLabel}
-                  </Link>
                 </div>
               </article>
             ))}
@@ -464,8 +393,7 @@ export default function Home() {
                 More useful decorative and technical resources behind the final result
               </h2>
               <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                Trimmings, performance fabrics, motorisation, specialist making and flexible custom
-                support help partners carry interiors further than basic sourcing alone.
+                Decorative and technical resources support cleaner project outcomes.
               </p>
               <div className="mt-8 grid gap-4">
                 {SUPPLY_CHAIN_POINTS.map(point => (
@@ -532,17 +460,8 @@ export default function Home() {
                   One partner. One pathway. A more resolved result.
                 </h2>
                 <p className="mt-5 max-w-2xl text-pretty text-[0.98rem] leading-[1.76] text-white/82 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                  Bring LuxAura in when sourcing, fabrication, specialist finishing and project
-                  coordination need to move through one accountable furnishing path.
+                  One accountable path for sourcing, making and project support.
                 </p>
-                <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:gap-4">
-                  <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                    Trade Account
-                  </Link>
-                  <Link href={TRADE_SUPPORT_HREF} className="btn-secondary w-full sm:w-auto">
-                    Project Enquiry
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

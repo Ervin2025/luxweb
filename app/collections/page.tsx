@@ -1,60 +1,52 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 
 const MATERIAL_DIRECTIONS = [
   {
     title: 'LuxAura Signature Series',
     code: 'LXA-COL-03',
-    description:
-      'A balanced in-house direction combining practical versatility with refined texture, suitable across curtains, upholstery and decorative applications.',
+    description: 'Balanced texture across curtains, upholstery and decorative use.',
     imageSrc: getReplacementImageSrc('LXA-COL-03', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'LuxAura signature fabric textures and upholstery detailing',
   },
   {
     title: 'British Decorative Textiles',
     code: 'LXA-COL-04',
-    description:
-      'Pattern, colour and layered decorative expression for projects requiring character, softness and visual richness, including PT and other British directions.',
+    description: 'Pattern-rich fabrics with softness and decorative character.',
     imageSrc: getReplacementImageSrc('LXA-COL-04', '/images/IMG-C.webp'),
     imageAlt: 'British decorative drapery with layered softness and statement detailing',
   },
   {
     title: 'Pet-Friendly Upholstery Fabrics',
     code: 'LXA-COL-05',
-    description:
-      'Hard-wearing textile directions from collections such as Mobus and FibreGuard for more forgiving everyday use without sacrificing design quality.',
+    description: 'Hard-wearing upholstery with easier everyday performance.',
     imageSrc: getReplacementImageSrc('LXA-COL-05', '/images/luxaura/hero-project.webp'),
     imageAlt: 'Pet-friendly upholstery textiles in a refined interior setting',
   },
   {
     title: 'French Linen & Linen Blends',
     code: 'LXA-COL-06',
-    description:
-      'Relaxed texture, breathable elegance and softer drape for elevated residential and boutique interior settings.',
+    description: 'Natural texture and refined drape.',
     imageSrc: getReplacementImageSrc('LXA-COL-06', '/images/luxaura/beach-sheer.webp'),
     imageAlt: 'French linen and linen-blend drapery in a calm coastal interior',
   },
   {
     title: 'Outdoor & Performance Fabrics',
     code: 'LXA-COL-07',
-    description:
-      'Textiles selected for stronger UV resilience, durability and outdoor or semi-exposed furnishing use, including Sunbrella.',
+    description: 'Performance textiles for outdoor and exposed use.',
     imageSrc: getReplacementImageSrc('LXA-COL-07', '/images/IMG-H.webp'),
     imageAlt: 'Performance fabric used across outdoor-adjacent furnishing applications',
   },
   {
     title: 'Commercial Value Directions',
     code: 'LXA-COL-08',
-    description:
-      'Dependable material solutions for broader rollouts, staged projects and furnishing briefs that require pricing discipline without visual compromise.',
+    description: 'Commercial material directions with controlled value.',
     imageSrc: getReplacementImageSrc('LXA-COL-08', '/images/IMG-I.webp'),
     imageAlt: 'Commercial furnishing material direction with performance-ready window treatment',
   },
@@ -64,48 +56,42 @@ const MADE_APPLICATIONS = [
   {
     title: 'Curtains & Sheers',
     code: 'LXA-COL-09',
-    description:
-      'Fabric developed into site-ready window layers with cleaner headings, stronger fabric behaviour and controlled finish.',
+    description: 'Site-ready window layers with cleaner headings.',
     imageSrc: getReplacementImageSrc('LXA-COL-09', '/images/luxaura/hero-project.webp'),
     imageAlt: 'Curtains and sheers made from LuxAura-sourced fabrics',
   },
   {
     title: 'Bespoke Cushions',
     code: 'LXA-COL-10',
-    description:
-      'Custom cushions, bolsters and accent pieces that continue the textile story across the room with greater coherence.',
+    description: 'Custom cushions that continue the textile story.',
     imageSrc: getReplacementImageSrc('LXA-COL-10', '/images/IMG-D.webp'),
     imageAlt: 'Bespoke cushions with refined textile detailing',
   },
   {
     title: 'Upholstery & Slipcovers',
     code: 'LXA-COL-11',
-    description:
-      'Tailored upholstery, sofa covers and protective layers where material choice and fabrication quality need to work together.',
+    description: 'Tailored upholstery and slipcovers with stronger material control.',
     imageSrc: getReplacementImageSrc('LXA-COL-11', '/images/IMG-G.webp'),
     imageAlt: 'Upholstery and slipcover application with layered drapery',
   },
   {
     title: 'Ottomans & Bench Seats',
     code: 'LXA-COL-12',
-    description:
-      'Structured soft-furnishing pieces that connect upholstery, padding and material continuity back into the room.',
+    description: 'Structured soft forms with material continuity.',
     imageSrc: getReplacementImageSrc('LXA-COL-12', '/images/IMG-J.webp'),
     imageAlt: 'Ottoman and bench seat applications in a premium interior',
   },
   {
     title: 'Table Linens & Soft Dining Pieces',
     code: 'LXA-COL-13',
-    description:
-      'Table runners, tablecloths and dining linen applications for residential styling and boutique hospitality settings.',
+    description: 'Soft dining pieces for residential and hospitality settings.',
     imageSrc: getReplacementImageSrc('LXA-COL-13', '/images/IMG-K.webp'),
     imageAlt: 'Soft dining and table linen direction for premium living spaces',
   },
   {
     title: 'Specialty Textile Pieces',
     code: 'LXA-COL-14',
-    description:
-      'Material stories extended into smaller textile outcomes where a brief needs more than the standard furnishing categories.',
+    description: 'Specialty textile pieces beyond standard furnishing categories.',
     imageSrc: getReplacementImageSrc('LXA-COL-14', '/images/IMG-Hero.webp'),
     imageAlt: 'Specialty textile applications with clean, controlled fabrication lines',
   },
@@ -114,41 +100,34 @@ const MADE_APPLICATIONS = [
 const WHY_THIS_MATTERS = [
   {
     title: 'Material Guidance',
-    description:
-      'Selections are made with application, fabric behaviour and project use in mind, not as isolated fabric choices.',
+    description: 'Selections consider application, behaviour and project use.',
   },
   {
     title: 'Fabrication Readiness',
-    description:
-      'LuxAura considers how a textile will actually be cut, sewn, lined, trimmed or upholstered before it is specified.',
+    description: 'Textiles are chosen with fabrication in mind.',
   },
   {
     title: 'Coordinated Outcome',
-    description:
-      'One textile story can move across window treatments, upholstery and soft accessories without losing control in production.',
+    description: 'One textile story can move across multiple categories.',
   },
 ] as const;
 
 const PERFORMANCE_DIRECTIONS = [
   {
     title: 'Durability & Abrasion Resistance',
-    description:
-      'Selected performance fabrics are better suited to higher-use upholstery, layered furnishing schemes and project conditions where resilience matters.',
+    description: 'Performance fabrics suit higher-use seating and interiors.',
   },
   {
     title: 'Stain and Maintenance Practicality',
-    description:
-      'Stain-resistant and easier-clean directions help everyday use stay more manageable without forcing the interior into a purely utilitarian look.',
+    description: 'Stain-resistant fabrics support easier everyday maintenance.',
   },
   {
     title: 'Pet-Friendly and Family-Aware',
-    description:
-      'Collections such as Mobus and FibreGuard help briefs respond more intelligently to pets, children and heavier day-to-day wear.',
+    description: 'Pet-friendly ranges suit family interiors and daily wear.',
   },
   {
     title: 'Hospitality and Project Suitability',
-    description:
-      'Performance-led directions can support boutique hospitality, short-stay and higher-use residential settings where practicality and finish quality need to coexist.',
+    description: 'Suitable for hospitality and higher-use project settings.',
   },
 ] as const;
 
@@ -169,31 +148,26 @@ const LINEN_FINISHING_POINTS = [
 const LINEN_WORKFLOW = [
   {
     title: 'Selection',
-    description:
-      'Choose from a broader range of premium linens sourced through strategic mill partnerships and curated for real furnishing use.',
+    description: 'Choose from premium linens for real furnishing use.',
   },
   {
     title: 'Engineering',
-    description:
-      'Specialised sewing and workshop capability support the demands of denser linen, softer sheers and more structured Roman blind applications.',
+    description: 'Workshop capability supports sheers, drapery and Roman blinds.',
   },
   {
     title: 'Creation',
-    description:
-      'From tailored Roman blinds to bespoke upholstery, LuxAura helps carry linen from textile selection into a finished furnishing outcome.',
+    description: 'Linen carries cleanly from selection into finished outcomes.',
   },
 ] as const;
 
 const LINEN_TRADE_EDGE = [
   {
     title: 'Unrivalled Price Competitiveness',
-    description:
-      'Direct supply relationships and an efficient sourcing structure help LuxAura offer premium French linen with exceptional trade value.',
+    description: 'Direct sourcing supports stronger linen value.',
   },
   {
     title: 'B2B Scale & Customisation',
-    description:
-      'LuxAura supports both boutique residential projects and larger-scale commercial developments while maintaining precision and pricing discipline.',
+    description: 'Supports boutique and larger-scale project briefs.',
   },
 ] as const;
 
@@ -252,25 +226,8 @@ export default function CollectionsPage() {
               Material Direction That Supports Better Design and Better Delivery
             </h1>
             <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              More useful fabric sourcing, fabrication flexibility and performance-aware selection
-              for projects that need both visual refinement and real-world practicality.
+              Fabric sourcing and fabrication logic for cleaner project outcomes.
             </p>
-            <p className="mt-4 max-w-3xl text-pretty text-sm leading-7 text-white/74 sm:text-base sm:leading-8">
-              LuxAura helps bring together material suitability, fabrication logic and project
-              needs, allowing furnishing decisions to move more smoothly from concept into
-              production-ready direction.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
-                Trade Account
-              </Link>
-              <Link
-                href={REQUEST_CUSTOM_SUPPORT_HREF}
-                className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
-              >
-                Project Enquiry
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -286,13 +243,8 @@ export default function CollectionsPage() {
               <SectionHeading
                 eyebrow="Material Direction Across Multiple Applications"
                 title="Material direction across sheers, drapery, upholstery, Roman blinds and decorative applications"
-                description="LuxAura supports a wider furnishing material pathway from the start, helping textiles move across multiple applications without losing practical clarity or visual control."
+                description="Textiles aligned across multiple furnishing applications."
               />
-              <p className="mt-6 max-w-xl text-sm leading-8 text-neutral-700 sm:text-base">
-                The material needs to be not only beautiful, but buildable. LuxAura connects
-                sourcing decisions to curtains, sheers, Roman blinds, upholstery and decorative
-                layers so the brief remains broader than any one category.
-              </p>
             </div>
             <div className="relative aspect-[16/10] overflow-hidden rounded-[2.2rem] shadow-[0_28px_90px_rgba(20,24,22,0.12)]">
               <Image
@@ -341,13 +293,8 @@ export default function CollectionsPage() {
               <SectionHeading
                 eyebrow="Our Signature Linen"
                 title="French Elegance, Technical Versatility and Trade-Level Value"
-                description="At LuxAura Living, linen is a signature material strength within a broader furnishing offer, balancing organic luxury with stronger versatility and commercially useful trade value."
+                description="Signature linen with natural texture and broader versatility."
               />
-              <p className="mt-6 max-w-xl text-sm leading-8 text-neutral-700 sm:text-base">
-                LuxAura’s linen collection is curated to support a wide range of furnishing
-                outcomes, from soft sheers to heavier upholstery and architectural applications,
-                with a material language that remains calm, tactile and commercially useful.
-              </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {SIGNATURE_LINEN_VERSATILITY.map(item => (
                   <article
@@ -403,9 +350,7 @@ export default function CollectionsPage() {
                 Elevated finishing that changes how linen feels and performs
               </h2>
               <p className="mt-5 text-sm leading-7 text-neutral-700 sm:text-base">
-                The tactile and visual quality of linen is heavily shaped by finishing. LuxAura
-                supports a more elevated linen offer through finishing processes that improve both
-                feel and usability.
+                Finishing shapes how linen feels, falls and performs.
               </p>
               <div className="mt-8 grid gap-4">
                 {LINEN_FINISHING_POINTS.map(item => (
@@ -427,8 +372,7 @@ export default function CollectionsPage() {
                 Linen becomes more valuable when selection and making stay connected
               </h2>
               <p className="mt-5 text-sm leading-7 text-white/78 sm:text-base">
-                LuxAura’s advantage lies not only in access to premium linen, but in the ability to
-                carry that material through a more controlled making process.
+                Selection and making stay connected through one workflow.
               </p>
               <div className="mt-8 grid gap-4">
                 {LINEN_WORKFLOW.map(item => (
@@ -486,7 +430,7 @@ export default function CollectionsPage() {
               <SectionHeading
                 eyebrow="Performance Fabrics"
                 title="Performance Fabrics for Real Living and Project Use"
-                description="Selected performance fabrics help projects manage durability, stain resistance, abrasion resistance and heavier daily use without compromising visual refinement."
+                description="Performance fabrics for durability, maintenance and daily use."
               />
               <div className="mt-8 grid gap-4">
                 {PERFORMANCE_DIRECTIONS.map(item => (
@@ -525,7 +469,7 @@ export default function CollectionsPage() {
               <SectionHeading
                 eyebrow="Sunbrella Outdoor Fabric Solutions"
                 title="Outdoor fabric solutions for cushions, seating and exposed project conditions"
-                description="LuxAura supports outdoor furnishing applications using high-performance Sunbrella fabrics designed for durability, colour stability and long-term outdoor use in residential, hospitality and commercial environments."
+                description="Sunbrella directions for cushions, seating and exposed conditions."
               />
               <div className="mt-8 grid gap-4">
                 {SUNBRELLA_SOLUTIONS.map(item => (
@@ -547,7 +491,7 @@ export default function CollectionsPage() {
           <SectionHeading
             eyebrow="Flexible Fabrication Capability"
             title="Flexible fabrication capability for custom, small-batch and project-led outcomes"
-            description="LuxAura adapts material direction into curtains, upholstery, cushions and softer furnishing categories with more flexibility across boutique, staged and broader project scopes."
+            description="Fabrication across curtains, upholstery and softer custom pieces."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {MADE_APPLICATIONS.map(item => (
@@ -610,18 +554,8 @@ export default function CollectionsPage() {
                 Start with the fabric. Build the outcome properly.
               </h2>
               <p className="mt-5 text-pretty text-[15px] leading-7 text-neutral-700 sm:text-lg">
-                Bring LuxAura in when the textile selection needs to move cleanly into a made,
-                coordinated furnishing result.
+                Textile selection carried cleanly into a finished furnishing result.
               </p>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link href={REQUEST_CUSTOM_SUPPORT_HREF} className="btn-primary">
-                Project Enquiry
-              </Link>
-              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary">
-                Trade Account
-              </Link>
             </div>
           </div>
         </div>

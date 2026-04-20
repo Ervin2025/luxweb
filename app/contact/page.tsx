@@ -156,7 +156,7 @@ export default function ContactPage() {
 
               <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account
+                  Trade Account Access
                 </Link>
                 <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
                   Project Enquiry
@@ -200,7 +200,7 @@ export default function ContactPage() {
               </p>
               <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account
+                  Trade Account Access
                 </Link>
                 <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
                   Project Enquiry
@@ -303,7 +303,7 @@ export default function ContactPage() {
                   Project Enquiry
                 </Link>
                 <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-secondary w-full sm:w-auto">
-                  Trade Account
+                  Trade Account Access
                 </Link>
               </div>
             </article>

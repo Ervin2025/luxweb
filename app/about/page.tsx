@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 
 export const metadata: Metadata = {
   title: 'About | A More Useful Partner for Design-Led and Project-Led Interiors',
@@ -42,28 +40,13 @@ export default function AboutPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary/70">
                 About
               </p>
-              <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
-                A More Useful Partner for Design-Led and Project-Led Interiors
-              </h1>
-              <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
-                LuxAura brings together material sourcing, specialist making and project support to
-                create more resolved, more complete and more commercially viable interiors.
-              </p>
-              <p className="mt-4 max-w-[38rem] text-pretty text-[14px] leading-7 text-neutral-600 sm:mt-5 sm:text-[1rem] sm:leading-8">
-                With strengths in premium linen, Roman blind manufacturing, custom drapery,
-                upholstery and decorative detailing, LuxAura supports a more efficient and more
-                controlled furnishing pathway from concept to delivery.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-                <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary w-full sm:w-auto">
-                  Trade Account
-                </Link>
-                <Link href={PROJECT_BRIEF_HREF} className="btn-secondary w-full sm:w-auto">
-                  Project Enquiry
-                </Link>
-              </div>
-            </div>
+            <h1 className="mt-4 text-balance font-heading text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.4rem] sm:mt-5 sm:text-[4.5rem] sm:leading-[0.94] lg:text-[5.2rem]">
+              A More Useful Partner for Design-Led and Project-Led Interiors
+            </h1>
+            <p className="mt-5 max-w-[36rem] text-pretty text-[1rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.12rem] sm:leading-[1.8]">
+              Material sourcing, specialist making and project support in one pathway.
+            </p>
+          </div>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#ddd4c3] shadow-[0_28px_90px_rgba(26,24,22,0.08)] max-[430px]:rounded-[1.55rem] sm:rounded-[2.4rem]">
               <div className="relative aspect-[16/11] max-[430px]:aspect-[5/4] sm:aspect-[4/3]">
