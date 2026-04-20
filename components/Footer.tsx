@@ -3,10 +3,9 @@ import { CONTACT_INFO } from '@/lib/constants';
 import {
   FOOTER_CATEGORY_LINKS,
   PROJECT_BRIEF_HREF,
+  REQUEST_CUSTOM_SUPPORT_HREF,
   TRADE_PORTAL_ACCESS_HREF,
 } from '@/lib/navigation-data';
-
-const FAQ_HREF = '/contact#trade-faq';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -67,7 +66,7 @@ export default function Footer() {
                   href={TRADE_PORTAL_ACCESS_HREF}
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
-                  Trade Account
+                  Trade Account Access
                 </Link>
               </li>
               <li>
@@ -80,10 +79,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href={FAQ_HREF}
+                  href="/contact#trade-faq"
                   className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
                 >
                   FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={REQUEST_CUSTOM_SUPPORT_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  Request Custom Support
                 </Link>
               </li>
             </ul>

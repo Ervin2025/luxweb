@@ -7,7 +7,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/navigation-data';
 
 const CURTAIN_STYLES = [
   {
