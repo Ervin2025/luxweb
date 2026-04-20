@@ -136,7 +136,7 @@ export default function ContactPage() {
 
   return (
     <div>
-      <section className="px-4 pb-24 pt-28 max-[430px]:pb-20 max-[430px]:pt-26 sm:px-6 sm:pb-28 sm:pt-32 lg:px-8 lg:pb-[9rem] lg:pt-40">
+      <section className="px-4 pb-24 pt-20 max-[430px]:pb-20 max-[430px]:pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-8 lg:pb-[9rem] lg:pt-32">
         <div className="container-custom">
           <div className="grid items-center gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
             <div className="max-w-2xl">

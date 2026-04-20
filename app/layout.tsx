@@ -123,7 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollRevealBoot />
         <LoadingFavicon />
         <Navigation />
-        <main>{children}</main>
+        <main className="pt-16 sm:pt-20 lg:pt-28">{children}</main>
         <Footer />
       </body>
     </html>

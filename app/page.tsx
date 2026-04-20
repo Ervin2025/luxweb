@@ -200,7 +200,7 @@ function SectionEyebrow({
 export default function Home() {
   return (
     <>
-      <section className="relative isolate min-h-[100svh] overflow-hidden">
+      <section className="relative isolate min-h-[calc(100svh-4rem)] overflow-hidden sm:min-h-[calc(100svh-5rem)] lg:min-h-[calc(100svh-7rem)]">
         <Image
           src={getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')}
           alt="LuxAura homepage hero image"
@@ -213,12 +213,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.74)_0%,rgba(13,12,11,0.58)_32%,rgba(13,12,11,0.18)_64%,rgba(13,12,11,0.06)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,12,11,0.16)_0%,rgba(13,12,11,0.34)_100%)]" />
 
-        <div className="container-custom relative flex min-h-[100svh] items-end px-4 pb-14 pt-32 max-[430px]:pb-12 max-[430px]:pt-28 sm:px-6 sm:pb-20 sm:pt-40 lg:px-8 lg:pb-24">
+        <div className="container-custom relative flex min-h-[calc(100svh-4rem)] items-end px-4 pb-10 pt-20 max-[430px]:pb-9 max-[430px]:pt-16 sm:min-h-[calc(100svh-5rem)] sm:px-6 sm:pb-16 sm:pt-24 lg:min-h-[calc(100svh-7rem)] lg:px-8 lg:pb-24 lg:pt-32">
           <div className="max-w-[34rem] text-white sm:max-w-[38rem]" data-reveal="text">
-            <h1 className="text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:text-[4.55rem] sm:leading-[0.92] lg:text-[5.45rem] xl:text-[5.95rem]">
+            <h1 className="text-balance font-heading text-[2.35rem] font-semibold leading-[0.98] tracking-[-0.045em] max-[430px]:text-[2.08rem] max-[430px]:leading-[1] sm:text-[4.1rem] sm:leading-[0.94] lg:text-[5.45rem] xl:text-[5.95rem]">
               Soft Furnishing Support for Projects That Need More Than Supply
             </h1>
-            <p className="mt-5 max-w-[32rem] text-pretty text-[0.99rem] leading-[1.72] text-white/86 max-[430px]:text-[0.94rem] max-[430px]:leading-[1.68] sm:mt-6 sm:max-w-[34rem] sm:text-[1.14rem] sm:leading-[1.75]">
+            <p className="mt-4 max-w-[32rem] text-pretty text-[0.95rem] leading-[1.68] text-white/86 max-[430px]:text-[0.9rem] max-[430px]:leading-[1.62] sm:mt-5 sm:max-w-[34rem] sm:text-[1.08rem] sm:leading-[1.72]">
               Sourcing, fabrication and project support in one furnishing pathway.
             </p>
           </div>

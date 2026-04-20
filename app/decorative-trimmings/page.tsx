@@ -186,7 +186,7 @@ export default function DecorativeTrimmingsPage() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.08)_0%,rgba(12,14,13,0.3)_100%)]" />
         <ImageCodeBadge code="LXA-DTR-01" className="right-5 top-28 sm:top-32" />
 
-        <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
+        <div className="container-custom relative flex min-h-[72svh] items-end pb-12 pt-20 sm:min-h-[78svh] sm:pb-16 sm:pt-24 lg:min-h-[84svh] lg:pb-20 lg:pt-32">
           <div className="max-w-4xl text-white" data-reveal="text">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
               Trimmings

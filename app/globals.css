@@ -89,6 +89,15 @@
   display: none;
 }
 
+.desktop-nav-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.desktop-nav-track::-webkit-scrollbar {
+  display: none;
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 28px, 0);

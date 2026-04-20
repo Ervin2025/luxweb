@@ -369,7 +369,7 @@ export default function CustomCurtainsSheersPage() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,19,17,0.76)_0%,rgba(13,19,17,0.58)_36%,rgba(13,19,17,0.16)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,19,17,0.08)_0%,rgba(13,19,17,0.32)_100%)]" />
 
-        <div className="container-custom relative flex min-h-[86svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
+        <div className="container-custom relative flex min-h-[72svh] items-end pb-12 pt-20 sm:min-h-[80svh] sm:pb-16 sm:pt-24 lg:min-h-[86svh] lg:pb-20 lg:pt-32">
           <div className="max-w-4xl text-white">
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
               Window Treatments
