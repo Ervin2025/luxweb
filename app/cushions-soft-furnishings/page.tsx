@@ -2,14 +2,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { BESPOKE_UPHOLSTERY_FAQ, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const UPHOLSTERY_BLOCKS = [
   {
@@ -62,7 +60,6 @@ export default function UpholsteryPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Bespoke Upholstery', url: '/cushions-soft-furnishings' },
   ]);
-  const faqSchema = generateFaqSchema([...BESPOKE_UPHOLSTERY_FAQ]);
 
   return (
     <div>
@@ -132,12 +129,6 @@ export default function UpholsteryPage() {
         </div>
       </section>
 
-      <FaqSection
-        items={[...BESPOKE_UPHOLSTERY_FAQ]}
-        title="Upholstery questions"
-        description="Short answers on indoor, outdoor and performance use."
-      />
-
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.82)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
@@ -163,10 +154,6 @@ export default function UpholsteryPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

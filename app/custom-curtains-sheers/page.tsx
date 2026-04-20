@@ -2,14 +2,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF, WINDOW_TREATMENTS_FAQ } from '@/lib/site-data';
+import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const CURTAIN_STYLES = [
   {
@@ -138,7 +136,6 @@ export default function WindowTreatmentsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Window Treatments', url: '/custom-curtains-sheers' },
   ]);
-  const faqSchema = generateFaqSchema([...WINDOW_TREATMENTS_FAQ]);
 
   return (
     <div>
@@ -408,12 +405,6 @@ export default function WindowTreatmentsPage() {
         </div>
       </section>
 
-      <FaqSection
-        items={[...WINDOW_TREATMENTS_FAQ]}
-        title="Window treatment FAQ"
-        description="Short answers on style, systems and scale."
-      />
-
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.84)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
@@ -439,10 +430,6 @@ export default function WindowTreatmentsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

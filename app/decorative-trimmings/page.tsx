@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { DECORATIVE_TRIMMINGS_FAQ, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const TRIMMING_CATEGORIES = [
   {
@@ -62,7 +60,6 @@ export default function DecorativeTrimmingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Trimmings', url: '/decorative-trimmings' },
   ]);
-  const faqSchema = generateFaqSchema([...DECORATIVE_TRIMMINGS_FAQ]);
 
   return (
     <div>
@@ -132,13 +129,6 @@ export default function DecorativeTrimmingsPage() {
         </div>
       </section>
 
-      <AccordionFaq
-        eyebrow="Trimming Questions"
-        title="Trimming FAQ"
-        description="Short answers on range and application."
-        items={[...DECORATIVE_TRIMMINGS_FAQ]}
-      />
-
       <section className="px-4 pb-28 pt-6 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.4rem] bg-[#14211c] px-6 py-12 text-white shadow-[0_32px_100px_rgba(20,25,21,0.18)] sm:px-10 sm:py-14 lg:px-14 lg:py-16">
@@ -166,10 +156,6 @@ export default function DecorativeTrimmingsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

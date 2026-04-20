@@ -6,6 +6,8 @@ import {
   TRADE_PORTAL_ACCESS_HREF,
 } from '@/lib/navigation-data';
 
+const FAQ_HREF = '/contact#trade-faq';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -76,6 +78,14 @@ export default function Footer() {
                   Project Enquiry
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={FAQ_HREF}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[#d7c29c]"
+                >
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -107,9 +117,6 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-between gap-3 text-center text-xs text-neutral-400 sm:text-sm md:flex-row md:text-left">
             <p>&copy; {currentYear} LuxAura. All rights reserved.</p>
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6 md:justify-end">
-              <Link href="/faq" className="transition-colors hover:text-[#d7c29c]">
-                FAQ
-              </Link>
               <Link href="/privacy" className="transition-colors hover:text-[#d7c29c]">
                 Privacy Policy
               </Link>

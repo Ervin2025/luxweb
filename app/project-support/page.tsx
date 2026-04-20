@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { PROJECT_SUPPORT_FAQ, TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
+import { TRADE_PORTAL_ACCESS_HREF, TRADE_SUPPORT_HREF } from '@/lib/site-data';
 
 const SUPPORT_BLOCKS = [
   {
@@ -65,7 +63,6 @@ export default function ProjectSupportPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Project Support', url: '/project-support' },
   ]);
-  const faqSchema = generateFaqSchema([...PROJECT_SUPPORT_FAQ]);
 
   return (
     <div>
@@ -135,12 +132,6 @@ export default function ProjectSupportPage() {
         </div>
       </section>
 
-      <AccordionFaq
-        items={[...PROJECT_SUPPORT_FAQ]}
-        title="Project support questions"
-        description="Short answers on scope and timing."
-      />
-
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="section-shell p-6 max-[430px]:p-5 sm:p-10 lg:p-12">
@@ -168,10 +159,6 @@ export default function ProjectSupportPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

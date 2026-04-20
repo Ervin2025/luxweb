@@ -9,7 +9,8 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
-import { CONTACT_FAQ, PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
+import type { FaqItem } from '@/lib/site-data';
+import { PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
 
 const SUPPORT_CATEGORIES = [
   {
@@ -23,6 +24,87 @@ const SUPPORT_CATEGORIES = [
   {
     title: 'Small-Batch Custom Enquiries',
     description: 'Custom scopes and shorter runs',
+  },
+] as const;
+
+const TRADE_FAQ: FaqItem[] = [
+  {
+    question: 'Do you supply fabric by the metre?',
+    answer: 'Yes. Most fabrics, trimmings and decorative materials are available by the metre.',
+  },
+  {
+    question: 'Do you provide samples?',
+    answer:
+      'Samples are available for most materials. Please contact us via email to arrange specific sample requests.',
+  },
+  {
+    question: 'What are your lead times?',
+    answer:
+      'Lead times vary depending on scope and specification: fabric supply typically 2-4 weeks; standard track systems in Sydney around 1 week; custom production and full project delivery typically 4-8 weeks. Final timelines are confirmed with LuxAura at project stage.',
+  },
+  {
+    question: 'Do you offer full project delivery?',
+    answer:
+      'Yes. Material supply and full fabrication are available, including curtains, Roman blinds, upholstery and decorative detailing.',
+  },
+  {
+    question: 'Can you produce custom designs?',
+    answer:
+      'Yes. All products are made to order based on client specifications, drawings or reference images.',
+  },
+  {
+    question: 'Do you support complex detailing and trims?',
+    answer:
+      'Yes. Advanced fabrication includes layered finishes, trimmings integration and tailored construction.',
+  },
+  {
+    question: 'Do you offer private label or brand production?',
+    answer:
+      'Yes. OEM and private label production are available, including finished products branded for partners.',
+  },
+  {
+    question: 'What track and hardware options are available?',
+    answer:
+      'Track systems are available in standard and custom configurations, including manual and motorised solutions, cut to size per project.',
+  },
+  {
+    question: 'What upholstery fillings are available?',
+    answer:
+      'Cushion inserts can be specified as high-grade fibre compliant with OEKO-TEX Standard 100, duck feather or goose down.',
+  },
+  {
+    question: 'What materials and components do you use?',
+    answer:
+      'To ensure consistency and durability, LuxAura uses YKK cushion zippers, Coats sewing threads for soft furnishings, and Sunbrella outdoor fabrics for outdoor furniture, cushions and seating applications with a 5-year warranty.',
+  },
+  {
+    question: 'Do you offer performance fabrics?',
+    answer:
+      'Yes. Selected fabric ranges are designed for residential, high-performance and commercial use, with up to 100,000+ Martindale abrasion resistance on selected ranges and stain-resistant, spill-safe properties where specified.',
+  },
+  {
+    question: 'Can you manufacture from drawings or references?',
+    answer:
+      'Yes. Production from design drawings, reference images and material briefs is available.',
+  },
+  {
+    question: 'What are your payment terms?',
+    answer: 'Full payment is required prior to dispatch.',
+  },
+  {
+    question: 'Do you accept returns?',
+    answer:
+      'As all items are custom-made, returns are not accepted unless there is a verified manufacturing fault.',
+  },
+  {
+    question: 'What types of projects do you support?',
+    answer:
+      'Projects include residential interiors, hospitality, retail, developer and larger-scale briefs.',
+  },
+  {
+    question: 'Can LuxAura assist with material selection?',
+    answer:
+      'Yes. Material direction can be aligned with project requirements, performance needs and design intent.',
   },
 ] as const;
 
@@ -51,7 +133,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Contact', url: '/contact' }]);
-  const faqSchema = generateFaqSchema([...CONTACT_FAQ]);
+  const faqSchema = generateFaqSchema([...TRADE_FAQ]);
 
   return (
     <div>
@@ -92,7 +174,7 @@ export default function ContactPage() {
         <div className="container-custom">
           <SectionHeading
             eyebrow="Contact"
-            title="Trade Desk"
+            title="Trade Desk & Project Intake"
             description="Trade account, trade support and custom enquiries."
           />
           <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
@@ -152,11 +234,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <AccordionFaq
-        items={[...CONTACT_FAQ]}
-        title="Contact questions"
-        description="Short answers on timing and enquiry fit."
-      />
+      <div id="trade-faq">
+        <AccordionFaq
+          items={[...TRADE_FAQ]}
+          title="Trade FAQ"
+          description="Key information on lead times, materials, custom production and order terms"
+        />
+      </div>
 
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">

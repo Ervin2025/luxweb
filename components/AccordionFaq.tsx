@@ -22,15 +22,15 @@ export default function AccordionFaq({
           {items.map(item => (
             <details
               key={item.question}
-              className="group section-shell overflow-hidden px-6 py-1 sm:px-8"
+              className="group overflow-hidden rounded-[1.5rem] border border-[#e5ddce] bg-white/88 px-5 py-1 shadow-[0_18px_48px_rgba(22,18,12,0.05)] backdrop-blur-sm sm:px-7"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6">
                 <h3 className="pr-4 font-heading text-2xl font-semibold text-neutral-900 sm:text-3xl">
                   {item.question}
                 </h3>
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-primary/10 bg-neutral-50 text-primary transition group-open:rotate-45">
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-primary/10 bg-[#f7f3eb] text-primary transition group-open:rotate-45">
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

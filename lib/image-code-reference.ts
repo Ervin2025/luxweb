@@ -125,7 +125,6 @@ const BASE_IMAGE_CODE_REFERENCES: ImageCodeReference[] = [
   { code: 'LXA-PS-13', page: 'Project Support', pageHref: '/project-support', label: 'Client pathway image: Hospitality and short-stay operators', src: '/images/IMG-K.webp' },
   { code: 'LXA-PS-14', page: 'Project Support', pageHref: '/project-support', label: 'Support editorial image: procurement and delivery coordination', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-TRADE-01', page: 'Trade Account', pageHref: '/trade-projects', label: 'Hero image', src: '/images/luxaura/vertical-sheer-pool.webp' },
-  { code: 'LXA-FAQ-01', page: 'FAQ', pageHref: '/faq', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-PRIVACY-01', page: 'Privacy Policy', pageHref: '/privacy', label: 'Hero image', src: '/images/luxaura/beach-sheer.webp' },
   { code: 'LXA-TERMS-01', page: 'Terms of Service', pageHref: '/terms', label: 'Hero image', src: '/images/luxaura/hero-project.webp' },
   ...CATALOG_EXPLORER_REFERENCES,
