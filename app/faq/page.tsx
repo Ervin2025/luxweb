@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function FaqPage() {
-  redirect('/contact#trade-faq');
+  permanentRedirect('/contact#trade-faq');
 }

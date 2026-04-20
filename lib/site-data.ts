@@ -671,83 +671,29 @@ export const PROJECT_SUPPORT_FAQ: FaqItem[] = [
 
 export const CONTACT_FAQ: FaqItem[] = [
   {
-    question: 'Do you supply fabric by the metre?',
+    question: 'Who does LuxAura primarily work with?',
     answer:
-      'Yes. Most fabrics, trimmings and decorative materials are available by the metre.',
+      'LuxAura primarily supports designers, decorators, stylists, builders, developers, hospitality operators and furnishing-led residential clients.',
   },
   {
-    question: 'Do you provide samples?',
+    question: 'Is LuxAura suitable for both trade and project-led residential clients?',
     answer:
-      'Samples are available for most materials. Please contact us via email to arrange specific sample requests.',
+      'Yes. The model is trade-facing, but also suited to larger residential furnishing briefs that need more coordination than casual retail purchasing.',
   },
   {
-    question: 'What are your lead times?',
+    question: 'Can LuxAura support multiple furnishing categories within one project?',
     answer:
-      'Lead times vary depending on scope and specification:\n• Fabric supply: typically 2-4 weeks\n• Standard track systems (Sydney): around 1 week\n• Custom production and full project delivery: typically 4-8 weeks\n\nFinal timelines are confirmed with LuxAura at project stage.',
+      'Yes. Fabric selection, window treatments, upholstery, trimmings and project support can be aligned through one pathway.',
   },
   {
-    question: 'Do you offer full project delivery?',
+    question: 'How early should a project enquiry be submitted?',
     answer:
-      'Yes. LuxAura supports both material supply and full fabrication, including curtains, Roman blinds, upholstery and decorative detailing.',
+      'Ideally during concept, design development or specification, before sourcing and fabrication decisions begin to fragment.',
   },
   {
-    question: 'Can you produce custom designs?',
+    question: 'What information is most useful when submitting a project brief?',
     answer:
-      'Yes. All products are made to order based on client specifications, drawings or reference images.',
-  },
-  {
-    question: 'Do you support complex detailing and trims?',
-    answer:
-      'Yes. We specialise in advanced fabrication, including layered finishes, trimmings integration and tailored construction.',
-  },
-  {
-    question: 'Do you offer private label or brand production?',
-    answer:
-      'Yes. We support OEM / private label production, including finished products branded for our partners.',
-  },
-  {
-    question: 'What track and hardware options are available?',
-    answer:
-      'Track systems are available in standard and custom configurations, including manual and motorised solutions, cut to size per project.',
-  },
-  {
-    question: 'What upholstery fillings are available?',
-    answer:
-      'Cushion inserts can be specified as:\n• Fibre (high-grade, OEKO-TEX Standard 100 compliant)\n• Duck feather\n• Goose down',
-  },
-  {
-    question: 'What materials and components do you use?',
-    answer:
-      'To ensure consistency and durability:\n• Cushion zippers: YKK\n• Sewing threads for soft furnishings: Coats (UK)\n• Outdoor fabrics: Sunbrella, suitable for outdoor furniture, cushions and seating applications, with a 5-year warranty',
-  },
-  {
-    question: 'Do you offer performance fabrics?',
-    answer:
-      'Yes. Selected fabric ranges are designed for residential, high-performance and commercial use, with:\n• up to 100,000+ Martindale abrasion resistance on selected ranges\n• stain-resistant and spill-safe properties where specified',
-  },
-  {
-    question: 'Can you manufacture from drawings or references?',
-    answer:
-      'Yes. We regularly produce from design drawings, reference images and material briefs.',
-  },
-  {
-    question: 'What are your payment terms?',
-    answer: 'Full payment is required prior to dispatch.',
-  },
-  {
-    question: 'Do you accept returns?',
-    answer:
-      'As all items are custom-made, returns are not accepted unless there is a verified manufacturing fault.',
-  },
-  {
-    question: 'What types of projects do you support?',
-    answer:
-      'We work across residential interiors, hospitality, retail, developer and larger-scale projects.',
-  },
-  {
-    question: 'Can LuxAura assist with material selection?',
-    answer:
-      'Yes. Material direction can be supported based on project requirements, performance needs and design intent.',
+      'Drawings, room photos, moodboards, timeline, site conditions and a clear sense of which categories are in scope all help LuxAura support the brief more effectively.',
   },
 ];
 
