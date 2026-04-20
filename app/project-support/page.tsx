@@ -239,9 +239,6 @@ export default function ProjectSupportPage() {
                   <h2 className="font-heading text-[2rem] font-semibold leading-tight text-neutral-900 max-[430px]:text-[1.7rem] sm:text-3xl">
                     {card.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {card.description}
-                  </p>
                 </div>
               </article>
             ))}
@@ -287,9 +284,6 @@ export default function ProjectSupportPage() {
                   <h3 className="font-heading text-[2rem] font-semibold leading-tight text-neutral-900 sm:text-3xl">
                     {image.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {image.description}
-                  </p>
                 </div>
               </article>
             ))}

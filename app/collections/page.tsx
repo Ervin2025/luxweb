@@ -276,9 +276,6 @@ export default function CollectionsPage() {
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
                 </div>
               </article>
             ))}
@@ -511,9 +508,6 @@ export default function CollectionsPage() {
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
                 </div>
               </article>
             ))}

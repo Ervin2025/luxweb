@@ -287,9 +287,6 @@ export default function DecorativeTrimmingsPage() {
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {block.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {block.description}
-                  </p>
                 </div>
               </article>
             ))}

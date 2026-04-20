@@ -305,17 +305,10 @@ export default function Home() {
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.04)_0%,rgba(12,12,11,0.12)_38%,rgba(12,12,11,0.82)_100%)]" />
 
                 <div className="relative flex h-full flex-col justify-between p-5 max-[430px]:p-4 sm:p-7">
-                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-white">
-                    {item.number}
-                  </p>
-
                   <div className="max-w-[22rem]">
                     <h3 className="text-balance font-heading text-[1.7rem] font-semibold leading-[1.04] text-white max-[430px]:text-[1.5rem] sm:text-[2.3rem]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-pretty text-[14px] leading-7 text-white max-[430px]:text-[13px] max-[430px]:leading-6 sm:mt-4 sm:text-[0.98rem] sm:leading-8">
-                      {item.description}
-                    </p>
                   </div>
                 </div>
               </Link>
@@ -357,9 +350,6 @@ export default function Home() {
                   <h3 className="text-balance font-heading text-[2rem] font-semibold leading-[1.04] text-[#2C2C2C] max-[430px]:text-[1.75rem] sm:text-[2.5rem]">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 sm:text-[0.98rem] sm:leading-8">
-                    {item.description}
-                  </p>
                 </div>
               </article>
             ))}

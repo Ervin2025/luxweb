@@ -406,10 +406,7 @@ export default function CustomCurtainsSheersPage() {
                 className="overflow-hidden rounded-[2rem] border border-[#e4dbc9] bg-white shadow-[0_22px_70px_rgba(22,18,12,0.08)]"
               >
                 <div className="border-b border-[#eadfcb] bg-[#f7f0e2] px-5 py-4 sm:px-6">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-primary/64">
-                    Heading Profile
-                  </p>
-                  <div className="mt-3">
+                  <div>
                     <CurtainHeadingIllustration profile={item.profile} />
                   </div>
                 </div>
@@ -430,9 +427,6 @@ export default function CustomCurtainsSheersPage() {
                   <h2 className="font-heading text-[2rem] font-semibold leading-[1.04] text-neutral-900">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
                 </div>
               </article>
             ))}
@@ -469,9 +463,6 @@ export default function CustomCurtainsSheersPage() {
                   <h2 className="font-heading text-[1.7rem] font-semibold leading-[1.06] text-neutral-900 sm:text-[1.95rem]">
                     {item.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
                 </div>
               </article>
             ))}
@@ -569,9 +560,6 @@ export default function CustomCurtainsSheersPage() {
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
-                    {item.description}
-                  </p>
                 </article>
               ))}
             </div>
