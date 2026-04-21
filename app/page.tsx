@@ -67,27 +67,25 @@ const CAPABILITY_TILES = [
 const WHY_LUXAURA_PILLARS = [
   {
     number: '01',
-    eyebrow: 'Design Protection',
-    title: 'Protect original design outcomes.',
-    description: 'Preserve design intent through cleaner furnishing execution.',
+    title: 'A Single Delivery Path',
+    description: 'From fabric sourcing to final execution — managed as one connected process.',
   },
   {
     number: '02',
-    eyebrow: 'Less Fragmentation',
-    title: 'Reduce fragmented sourcing.',
-    description: 'Keep sourcing decisions inside one furnishing pathway.',
+    title: 'Advanced Craft, Consistent Outcomes',
+    description:
+      'High-complexity techniques across curtains, upholstery and detailed finishes.',
   },
   {
     number: '03',
-    eyebrow: 'Lower Workload',
-    title: 'Lower partner workload.',
-    description: 'Reduce sourcing admin, follow-up and coordination burden.',
+    title: 'Reduce Coordination Workload',
+    description: 'One partner. Fewer variables. Better outcomes.',
   },
   {
     number: '04',
-    eyebrow: 'Resolved Results',
-    title: 'Deliver more complete final results.',
-    description: 'Deliver interiors with stronger control and refinement.',
+    title: 'Better Value, Without Compromise',
+    description:
+      'Integrated sourcing and fabrication create more efficient cost structures without compromising design intent.',
   },
 ] as const;
 
@@ -225,62 +223,23 @@ export default function Home() {
       </section>
 
       <section
-        id="why-luxaura"
-        className="relative overflow-hidden px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
+        id="capabilities"
+        className="px-4 pb-14 pt-24 sm:px-6 sm:pb-18 sm:pt-32 lg:px-8 lg:pb-20 lg:pt-[9rem]"
       >
-        <div className="absolute inset-x-0 top-16 h-[24rem] bg-[radial-gradient(circle_at_12%_0%,rgba(201,177,136,0.26),transparent_42%),radial-gradient(circle_at_88%_18%,rgba(30,58,50,0.08),transparent_24%)]" />
-
-        <div className="container-custom relative">
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
-            <div className="max-w-lg" data-reveal="text">
-              <SectionEyebrow>Why LuxAura Matters</SectionEyebrow>
-              <h2 className="mt-4 text-balance font-heading text-[2.8rem] font-semibold leading-[0.96] tracking-[-0.045em] text-[#2C2C2C] max-[430px]:text-[2.45rem] max-[430px]:leading-[0.98] sm:mt-5 sm:text-[4.75rem] sm:leading-[0.92] lg:text-[5.8rem]">
-                WHY LUXAURA
-              </h2>
-              <p className="mt-5 text-pretty text-[0.98rem] leading-[1.76] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.85]">
-                A more complete path from sourcing to finished furnishing delivery.
-              </p>
-            </div>
-
-            <div className="grid gap-5 sm:gap-8 md:grid-cols-2">
-              {WHY_LUXAURA_PILLARS.map((pillar, index) => (
-                <article
-                  key={pillar.number}
-                  data-reveal="card"
-                  data-reveal-delay={String((index % 4) + 1)}
-                  className="rounded-[1.7rem] border border-[#e4dbc9] bg-white/68 p-5 shadow-[0_20px_60px_rgba(27,24,20,0.04)] backdrop-blur max-[430px]:rounded-[1.45rem] max-[430px]:p-4 sm:rounded-[2rem] sm:p-7"
-                >
-                  <p className="font-heading text-[2.6rem] font-semibold leading-none text-primary/24">
-                    {pillar.number}
-                  </p>
-                  <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-primary/66">
-                    {pillar.eyebrow}
-                  </p>
-                  <h3 className="mt-3 text-balance font-heading text-[1.65rem] font-semibold leading-[1.05] text-[#2C2C2C] max-[430px]:text-[1.5rem] sm:text-[2rem]">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-4 text-pretty text-[14px] leading-7 text-neutral-700 max-[430px]:text-[13px] max-[430px]:leading-6 sm:text-[0.98rem] sm:leading-8">
-                    {pillar.description}
-                  </p>
-                </article>
-              ))}
-            </div>
+        <div className="container-custom">
+          <div className="max-w-[37.5rem]" data-reveal="text">
+            <h2 className="text-balance text-[1.95rem] font-medium leading-[1.1] tracking-[-0.03em] text-[#2C2C2C] max-[430px]:text-[1.8rem] sm:text-[2.15rem] lg:text-[2.35rem]">
+              Integrated Soft Furnishing Capability
+            </h2>
+            <p className="mt-3 text-[0.98rem] font-normal leading-[1.45] text-neutral-700 sm:text-[1rem]">
+              From sourcing to fabrication and final delivery
+            </p>
           </div>
         </div>
       </section>
 
-      <section
-        id="capabilities"
-        className="px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-[9rem]"
-      >
+      <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[9.5rem]">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <SectionEyebrow>Capability Overview</SectionEyebrow>
-            <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
-              Integrated Soft Furnishing Capability
-            </h2>
-          </div>
-
           <div className="mt-10 grid gap-10 sm:mt-14 sm:gap-12 md:grid-cols-2 xl:grid-cols-3">
             {CAPABILITY_TILES.map(item => (
               <Link
@@ -300,11 +259,54 @@ export default function Home() {
                   />
                   <ImageCodeBadge code={item.code} />
                 </div>
-                <h3 className="mt-3 text-left font-heading text-[1.12rem] font-medium leading-[1.25] text-[#393631] sm:mt-4 sm:text-[1.22rem]">
+                <h3 className="mt-3 text-left text-[1.02rem] font-medium leading-[1.35] text-[#333333] sm:mt-4 sm:text-[1.15rem] lg:text-[1.2rem]">
                   {item.title}
                 </h3>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="why-luxaura"
+        className="relative overflow-hidden px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
+      >
+        <div className="container-custom relative">
+          <div className="grid gap-12 lg:grid-cols-[0.58fr_1.42fr] lg:gap-18">
+            <div className="max-w-[32rem]" data-reveal="text">
+              <h2 className="text-balance text-[1.95rem] font-medium leading-[1.1] tracking-[-0.03em] text-[#2C2C2C] max-[430px]:text-[1.8rem] sm:text-[2.15rem] lg:text-[2.35rem]">
+                Why LuxAura
+              </h2>
+              <p className="mt-3 max-w-[30rem] text-[0.98rem] font-normal leading-[1.45] text-neutral-700 sm:text-[1rem]">
+                From material to delivered outcome — controlled as one.
+              </p>
+            </div>
+
+            <div className="grid gap-7 sm:gap-8">
+              {WHY_LUXAURA_PILLARS.map((pillar, index) => (
+                <article
+                  key={pillar.number}
+                  data-reveal="card"
+                  data-reveal-delay={String((index % 4) + 1)}
+                  className="border-b border-[#e8dfd0] pb-7 last:border-b-0 last:pb-0"
+                >
+                  <div className="flex items-start gap-4 sm:gap-5">
+                    <p className="min-w-[2.25rem] text-[0.95rem] font-medium leading-[1.4] text-neutral-500">
+                      {pillar.number}
+                    </p>
+                    <div className="max-w-[42rem]">
+                      <h3 className="text-balance text-[1.05rem] font-medium leading-[1.45] text-[#333333] sm:text-[1.1rem]">
+                        {pillar.title}
+                      </h3>
+                      <p className="mt-2 text-[0.94rem] font-normal leading-[1.5] text-neutral-700 sm:text-[0.98rem]">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
