@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
+import { generateServiceSchema } from '@/lib/page-schema';
+import { DECORATIVE_TRIMMINGS_FAQ } from '@/lib/site-data';
 
 const VALUE_CARDS = [
   {
@@ -122,9 +126,9 @@ const DEVELOPMENT_POINTS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Trimmings | Designer-Led Detail and Finishing Resource',
+  title: 'Decorative Trimmings Sydney | Passementerie & Upholstery Trims | LuxAura',
   description:
-    'LuxAura offers a broader decorative trimming resource for designers, spanning braid, borders, tassels, fringes and upholstery-applied detail that can move into finished execution.',
+    'Decorative trimmings in Sydney including braid, borders, fringe, tassels and upholstery trims for curtains, Roman blinds and bespoke soft furnishings.',
   keywords: [
     'decorative trimmings Sydney',
     'passementerie Australia',
@@ -136,10 +140,17 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/decorative-trimmings`,
   },
   openGraph: {
-    title: 'Trimmings | Designer-Led Detail and Finishing Resource',
+    title: 'Decorative Trimmings Sydney | Passementerie & Upholstery Trims | LuxAura',
     description:
-      'A broader and more current trimming library for drapery, upholstery and refined soft-furnishing outcomes.',
+      'Decorative braid, fringe, tassels and upholstery trims for Sydney curtains, Roman blinds and bespoke soft furnishings.',
     url: `${SITE_CONFIG.url}/decorative-trimmings`,
+    images: [getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Decorative Trimmings Sydney | Passementerie & Upholstery Trims | LuxAura',
+    description:
+      'Decorative braid, fringe, tassels and upholstery trims for Sydney curtains, Roman blinds and bespoke soft furnishings.',
     images: [getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')],
   },
 };
@@ -170,6 +181,15 @@ export default function DecorativeTrimmingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Trimmings', url: '/decorative-trimmings' },
   ]);
+  const faqSchema = generateFaqSchema(DECORATIVE_TRIMMINGS_FAQ);
+  const serviceSchema = generateServiceSchema({
+    name: 'Decorative Trimmings and Passementerie',
+    description:
+      'Decorative trimmings in Sydney including braid, borders, fringe, tassels and upholstery trims for curtains, Roman blinds and bespoke soft furnishings.',
+    path: '/decorative-trimmings',
+    serviceType: 'Decorative trimmings and upholstery trims',
+    image: getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp'),
+  });
 
   return (
     <div>
@@ -339,6 +359,12 @@ export default function DecorativeTrimmingsPage() {
         </div>
       </section>
 
+      <FaqSection
+        items={DECORATIVE_TRIMMINGS_FAQ}
+        title="Decorative trimmings FAQ"
+        description="Answers to the questions clients ask before selecting braid, borders, fringe, tassels and upholstery-applied detail for a furnishing scheme."
+      />
+
       <section className="px-4 pb-28 pt-6 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.4rem] bg-[#14211c] px-6 py-12 text-white shadow-[0_32px_100px_rgba(20,25,21,0.18)] sm:px-10 sm:py-14 lg:px-14 lg:py-16">
@@ -360,6 +386,14 @@ export default function DecorativeTrimmingsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </div>
   );

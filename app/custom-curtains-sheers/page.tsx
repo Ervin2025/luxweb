@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
+import { generateServiceSchema } from '@/lib/page-schema';
+import { WINDOW_TREATMENTS_FAQ } from '@/lib/site-data';
 
 type CurtainHeadingProfile =
   | 's-fold'
@@ -326,9 +330,9 @@ function CurtainHeadingIllustration({ profile }: { profile: CurtainHeadingProfil
 }
 
 export const metadata: Metadata = {
-  title: 'Window Treatments by LuxAura | Curtains, Roman Blinds and Track Systems',
+  title: 'Custom Curtains Sydney | Roman Blinds & Track Systems | LuxAura',
   description:
-    'LuxAura delivers complete window furnishing solutions across curtain styles, integrated track systems, Roman blind manufacturing, motorised operation and master-level fabrication.',
+    'Custom curtains, sheers, Roman blinds, track systems and motorised window treatments in Sydney with trade-ready fabrication support.',
   keywords: [
     'window treatments Sydney',
     'custom curtains Sydney',
@@ -341,10 +345,17 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/custom-curtains-sheers`,
   },
   openGraph: {
-    title: 'Window Treatments by LuxAura | Curtains, Roman Blinds and Track Systems',
+    title: 'Custom Curtains Sydney | Roman Blinds & Track Systems | LuxAura',
     description:
-      'Curtain styles, integrated tracks, Roman blind expertise, motorised systems and refined fabrication in one more complete window furnishing pathway.',
+      'Custom curtains, Roman blinds, track systems and motorised window treatments in Sydney with refined fabrication support.',
     url: `${SITE_CONFIG.url}/custom-curtains-sheers`,
+    images: [getReplacementImageSrc('LXA-WIN-01', '/images/luxaura/hero-project.webp')],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Curtains Sydney | Roman Blinds & Track Systems | LuxAura',
+    description:
+      'Custom curtains, Roman blinds, track systems and motorised window treatments in Sydney with refined fabrication support.',
     images: [getReplacementImageSrc('LXA-WIN-01', '/images/luxaura/hero-project.webp')],
   },
 };
@@ -353,6 +364,15 @@ export default function CustomCurtainsSheersPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Window Treatments', url: '/custom-curtains-sheers' },
   ]);
+  const faqSchema = generateFaqSchema(WINDOW_TREATMENTS_FAQ);
+  const serviceSchema = generateServiceSchema({
+    name: 'Custom Curtains, Roman Blinds and Track Systems',
+    description:
+      'Custom curtains, Roman blinds, track systems and motorised window treatments in Sydney with trade-ready fabrication support.',
+    path: '/custom-curtains-sheers',
+    serviceType: 'Window treatments and curtain fabrication',
+    image: getReplacementImageSrc('LXA-WIN-01', '/images/luxaura/hero-project.webp'),
+  });
 
   return (
     <div>
@@ -743,6 +763,12 @@ export default function CustomCurtainsSheersPage() {
         </div>
       </section>
 
+      <FaqSection
+        items={WINDOW_TREATMENTS_FAQ}
+        title="Window treatments FAQ"
+        description="Answers to the questions clients ask before selecting curtain styles, Roman blinds, track systems and motorised window treatment options."
+      />
+
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.84)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
@@ -762,6 +788,14 @@ export default function CustomCurtainsSheersPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </div>
   );

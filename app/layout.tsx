@@ -75,6 +75,7 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const organizationId = `${SITE_CONFIG.url}/#organization`;
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
@@ -82,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     logo: `${SITE_CONFIG.url}/logo.svg`,
-    '@id': `${SITE_CONFIG.url}/#organization`,
+    '@id': organizationId,
     address: {
       '@type': 'PostalAddress',
       streetAddress: CONTACT_INFO.address.line1,
@@ -109,6 +110,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
   };
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_CONFIG.url}/#website`,
+    url: SITE_CONFIG.url,
+    name: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    inLanguage: 'en-AU',
+    publisher: {
+      '@id': organizationId,
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -116,6 +130,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
       </head>

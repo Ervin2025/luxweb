@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
+import { generateServiceSchema } from '@/lib/page-schema';
+import { FABRIC_AND_FABRICATION_FAQ } from '@/lib/site-data';
 
 const MATERIAL_DIRECTIONS = [
   {
@@ -180,19 +184,26 @@ const SUNBRELLA_SOLUTIONS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Fabric & Fabrication | Global Collections and Finished Textile Outcomes',
+  title: 'Fabric Supplier Sydney | Textile Sourcing & Fabrication | LuxAura',
   description:
-    'LuxAura combines global textile sourcing with specialist fabrication capability, helping projects move from selection into finished soft-furnishing delivery.',
+    'Sydney fabric supplier for premium textile sourcing, linen, upholstery fabrics, curtains, sheers and finished soft-furnishing fabrication.',
   keywords:
     'Fabric and fabrication Sydney, premium textile sourcing, custom curtains upholstery cushions Sydney, Sunbrella Australia, FibreGuard supplier Australia',
   alternates: {
     canonical: `${SITE_CONFIG.url}/collections`,
   },
   openGraph: {
-    title: 'Fabric & Fabrication | Global Collections and Finished Textile Outcomes',
+    title: 'Fabric Supplier Sydney | Textile Sourcing & Fabrication | LuxAura',
     description:
-      'Global textile sourcing paired with specialist fabrication capability for finished soft-furnishing outcomes in Sydney.',
+      'Sydney fabric sourcing, linen, upholstery fabrics and finished soft-furnishing fabrication in one coordinated pathway.',
     url: `${SITE_CONFIG.url}/collections`,
+    images: [getReplacementImageSrc('LXA-COL-01', '/images/luxaura/beach-sheer.webp')],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fabric Supplier Sydney | Textile Sourcing & Fabrication | LuxAura',
+    description:
+      'Sydney fabric sourcing, linen, upholstery fabrics and finished soft-furnishing fabrication in one coordinated pathway.',
     images: [getReplacementImageSrc('LXA-COL-01', '/images/luxaura/beach-sheer.webp')],
   },
 };
@@ -201,6 +212,15 @@ export default function CollectionsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Fabric & Fabrication', url: '/collections' },
   ]);
+  const faqSchema = generateFaqSchema(FABRIC_AND_FABRICATION_FAQ);
+  const serviceSchema = generateServiceSchema({
+    name: 'Fabric Sourcing and Fabrication',
+    description:
+      'Sydney fabric sourcing, linen, upholstery fabrics, curtains, sheers and finished soft-furnishing fabrication.',
+    path: '/collections',
+    serviceType: 'Fabric sourcing and soft-furnishing fabrication',
+    image: getReplacementImageSrc('LXA-COL-01', '/images/luxaura/beach-sheer.webp'),
+  });
 
   return (
     <div>
@@ -523,6 +543,12 @@ export default function CollectionsPage() {
         </div>
       </section>
 
+      <FaqSection
+        items={FABRIC_AND_FABRICATION_FAQ}
+        title="Fabric sourcing and fabrication FAQ"
+        description="Answers to the practical questions clients ask before selecting fabrics, aligning specifications and moving into finished soft-furnishing production."
+      />
+
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.3rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.84)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
@@ -542,6 +568,14 @@ export default function CollectionsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </div>
   );

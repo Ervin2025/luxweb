@@ -4,11 +4,12 @@ import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateWebPageSchema } from '@/lib/page-schema';
 
 export const metadata: Metadata = {
-  title: 'About | A More Useful Partner for Design-Led and Project-Led Interiors',
+  title: 'About LuxAura | Sydney Soft-Furnishing Trade Partner',
   description:
-    'LuxAura brings together material sourcing, specialist making and project support to create more resolved, more complete and more commercially viable interiors.',
+    'Learn how LuxAura combines textile sourcing, specialist making, window treatments, upholstery and project support for Sydney design-led and project-led interiors.',
   keywords: [
     'about LuxAura',
     'soft furnishing partner Sydney',
@@ -20,16 +21,31 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/about`,
   },
   openGraph: {
-    title: 'About | A More Useful Partner for Design-Led and Project-Led Interiors',
+    title: 'About LuxAura | Sydney Soft-Furnishing Trade Partner',
     description:
-      'LuxAura brings together material sourcing, specialist making and project support into one more resolved and commercially useful furnishing pathway.',
+      'Learn how LuxAura brings together fabric sourcing, window treatments, upholstery and project support across Sydney interiors.',
     url: `${SITE_CONFIG.url}/about`,
+    images: ['/images/about-hero.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About LuxAura | Sydney Soft-Furnishing Trade Partner',
+    description:
+      'Learn how LuxAura brings together fabric sourcing, window treatments, upholstery and project support across Sydney interiors.',
     images: ['/images/about-hero.webp'],
   },
 };
 
 export default function AboutPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'About', url: '/about' }]);
+  const aboutPageSchema = generateWebPageSchema({
+    type: 'AboutPage',
+    name: 'About LuxAura',
+    description:
+      'Learn how LuxAura combines textile sourcing, specialist making, window treatments, upholstery and project support for Sydney design-led and project-led interiors.',
+    path: '/about',
+    image: '/images/about-hero.webp',
+  });
 
   return (
     <div>
@@ -72,6 +88,10 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
       />
     </div>
   );

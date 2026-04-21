@@ -1,31 +1,42 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/Breadcrumb';
+import FaqSection from '@/components/FaqSection';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import TradeForm from '@/components/TradeForm';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
+import { generateWebPageSchema } from '@/lib/page-schema';
 import { type FormIntent } from '@/lib/form-options';
 import {
+  TRADE_PROJECT_FAQ,
   TRADE_PROJECT_BENEFITS,
   TRADE_PROJECT_PARTNERS,
   TRADE_PROJECT_PROCESS,
 } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Trade Account | Trade Entry and Project Enquiry',
+  title: 'Trade Account Sydney | Pricing, Resources & Project Enquiry | LuxAura',
   description:
-    'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
+    'Apply for LuxAura trade account access or send a project enquiry for pricing, samples, specification support and coordinated furnishing delivery in Sydney.',
   keywords:
     'trade fabric supplier Sydney, trade portal access, project brief support, curtain workroom Sydney',
   alternates: {
     canonical: `${SITE_CONFIG.url}/trade-projects`,
   },
   openGraph: {
-    title: 'Trade Account | Trade Entry and Project Enquiry',
+    title: 'Trade Account Sydney | Pricing, Resources & Project Enquiry | LuxAura',
     description:
-      'Access the LuxAura trade pathway for pricing review, project coordination, resources and ongoing trade support.',
+      'Apply for LuxAura trade account access or send a project enquiry for pricing, samples and specification support in Sydney.',
     url: `${SITE_CONFIG.url}/trade-projects`,
+    images: ['/images/luxaura/vertical-sheer-pool.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trade Account Sydney | Pricing, Resources & Project Enquiry | LuxAura',
+    description:
+      'Apply for LuxAura trade account access or send a project enquiry for pricing, samples and specification support in Sydney.',
     images: ['/images/luxaura/vertical-sheer-pool.webp'],
   },
 };
@@ -46,6 +57,14 @@ export default async function TradeProjectsPage({
   const resolvedSearchParams = await searchParams;
   const initialIntent = resolveIntent(resolvedSearchParams?.intent);
   const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Trade Account', url: '/trade-projects' }]);
+  const faqSchema = generateFaqSchema(TRADE_PROJECT_FAQ);
+  const tradeAccountPageSchema = generateWebPageSchema({
+    name: 'Trade Account and Project Enquiry',
+    description:
+      'Apply for LuxAura trade account access or send a project enquiry for pricing, samples, specification support and coordinated furnishing delivery in Sydney.',
+    path: '/trade-projects',
+    image: '/images/luxaura/vertical-sheer-pool.webp',
+  });
 
   return (
     <div>
@@ -167,9 +186,23 @@ export default async function TradeProjectsPage({
         </div>
       </section>
 
+      <FaqSection
+        items={TRADE_PROJECT_FAQ}
+        title="Trade account FAQ"
+        description="Answers to the questions clients usually ask before requesting trade access, pricing review or project support."
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tradeAccountPageSchema) }}
       />
     </div>
   );

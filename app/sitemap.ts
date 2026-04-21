@@ -61,6 +61,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.74,
     },
     {
+      url: `${baseUrl}/contact`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.82,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified,
       changeFrequency: 'yearly',

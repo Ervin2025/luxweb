@@ -10,6 +10,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { CONTACT_INFO, SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
+import { generateWebPageSchema } from '@/lib/page-schema';
 import type { FaqItem } from '@/lib/site-data';
 import { PROJECT_BRIEF_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/site-data';
 
@@ -108,9 +109,9 @@ const TRADE_FAQ: FaqItem[] = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Contact | Trade Account and Project Enquiry',
+  title: 'Contact LuxAura | Trade Account & Project Enquiry Sydney',
   description:
-    'Structured access for Trade Account applications and Project Enquiry submissions through the LuxAura contact pathway.',
+    'Contact LuxAura for trade account access, project enquiries, fabric sourcing, window treatments, upholstery and soft-furnishing support in Sydney.',
   keywords: [
     'trade soft furnishings sydney',
     'furnishing supplier sydney',
@@ -122,10 +123,17 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
   openGraph: {
-    title: 'Contact | Trade Account and Project Enquiry',
+    title: 'Contact LuxAura | Trade Account & Project Enquiry Sydney',
     description:
-      'Structured access for Trade Account applications and Project Enquiry submissions.',
+      'Trade account access, project enquiries and soft-furnishing support for Sydney interiors.',
     url: `${SITE_CONFIG.url}/contact`,
+    images: ['/images/about-hero.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact LuxAura | Trade Account & Project Enquiry Sydney',
+    description:
+      'Trade account access, project enquiries and soft-furnishing support for Sydney interiors.',
     images: ['/images/about-hero.webp'],
   },
 };
@@ -133,6 +141,14 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Contact', url: '/contact' }]);
   const faqSchema = generateFaqSchema([...TRADE_FAQ]);
+  const contactPageSchema = generateWebPageSchema({
+    type: 'ContactPage',
+    name: 'Contact LuxAura',
+    description:
+      'Contact LuxAura for trade account access, project enquiries, fabric sourcing, window treatments, upholstery and soft-furnishing support in Sydney.',
+    path: '/contact',
+    image: '/images/about-hero.webp',
+  });
 
   return (
     <div>
@@ -331,6 +347,10 @@ export default function ContactPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
     </div>
   );

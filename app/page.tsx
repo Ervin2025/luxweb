@@ -5,6 +5,7 @@ import ImageCodeBadge from '@/components/ImageCodeBadge';
 import PartnerValueSection from '@/components/PartnerValueSection';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
+import { generateWebPageSchema } from '@/lib/page-schema';
 
 const CAPABILITY_TILES = [
   {
@@ -155,26 +156,26 @@ const PROCESS_STEPS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
+  title: 'Sydney Soft-Furnishing Trade Partner, Fabric Supplier & Window Treatments | LuxAura',
   description:
-    "Sydney's integrated trade partner for soft-furnishing sourcing, fabrication, project support and more coordinated delivery across premium residential, hospitality and commercial interiors.",
+    'LuxAura is a Sydney soft-furnishing trade partner for fabric sourcing, custom curtains, Roman blinds, upholstery, trimmings and project support across premium interiors.',
   keywords:
     'Sydney soft furnishing trade partner, premium textiles Sydney, project support Sydney, custom soft furnishings Sydney, window treatments Sydney, bespoke upholstery Sydney',
   alternates: {
     canonical: SITE_CONFIG.url,
   },
   openGraph: {
-    title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
+    title: 'Sydney Soft-Furnishing Trade Partner, Fabric Supplier & Window Treatments | LuxAura',
     description:
-      'Sydney-based sourcing, fabrication, specialist finishing and project support for premium residential, hospitality and commercial interiors.',
+      'Sydney fabric sourcing, custom curtains, Roman blinds, upholstery, trimmings and project support in one coordinated soft-furnishing pathway.',
     url: SITE_CONFIG.url,
     images: [getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'From Fabric Selection to Full Project Delivery | LuxAura Sydney',
+    title: 'Sydney Soft-Furnishing Trade Partner, Fabric Supplier & Window Treatments | LuxAura',
     description:
-      'Sydney-based sourcing, fabrication, specialist finishing and project support for premium soft-furnishing work.',
+      'Sydney fabric sourcing, custom curtains, Roman blinds, upholstery, trimmings and project support in one coordinated soft-furnishing pathway.',
     images: [getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')],
   },
 };
@@ -198,12 +199,23 @@ function SectionEyebrow({
 }
 
 export default function Home() {
+  const homePageSchema = generateWebPageSchema({
+    name: 'Sydney Soft-Furnishing Trade Partner and Fabric Supplier',
+    description:
+      'LuxAura is a Sydney soft-furnishing trade partner for fabric sourcing, custom curtains, Roman blinds, upholstery, trimmings and project support across premium interiors.',
+    path: '/',
+    image: getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp'),
+  });
+
   return (
     <>
       <section className="relative isolate h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[82svh]">
+        <h1 className="sr-only">
+          Sydney soft-furnishing trade partner, fabric supplier and window treatments specialist
+        </h1>
         <Image
           src={getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')}
-          alt="LuxAura homepage hero image"
+          alt="Custom curtains, upholstery and soft-furnishing detail in a premium Sydney interior"
           fill
           priority
           sizes="100vw"
@@ -437,6 +449,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+      />
     </>
   );
 }

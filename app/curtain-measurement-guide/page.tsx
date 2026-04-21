@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateHowToSchema } from '@/lib/page-schema';
 import { PROJECT_BRIEF_HREF } from '@/lib/site-data';
 
 const GUIDE_STEPS = [
@@ -32,11 +33,25 @@ const BEFORE_SENDING = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Curtain Measurement Guide | LuxAura Trade Resource',
+  title: 'Curtain Measurement Guide Sydney | LuxAura Trade Resource',
   description:
-    'A concise LuxAura guide to the key measurements and site details that help window treatment briefs move into clearer specification and fabrication support.',
+    'Use this curtain measurement guide to capture width, drop, track and site conditions before pricing, specification and fabrication support.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/curtain-measurement-guide`,
+  },
+  openGraph: {
+    title: 'Curtain Measurement Guide Sydney | LuxAura Trade Resource',
+    description:
+      'Use this curtain measurement guide to capture width, drop, track and site conditions before pricing, specification and fabrication support.',
+    url: `${SITE_CONFIG.url}/curtain-measurement-guide`,
+    images: ['/images/curtains-hero.webp'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Curtain Measurement Guide Sydney | LuxAura Trade Resource',
+    description:
+      'Use this curtain measurement guide to capture width, drop, track and site conditions before pricing, specification and fabrication support.',
+    images: ['/images/curtains-hero.webp'],
   },
 };
 
@@ -44,6 +59,17 @@ export default function CurtainMeasurementGuidePage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Curtain Measurement Guide', url: '/curtain-measurement-guide' },
   ]);
+  const howToSchema = generateHowToSchema({
+    name: 'Curtain Measurement Guide',
+    description:
+      'Use this curtain measurement guide to capture width, drop, track and site conditions before pricing, specification and fabrication support.',
+    path: '/curtain-measurement-guide',
+    image: '/images/curtains-hero.webp',
+    steps: GUIDE_STEPS.map(step => ({
+      name: step.title,
+      text: step.description,
+    })),
+  });
 
   return (
     <div>
@@ -110,6 +136,10 @@ export default function CurtainMeasurementGuidePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
     </div>
   );

@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
+import { generateServiceSchema } from '@/lib/page-schema';
+import { BESPOKE_UPHOLSTERY_FAQ } from '@/lib/site-data';
 
 const UPHOLSTERED_APPLICATIONS = [
   {
@@ -135,9 +139,9 @@ const LOOKBOOKS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Bespoke Upholstery | Indoor, Outdoor and Performance Textile Support',
+  title: 'Bespoke Upholstery Sydney | Indoor, Outdoor & Performance Fabrics | LuxAura',
   description:
-    'LuxAura supports bespoke upholstery across indoor seating, outdoor furniture, pet-friendly family interiors and performance-led textile directions including Sunbrella, Mobus and FibreGuard.',
+    'Bespoke upholstery in Sydney for indoor seating, outdoor cushions, banquettes, ottomans and performance-led furnishing projects.',
   keywords: [
     'bespoke upholstery Sydney',
     'outdoor upholstery Australia',
@@ -149,10 +153,17 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/cushions-soft-furnishings`,
   },
   openGraph: {
-    title: 'Bespoke Upholstery | Indoor, Outdoor and Performance Textile Support',
+    title: 'Bespoke Upholstery Sydney | Indoor, Outdoor & Performance Fabrics | LuxAura',
     description:
-      'Custom upholstery support across indoor seating, outdoor applications and performance-led textile direction for more demanding briefs.',
+      'Bespoke upholstery in Sydney across indoor seating, outdoor applications and performance-led furnishing briefs.',
     url: `${SITE_CONFIG.url}/cushions-soft-furnishings`,
+    images: [getReplacementImageSrc('LXA-UPH-01', '/images/luxaura/upholstery-pillows.webp')],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bespoke Upholstery Sydney | Indoor, Outdoor & Performance Fabrics | LuxAura',
+    description:
+      'Bespoke upholstery in Sydney across indoor seating, outdoor applications and performance-led furnishing briefs.',
     images: [getReplacementImageSrc('LXA-UPH-01', '/images/luxaura/upholstery-pillows.webp')],
   },
 };
@@ -203,6 +214,15 @@ export default function CushionsSoftFurnishingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Bespoke Upholstery', url: '/cushions-soft-furnishings' },
   ]);
+  const faqSchema = generateFaqSchema(BESPOKE_UPHOLSTERY_FAQ);
+  const serviceSchema = generateServiceSchema({
+    name: 'Bespoke Upholstery',
+    description:
+      'Bespoke upholstery in Sydney for indoor seating, outdoor cushions, banquettes, ottomans and performance-led furnishing projects.',
+    path: '/cushions-soft-furnishings',
+    serviceType: 'Indoor and outdoor upholstery',
+    image: getReplacementImageSrc('LXA-UPH-01', '/images/luxaura/upholstery-pillows.webp'),
+  });
 
   return (
     <div>
@@ -449,6 +469,12 @@ export default function CushionsSoftFurnishingsPage() {
         </div>
       </section>
 
+      <FaqSection
+        items={BESPOKE_UPHOLSTERY_FAQ}
+        title="Bespoke upholstery FAQ"
+        description="Answers to the questions clients ask before specifying indoor seating, outdoor upholstery, performance fabrics and coordinated soft furnishing applications."
+      />
+
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.82)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
@@ -468,6 +494,14 @@ export default function CushionsSoftFurnishingsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </div>
   );

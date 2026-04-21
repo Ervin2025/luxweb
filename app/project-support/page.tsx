@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb';
+import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import PartnerValueSection from '@/components/PartnerValueSection';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
+import { generateServiceSchema } from '@/lib/page-schema';
+import { PROJECT_SUPPORT_FAQ } from '@/lib/site-data';
 
 const CLIENT_PATHWAYS = [
   {
@@ -170,12 +174,29 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/project-support`,
     images: [getReplacementImageSrc('LXA-PS-01', '/images/IMG-I.webp')],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'Project Support Sydney | Design Development, Procurement & Furnishing Delivery | LuxAura',
+    description:
+      'Design development, soft-furnishing procurement, specification support and delivery coordination for Sydney project teams.',
+    images: [getReplacementImageSrc('LXA-PS-01', '/images/IMG-I.webp')],
+  },
 };
 
 export default function ProjectSupportPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Project Support', url: '/project-support' },
   ]);
+  const faqSchema = generateFaqSchema(PROJECT_SUPPORT_FAQ);
+  const serviceSchema = generateServiceSchema({
+    name: 'Project Support',
+    description:
+      'Design development, soft-furnishing procurement, specification support and delivery coordination for Sydney project teams.',
+    path: '/project-support',
+    serviceType: 'Soft-furnishing project support',
+    image: getReplacementImageSrc('LXA-PS-01', '/images/IMG-I.webp'),
+  });
 
   return (
     <div>
@@ -401,6 +422,12 @@ export default function ProjectSupportPage() {
         </div>
       </section>
 
+      <FaqSection
+        items={PROJECT_SUPPORT_FAQ}
+        title="Project support FAQ"
+        description="Answers to the questions clients ask before engaging LuxAura for design development, procurement coordination and furnishing delivery support."
+      />
+
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="section-shell p-6 max-[430px]:p-5 sm:p-10 lg:p-12">
@@ -422,6 +449,14 @@ export default function ProjectSupportPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </div>
   );
