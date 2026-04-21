@@ -204,7 +204,7 @@ export default function CollectionsPage() {
 
   return (
     <div>
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[82svh]">
         <Image
           src={getReplacementImageSrc('LXA-COL-01', '/images/luxaura/beach-sheer.webp')}
           alt="LuxAura fabric sourcing and fabrication direction with drape, upholstery texture and premium detail"
@@ -214,22 +214,6 @@ export default function CollectionsPage() {
           className="object-cover"
         />
         <ImageCodeBadge code="LXA-COL-01" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,16,15,0.72)_0%,rgba(13,16,15,0.56)_36%,rgba(13,16,15,0.16)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,16,15,0.12)_0%,rgba(13,16,15,0.34)_100%)]" />
-
-        <div className="container-custom relative flex min-h-[72svh] items-end pb-12 pt-20 sm:min-h-[78svh] sm:pb-16 sm:pt-24 lg:min-h-[84svh] lg:pb-20 lg:pt-32">
-          <div className="max-w-4xl text-white">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
-              Fabric & Fabrication
-            </p>
-            <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Material Direction That Supports Better Design and Better Delivery
-            </h1>
-            <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              Fabric sourcing and fabrication logic for cleaner project outcomes.
-            </p>
-          </div>
-        </div>
       </section>
 
       <div className="container-custom">

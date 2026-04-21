@@ -206,7 +206,7 @@ export default function CushionsSoftFurnishingsPage() {
 
   return (
     <div>
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[82svh]">
         <Image
           src={getReplacementImageSrc('LXA-UPH-01', '/images/luxaura/upholstery-pillows.webp')}
           alt="Bespoke upholstery, cushions and performance textile layering"
@@ -216,22 +216,6 @@ export default function CushionsSoftFurnishingsPage() {
           className="object-cover"
         />
         <ImageCodeBadge code="LXA-UPH-01" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,16,15,0.76)_0%,rgba(13,16,15,0.58)_36%,rgba(13,16,15,0.16)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,16,15,0.08)_0%,rgba(13,16,15,0.34)_100%)]" />
-
-        <div className="container-custom relative flex min-h-[72svh] items-end pb-12 pt-20 sm:min-h-[78svh] sm:pb-16 sm:pt-24 lg:min-h-[84svh] lg:pb-20 lg:pt-32">
-          <div className="max-w-4xl text-white">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
-              Bespoke Upholstery
-            </p>
-            <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Versatile Upholstery for Indoor, Outdoor and Performance-Led Living
-            </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/86 sm:text-xl sm:leading-8">
-              Upholstery for indoor, outdoor and performance-led living.
-            </p>
-          </div>
-        </div>
       </section>
 
       <div className="container-custom">

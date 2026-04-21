@@ -173,7 +173,7 @@ export default function DecorativeTrimmingsPage() {
 
   return (
     <div>
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[82svh]">
         <Image
           src={getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')}
           alt="Decorative trimming close-up applied to refined drapery"
@@ -182,23 +182,7 @@ export default function DecorativeTrimmingsPage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,14,13,0.76)_0%,rgba(12,14,13,0.56)_36%,rgba(12,14,13,0.16)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.08)_0%,rgba(12,14,13,0.3)_100%)]" />
         <ImageCodeBadge code="LXA-DTR-01" className="right-5 top-28 sm:top-32" />
-
-        <div className="container-custom relative flex min-h-[72svh] items-end pb-12 pt-20 sm:min-h-[78svh] sm:pb-16 sm:pt-24 lg:min-h-[84svh] lg:pb-20 lg:pt-32">
-          <div className="max-w-4xl text-white" data-reveal="text">
-            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
-              Trimmings
-            </p>
-            <h1 className="mt-5 max-w-4xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Thousands of Decorative Trimmings for Detail, Customisation and Project Fulfilment
-            </h1>
-            <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
-              Decorative trimming resources for detail, customisation and fulfilment.
-            </p>
-          </div>
-        </div>
       </section>
 
       <div className="container-custom">

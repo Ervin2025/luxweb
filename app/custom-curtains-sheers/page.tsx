@@ -356,7 +356,7 @@ export default function CustomCurtainsSheersPage() {
 
   return (
     <div>
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate h-[72svh] overflow-hidden sm:h-[80svh] lg:h-[82svh]">
         <Image
           src={getReplacementImageSrc('LXA-WIN-01', '/images/luxaura/hero-project.webp')}
           alt="Layered curtains and sheers in a premium Sydney interior"
@@ -366,25 +366,6 @@ export default function CustomCurtainsSheersPage() {
           className="object-cover"
         />
         <ImageCodeBadge code="LXA-WIN-01" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,19,17,0.76)_0%,rgba(13,19,17,0.58)_36%,rgba(13,19,17,0.16)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,19,17,0.08)_0%,rgba(13,19,17,0.32)_100%)]" />
-
-        <div className="container-custom relative flex min-h-[72svh] items-end pb-12 pt-20 sm:min-h-[80svh] sm:pb-16 sm:pt-24 lg:min-h-[86svh] lg:pb-20 lg:pt-32">
-          <div className="max-w-4xl text-white">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#ead7a8]">
-              Window Treatments
-            </p>
-            <h1 className="mt-5 max-w-3xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-              Window Treatments by LuxAura
-            </h1>
-            <p className="mt-5 max-w-2xl text-balance font-heading text-[1.4rem] font-medium leading-[1.14] tracking-[-0.02em] text-white/92 sm:text-[2rem] sm:leading-[1.12]">
-              Material, System and Craft — Delivered as One
-            </p>
-            <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
-              Curtains, Roman blinds, track systems and motorisation in one pathway.
-            </p>
-          </div>
-        </div>
       </section>
 
       <div className="container-custom">

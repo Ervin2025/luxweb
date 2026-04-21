@@ -200,7 +200,7 @@ function SectionEyebrow({
 export default function Home() {
   return (
     <>
-      <section className="relative isolate min-h-[calc(100svh-4rem)] overflow-hidden sm:min-h-[calc(100svh-5rem)] lg:min-h-[calc(100svh-7rem)]">
+      <section className="relative isolate h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[82svh]">
         <Image
           src={getReplacementImageSrc('LXA-HOME-01', '/image/hero.webp')}
           alt="LuxAura homepage hero image"
@@ -210,19 +210,6 @@ export default function Home() {
           className="object-cover"
         />
         <ImageCodeBadge code="LXA-HOME-01" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,12,11,0.74)_0%,rgba(13,12,11,0.58)_32%,rgba(13,12,11,0.18)_64%,rgba(13,12,11,0.06)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,12,11,0.16)_0%,rgba(13,12,11,0.34)_100%)]" />
-
-        <div className="container-custom relative flex min-h-[calc(100svh-4rem)] items-end px-4 pb-10 pt-20 max-[430px]:pb-9 max-[430px]:pt-16 sm:min-h-[calc(100svh-5rem)] sm:px-6 sm:pb-16 sm:pt-24 lg:min-h-[calc(100svh-7rem)] lg:px-8 lg:pb-24 lg:pt-32">
-          <div className="max-w-[34rem] text-white sm:max-w-[38rem]" data-reveal="text">
-            <h1 className="text-balance font-heading text-[2.35rem] font-semibold leading-[0.98] tracking-[-0.045em] max-[430px]:text-[2.08rem] max-[430px]:leading-[1] sm:text-[4.1rem] sm:leading-[0.94] lg:text-[5.45rem] xl:text-[5.95rem]">
-              Soft Furnishing Support for Projects That Need More Than Supply
-            </h1>
-            <p className="mt-4 max-w-[32rem] text-pretty text-[0.95rem] leading-[1.68] text-white/86 max-[430px]:text-[0.9rem] max-[430px]:leading-[1.62] sm:mt-5 sm:max-w-[34rem] sm:text-[1.08rem] sm:leading-[1.72]">
-              Sourcing, fabrication and project support in one furnishing pathway.
-            </p>
-          </div>
-        </div>
       </section>
 
       <section
@@ -272,45 +259,38 @@ export default function Home() {
 
       <section
         id="capabilities"
-        className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]"
+        className="px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-[9rem]"
       >
         <div className="container-custom">
           <div className="max-w-3xl">
             <SectionEyebrow>Capability Overview</SectionEyebrow>
             <h2 className="mt-4 text-balance font-heading text-[2.35rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#2C2C2C] max-[430px]:text-[2.1rem] sm:mt-5 sm:text-[4rem] sm:leading-[0.98] lg:text-[4.6rem]">
-              A more complete furnishing platform across sourcing, making and project execution
+              Integrated Soft Furnishing Capability
             </h2>
-            <p className="mt-5 max-w-[42rem] text-pretty text-[0.98rem] leading-[1.72] text-neutral-700 sm:mt-6 sm:text-[1.06rem] sm:leading-[1.8]">
-              Six connected capabilities across sourcing, making and support.
-            </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-7 lg:grid-cols-3">
+          <div className="mt-10 grid gap-10 sm:mt-14 sm:gap-12 md:grid-cols-2 xl:grid-cols-3">
             {CAPABILITY_TILES.map(item => (
               <Link
                 key={item.title}
                 href={item.href}
                 data-reveal="card"
                 data-reveal-delay={String((Number(item.number) % 3) + 1)}
-                className="group relative min-h-[24rem] overflow-hidden rounded-[1.9rem] shadow-[0_24px_80px_rgba(27,24,20,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_100px_rgba(27,24,20,0.14)] max-[430px]:min-h-[22rem] max-[430px]:rounded-[1.55rem] sm:min-h-[31rem] sm:rounded-[2.2rem]"
+                className="group block transition duration-300 hover:-translate-y-1"
               >
-                <Image
-                  src={item.imageSrc}
-                  alt={item.imageAlt}
-                  fill
-                  sizes="(min-width: 1024px) 30vw, 100vw"
-                  className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
-                />
-                <ImageCodeBadge code={item.code} />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,12,11,0.04)_0%,rgba(12,12,11,0.12)_38%,rgba(12,12,11,0.82)_100%)]" />
-
-                <div className="relative flex h-full flex-col justify-between p-5 max-[430px]:p-4 sm:p-7">
-                  <div className="max-w-[22rem]">
-                    <h3 className="text-balance font-heading text-[1.7rem] font-semibold leading-[1.04] text-white max-[430px]:text-[1.5rem] sm:text-[2.3rem]">
-                      {item.title}
-                    </h3>
-                  </div>
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[0.9rem] border border-[#e5ddcf] bg-[#e8e0d2] max-[430px]:rounded-[0.75rem] sm:rounded-[0.7rem]">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(min-width: 1280px) 30vw, (min-width: 768px) 48vw, 100vw"
+                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.02]"
+                  />
+                  <ImageCodeBadge code={item.code} />
                 </div>
+                <h3 className="mt-3 text-left font-heading text-[1.12rem] font-medium leading-[1.25] text-[#393631] sm:mt-4 sm:text-[1.22rem]">
+                  {item.title}
+                </h3>
               </Link>
             ))}
           </div>
