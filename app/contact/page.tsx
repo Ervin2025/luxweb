@@ -297,6 +297,7 @@ export default function ContactPage() {
           items={[...TRADE_FAQ]}
           title="Trade FAQ"
           description="Key information on lead times, materials, custom production and order terms"
+          quiet
         />
       </div>
 

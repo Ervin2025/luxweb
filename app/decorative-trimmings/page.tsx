@@ -1,36 +1,37 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
-import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
-import { generateServiceSchema } from '@/lib/page-schema';
+import { BRAND_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
 import { DECORATIVE_TRIMMINGS_FAQ } from '@/lib/site-data';
 
 const VALUE_CARDS = [
   {
     marker: '01',
     title: 'Broader Decorative Range',
-    description: 'More options across braid, border, fringe and tassel.',
+    description: 'More options across braid, border, fringe, tassel and couture-inspired finishing detail.',
   },
   {
     marker: '02',
     title: 'Latest Collection Access',
-    description: 'Current trimming directions for layered interiors.',
+    description: 'A more current trimming direction for layered, design-led interiors that need detail without visual clutter.',
   },
   {
     marker: '03',
     title: 'Creative Design Flexibility',
-    description: 'More original detailing across drapery and upholstery.',
+    description: 'Supports more original detailing across drapery, cushions, upholstery and custom soft furnishings.',
   },
   {
     marker: '04',
     title: 'Real Project Application',
-    description: 'Decorative choices carried through to production.',
+    description: 'Not just decorative inspiration, but trimming choices that can be carried through to finished production.',
   },
 ] as const;
 
@@ -83,28 +84,32 @@ const APPLICATION_BLOCKS = [
   {
     title: 'On Drapery',
     code: 'LXA-DTR-08',
-    description: 'Borders and banding that sharpen the curtain line.',
+    description:
+      'Leading edges, decorative borders, formal hems and statement banding that sharpen line and give curtains greater presence.',
     imageSrc: getReplacementImageSrc('LXA-DTR-08', '/images/IMG-B.webp'),
     imageAlt: 'Decorative trim and braid detail along a drapery leading edge',
   },
   {
     title: 'On Upholstery',
     code: 'LXA-DTR-09',
-    description: 'Chair skirts and seams with stronger character.',
+    description:
+      'Chair skirts, ottoman detailing, arm framing and tailored seam accents that give upholstered forms more character and finish.',
     imageSrc: getReplacementImageSrc('LXA-DTR-09', '/images/luxaura/upholstery-pillows.webp'),
     imageAlt: 'Decorative trim detailing across custom upholstery and cushion edges',
   },
   {
     title: 'On Cushions & Bedding',
     code: 'LXA-DTR-10',
-    description: 'Soft detail carrying colour and finish through the room.',
+    description:
+      'Soft layered detail that carries colour, texture and finish through the room without breaking the wider textile story.',
     imageSrc: getReplacementImageSrc('LXA-DTR-10', '/images/IMG-D.webp'),
     imageAlt: 'Decorative cushion detailing with braided and piped edges',
   },
   {
     title: 'On Feature Pieces',
     code: 'LXA-DTR-11',
-    description: 'A final layer of individuality and decorative confidence.',
+    description:
+      'The final layer for interiors that need one more measure of individuality, softness and decorative confidence.',
     imageSrc: getReplacementImageSrc('LXA-DTR-11', '/images/IMG-C.webp'),
     imageAlt: 'Feature furnishing detail with tassel and decorative edge application',
   },
@@ -113,22 +118,25 @@ const APPLICATION_BLOCKS = [
 const DEVELOPMENT_POINTS = [
   {
     title: 'Metre-Cut Flexibility',
-    description: 'Metre-cut requests for more tailored detailing.',
+    description:
+      'LuxAura can support metre-cut decorative requests where a scheme needs one more tailored detailing layer without overcommitting volume.',
   },
   {
     title: 'Small-Batch Custom Support',
-    description: 'Smaller runs where individuality matters most.',
+    description:
+      'Smaller production runs and more custom decorative carry-through are possible where individuality matters more than a standardised offer.',
   },
   {
     title: 'Larger Project Delivery',
-    description: 'Decorative resources that scale into larger projects.',
+    description:
+      'Decorative resources can also scale into broader furnishing applications where consistency, fulfilment and timing matter.',
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Decorative Trimmings Sydney | Passementerie & Upholstery Trims | LuxAura',
+  title: 'Trimmings | Designer-Led Detail and Finishing Resource',
   description:
-    'Decorative trimmings in Sydney including braid, borders, fringe, tassels and upholstery trims for curtains, Roman blinds and bespoke soft furnishings.',
+    'LuxAura offers a broader decorative trimming resource for designers, spanning braid, borders, tassels, fringes and upholstery-applied detail that can move into finished execution.',
   keywords: [
     'decorative trimmings Sydney',
     'passementerie Australia',
@@ -140,17 +148,10 @@ export const metadata: Metadata = {
     canonical: `${SITE_CONFIG.url}/decorative-trimmings`,
   },
   openGraph: {
-    title: 'Decorative Trimmings Sydney | Passementerie & Upholstery Trims | LuxAura',
+    title: 'Trimmings | Designer-Led Detail and Finishing Resource',
     description:
-      'Decorative braid, fringe, tassels and upholstery trims for Sydney curtains, Roman blinds and bespoke soft furnishings.',
+      'A broader and more current trimming library for drapery, upholstery and refined soft-furnishing outcomes.',
     url: `${SITE_CONFIG.url}/decorative-trimmings`,
-    images: [getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Decorative Trimmings Sydney | Passementerie & Upholstery Trims | LuxAura',
-    description:
-      'Decorative braid, fringe, tassels and upholstery trims for Sydney curtains, Roman blinds and bespoke soft furnishings.',
     images: [getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')],
   },
 };
@@ -181,19 +182,11 @@ export default function DecorativeTrimmingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Trimmings', url: '/decorative-trimmings' },
   ]);
-  const faqSchema = generateFaqSchema(DECORATIVE_TRIMMINGS_FAQ);
-  const serviceSchema = generateServiceSchema({
-    name: 'Decorative Trimmings and Passementerie',
-    description:
-      'Decorative trimmings in Sydney including braid, borders, fringe, tassels and upholstery trims for curtains, Roman blinds and bespoke soft furnishings.',
-    path: '/decorative-trimmings',
-    serviceType: 'Decorative trimmings and upholstery trims',
-    image: getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp'),
-  });
+  const faqSchema = generateFaqSchema([...DECORATIVE_TRIMMINGS_FAQ]);
 
   return (
     <div>
-      <section className="relative isolate h-[72svh] overflow-hidden sm:h-[78svh] lg:h-[82svh]">
+      <section className="relative isolate overflow-hidden">
         <Image
           src={getReplacementImageSrc('LXA-DTR-01', '/images/IMG-B.webp')}
           alt="Decorative trimming close-up applied to refined drapery"
@@ -202,7 +195,41 @@ export default function DecorativeTrimmingsPage() {
           sizes="100vw"
           className="object-cover"
         />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,14,13,0.76)_0%,rgba(12,14,13,0.56)_36%,rgba(12,14,13,0.16)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,14,13,0.08)_0%,rgba(12,14,13,0.3)_100%)]" />
         <ImageCodeBadge code="LXA-DTR-01" className="right-5 top-28 sm:top-32" />
+
+        <div className="container-custom relative flex min-h-[84svh] items-end pb-16 pt-36 sm:pb-20 sm:pt-40">
+          <div className="max-w-4xl text-white" data-reveal="text">
+            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#ead7a8]">
+              Trimmings
+            </p>
+            <h1 className="mt-5 max-w-4xl text-balance font-heading text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+              Thousands of Decorative Trimmings for Detail, Customisation and Project Fulfilment
+            </h1>
+            <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-white/84 sm:text-xl sm:leading-8">
+              LuxAura offers a broad and highly flexible trimming resource for designers, stylists,
+              retailers and project teams supporting everything from metre-cut decorative detail to
+              customised finished applications and larger furnishing execution.
+            </p>
+            <p className="mt-4 max-w-3xl text-pretty text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
+              With thousands of decorative directions across braid, border, fringe and more
+              tailored detailing, LuxAura helps bring individuality, decorative completion and
+              flexible delivery support into furnishing-led projects.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account
+              </Link>
+              <Link
+                href={BRAND_SUPPORT_HREF}
+                className="btn-secondary border-white/25 bg-white/12 text-white hover:bg-white/18 hover:text-white"
+              >
+                Project Enquiry
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div className="container-custom">
@@ -214,7 +241,7 @@ export default function DecorativeTrimmingsPage() {
           <SectionHeading
             eyebrow="Why Decorative Detail Matters"
             title="Decorative detail helps a scheme feel more original, more tailored and more complete"
-            description="Finishing language that makes a scheme feel more complete."
+            description="This is not a secondary accessory layer. It is the finishing language that protects originality, strengthens the final layer and helps a project feel more fully resolved."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {VALUE_CARDS.map((card, index) => (
@@ -244,7 +271,7 @@ export default function DecorativeTrimmingsPage() {
           <SectionHeading
             eyebrow="Latest Collection"
             title="Latest Decorative Directions for Contemporary and Classic Interiors"
-            description="Decorative directions for quieter and more expressive interiors."
+            description="LuxAura’s trimming resource is curated to support both quiet luxury and more expressive detailing, allowing designers to build softer, richer and more resolved furnishing schemes."
           />
 
           <div className="mt-12 grid auto-rows-fr gap-4 lg:grid-cols-3">
@@ -266,7 +293,7 @@ export default function DecorativeTrimmingsPage() {
           <SectionHeading
             eyebrow="Application"
             title="Where Trimmings Add Value"
-            description="Decorative detail matters most in real application."
+            description="Decorative detailing matters most when it moves beyond the sample board and begins shaping how the room is actually finished."
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -291,6 +318,9 @@ export default function DecorativeTrimmingsPage() {
                   <h2 className="font-heading text-3xl font-semibold text-neutral-900">
                     {block.title}
                   </h2>
+                  <p className="mt-4 text-sm leading-7 text-neutral-700 sm:text-base">
+                    {block.description}
+                  </p>
                 </div>
               </article>
             ))}
@@ -312,8 +342,13 @@ export default function DecorativeTrimmingsPage() {
               <SectionHeading
                 eyebrow="Flexible Decorative Support"
                 title="Flexible Decorative Support"
-                description="Decorative support across metre-cut and project-led needs."
+                description="LuxAura supports decorative trimming needs across both metre-cut custom requirements and larger furnishing or project-led applications, helping teams work with greater flexibility."
               />
+              <p className="mt-6 text-sm leading-7 text-neutral-700 sm:text-base">
+                Decorative trims become more valuable when they move beyond inspiration into
+                workable project pathways that support both custom individuality and broader
+                fulfilment.
+              </p>
 
               <div className="mt-8 space-y-4">
                 {DEVELOPMENT_POINTS.map((point, index) => (
@@ -342,7 +377,7 @@ export default function DecorativeTrimmingsPage() {
           <SectionHeading
             eyebrow="Retail & Brand Support"
             title="Retail & Brand Support"
-            description="Flexible sourcing and fulfilment for retailers and brands."
+            description="LuxAura supports retailers and design-led brands with more flexible sourcing, small-batch customisation, decorative resource access and broader fulfilment support."
           />
           <div className="mt-10 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-4">
             {[
@@ -359,10 +394,11 @@ export default function DecorativeTrimmingsPage() {
         </div>
       </section>
 
-      <FaqSection
-        items={DECORATIVE_TRIMMINGS_FAQ}
-        title="Decorative trimmings FAQ"
-        description="Answers to the questions clients ask before selecting braid, borders, fringe, tassels and upholstery-applied detail for a furnishing scheme."
+      <AccordionFaq
+        eyebrow="Trimming Questions"
+        title="Questions on decorative range, application and production carry-through"
+        description="A few of the questions designers usually ask before decorative trimming decisions are locked into the scheme."
+        items={[...DECORATIVE_TRIMMINGS_FAQ]}
       />
 
       <section className="px-4 pb-28 pt-6 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
@@ -376,8 +412,22 @@ export default function DecorativeTrimmingsPage() {
                 When the decorative layer matters, the finishing partner matters too
               </h2>
               <p className="mt-6 max-w-3xl text-pretty text-sm leading-7 text-white/74 sm:text-lg sm:leading-8">
-                Decorative intent carried into a finished soft-furnishing result.
+                Whether the brief needs quiet braid detailing, stronger border definition or a more
+                expressive trim language, LuxAura helps move decorative intent into a finished soft
+                furnishing result.
               </p>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <Link href={TRADE_PORTAL_ACCESS_HREF} className="btn-primary">
+                Trade Account
+              </Link>
+              <Link
+                href={BRAND_SUPPORT_HREF}
+                className="btn-secondary border-white/15 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary"
+              >
+                Project Enquiry
+              </Link>
             </div>
           </div>
         </div>
@@ -390,10 +440,6 @@ export default function DecorativeTrimmingsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
     </div>
   );
