@@ -1,18 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import AccordionFaq from '@/components/AccordionFaq';
 import Breadcrumb from '@/components/Breadcrumb';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import PartnerValueSection from '@/components/PartnerValueSection';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
 import {
   PROJECT_BRIEF_HREF,
-  PROJECT_SUPPORT_FAQ,
   TRADE_PORTAL_ACCESS_HREF,
 } from '@/lib/site-data';
 
@@ -202,7 +199,6 @@ export default function ProjectSupportPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Project Support', url: '/project-support' },
   ]);
-  const faqSchema = generateFaqSchema([...PROJECT_SUPPORT_FAQ]);
 
   return (
     <div>
@@ -451,12 +447,6 @@ export default function ProjectSupportPage() {
         </div>
       </section>
 
-      <AccordionFaq
-        items={[...PROJECT_SUPPORT_FAQ]}
-        title="Project support questions"
-        description="Concise answers on scope refinement, client fit, hospitality support and when LuxAura is best engaged."
-      />
-
       <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8 lg:pb-[10rem]">
         <div className="container-custom">
           <div className="section-shell p-6 max-[430px]:p-5 sm:p-10 lg:p-12">
@@ -488,10 +478,6 @@ export default function ProjectSupportPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );

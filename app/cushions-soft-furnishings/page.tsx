@@ -2,15 +2,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
-import FaqSection from '@/components/FaqSection';
 import ImageCodeBadge from '@/components/ImageCodeBadge';
 import SectionHeading from '@/components/SectionHeading';
 import { generateBreadcrumbSchema } from '@/lib/breadcrumb-schema';
 import { SITE_CONFIG } from '@/lib/constants';
-import { generateFaqSchema } from '@/lib/faq-schema';
 import { getReplacementImageSrc } from '@/lib/image-replacements';
 import { REQUEST_CUSTOM_SUPPORT_HREF, TRADE_PORTAL_ACCESS_HREF } from '@/lib/navigation-data';
-import { BESPOKE_UPHOLSTERY_FAQ } from '@/lib/site-data';
 
 const UPHOLSTERED_APPLICATIONS = [
   {
@@ -230,7 +227,6 @@ export default function CushionsSoftFurnishingsPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Bespoke Upholstery', url: '/cushions-soft-furnishings' },
   ]);
-  const faqSchema = generateFaqSchema([...BESPOKE_UPHOLSTERY_FAQ]);
 
   return (
     <div>
@@ -515,12 +511,6 @@ export default function CushionsSoftFurnishingsPage() {
         </div>
       </section>
 
-      <FaqSection
-        items={[...BESPOKE_UPHOLSTERY_FAQ]}
-        title="Questions on upholstery, outdoor use and performance direction"
-        description="Concise answers on indoor and outdoor scopes, performance fabrics and how LuxAura aligns upholstery with the wider furnishing brief."
-      />
-
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="overflow-hidden rounded-[2.2rem] border border-white/65 bg-[linear-gradient(135deg,rgba(197,160,89,0.16),rgba(255,255,255,0.82)_36%,rgba(197,160,89,0.08)_100%)] p-8 shadow-[0_28px_80px_rgba(32,24,12,0.08)] sm:p-10 lg:p-12">
@@ -550,10 +540,6 @@ export default function CushionsSoftFurnishingsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </div>
   );
